@@ -1,10 +1,26 @@
+	<?php 
+	$GLOBALS['local_link']= $_SERVER['PHP_SELF'];
+	$GLOBALS['host_link']= $_SERVER['HTTP_HOST'];
+	$link_directory = $_SERVER['PHP_SELF'];
+	$GLOBALS['direct'] = '';
+
+	$GLOBALS['link_directory_array'] = array('about/','services/','store/');
+
+	for($i=0;$i<count($link_directory_array);$i++){
+		$pos = strpos($link_directory,$link_directory_array[$i]);
+		if ($pos == true){
+			$direct = '../';
+		}
+	}
+
+	?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>LST-MOBILE</title>
-	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<link rel="icon" type="image/x-icon" href="<?php echo $direct; ?>favicon.ico" />
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" href="css/reponsive.css" />
+	<link rel="stylesheet" href="<?php echo $direct; ?>css/style.css" />
+	<link rel="stylesheet" href="<?php echo $direct; ?>css/reponsive.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 	
