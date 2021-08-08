@@ -32,3 +32,4 @@
 		<div class="footer-copyright"> Copyright © 2021 LSTsurf. All rights reserved.</div>
 		<br>
 	</footer>
+	<script type="text/javascript" src="<?php echo $direct; ?>js/build.js"></script>

@@ -293,6 +293,10 @@
     background: #88888888;
     color: #afafaf;
 }
+.wrapper-cart button:hover{
+  background: rgb(0 0 0 / 56%);
+}
+
 .wrapper-cart img{
     display: inline;
 }

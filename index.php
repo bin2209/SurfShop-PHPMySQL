@@ -84,7 +84,7 @@
 					x[slideIndex-1].style.display = "block";  
 				}
 			</script>
-			<script type="text/javascript" src="js/build.js"></script>
+		
 
 		</body>
 		</html>
