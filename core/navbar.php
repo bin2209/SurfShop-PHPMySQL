@@ -13,6 +13,9 @@
 		}
 	}
 
+
+	session_start();
+
 	?>
 	<nav class="globalbar">
 		<label for="active-cart" class="bag menu"><i class="fas fa-shopping-cart"></i></label>
@@ -46,7 +49,16 @@
 			<li>Your bag is empty.</li>
 			<li>Login</li>
 			<li class="login-box">
-				<button onclick="window.location.href='<?php echo $direct; ?>login'"><img class="" src="<?php echo $direct; ?>img/logo-gray.png" width="36"/><p>Login with LST account</p></button>
+				<button onclick="window.location.href='<?php echo $direct; ?>login'"><img class="" src="<?php echo $direct; ?>img/logo-gray.png" width="36"/>
+					<?php 
+					if(!isset($_SESSION['login_user'])){
+						echo '<p>Login with LST account</p>';
+						die();
+					} else {
+						echo $_SESSION['login_user'];
+					}
+					?>
+				</button>
 			</li>
 		</ul>
 	</div>

@@ -1,3 +1,29 @@
+/*Swal*/
+.swal2-popup{
+	width: auto !important;
+}
+.swal2-title{
+	font-size: 22px !important;
+}
+.swal2-styled.swal2-confirm{
+	background-color: #ec581e !important;
+}
+.swal2-styled.swal2-confirm:focus{
+	box-shadow: 0 0 0 3px #ff57229e !important;
+}
+
+
+.signup-success{
+	padding: 8px;
+	text-align: center;
+	border: 0px solid;
+	border-radius: 18px;
+	margin: 22px;
+	color: white;
+	width: 80%;
+	display: none;
+	background: #03b108b5;
+}
 
 .box-content{
 	padding: 0px !important;
@@ -87,7 +113,7 @@
 		z-index: 1;
 	}
 
-	.sign-panels input {
+	.sign-panels input[type="text"], input[type="password"]{
 		width: 80%;
 		display: block;
 		margin-bottom: 15px;
@@ -153,6 +179,19 @@
 		border: none;
 		box-shadow: none;
 		cursor: pointer;
+	}
+	.btn-signin-submit{
+		display: inline-block !important;
+		width: 50% !important;
+		background: #ec581e !important;
+		border-radius: 50px !important;
+		padding: 10px !important;
+		font-size: 20px !important;
+		color: #fff !important;
+		text-decoration: none !important;
+		border: none !important;
+		box-shadow: none !important;
+		cursor: pointer !important;
 	}
 
 	.btn-reset,.btn-member,.btn-fade {

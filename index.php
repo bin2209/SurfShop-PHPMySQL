@@ -2,6 +2,7 @@
 <html>
 <head>
 	<?php include('core/header.php'); 
+		
 	?>
 </head>
 <body>
