@@ -1,0 +1,263 @@
+
+.box-content{
+	padding: 0px !important;
+}
+.wrapper-login {
+	width: 1%;
+	height: 100vh;
+	background: rgb(0 0 0 / 80%);
+	display: table-cell;
+	vertical-align: middle;
+	font-family: 'Dosis', sans-serif;
+}
+
+.sign-panels {
+	width: 400px;
+	background: #fff;
+	padding: 40px 80px;
+	margin: 4em auto;
+	border-radius: 20px;
+	text-align: center;
+}
+.login,.signup {
+	position: relative;
+}
+
+
+.title {
+	color: #9f9f9f;
+}
+
+.title span {
+	display: block;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.title p {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+/*.btn-face,.btn-twitter {
+	color: #fff;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 50px;
+	text-decoration: none;
+	padding: 10px;
+	font-weight: 500;
+}
+
+.btn-face .fa,.btn-twitter .fa {
+	margin-right: 5px;
+}
+
+.btn-face {
+	background: #5397d7;
+}
+
+.btn-twitter {
+	background: #40b9e0;
+	}*/
+
+	.or {
+		margin: 35px 0;
+		font-weight: 600;
+		color: #9f9f9f;
+	}
+
+	.or:after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 1px;
+		background: #cecece;
+		position: absolute;
+		margin-top: -10px;
+		z-index: 0;
+	}
+
+	.or span {
+		display: block;
+		background: #fff;
+		width: 50px;
+		margin: auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.sign-panels input {
+		width: 80%;
+		display: block;
+		margin-bottom: 15px;
+		height: 28px;
+		border-radius: 50px;
+		border: none;
+		background: #ededed;
+		padding: 10px 23px;
+		font-size: 16px;
+		color: #7c7c7c;
+	}
+
+	.sign-panels input:focus {
+		outline:none;
+	}
+
+	.sign-panels input[type="checkbox"] {
+		display: none;
+	}
+
+	.sign-panels input[type="checkbox"] + label {
+		display: block;
+		width: 50%;
+		text-align: left;
+		padding-left: 60px;
+		cursor: pointer;
+		color: #828282;
+		font-weight: 500;
+		margin: 22px 0px;
+	}
+
+	.sign-panels input[type="checkbox"] + label:before {
+		content: '';
+		display: block;
+		width: 15px;
+		height: 15px;
+		background: #dbdbdb;
+		position: absolute;
+		left: 30px;
+		border-radius: 50%;
+		border: 2px solid white;
+		box-shadow: 0 0 0 5px #ededed;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+	}
+	.sign-panels input[type="checkbox"]:checked + label:before {
+		background: #FF5722;
+		box-shadow: 0 0 0 5px #FF5722;
+		-webkit-transition: all .3s ease;
+		transition: all .3s ease;
+	}
+
+	.btn-signin {
+		display: inline-block;
+		width: 50%;
+		background: #ec581e;
+		border-radius: 50px;
+		padding: 10px;
+		font-size: 20px;
+		color: #fff;
+		text-decoration: none;
+		font-weight: 500;
+		border: none;
+		box-shadow: none;
+		cursor: pointer;
+	}
+
+	.btn-reset,.btn-member,.btn-fade {
+		font-size: 19px;
+		color: #9f9f9f;
+		display: block;
+		margin: 23px auto -12px;
+		text-decoration: none;
+
+	}
+	.btn-member {
+		margin-top: 15px;
+	}
+
+	.btn-reset .fa,.btn-member .fa {
+		margin-left: 6px;
+	}
+
+	.notification p {
+		font-size: 20px;
+		font-weight: 600;
+		color: #9f9f9f;
+	}
+
+	.notification span {
+		color: #ec581e;
+	}
+
+	.error {
+		display: block;
+		color: #ec581e;
+		font-size: 20px;
+		font-weight: 600;
+		margin: 15px 0;
+	}
+
+	@media screen and (max-width: 768px) {
+		.sign-panels {
+			/*width: 90%;*/
+			padding: 40px;
+		}
+	}
+
+	@media screen and (max-width: 570px) {
+		.sign-panels {
+			padding: 40px 20px;
+		}
+
+		.btn-face, .btn-twitter {
+			width: 100%;
+		}
+		.btn-face {
+			margin-right: 0;
+			margin-bottom: 25px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.sign-panels input[type="checkbox"] + label {
+			width: 100%;
+		}
+
+		.btn-signin {
+			width: 80%;
+		}
+
+		.title span {
+			font-size: 36px;
+		}
+
+	}
+	/*GOOGLE LOGIN BUTTON */
+	#customBtn {
+
+		display: inline-block;
+		background: white;
+		color: #444;
+		width: 190px;
+		border: 1px solid;
+		border-radius: 50px;
+		box-shadow: 2px 3px 2px grey;
+		white-space: nowrap;
+		margin-top: 19px;
+
+	}
+	#customBtn:hover {
+		cursor: pointer;
+	}
+	span.label {
+		font-family: serif;
+		font-weight: normal;
+	}
+	span.icon {
+		background: url('../img/icon/google.png') transparent 5px 50% no-repeat;
+		display: inline-block;
+		vertical-align: middle;
+		width: 50px;
+		height: 50px;
+	}
+	span.buttonText {
+		display: inline-block;
+		vertical-align: middle;
+		padding-right: 42px;
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+

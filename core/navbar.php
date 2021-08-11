@@ -4,7 +4,7 @@
 	$link_directory = $_SERVER['PHP_SELF'];
 	$GLOBALS['direct'] = '';
 
-	$GLOBALS['link_directory_array'] = array('about/','services/','store/');
+	$GLOBALS['link_directory_array'] = array('about/','services/','store/','login/');
 
 	for($i=0;$i<count($link_directory_array);$i++){
 		$pos = strpos($link_directory,$link_directory_array[$i]);
@@ -45,7 +45,9 @@
 		<ul>
 			<li>Your bag is empty.</li>
 			<li>Login</li>
-			<li class="login-box"><button><img class="" src="<?php echo $direct; ?>img/logo-gray.png" width="36"/><p>Login with LST account</p></button></li>
+			<li class="login-box">
+				<button onclick="window.location.href='<?php echo $direct; ?>login'"><img class="" src="<?php echo $direct; ?>img/logo-gray.png" width="36"/><p>Login with LST account</p></button>
+			</li>
 		</ul>
 	</div>
 	<!-- End Menu-content -->

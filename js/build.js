@@ -3,27 +3,10 @@
 var mySiteNamespace = {}
 mySiteNamespace.switchLanguage = function (lang) {
     // $.cookie('language', lang);
-    // document.cookie="language="+lang+",{path:'/'}";
-
     $.cookie('language',lang,{ expires: 7, path:'/' });
     window.location.reload();
 }
 
-// Check xem đầu đang có id mặc định
-// function lang_now(){
-//     var english = document.getElementById("english");
-//     if (english .classList.contains('lang-checked')){
-//      $.cookie('language')='en';
-//      $('#english').addClass('lang-checked');
-//      $('.language-p').text('Language:');
-
-//  } else{
-//   $.cookie('language')='vi';
-//   $('#vietnam').addClass('lang-checked');
-//   $('.language-p').text('Ngôn ngữ:');
-// }
-//     console.log(document.cookie);
-// }
 if ($.cookie('language')=== undefined ){
     mySiteNamespace.switchLanguage('en');
 }

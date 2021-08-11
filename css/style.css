@@ -339,7 +339,7 @@ input[type="checkbox"]{
  }
 }
 section{
-  width: calc(100% - var(--double-edge-border-width) - var(--safe-area-inset-lt) - var(--safe-area-inset-rt));
+  /*width: calc(100% - var(--double-edge-border-width) - var(--safe-area-inset-lt) - var(--safe-area-inset-rt));*/
 
 }
 /*main-content*/
