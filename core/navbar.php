@@ -4,7 +4,7 @@
 	$link_directory = $_SERVER['PHP_SELF'];
 	$GLOBALS['direct'] = '';
 
-	$GLOBALS['link_directory_array'] = array('about/','services/','store/','login/');
+	$GLOBALS['link_directory_array'] = array('about/','services/','store/','login/','member/');
 
 	for($i=0;$i<count($link_directory_array);$i++){
 		$pos = strpos($link_directory,$link_directory_array[$i]);
@@ -47,15 +47,24 @@
 	<div class="wrapper-cart">
 		<ul>
 			<li>Your bag is empty.</li>
-			<li>Login</li>
+			<hr>
 			<li class="login-box">
-				<button onclick="window.location.href='<?php echo $direct; ?>login'"><img class="" src="<?php echo $direct; ?>img/logo-gray.png" width="36"/>
+				<?php 
+				$login_direct = $direct."login";
+				$member_direct = $direct."member";
+
+				if(!isset($_SESSION['login_user'])){
+						echo '<button onclick="window.location.href=`'.$login_direct.'`"><img class="" src="'.$direct.'img/logo-gray.png" width="36"/>';
+					} else {
+						echo '<button onclick="window.location.href=`'.$member_direct.'`"><img class="" src="'.$direct.'img/logo-gray.png" width="36"/>';
+					}
+				?>
+				
 					<?php 
 					if(!isset($_SESSION['login_user'])){
 						echo '<p>Login with LST account</p>';
-						die();
 					} else {
-						echo $_SESSION['login_user'];
+						echo '<p>'.$_SESSION['login_user'].'</p>';
 					}
 					?>
 				</button>
