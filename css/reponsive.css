@@ -3,18 +3,45 @@
 	.globalbar{
 		height: 48px;
 	}
+	.desktop{
+		display: none !important;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {...}
+@media only screen and (min-width: 600px) {
+	.desktop{
+		display: none !important;
+	}
+}
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-	
+	.mobile{
+		display: block;
+	}
+	.desktop{
+		display: none !important;
+	}
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {...}
+@media only screen and (min-width: 992px) {
+	.mobile{
+		display: none;
+	}
+	.desktop{
+		display: block !important;
+	}
+}
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {...}
+@media only screen and (min-width: 1200px) {
+	.desktop{
+		display: block !important;
+	}
+	.logo{
+		left: none !important;
+	}
+}

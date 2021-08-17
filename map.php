@@ -15,9 +15,12 @@
 	<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
 	<script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
 	<style>
+	#windy #bottom #progress-bar #playpause{
+		z-index: 1;
+	}
 	#windy {
 		width: 100%;
-		height: 600px;
+		height: 70vh;
 	}
 	#windy #logo{
 		display: none;

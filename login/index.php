@@ -14,7 +14,7 @@
 <body>
 	<!-- BAR -->
 	<?php 
-	// include($direct.'core/navbar.php');
+	include($direct.'core/navbar.php');
 	?>
 	
 	<?php 
@@ -22,11 +22,11 @@
 // LOGIN
 	include("config.php");
 
-	session_start();
 	if(!isset($_SESSION['login_user'])){
 		// Chưa đăng nhập
 	}else{
     header("location:../");
+    	session_start();
 	}
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
