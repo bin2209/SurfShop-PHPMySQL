@@ -1,3 +1,62 @@
+ /*reset css*/
+ html, body, div, span, applet, object, iframe,
+ h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+ a, abbr, acronym, address, big, cite, code,
+ del, dfn, em, img, ins, kbd, q, s, samp,
+ small, strike, strong, sub, sup, tt, var,
+ b, u, i, center,
+ dl, dt, dd, ol, ul, li,
+ fieldset, form, label, legend,
+ table, caption, tbody, tfoot, thead, tr, th, td,
+ article, aside, canvas, details, embed, 
+ figure, figcaption, footer, header, hgroup, 
+ menu, nav, output, ruby, section, summary,
+ time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* html5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  background: #101010;
+  font-family: "sf pro text","sf pro icons","helvetica neue","helvetica","arial",sans-serif;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  color: #1d1d1f;
+  font-style: normal;
+}
+body,html{
+  height: 100%;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+section{
+  position: relative;
+  padding: 2em 0;
+}
+/*end reset css*/
+
 /*Swal*/
 .swal2-popup{
 	width: auto !important;
@@ -6,10 +65,11 @@
 	font-size: 22px !important;
 }
 .swal2-styled.swal2-confirm{
-	background-color: #ec581e !important;
+	background-color: #0079f3 !important;
 }
 .swal2-styled.swal2-confirm:focus{
-	box-shadow: 0 0 0 3px #ff57229e !important;
+	-webkit-box-shadow: 0 0 0 3px #ff57229e !important;
+	        box-shadow: 0 0 0 3px #ff57229e !important;
 }
 
 
@@ -31,17 +91,17 @@
 .wrapper-login {
 	width: 1%;
 	height: 100vh;
-	background: rgb(0 0 0 / 80%);
+	background: rgb(50 50 51);
 	display: table-cell;
 	vertical-align: middle;
 	font-family: 'Dosis', sans-serif;
 }
 
 .sign-panels {
-	width: 400px;
+	max-width: 350px;
 	background: #fff;
 	padding: 40px 80px;
-	margin: 4em auto;
+	margin: 0 auto;
 	border-radius: 20px;
 	text-align: center;
 }
@@ -114,7 +174,9 @@
 	}
 
 	.sign-panels input[type="text"], input[type="password"]{
-		width: 80%;
+		width: 100%;
+		position: relative;
+    right: 10%;
 		display: block;
 		margin-bottom: 15px;
 		height: 28px;
@@ -155,21 +217,25 @@
 		left: 30px;
 		border-radius: 50%;
 		border: 2px solid white;
-		box-shadow: 0 0 0 5px #ededed;
+		-webkit-box-shadow: 0 0 0 5px #ededed;
+		        box-shadow: 0 0 0 5px #ededed;
 		-webkit-transition: all .3s ease;
+		-o-transition: all .3s ease;
 		transition: all .3s ease;
 	}
 	.sign-panels input[type="checkbox"]:checked + label:before {
 		background: #FF5722;
-		box-shadow: 0 0 0 5px #FF5722;
+		-webkit-box-shadow: 0 0 0 5px #FF5722;
+		        box-shadow: 0 0 0 5px #FF5722;
 		-webkit-transition: all .3s ease;
+		-o-transition: all .3s ease;
 		transition: all .3s ease;
 	}
 
 	.btn-signin {
 		display: inline-block;
 		width: 50%;
-		background: #ec581e;
+		background: #0079f3;
 		border-radius: 50px;
 		padding: 10px;
 		font-size: 20px;
@@ -177,25 +243,27 @@
 		text-decoration: none;
 		font-weight: 500;
 		border: none;
-		box-shadow: none;
+		-webkit-box-shadow: none;
+		        box-shadow: none;
 		cursor: pointer;
 	}
 	.btn-signin-submit{
 		display: inline-block !important;
-		width: 50% !important;
-		background: #ec581e !important;
+		width: 70% !important;
+		background: #0079f3 !important;
 		border-radius: 50px !important;
 		padding: 10px !important;
 		font-size: 20px !important;
 		color: #fff !important;
 		text-decoration: none !important;
 		border: none !important;
-		box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+		        box-shadow: none !important;
 		cursor: pointer !important;
 	}
 
 	.btn-reset,.btn-member,.btn-fade {
-		font-size: 19px;
+		font-size: 16px;
 		color: #9f9f9f;
 		display: block;
 		margin: 23px auto -12px;
@@ -217,27 +285,21 @@
 	}
 
 	.notification span {
-		color: #ec581e;
+		color: #0079f3;
 	}
 
 	.error {
 		display: block;
-		color: #ec581e;
+		color: #0079f3;
 		font-size: 20px;
 		font-weight: 600;
 		margin: 15px 0;
 	}
 
-	@media screen and (max-width: 768px) {
-		.sign-panels {
-			/*width: 90%;*/
-			padding: 40px;
-		}
-	}
+	
 
 	@media screen and (max-width: 570px) {
 		.sign-panels {
-			padding: 40px 20px;
 		}
 
 		.btn-face, .btn-twitter {
@@ -272,7 +334,8 @@
 		width: 190px;
 		border: 1px solid;
 		border-radius: 50px;
-		box-shadow: 2px 3px 2px grey;
+		-webkit-box-shadow: 2px 3px 2px grey;
+		        box-shadow: 2px 3px 2px grey;
 		white-space: nowrap;
 		margin-top: 19px;
 

@@ -14,7 +14,7 @@
       </li>
     </ul>
     <ul class="navbar-nav navbar-nav-right">
-      <li class="nav-item dropdown border-left">
+      <li class="nav-item dropdown border-left"  style="display:none;">
         <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
           <i class="mdi mdi-bell"></i>
           <span class="count bg-danger"></span>
@@ -83,9 +83,9 @@
               <i class="mdi mdi-settings text-success"></i>
             </div>
           </div>
-          <div class="preview-item-content">
-            <p class="preview-subject mb-1">Settings</p>
-          </div>
+          <a href="?slidebar=setitings">
+            <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> Settings</p>
+        </a>
         </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item preview-item">
@@ -95,13 +95,9 @@
             </div>
           </div>
           <a href="logout.php">
-            <div class="preview-item-content">
-              <p class="preview-subject mb-1" style="bottom: 69px; left: 69px; text-decoration: none; color: white; position: absolute;">Log out</p>
-            </div>
+              <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;">Log out</p>
           </a>
         </a>
-        <div class="dropdown-divider"></div>
-        <p class="p-3 mb-0 text-center">Advanced settings</p>
       </div>
     </li>
   </ul>

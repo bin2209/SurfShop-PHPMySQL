@@ -7,4 +7,3 @@
 ?>
 
 
-<!-- INSERT INTO `user`(`id`, `username`, `password`, `email`, `phone`, `name`) VALUES (1,'binazure','truong322','binazure@gmail.com','0899240332','Nguyen Truong') -->

@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<?php 
-	include("../function/get_link_folder.php");
-	include($direct.'core/header.php'); 
+<?php 
+include '../function/get_link_folder.php'; 
+// HEADER
+include($direct.'core/header.php');
+include $direct.'function/set_language_cookie.php';
+?>
 
-
-	?>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?php echo $direct; ?>css/login.css" />
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</head>
-<body>
 	<!-- BAR -->
-	<?php 
-	include($direct.'core/navbar.php');
-	?>
+
 	
 	<?php 
 
 // LOGIN
 	include("config.php");
-
+		session_start();
 	if(!isset($_SESSION['login_user'])){
+		// include($direct.'core/navbar.php');
+
 		// Chưa đăng nhập
 	}else{
-    header("location:../");
-    	session_start();
+		header("Refresh:0");
+		header("location:../../");
+		
 	}
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,26 +38,16 @@
 			if (($_POST['username']=='')||($_POST['password']=='')){
 				echo "<script>Swal.fire('Username & password cannot be empty.')</script>";
 			} else{
-
-
 				$sql = "SELECT * FROM user WHERE username = '$myusername' and password = '$mypassword'";
 				$result = mysqli_query($db,$sql);
-
 				$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-
 	// $active = $row['active'];
-
 				$count = mysqli_num_rows($result);
-
       // If result matched $myusername and $mypassword, table row must be 1 row
-
 				if($count == 1) {
 		// session_register("myusername");
-
-
 					$_SESSION['login_user'] = $myusername;
-
-					header("location: welcome.php");
+						header("location:../");
 				}else {
 				// echo '<style>.incorect-pass{display: block;}</style>';
 					echo "<script>Swal.fire('Incorrect username or password')</script>";
@@ -73,19 +60,14 @@
 			$re_password = $_POST['re_password'];
 			$email = $_POST['email']; 
 			// Tìm trong database 
-
 			if (($name=='')||($username=='')||($password=='')||($re_password=='')||($email=='')){
 				echo "<script>Swal.fire('Cannot be empty.')</script>";
-
-
 			} else{
-
 				if ($password != $re_password) 
 				{	
 					echo "<script>Swal.fire('Repeat password is not match')</script>";
 				} else{
 				// check tài khoản tồn tại chưa?
-
 					function username_exists($username,$db){
 						$sql = "SELECT * FROM user WHERE username='$username'";
 						$result = mysqli_query($db,$sql);
@@ -129,13 +111,16 @@
 	?>
 	<section class="box-content store content-center">
 		<!-- <h1 class="surf-h2-dark content-center">Store</h1> -->
+
 		<div class="wrapper-login">
 			<div class="sign-panels">
 				<div class="login">
+					<span><a href="../" style="color: #3a3a3a;font-size: 20px;text-decoration: none;color: #595959; font-weight: bold;"><i class="fas fa-arrow-left"></i> Home</a></span>
+					<br>
+
 					<div class="title">
-						<span>Sign In</span>
-						<p>Welcome back, please login to your account. You can login with google or by your regular
-						user login.</p>
+						<span><?php echo $LANG_signin; ?></span>
+					
 						
 					</div>
 
@@ -145,11 +130,10 @@
 							<span class="buttonText">Google</span>
 						</div>
 						<!-- <a href="#" class="btn-face"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a>
-
 							<a href="#" class="btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> -->
 						</div>
 
-						<div class="or"><span>OR</span></div>
+						<div class="or"><span><?php echo $LANG_or; ?></span></div>
 
 
 
@@ -157,19 +141,19 @@
 
 						<form action="" method="post">
 							<input type="text" name="value_of_form" style="display:none;" value="signin">
-							<input type="text" name="username" placeholder="Username">
-							<input type="password" name="password" placeholder="Password">
+							<input type="text" name="username" placeholder="<?php echo $LANG_username; ?>">
+							<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
 							<input type="checkbox" id="remember">
-							<label for="remember">Keep me sign in</label>
+							<label for="remember"><?php echo $LANG_remember; ?></label>
 							<p class="signup-success">Sign up success</p>
 
-							<input class="btn-signin-submit" type="submit" value="Sign In">
+							<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signin; ?>">
 							
 
 
-							<a href="javascript:void(0)" class="btn-reset btn-fade">Recover your password <i class="fa fa-long-arrow-right"
+							<a href="javascript:void(0)" class="btn-reset btn-fade"><?php echo $LANG_recover_pass; ?> <i class="fa fa-long-arrow-right"
 								aria-hidden="true"></i></a>
-								<a href="javascript:void(0)" class="btn-member btn-fade">Not a member yet? <i class="fa fa-long-arrow-right"
+								<a href="javascript:void(0)" class="btn-member btn-fade"><?php echo $LANG_not_member; ?> <i class="fa fa-long-arrow-right"
 									aria-hidden="true"></i></a>
 
 								</form>
@@ -182,29 +166,25 @@
 
 							<div class="signup">
 								<div class="title">
-									<span>Sign Up</span>
-									<p>Create a new account. You can sign up with your facebook or twitter accunt. Or your regular user
-									login.</p>
+									<span><?php echo $LANG_signup; ?></span>
 								</div>
-
 								<div id="customBtn" class="customGPlusSignIn">
 									<span class="icon"></span>
 									<span class="buttonText">Google</span>
 								</div>
 
-								<div class="or"><span>OR</span></div>
+								<div class="or"><span><?php echo $LANG_or; ?></span></div>
 
 								<form action="" method="post">
 									<input type="text" name="value_of_form" style="display:none;" value="signup">
-									<input type="text" name="display_name" placeholder="Display name">
-									<input type="text" name="username" placeholder="Username">
-									<input type="text" name="email" placeholder="Email Address">
-									<input type="password" name="password" placeholder="Password">
-									<input type="password" name="re_password" placeholder="Repeat Password">
-									<input class="btn-signin-submit" type="submit" value="Sign Up">
-
-
-									<a href="javascript:void(0)" class="btn-login btn-fade">Already have an account, Sign In <i
+									<input type="text" name="display_name" placeholder="<?php echo $LANG_name; ?>">
+									<input type="text" name="username" placeholder="<?php echo $LANG_username; ?>">
+									<input type="text" name="email" placeholder="<?php echo $LANG_email; ?>">
+									<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
+									<input type="password" name="re_password" placeholder="<?php echo $LANG_repeat_password; ?>">
+									<br>
+									<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signup; ?>">
+									<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
 										class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 									</form>
 								</div>
@@ -212,20 +192,17 @@
 
 
 								<!-- QUÊN PASS -->
-
-
 								<div class="recover-password">
 									<div class="title">
-										<span>Recover Password</span>
-										<p>Enter in the username or email associated with your account</p>
+										<span><?php echo $LANG_recover_pass; ?></span>
+										<p><?php echo $LANG_recover_title; ?></p>
 									</div>
 
 									<form action="">
-										<input type="email" placeholder="Username/Email Address" id="resetPassword" required>
+										<input type="email" placeholder="<?php echo $LANG_email; ?>" id="resetPassword" required>
 										<span class="error"></span>
-										<a href="javascript:void(0)" class="btn-signin btn-password">Submit Reset</a>
-										<a href="javascript:void(0)" class="btn-login btn-fade"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Cancel
-										and go back to Login page </a>
+										<a href="javascript:void(0)" class="btn-signin btn-password"><?php echo $LANG_recover_button; ?></a>
+										<a href="javascript:void(0)" class="btn-login btn-fade"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> <?php echo $LANG_recover_back ;?> </a>
 									</form>
 
 									<div class="notification">

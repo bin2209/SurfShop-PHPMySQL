@@ -1,40 +1,16 @@
 <?php 
-include("../function/get_link_folder.php");
+include '../function/get_link_folder.php'; 
+// HEADER
+include($direct.'core/header.php');
+// NAVBAR
+include($direct.'core/navbar.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<?php 
-	include($direct.'core/header.php'); 
 
-	?>
-</head>
-<body>
-	<!-- BAR -->
-	<?php include($direct.'core/navbar.php'); 
-	// echo .'../core/navbar.php';
-	
-	?>
-	<!-- ENDBAR -->
 
-	<section>
-		<div class="hero content-center">
-			<!-- <h1 class="hero-h1 ">LST SURF DA NANG </h1> -->
-			<img class="img-hero" src="<?php echo $direct; ?>img/logo-white">
-
-		</div>
-	</section>
-<!-- 	<section class="box-content trending">
-		<h1 class="surf-h2-light content-center">Trending</h1>
-		<div class="surf">
-
-			
-		</div>
-	</section> -->
 
 	<section class=" store content-center">
-		<h1 class="surf-h2-dark content-center">Services</h1>
+		<h1 class="surf-h2-dark content-center"><?php echo $LANG_services ?></h1>
 		<h3 class="h3-dark content-center">Custom Surf Boards / Làm Ván Lướt Sóng</h3>
 		Khoảng thời gian không cố định · Giá khởi điểm: 10.000.000 ₫
 		We make hand made custom EPS EPOXY surfboards of all shapes, fin configurations, sizes, and colors. You want it, we will make it. Price based on length and additional design elements. Price starting at $100 per ft. For ex. a 9ft board starts at 900$. Contact for further info or to discuss options.

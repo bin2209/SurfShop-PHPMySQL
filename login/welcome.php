@@ -1,4 +1,4 @@
 <?php
    include('session.php');
-   header("location:../");
+   header("location:../../member");
 ?>
