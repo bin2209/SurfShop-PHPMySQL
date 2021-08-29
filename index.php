@@ -43,35 +43,39 @@ include($direct.'core/navbar.php');
 	<h1 class="surf-h2-dark content-center"><?php echo $LANG_store; ?></h1>
 	<div class="row">
 		<?php
-		$sql= 'SELECT * FROM store';
-		$result = mysqli_query($db,$sql);
-		$count = 0;
-		while($row = mysqli_fetch_assoc($result)) {
-			if ($count==6) break;
-			$count++;
-			foreach ($row as $field => $value) {
 
-				$id = $row["id"];
-				$images = $row["images"];
-				$name = $row["name"];
-				$description_vi = utf8_encode($row["description-vi"]);
-				if ($description_vi==''){
-					$description_vi = 'None';
-				}
-				$description_en = $row["description-en"];
-				if ($description_en==''){
-					$description_en = 'None';
-				}
-				$price = $row["price"];
-				if ($price == ''){
-					$price = 'FREE?';
-				}
+		$sql = "SELECT * FROM store";
+		$result = $conn->query($sql);
+		$count = 0;
+		foreach ($result as $row) {
+			if ($count == 6){
+				break; 
 			}
+			$count++;
+			$id = $row["id"];
+			$images = $row["images"];
+			$name = $row["name"];
+
+			$description_vi = utf8_encode($row["description-vi"]);
+			if ($description_vi==''){
+				$description_vi = 'None';
+			}
+
+			$description_en = $row["description-en"];
+			if ($description_en==''){
+				$description_en = 'None';
+			}
+
+			$price = $row["price"];
+			if ($price == ''){
+				$price = 'FREE';
+			}
+
 			echo '<div class="column product">';
 			echo '<img class="content-center" src="../upload/'.$images.'"/>';
 			echo '</div>';
-
 		}
+
 		?>
 	</div>
 	<a href="/store" style="text-decoration: none;"><span class="more-button"><?php echo $LANG_morebutton; ?></span></a>
@@ -129,6 +133,6 @@ function showDivs(n) {
 			plusDivs(1);
 			setTimeout(carousel, 3000);
 		}
-</script>
+	</script>
 </body>
 </html>

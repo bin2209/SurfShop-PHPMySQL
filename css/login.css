@@ -12,118 +12,118 @@
  figure, figcaption, footer, header, hgroup, 
  menu, nav, output, ruby, section, summary,
  time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* html5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  background: #101010;
-  font-family: "sf pro text","sf pro icons","helvetica neue","helvetica","arial",sans-serif;
-  line-height: 1.47059;
-  font-weight: 400;
-  letter-spacing: -.022em;
-  color: #1d1d1f;
-  font-style: normal;
-}
-body,html{
-  height: 100%;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-section{
-  position: relative;
-  padding: 2em 0;
-}
-/*end reset css*/
+ 	margin: 0;
+ 	padding: 0;
+ 	border: 0;
+ 	font-size: 100%;
+ 	font: inherit;
+ 	vertical-align: baseline;
+ }
+ /* html5 display-role reset for older browsers */
+ article, aside, details, figcaption, figure, 
+ footer, header, hgroup, menu, nav, section {
+ 	display: block;
+ }
+ body {
+ 	background: #101010;
+ 	line-height: 1.47059;
+ 	font-weight: 400;
+ 	letter-spacing: -.022em;
+ 	color: #1d1d1f;
+ 	font-style: normal;
+ }
+ body,html{
+ 	height: 100%;
+ }
+ ol, ul {
+ 	list-style: none;
+ }
+ blockquote, q {
+ 	quotes: none;
+ }
+ blockquote:before, blockquote:after,
+ q:before, q:after {
+ 	content: '';
+ 	content: none;
+ }
+ table {
+ 	border-collapse: collapse;
+ 	border-spacing: 0;
+ }
+ section{
+ 	position: relative;
+ 	padding: 2em 0;
+ }
+ /*end reset css*/
 
-/*Swal*/
-.swal2-popup{
-	width: auto !important;
-}
-.swal2-title{
-	font-size: 22px !important;
-}
-.swal2-styled.swal2-confirm{
-	background-color: #0079f3 !important;
-}
-.swal2-styled.swal2-confirm:focus{
-	-webkit-box-shadow: 0 0 0 3px #ff57229e !important;
-	        box-shadow: 0 0 0 3px #ff57229e !important;
-}
-
-
-.signup-success{
-	padding: 8px;
-	text-align: center;
-	border: 0px solid;
-	border-radius: 18px;
-	margin: 22px;
-	color: white;
-	width: 80%;
-	display: none;
-	background: #03b108b5;
-}
-
-.box-content{
-	padding: 0px !important;
-}
-.wrapper-login {
-	width: 1%;
-	height: 100vh;
-	background: rgb(50 50 51);
-	display: table-cell;
-	vertical-align: middle;
-	font-family: 'Dosis', sans-serif;
-}
-
-.sign-panels {
-	max-width: 350px;
-	background: #fff;
-	padding: 40px 80px;
-	margin: 0 auto;
-	border-radius: 20px;
-	text-align: center;
-}
-.login,.signup {
-	position: relative;
-}
+ /*Swal*/
+ .swal2-popup{
+ 	width: auto !important;
+ }
+ .swal2-title{
+ 	font-size: 22px !important;
+ }
+ .swal2-styled.swal2-confirm{
+ 	background-color: #0079f3 !important;
+ }
+ .swal2-styled.swal2-confirm:focus{
+ 	-webkit-box-shadow: 0 0 0 3px #ff57229e !important;
+ 	box-shadow: 0 0 0 3px #ff57229e !important;
+ }
 
 
-.title {
-	color: #9f9f9f;
-}
+ .signup-success{
+ 	padding: 8px;
+ 	text-align: center;
+ 	border: 0px solid;
+ 	border-radius: 18px;
+ 	margin: 22px;
+ 	color: white;
+ 	width: 80%;
+ 	display: none;
+ 	background: #03b108b5;
+ }
 
-.title span {
-	display: block;
-	font-size: 25px;
-	font-weight: bold;
-}
+ .box-content{
+ 	padding: 0px !important;
+ }
+ .wrapper-login {
+ 	width: 1%;
+ 	height: 100vh;
+ 	background: rgb(50 50 51);
+ 	display: table-cell;
+ 	vertical-align: middle;
+ }
 
-.title p {
-	font-size: 16px;
-	font-weight: 500;
-}
+ .sign-panels {
+ 	position: relative;
+ 	top: 15px;
+ 	max-width: 350px;
+ 	background: #fff;
+ 	padding: 40px 80px;
+ 	margin: 0 auto;
+ 	border-radius: 20px;
+ 	text-align: center;
+ }
+ .login,.signup {
+ 	position: relative;
+ }
+
+
+ .title {
+ 	color: #9f9f9f;
+ }
+
+ .title span {
+ 	display: block;
+ 	font-size: 25px;
+ 	font-weight: bold;
+ }
+
+ .title p {
+ 	font-size: 16px;
+ 	font-weight: 500;
+ }
 
 /*.btn-face,.btn-twitter {
 	color: #fff;
@@ -173,10 +173,10 @@ section{
 		z-index: 1;
 	}
 
-	.sign-panels input[type="text"], input[type="password"]{
+	.sign-panels input[type="text"], input[type="password"], input[type="email"]{
 		width: 100%;
 		position: relative;
-    right: 10%;
+		right: 10%;
 		display: block;
 		margin-bottom: 15px;
 		height: 28px;
@@ -218,7 +218,7 @@ section{
 		border-radius: 50%;
 		border: 2px solid white;
 		-webkit-box-shadow: 0 0 0 5px #ededed;
-		        box-shadow: 0 0 0 5px #ededed;
+		box-shadow: 0 0 0 5px #ededed;
 		-webkit-transition: all .3s ease;
 		-o-transition: all .3s ease;
 		transition: all .3s ease;
@@ -226,7 +226,7 @@ section{
 	.sign-panels input[type="checkbox"]:checked + label:before {
 		background: #FF5722;
 		-webkit-box-shadow: 0 0 0 5px #FF5722;
-		        box-shadow: 0 0 0 5px #FF5722;
+		box-shadow: 0 0 0 5px #FF5722;
 		-webkit-transition: all .3s ease;
 		-o-transition: all .3s ease;
 		transition: all .3s ease;
@@ -244,7 +244,7 @@ section{
 		font-weight: 500;
 		border: none;
 		-webkit-box-shadow: none;
-		        box-shadow: none;
+		box-shadow: none;
 		cursor: pointer;
 	}
 	.btn-signin-submit{
@@ -258,7 +258,7 @@ section{
 		text-decoration: none !important;
 		border: none !important;
 		-webkit-box-shadow: none !important;
-		        box-shadow: none !important;
+		box-shadow: none !important;
 		cursor: pointer !important;
 	}
 
@@ -299,8 +299,7 @@ section{
 	
 
 	@media screen and (max-width: 570px) {
-		.sign-panels {
-		}
+
 
 		.btn-face, .btn-twitter {
 			width: 100%;
@@ -335,7 +334,7 @@ section{
 		border: 1px solid;
 		border-radius: 50px;
 		-webkit-box-shadow: 2px 3px 2px grey;
-		        box-shadow: 2px 3px 2px grey;
+		box-shadow: 2px 3px 2px grey;
 		white-space: nowrap;
 		margin-top: 19px;
 
@@ -344,7 +343,6 @@ section{
 		cursor: pointer;
 	}
 	span.label {
-		font-family: serif;
 		font-weight: normal;
 	}
 	span.icon {

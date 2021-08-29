@@ -1,60 +1,59 @@
+
 <?php 
 include '../function/get_link_folder.php'; 
 // HEADER
 include($direct.'core/header.php');
 // NAVBAR
 include($direct.'core/navbar.php');
-?>
+if (!isset($_SESSION['user_email'])){
+	// header("Location: ../login/");
+}
+
+if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
+	?>
+	<?php  // LẤY USER DATA
+
+	$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
+	$stmt->execute([$_SESSION['user_email']]);
+	if ($stmt->rowCount() === 1) {
+		$user = $stmt->fetch();
+		$user_id = $user['id'];
+		$user_email = $user['email'];
+		$user_name = $user['name'];
+		$user_avatar = $user['avatar'];
+		$user_phone = $user['phone'];
+		$user_about = $user['about'];
+		$user_password = $user['password'];
+	}
+	?>
+
+
+
 
 	<link href="../css/popup.css" rel="stylesheet">
-
 	<section class=" store content-center" style="padding-top: 5em;">
-		<h1 class="surf-h2-dark content-center">Hi 
-			<?php 
-			if ($logged==0) header("location:../login");
-			// if(!isset($_SESSION['login_user'])){
-			// 	header("location:../login");
-			// } else{
-			// 	echo $_SESSION['login_user'].' ! ';
-			// }
-
-			?>
-		</h1>
-		<br>
-		<div class="background-content"><!--  // backgound content -->
-			<div class="background-logo"><!--  // backgound image-logo & infomation -->
-
-				<?php 
-				if ($logged==1){
-					$user_check = $_SESSION['login_user'];
-					$sql= 'SELECT * FROM `user` WHERE username="'.$user_check.'"';
-					$result = mysqli_query($db,$sql);
-
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()) {
-							$name = $row["name"];
-							$email = $row["email"];
-							$phone = $row["phone"];
-							$about = $row["about"];
-							$serverpass = $row["password"];
-							echo '<div class="logo-avt" style="width: auto;"><img src="'.$row["avatar"].'"/></div>';
-							echo '</div>'; // backgound image-logo & infomation
-							echo  '<h3 class="h3-dark content-center" style="padding-top:3em; width: auto; font-size:24px !important;">' . $row["name"]. '</h3>';
-							echo '<div class="infomation" style="width:auto;">';
-							echo '<p>'. $row["about"].'</p><hr>';
-							echo '<i class="fas fa-envelope"></i> <p>'. $row["email"].'</p><br>';
-							echo '<i class="fas fa-phone-alt"></i> <p>'. $row["phone"].'</p><br>';
-						echo '</div>'; // infomation
-					}
-				} else {
-					echo "0 results";
-				}
-			}
-			?>
-
+		<div class="background-content">
+			<div class="background-logo">
+				<div class="logo-avt" style="width: auto;"><img src="<?php echo $user_avatar ?>"/></div>
+			</div> 
+			<h3 class="h3-dark content-center" style="padding-top:3em; width: auto; font-size:24px !important;"><?php echo $user_name ?></h3>
+			<div class="infomation" style="width:auto;">
+				<p><?php echo $user_about ?></p><hr>
+				<i class="fas fa-envelope"></i> <p><?php echo $user_email ?></p><br>
+				<i class="fas fa-phone-alt"></i> <p>
+					<?php 
+					if($user_phone == ''){
+						echo 'None';
+					} else
+					if(isset($user_phone)){
+						echo $user_phone;
+					}  
+					?>
+				</p><br>
+			</div>
 			<div class="button-div">
-				<button id="change-profile1" class="change-button"><i class="fas fa-pen" style=""></i> Edit Your Profile</button>
-				<button id="change-profile2" class="change-button"><i class="fas fa-key" style=""></i> Change Password</button>
+				<button id="change-profile1" class="change-button"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
+				<button id="change-profile2" class="change-button"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
 			</div>
 
 			
@@ -67,13 +66,7 @@ include($direct.'core/navbar.php');
 
 
 		</div> <!--  // backgound content -->
-		
-
-		
-
 		<style type="text/css">
-
-
 		section{
 			background: #f0f2f5 !important;
 		}
@@ -219,15 +212,15 @@ include($direct.'core/navbar.php');
 					<input type="text" style="display:none;"  name="value_of_form" value="profile" required="true">
 					<label for="change-name">Full Name *</label>
 					<br>
-					<input type="text" name="change-name" value="<?php echo $name; ?>" required="true">
+					<input type="text" name="change-name" value="<?php echo $user_name; ?>" required="true">
 					<br>
 					<label for="change-phone">Phone *</label>
 					<br>
-					<input type="text" name="change-phone" value="<?php echo $phone; ?>" required="true">
+					<input type="text" name="change-phone" value="<?php echo $user_phone; ?>" required="true">
 					<br>
 					<label for="change-about">About </label>
 					<br>
-					<textarea name="change-about"><?php echo $about; ?></textarea>
+					<textarea name="change-about"><?php echo $user_about; ?></textarea>
 					<br>
 					<button type="submit" name="submit_change">Save</button>
 				</form>
@@ -239,40 +232,43 @@ include($direct.'core/navbar.php');
 
 <?php
 
-$user_check = $_SESSION['login_user'];
+$user_id = $_SESSION['user_id'];
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 	$value_of_form = $_POST['value_of_form'];
-
 	if ($value_of_form == 'profile'){
-		if (($_POST['change-name'] != $name)||($_POST['change-about']!= $about)||($_POST['change-phone']!= $phone) ) {
-			$sql = 'UPDATE `user` SET `name`= "'.$_POST['change-name'].'", `about`="'.$_POST['change-about'].'", `phone`= "'.$_POST['change-phone'].'" WHERE  username="'.$user_check.'"';
-			echo $sql;
-			if (mysqli_query($db,$sql)){
+		if (($_POST['change-name'] != $user_name)||($_POST['change-about']!= $user_about)||($_POST['change-phone']!= $user_phone) ) {
+			$sql = 'UPDATE `user` SET `name`= "'.$_POST['change-name'].'", `about`="'.$_POST['change-about'].'", `phone`= "'.$_POST['change-phone'].'" WHERE  id="'.$user_id.'"';
+			$stmt=$conn->prepare($sql);
+			$result = $stmt->execute();
+			if( $result ){
 				echo '<script> window.location.reload();</script>';
-			}
-		} 
+			} 
+			$stmt->free_result();
+			$stmt->close();
+		}
 	} else if ($value_of_form == 'password') // Thay đổi mật khẩu 
 	{ 
 		$oldpw = $_POST["oldpw"];
-		$newpw = $_POST["newpw"];
+		$newpw = password_hash($_POST["newpw"], PASSWORD_BCRYPT);
 		$repeatpw = $_POST["repeatpw"];
-		if (($oldpw == '')||($newpw== '')||($repeatpw== '')) // check space
-		{
-			echo '<script> alert("Need to enter something");</script>';
-		} else if ($serverpass!=$oldpw){
-			echo 'Old password not match';
-		} else if (strlen($newpw)<=8){
-			echo 'Password more 8 character';
-		} else if($newpw!=$repeatpw){
-			echo 'Repeat password not match'; 
-		} else{
-			$sql = 'UPDATE `user` SET `password`= "'.$newpw.'" WHERE  username="'.$user_check.'"';
-			echo $sql;
-			if (mysqli_query($db,$sql)){
-				echo 'Success'; 
-				echo '<script> window.location.reload();</script>';
+
+		if (isset($oldpw) && isset($newpw) && isset($repeatpw)) // check space
+		{	
+		
+			if (password_verify($oldpw, $user_password)) {
+				$sql = 'UPDATE `user` SET `password`= "'.$newpw.'" WHERE  id="'.$user_id.'"';
+				$stmt=$conn->prepare($sql);
+				$result = $stmt->execute();
+				if($result){
+					// echo '<script> window.location.reload();</script>';
+					echo '<script>Swal.fire(`Success!`, `Password was changed!`, `success` )</script>';
+				} 
+				$stmt->close();
+			} else{
+				echo '<script>Swal.fire(`Oops!`, `Old password not match`, `error` )</script>';
 			}
-		}
+		} 
 	}
 }
 ?>
@@ -281,9 +277,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 		<div class="container">
 			<span class="close">close</span>
 			<div class="title">
-				<h1>Change Password</h1>
+				<h1><?php echo $LANG_member_changepass; ?></h1>
 			</div>
-
 			<div class="change-profile">
 				<form method="POST">
 					<input type="text" style="display:none;"  name="value_of_form" value="password" required="true">
@@ -325,3 +320,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 			$('footer').removeClass('blur-filter');
 		});
 	</script>
+<?php }
+
+?>

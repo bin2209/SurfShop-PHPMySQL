@@ -1,8 +1,8 @@
 	<?php 
 	session_start();
-	include $direct.'login/config.php';
-	$GLOBALS['local_link']= $_SERVER['PHP_SELF'];
-	$GLOBALS['host_link']= $_SERVER['HTTP_HOST'];
+	// include $direct.'login/config.php';
+	include $direct.'login/db_conn.php';
+	// include $direct.'function/get_user_information.php';
 	$link_directory = $_SERVER['PHP_SELF'];
 	$GLOBALS['direct'] = '';
 	$GLOBALS['link_directory_array'] = array('about/','services/','store/','login/','member/');
@@ -14,12 +14,9 @@
 		}
 	}
 	include $direct.'function/set_language_cookie.php';
-
-	
 	?>
 
-
-
+	
 	<style type="text/css">
 	/*menu*/
 	.wrapper{
@@ -69,45 +66,30 @@
 <nav class="globalbar">
 	<?php
 
-	if(!isset($_SESSION['login_user'])){
-		$logged = 0;
+	if(!isset($_SESSION['user_email'])){
 		echo '<label class="bag menu dropmenubtn"  onclick="Dropdown();"> <i class="fas fa-caret-down dropmenubtn"></i></label>';
 		echo '	
 		<div id="Dropdownmenu" class="dropdown-content ">
 		
-		<a href="../logout.php"><img src="../img/signIn.svg"/><p>'.$LANG_signin.'</p></a>
+		<a href="../login"><img src="../img/signIn.svg"/><p>'.$LANG_signin.'</p></a>
 		</div>';
 	} else {
 
-
-		$usercheck = $_SESSION['login_user'];
-
-		$sql= 'SELECT * FROM `user` WHERE username="'.$usercheck.'"';
-		$result = mysqli_query($db,$sql);
-		if ($result->num_rows > 0) {
-			while($row = $result->fetch_assoc()) {
-				$avatar= $row["avatar"];
-			}
-		}
-
-			// echo '<a  href="'.$direct.'/member"><label class="bag menu" style="right: 138px;"></label></a> ';
-
 		echo '
-		<label class="bag menu dropmenubtn"  onclick="Dropdown();">'.$_SESSION['login_user'].' <i class="fas fa-caret-down dropmenubtn"></i></label>';
+		<label class="bag menu dropmenubtn"  onclick="Dropdown();">'.$_SESSION['user_email'].' <i class="fas fa-caret-down dropmenubtn"></i></label>';
 		echo '	
 		<div id="Dropdownmenu" class="dropdown-content ">
 		<a href="../member"><img src="../img/account.svg"/><p>Account</p></a>
 		<hr>
 		<a href="../logout.php"><img src="../img/signIn.svg"/><p>Sign out</p></a>
 		</div>';
-		$logged=1;
 	}
 	?>
 
 
 
 	<div class="logo menu">
-		<a class="mobile" href="../index.php">
+		<a class="mobile" href="../">
 			<img class="logo-img" src="<?php echo $direct; ?>img/logo-gray.png"/>
 			<!-- <div class="menu"> LST Surf</div> -->
 		</a>
@@ -124,47 +106,18 @@
 
 <input type="checkbox" id="active">
 <!-- <input type="checkbox" id="active-cart"> -->
+
 <!-- Menu-content -->
 <div class="wrapper">
 	<ul>
-		<li class="search-box"><i class="fas fa-search"></i><input type="text" name="" placeholder="Search"></li>
-		<li><a href="../">Home</a></li>
-		<li><a href="../services">Services</a></li>
-		<li><a href="../store">Store</a></li>
-		<li><a href="../map.php">Map</a></li>
-		<li><a href="../about">About</a></li>
+		<!-- 		<li class="search-box"><i class="fas fa-search"></i><input type="text" name="" placeholder="Search"></li> -->
+		<li><a href="../"><?php echo $LANG_home ?></a></li>
+		<li><a href="../services"><?php echo $LANG_services ?></a></li>
+		<li><a href="../store"><?php echo $LANG_store ?></a></li>
+		<li><a href="../map.php"><?php echo $LANG_map ?></a></li>
+		<li><a href="../about"><?php echo $LANG_about ?></a></li>
 	</ul>
 </div>
-
-<!-- IF NOT LOGIN MENU-->
-<div class="wrapper-cart">
-	<ul>
-		<li class="login-box">
-			<?php 
-
-			$login_direct = $direct."login";
-			$member_direct = $direct."member";
-
-			if(!isset($_SESSION['login_user'])){
-				echo '<button onclick="window.location.href=`'.$login_direct.'`"><img class="" src="'.$direct.'img/logo-gray.png" width="36"/>';
-			} else {
-				echo '<button  style="min-width:250px;" onclick="window.location.href=`'.$member_direct.'`"><img class="" src="'.$direct.'img/logo-gray.png" width="36"/>';
-			}
-			?>
-
-
-		</button>
-		<br>
-
-		<?php if($logged==1){
-			echo '<button style="margin:10px 0; min-width:250px; min-height: 47.43px;" onclick="window.location.href=`logout.php`"><i class="fas fa-sign-out-alt" style="font-size: 26px;"></i><p style="top: -4px;
-			left: 6px;">Loggout</p></button>';
-		}
-		?>
-	</li>
-</ul>
-</div>
-
 
 <!-- End Menu-content -->
 <script type="text/javascript">

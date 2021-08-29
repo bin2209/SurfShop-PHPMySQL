@@ -35,10 +35,12 @@ include('core/navbar.php');
 	top: 68px !important;
 }
 #windy #embed-zoom{
-	-webkit-transform: scale(1);
-	    -ms-transform: scale(1);
-	        transform: scale(1);
+	-webkit-transform: scale(1.2);
+	-ms-transform: scale(1.2);
+	transform: scale(1.2);
 	top: 120px !important;
+	margin-right: 7px;
+	margin-top: 7px;
 }
 #windy #plugin-menu .plugin-content #layers-menu{
 	top: 30px;
@@ -47,9 +49,9 @@ include('core/navbar.php');
 	top: 30px;
 }
 #windy #mobile-ovr-select{
-	-webkit-transform: scale(1,1);
-	    -ms-transform: scale(1,1);
-	        transform: scale(1,1);
+	-webkit-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	transform: scale(1.1);
 }
 
 #plugin-menu .plugin-content #layers-menu a{
@@ -64,7 +66,7 @@ include('core/navbar.php');
 }
 #windy .plugin-mobile-rhpane .plugin-content{
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
-	        backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);
 	background-color: rgba(0,0,0,0.8)!important;
 }
 #windy #plugin-menu .closing-x{
