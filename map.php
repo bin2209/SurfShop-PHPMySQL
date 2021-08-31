@@ -1,11 +1,10 @@
-
-<?php include('core/header.php'); 
-
-?>
-
-<?php
+<?php 
+$title = 'Map';
+include('core/header.php'); 
 include('core/navbar.php');
 ?>
+
+
 <div id="windy"></div>
 <div class="thanks-windy">
 	Thanks  <a href="https://www.windy.com">Windyty, SE;</a>

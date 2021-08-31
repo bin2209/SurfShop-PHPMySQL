@@ -1,10 +1,9 @@
 <?php 
-include '../function/get_link_folder.php'; 
-// HEADER
-include($direct.'core/header.php');
-// NAVBAR
-include($direct.'core/navbar.php');
+$title = 'Store';
+include('core/header.php'); 
+include('core/navbar.php');
 ?>
+
 
 
 <section class="store content-center">
@@ -12,8 +11,10 @@ include($direct.'core/navbar.php');
   <div class="row">
 
     <?php
+   
 
     $sql = "SELECT * FROM store";
+
     $result = $conn->query($sql);
     foreach ($result as $row) {
       $id = $row["id"];
@@ -45,6 +46,6 @@ include($direct.'core/navbar.php');
 
   </div>
 </section>
-<?php include($direct.'core/footer.php'); ?>
+<?php include('core/footer.php'); ?>
 </body>
 </html>

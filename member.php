@@ -1,12 +1,10 @@
-
 <?php 
-include '../function/get_link_folder.php'; 
-// HEADER
-include($direct.'core/header.php');
-// NAVBAR
-include($direct.'core/navbar.php');
+$title = 'Member';
+include('core/header.php');
+include('core/navbar.php');
 if (!isset($_SESSION['user_email'])){
-	// header("Location: ../login/");
+	header("Location: ../");
+	
 }
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
@@ -198,7 +196,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	</style>
 </section>
 
-<?php include($direct.'core/footer.php'); ?>
+<?php include('core/footer.php'); ?>
 </body>
 <div class="pop-up pop-up-profile">
 	<div class="content">

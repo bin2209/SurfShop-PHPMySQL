@@ -1,10 +1,9 @@
 <?php 
-include '../function/get_link_folder.php'; 
-// HEADER
-include($direct.'core/header.php');
-// NAVBAR
-include($direct.'core/navbar.php');
+$title = 'Services';
+include('core/header.php'); 
+include('core/navbar.php');
 ?>
+
 	<section class=" store content-center">
 		<h1 class="surf-h2-dark content-center"><?php echo $LANG_services ?></h1>
 
@@ -25,7 +24,7 @@ include($direct.'core/navbar.php');
 		
 	</section>
 	
-	<?php include($direct.'core/footer.php'); ?>
+	<?php include('core/footer.php'); ?>
 
 </body>
 </html>

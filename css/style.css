@@ -112,9 +112,7 @@ p{
   text-align: center;
   z-index: 1;
 }
-.globalbar li{
-
-}
+.
 
 
 /*custom*/
@@ -127,11 +125,10 @@ p{
   text-decoration: none;
   position: fixed;
   width: 48px;
-  top: 0;
-  /*left: 50%;*/
   margin-left: -24px;
   text-align: center;
   z-index: 1;
+      top: -6px;
 }
 
 .logo img:hover{
@@ -161,22 +158,25 @@ p{
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.desktop{
+    position: relative;
+  top: -10px;
+}
 .desktop li a{
   position: relative;
   color: #f5f5f7;
   opacity: .8;
   font-size: 16px;
   text-decoration: none;
-  top: 11px;
 }
 .globalbar li{
-  margin: 0px 3em;
+  margin: 0px 3.2em;
 }
 .logo-imgdesktop{
   height: 36px;
   width: 36px;
   position: relative;
-  top: -6px;
+  top: 11px;
 }
 .desktop a{
   font-weight: 200;
@@ -329,7 +329,7 @@ p{
 .wrapper i{
   color: #afafaf;
   position: absolute;
-  top: 11%;
+  top: 9%;
   left: 10%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -431,11 +431,11 @@ section{
 /*main-content*/
 .hero{
   position: relative;
-  background: url(../img/hero.jpg) ;
+  background: url(../img/herosurf.jpg) ;
   background-size: cover;
   display: block !important;
   width: 100% !important;
-  height: 100vh;
+  height: 90vh;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
@@ -447,15 +447,12 @@ section{
   color: white;
 
 }
-.surf{
-
-}
 
 .surf-h2-light{
-  font-size: 35px;
+  font-size: 28px;
   position: relative;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
 }
 .surf-h2-dark{
   font-size: 28px;
@@ -475,13 +472,13 @@ section{
   text-align: center;
 }
 .img-hero{
-  opacity: 90%;
-  position: relative;
-  top: 24%;
-  display: block;
-  width: 80%;
-  max-width: 400px;
-  margin: auto;
+       opacity: 88%;
+    position: relative;
+    top: 13%;
+    display: block;
+    width: 50%;
+    max-width: 240px;
+    margin: auto;
 }
 .img-100{
   display: block;
@@ -814,4 +811,21 @@ footer .icon-social{
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+}
+/*// SLIDESHOW */
+.w3-badge, .w3-tag{
+  color: #fff;
+  display: inline-block;
+  padding: 7px;
+}
+.w3-white, .w3-hover-white:hover {
+  color: #000!important;
+  background-color: #fff!important;
+}
+.w3-border {
+  border: 3px solid #fff!important;
+}
+.w3-badge {
+  margin: 0px 20px;
+  border-radius: 50%;
 }

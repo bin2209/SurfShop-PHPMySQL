@@ -1,21 +1,18 @@
-
 <?php 
-include 'function/get_link_folder.php'; 
-// HEADER
-include($direct.'core/header.php');
-// NAVBAR
-include($direct.'core/navbar.php');
+$title = 'Home';
+include('core/header.php'); 
+include('core/navbar.php');
 ?>
+
 
 <section>
 	<div class="hero content-center">
-		<img class="img-hero" src="img/logo-white.png">
+		<img class="img-hero" src="img/logo.png">
 	</div>
 </section>
 <section class="trending">
 	<h1 class="surf-h2-light content-center"><?php echo $LANG_trending; ?></h1>
 	<div class="surf">
-
 		<div class="Slides">
 			<img class="img-100 content-center" src="upload/b1.png"/>
 		</div>
@@ -24,26 +21,18 @@ include($direct.'core/navbar.php');
 		</div>
 		<div class="Slides">
 			<img class="img-100 content-center" src="upload/b3.png"/>
-
 		</div>
-
-
 	</div>
-
-	
 	<div class="surf-control content-center">
 		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
 		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
 		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
 	</div>
-
 </section>
-
 <section class="store content-center">
 	<h1 class="surf-h2-dark content-center"><?php echo $LANG_store; ?></h1>
 	<div class="row">
 		<?php
-
 		$sql = "SELECT * FROM store";
 		$result = $conn->query($sql);
 		$count = 0;
@@ -75,34 +64,10 @@ include($direct.'core/navbar.php');
 			echo '<img class="content-center" src="../upload/'.$images.'"/>';
 			echo '</div>';
 		}
-
 		?>
 	</div>
 	<a href="/store" style="text-decoration: none;"><span class="more-button"><?php echo $LANG_morebutton; ?></span></a>
-</section>
-<style type="text/css">
-/*// SLIDESHOW */
-.w3-badge, .w3-tag{
-	color: #fff;
-	display: inline-block;
-	padding: 7px;
-}
-.w3-white, .w3-hover-white:hover {
-	color: #000!important;
-	background-color: #fff!important;
-}
-.w3-border {
-	border: 3px solid #fff!important;
-}
-.w3-badge {
-	margin: 0px 20px;
-	border-radius: 50%;
-}
-</style>
-
-<?php include('core/footer.php'); ?>
-<!-- JS SLIDE INDEX -->
-<script type="text/javascript">
+	<script type="text/javascript">
 	var slideIndex = 1;
 	showDivs(slideIndex);
 	function plusDivs(n) {
@@ -134,5 +99,9 @@ function showDivs(n) {
 			setTimeout(carousel, 3000);
 		}
 	</script>
+</section>
+
+<?php include('core/footer.php'); ?>
+<!-- JS SLIDE INDEX -->
 </body>
 </html>

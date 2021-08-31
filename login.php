@@ -1,16 +1,17 @@
 <?php 
-include '../function/get_link_folder.php'; 
-include($direct.'core/header.php');
-include($direct.'core/navbar.php');
-include $direct.'function/set_language_cookie.php';
+$title = 'Login';
+include 'core/header.php';
+include 'core/navbar.php';
+include 'function/set_language_cookie.php';
 
 
 if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
 	?>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<?php echo $direct; ?>css/login.css" /> 
+	<link rel="stylesheet" href="css/login.css" /> 
 	<body>
-		<section class="box-content store content-center">
+
+		<section>
 			<div class="wrapper-login">
 				<div class="sign-panels">
 					<!-- LOGIN -->
@@ -27,7 +28,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 						</div>
 						<div class="or"><span><?php echo $LANG_or; ?></span></div>
 
-						<form action="auth.php" method="post">
+						<form action="login/auth.php" method="post">
 							<input type="email" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>" >
 
 							<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
@@ -57,7 +58,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 									<span class="buttonText">Google</span>
 								</div>
 								<div class="or"><span><?php echo $LANG_or; ?></span></div>
-								<form action="signup.php" method="post">
+								<form action="login/signup.php" method="post">
 									<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>">
 									<input type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>">
 									<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
@@ -98,12 +99,13 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 					</section>
 
 				</body>
-				<script type="text/javascript" src="<?php echo $direct; ?>js/login.js"></script>
-				<script src="https://apis.google.com/js/api:client.js"></script>
-				<script>
-					var googleUser = {};
-					var startApp = function() {
-						gapi.load('auth2', function(){
+				
+<script type="text/javascript" src="js/login.js"></script>
+<script src="https://apis.google.com/js/api:client.js"></script>
+<script>
+	var googleUser = {};
+	var startApp = function() {
+		gapi.load('auth2', function(){
       // Retrieve the singleton for the GoogleAuth library and set up the client.
       auth2 = gapi.auth2.init({
       	client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
@@ -113,32 +115,32 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
       });
       attachSignin(document.getElementById('customBtn'));
     });
-					};
+	};
 
-					function attachSignin(element) {
-						console.log(element.id);
-						auth2.attachClickHandler(element, {},
-							function(googleUser) {
-								document.getElementById('name').innerText = "Signed in: " +
-								googleUser.getBasicProfile().getName();
-							}, function(error) {
-								alert(JSON.stringify(error, undefined, 2));
-							});
-					}
-				</script>
-				<script>startApp();</script>
-				<?php 
-				include '../core/footer.php'; 
+	function attachSignin(element) {
+		console.log(element.id);
+		auth2.attachClickHandler(element, {},
+			function(googleUser) {
+				document.getElementById('name').innerText = "Signed in: " +
+				googleUser.getBasicProfile().getName();
+			}, function(error) {
+				alert(JSON.stringify(error, undefined, 2));
+			});
+	}
+</script>
+<script>startApp();</script>
+<?php 
+include 'core/footer.php'; 
 
 				// RETURN ĐĂNG KÝ LỖI 
-				if (isset($_GET['signup-error'])){
-					echo '<script>$(`.login`).hide();$(`.signup`).fadeIn(300);</script>';
-				}
+if (isset($_GET['signup-error'])){
+	echo '<script>$(`.login`).hide();$(`.signup`).fadeIn(300);</script>';
+}
 
-				?>
+?>
 
-				<?php 
-			}else {
-				header("Location: ../member/");
-			}
-			?>
+<?php 
+}else {
+	header("Location: ../member/");
+}
+?>

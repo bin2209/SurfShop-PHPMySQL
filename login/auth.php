@@ -8,9 +8,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$password = $_POST['password'];
 
 	if (empty($email)) {
-		header("Location: login.php?error=Email is required");
+		header("Location: ../login.php?error=Email is required");
 	}else if (empty($password)){
-		header("Location: login.php?error=Password is required&email=$email");
+		header("Location: ../login.php?error=Password is required&email=$email");
 	}else {
 		$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 		$stmt->execute([$email]);
@@ -30,13 +30,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 					
 					header("Location: index.php");
 				}else {
-					header("Location: login.php?error=Incorect User name or password&email=$email");
+					header("Location: ../login.php?error=Incorect User name or password&email=$email");
 				}
 			}else {
-				header("Location: login.php?error=Incorect User name or password&email=$email");
+				header("Location: ../login.php?error=Incorect User name or password&email=$email");
 			}
 		}else {
-			header("Location: login.php?error=Incorect User name or password&email=$email");
+			header("Location: ../login.php?error=Incorect User name or password&email=$email");
 		}
 	}
 }

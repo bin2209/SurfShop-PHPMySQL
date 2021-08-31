@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php 
-	$GLOBALS['local_link']= $_SERVER['PHP_SELF'];
-	$GLOBALS['host_link']= $_SERVER['HTTP_HOST'];
-	$link_directory = $_SERVER['PHP_SELF'];
-	$GLOBALS['direct'] = '';
-
-	$GLOBALS['link_directory_array'] = array('about/','services/','store/','login/','member/');
-
-	for($i=0;$i<count($link_directory_array);$i++){
-		$pos = strpos($link_directory,$link_directory_array[$i]);
-		if ($pos == true){
-			$direct = '../';
-		}
-	}
-
-	?>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>LST SURF</title>
-	<link rel="icon" type="image/x-icon" href="<?php echo $direct; ?>favicon.ico" />
+  <meta name="Keywords" content="surf, surfing, surfer, surfboard, surfergirl, surflife, surfers, surfphotography, surfersparadise, surftrip, surfgirl, surfinglife, surfacedesign, surface, surfsup, surfacepattern, surfstyle, surfboards, surfart, surfacepatterndesign, surfline, surfandturf, surfwear, surfcity, SURFERphotos, Surfshop, surfcamp, surfschool, surflinelocalpro, surfgirls, surfphoto, surfcoast, surfskate, surfingiseverything, surfspot, surfernutrition, surfista, surfacepro, surfe, surfphotos, surfporn, surffishing, surfergirls, surfnoturf, surfingmagazine, surfculture, surfcityUSA, surfingphotography, surfingday, surferboy, surfpics, skate, skateboarding, skateboard, skatelife, skater, skatepark, skateeverydamnday, skateordie, skateanddestroy, skateboarder, skateboardingisfun, skatergirl, skateboards, skateshop, skatespot, skatecrunch, skateGram, skateclipsdaily, skaters, skates, skatefam, skatephotoaday, skatewear, skaterguy, SkateGirl, skateallday, skatermemes, skateaholic, skateday, skatesubmit, surfboard, surfboards, surfboardart, surfboarding, surfboardshaping, surfboardshaper, surfboarddesign, surfboardbag, surfboardforsale, surfboardbuyandsell, surfboardcovers, surfboarder, surfboardfactory, surfboardscustom, surfboardsbydonaldtakayama, surfboardcover, surfboardfins, SurfboardShape, surfboardpaints, surfboardnext, surfboardprints, surfboardquiver, surfboardrack, surfboardrental, surfboardresin, surfboardshorts, surfboardsale, surfboardsandshotguns, surfboardsock, surfboardsbyclutch">
+  <meta name="Description" content="Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards">
+  <meta property="og:image" content="https://lstsurf.com/img/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:url" content="https://lstsurf.com/" />
+  <meta property="og:site_name" content="LSTsurf" />
+
+	<title>LST SURF - <?php echo $title;?></title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	<!-- CSS -->
-	<link rel="stylesheet" href="<?php echo $direct; ?>css/style.css" />
-	<link rel="stylesheet" href="<?php echo $direct; ?>css/reponsive.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/reponsive.css" />
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 	
 	<!-- JS -->

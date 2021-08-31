@@ -13,24 +13,24 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 
 	if (empty($name)) {
 			// MAIL TRÓNG
-		header("Location: login.php?signup-error=Display name is required");
+		header("Location: ../login.php?signup-error=Display name is required");
 	}else if (empty($email)) { 
-		header("Location: login.php?signup-error=Email is required&name=$name");
+		header("Location: ../login.php?signup-error=Email is required&name=$name");
 	}else if (empty($password)){
 		// PASS TRÓNG
-		header("Location: login.php?signup-error=Password is required&name=$name&email=$email");
+		header("Location: ../login.php?signup-error=Password is required&name=$name&email=$email");
 	}else if (empty($re_password)){
 		// REPASS TRÓNG
-		header("Location: login.php?signup-error=Repeat password is required&name=$name&email=$email");
+		header("Location: ../login.php?signup-error=Repeat password is required&name=$name&email=$email");
 	}else if ($password != $re_password){
 		// REPASS SAI
-		header("Location: login.php?signup-error=Repeat password is not match&name=$name&email=$email");
+		header("Location: ../login.php?signup-error=Repeat password is not match&name=$name&email=$email");
 	}else {
 		$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 		$stmt->execute([$email]);
 		if ($stmt->rowCount() === 1) {
 			//EMAIL ĐÃ TỒN TẠI
-			header("Location: login.php?signup-error=Email is already registered&name=$name&email=$email");
+			header("Location: ../login.php?signup-error=Email is already registered&name=$name&email=$email");
 		} else{
 			// THÀNH CÔNG
 			$today = date("Y-m-d");
