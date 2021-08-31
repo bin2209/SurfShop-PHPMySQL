@@ -3,6 +3,7 @@ $title = 'About';
 include('core/header.php'); 
 include('core/navbar.php');
 ?>
+<style type="text/css">.desktop-about{opacity: .56;}</style>
 
 
 	<section class=" store content-center">

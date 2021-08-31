@@ -3,7 +3,7 @@ $title = 'Map';
 include('core/header.php'); 
 include('core/navbar.php');
 ?>
-
+<style type="text/css">.desktop-map{opacity: .56;}</style>
 
 <div id="windy"></div>
 <div class="thanks-windy">

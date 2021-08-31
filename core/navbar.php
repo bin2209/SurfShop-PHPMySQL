@@ -5,8 +5,6 @@
 	include 'login/db_conn.php';
 	include 'function/set_language_cookie.php';
 	?>
-
-	
 	<style type="text/css">
 	/*menu*/
 	.wrapper{
@@ -77,11 +75,11 @@
 	?>
 	<div class="logo menu">
 		<ul class="desktop">
-			<li><a href="/"><img class="logo-imgdesktop" src="img/logo-gray.png"/></a></li>
-			<li><a href="store"><?php echo $LANG_store ?></a></li>
-			<li><a href="services"><?php echo $LANG_services ?></a></li>
-			<li><a href="map"><?php echo $LANG_map ?></a></li>
-			<li><a href="about"><?php echo $LANG_about ?></a></li>
+			<li class="desktop-home"><a href="/"><img class="logo-imgdesktop" src="img/logo-gray.png"/></a></li>
+			<li class="desktop-store"><a href="store"><?php echo $LANG_store ?></a></li>
+			<li class="desktop-services"><a href="services"><?php echo $LANG_services ?></a></li>
+			<li class="desktop-map"><a href="map"><?php echo $LANG_map ?></a></li>
+			<li class="desktop-about"><a href="about"><?php echo $LANG_about ?></a></li>
 			<?php 	if(!isset($_SESSION['user_email'])){
 				// CHƯA ĐĂNG NHẬP 
 				echo '<li><a href="login.php"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></a></li>';

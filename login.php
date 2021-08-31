@@ -135,12 +135,9 @@ include 'core/footer.php';
 				// RETURN ĐĂNG KÝ LỖI 
 if (isset($_GET['signup-error'])){
 	echo '<script>$(`.login`).hide();$(`.signup`).fadeIn(300);</script>';
-}
-
-?>
+}?>
 
 <?php 
 }else {
 	header("Location: ../member/");
-}
-?>
+}?>

@@ -3,6 +3,7 @@ $title = 'Services';
 include('core/header.php'); 
 include('core/navbar.php');
 ?>
+<style type="text/css">.desktop-services{opacity: .56;}</style>
 
 	<section class=" store content-center">
 		<h1 class="surf-h2-dark content-center"><?php echo $LANG_services ?></h1>

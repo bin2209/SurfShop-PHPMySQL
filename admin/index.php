@@ -1,7 +1,7 @@
 <?php 
 include('core/header.php');
 echo '  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
-include("../login/config.php");
+include("../login/db_conn.php");
 session_start();
 if(!isset($_SESSION['login_user'])){
   echo file_get_contents("pages/samples/login.html");

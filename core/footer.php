@@ -12,7 +12,7 @@
 		<br>
 		10 Mỹ Đa Đông 10, Phường Mỹ An, Quận Ngũ Hành Sơn, Thành phố Đà Nẵng, Việt Nam
 		<hr>
-		<p class="footer-info">MST:0402106581</p>
+		<p class="footer-info">MST: 0402106581</p>
 		<div class="footer-copyright"> Copyright © 2021 LSTsurf. All rights reserved.</div>
 		<br>
 
