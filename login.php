@@ -3,7 +3,7 @@ $title = 'Login';
 include 'core/header.php';
 include 'core/navbar.php';
 include 'function/set_language_cookie.php';
-
+include 'google_login/config.php';
 
 if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
 	?>
@@ -21,9 +21,9 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 						</div>
 
 						<div>
-							<div id="customBtn" class="customGPlusSignIn">
+							<div id="customBtn" class="customGPlusSignIn" onclick="window.location = '<?php echo $client->createAuthUrl(); ?>'">
 								<span class="icon"></span>
-								<span class="buttonText">Google</span>
+								<span class="buttonText" >Google</span>
 							</div>
 						</div>
 						<div class="or"><span><?php echo $LANG_or; ?></span></div>
@@ -49,29 +49,70 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
 
 							<!-- ĐĂNG KÝ -->
+
 							<div class="signup">
 								<div class="title">
 									<span><?php echo $LANG_signup; ?></span>
 								</div>
-								<div id="customBtn" class="customGPlusSignIn">
+								<?php 
+								if(isset($_GET['google_id'])&&isset($_GET['name'])&&isset($_GET['name'])&&isset($_GET['email'])&&isset($_GET['profile_pic'])){
+									$google_login= true;
+									$name = $_GET['name'];
+									$email = $_GET['email'];
+									$profile_pic = $_GET['profile_pic'];
+									$google_id = $_GET['google_id'];
+
+								}else{
+									$url_login_google =  $client->createAuthUrl();
+									echo '<div id="customBtn" class="customGPlusSignIn" onclick="window.location = '.$url_login_google.'">
 									<span class="icon"></span>
 									<span class="buttonText">Google</span>
-								</div>
-								<div class="or"><span><?php echo $LANG_or; ?></span></div>
+									</div>
+									';
+								}
+
+								?>
+								
+
 								<form action="login/signup.php" method="post">
-									<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>">
-									<input type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>">
-									<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
-									<input type="password" name="re_password" placeholder="<?php echo $LANG_repeat_password; ?>">
+									<?php 
+									// GOOGLE LOGIN
+									if(isset($google_login)){
+										?>
+										
+										<img style="border: 4px solid #c1c1c0; border-radius: 50%; margin: 18px;" src="<?php echo (htmlspecialchars($profile_pic)) ?>">
+										<input name="google_id" value="<?php echo (htmlspecialchars($google_id)) ?>" hidden>
+										<input name="profile_pic" value="<?php echo (htmlspecialchars($profile_pic)) ?>" hidden>
+										<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>" >
+										<input style="color:#12804d;    border: 1.5px solid;" type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>" readonly>
+										<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>" autofocus/>
+										<input type="password" name="re_password" placeholder="<?php echo $LANG_repeat_password; ?>">
+
+									<?php } else {?>
+										<!-- // ĐĂNG KÝ BÌNH THƯỜNG -->
+										<div class="or"><span><?php echo $LANG_or; ?></span></div>
+										<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>">
+										<input type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>">
+										<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>" >
+										<input type="password" name="re_password" placeholder="<?php echo $LANG_repeat_password; ?>">
+
+									<?php }
+									?>
+
+
+									
+
 									<br>
 									<!-- BÁO LỖI ĐĂNG KÝ -->
-									<?php if (isset($_GET['signup-error'])) { ?>
+									<?php if (!isset($google_login)&&isset($_GET['signup-error'])) { ?>
 										<div class="alert alert-danger" role="alert"><?=htmlspecialchars($_GET['signup-error'])?></div>
 									<?php } ?>
 									<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signup; ?>">
-									<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
-										class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+								
 									</form>
+										<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
+										class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 								</div>
 
 								<!-- QUÊN PASS -->
@@ -99,45 +140,20 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 					</section>
 
 				</body>
-				
-<script type="text/javascript" src="js/login.js"></script>
-<script src="https://apis.google.com/js/api:client.js"></script>
-<script>
-	var googleUser = {};
-	var startApp = function() {
-		gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
-      auth2 = gapi.auth2.init({
-      	client_id: 'YOUR_CLIENT_ID.apps.googleusercontent.com',
-      	cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
-      });
-      attachSignin(document.getElementById('customBtn'));
-    });
-	};
 
-	function attachSignin(element) {
-		console.log(element.id);
-		auth2.attachClickHandler(element, {},
-			function(googleUser) {
-				document.getElementById('name').innerText = "Signed in: " +
-				googleUser.getBasicProfile().getName();
-			}, function(error) {
-				alert(JSON.stringify(error, undefined, 2));
-			});
-	}
-</script>
-<script>startApp();</script>
-<?php 
-include 'core/footer.php'; 
+				<script type="text/javascript" src="js/login.js"></script>
+				<script src="https://apis.google.com/js/api:client.js"></script>
+
+				<script>startApp();</script>
+				<?php 
+				include 'core/footer.php'; 
 
 				// RETURN ĐĂNG KÝ LỖI 
-if (isset($_GET['signup-error'])){
-	echo '<script>$(`.login`).hide();$(`.signup`).fadeIn(300);</script>';
-}?>
+				if (isset($_GET['signup-error'])){
+					echo '<script>$(`.login`).hide();$(`.signup`).fadeIn(300);</script>';
+				}?>
 
-<?php 
-}else {
-	header("Location: ../member/");
-}?>
+				<?php 
+			}else {
+				header("Location: ../member/");
+			}?>

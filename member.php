@@ -3,14 +3,13 @@ $title = 'Member';
 include('core/header.php');
 include('core/navbar.php');
 if (!isset($_SESSION['user_email'])){
-	header("Location: ../");
+	// header("Location: ../");
 	
 }
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
 	?>
 	<?php  // LẤY USER DATA
-
 	$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 	$stmt->execute([$_SESSION['user_email']]);
 	if ($stmt->rowCount() === 1) {
@@ -24,9 +23,6 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		$user_password = $user['password'];
 	}
 	?>
-
-
-
 
 	<link href="../css/popup.css" rel="stylesheet">
 	<section class=" store content-center" style="padding-top: 5em;">

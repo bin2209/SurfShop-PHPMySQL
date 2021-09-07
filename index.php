@@ -6,9 +6,11 @@ include('core/navbar.php');
 
 
 <section>
-	<div class="hero content-center">
-		<img class="img-hero" src="img/logo.png">
-	</div>
+	
+		<div class="hero content-center">
+			<img class="img-hero" src="img/logo.png">
+		</div>
+	<div class="overplay"></div>
 </section>
 <section class="trending">
 	<h1 class="surf-h2-light content-center"><?php echo $LANG_trending; ?></h1>
@@ -68,11 +70,11 @@ include('core/navbar.php');
 	</div>
 	<a href="/store" style="text-decoration: none;"><span class="more-button"><?php echo $LANG_morebutton; ?></span></a>
 	<script type="text/javascript">
-	var slideIndex = 1;
-	showDivs(slideIndex);
-	function plusDivs(n) {
-		showDivs(slideIndex += n);
-	}
+		var slideIndex = 1;
+		showDivs(slideIndex);
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
+		}
 //Khi click vào dot
 function currentDiv(n) {
 	showDivs(slideIndex = n);

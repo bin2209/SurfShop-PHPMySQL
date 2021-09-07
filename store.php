@@ -45,10 +45,10 @@ include('core/navbar.php');
 <section class="store content-center">
   <h1 class="surf-h2-dark content-center"><?php echo $LANG_store; ?></h1>
   <div class="store-row-navbar">
-    <div class="store-column-narbar"><a href="?view=surf-board"><i class="fas fa-snowboarding"></i> Surf Board</a></div>
-    <div class="store-column-narbar"><a href="?view=skate-board"><i class="fas fa-skating"></i> Skate Board</a></div>
-    <div class="store-column-narbar"><a href="?view=clother"><i class="fas fa-tshirt"></i> Clother</a></div>
-    <div class="store-column-narbar"><a href="?view=orther"><i class="fas fa-pills"></i> Orther</a></div>
+    <div class="store-column-narbar"><a href="?view=surf-board"><i class="fas fa-snowboarding"></i> <?php echo $LANG_store_surfboard; ?></a></div>
+    <div class="store-column-narbar"><a href="?view=skate-board"><i class="fas fa-skating"></i> <?php echo $LANG_store_skateboard; ?></a></div>
+    <div class="store-column-narbar"><a href="?view=clother"><i class="fas fa-tshirt"></i> <?php echo $LANG_store_clother; ?></a></div>
+    <div class="store-column-narbar"><a href="?view=orther"><i class="fas fa-pills"></i> <?php echo $LANG_store_orther; ?></a></div>
   </div>
   <?php
   // STORE VIEW

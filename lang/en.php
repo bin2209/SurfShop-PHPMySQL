@@ -28,6 +28,11 @@ $LANG_remember = 'Keep me sign in';
 $LANG_recover_title ='Enter in the username or email associated with your account';
 $LANG_recover_button ='Submit Reset';
 $LANG_recover_back ='Cancel and go back to Login page';
+// STORE
+$LANG_store_surfboard ='Surf Board';
+$LANG_store_skateboard ='Skate Board';
+$LANG_store_clother ='Clother';
+$LANG_store_orther ='Orther';
 // SERVICES
 $LANG_services_title1 ='Custom Surf Boards';
 $LANG_services_title2 ='Repairs';

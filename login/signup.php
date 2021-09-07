@@ -9,7 +9,16 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$re_password = $_POST['re_password'];
-
+	// NẾU TÀI KHOẢN LÀ GOOGLE
+	if (isset($_POST['profile_pic'])){
+		$profile_pic = $_POST['profile_pic'];
+		$xacthuc = 1;
+		$google_id = $_POST['google_id'];;
+	} else{
+		$profile_pic = '../img/default-user.png';
+		$xacthuc = 0;
+		$google_id = 0;
+	}
 
 	if (empty($name)) {
 			// MAIL TRÓNG
@@ -36,8 +45,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 			$today = date("Y-m-d");
 			$password=password_hash($_POST["password"], PASSWORD_BCRYPT);
 			$sql = "
-			INSERT INTO user(id, email, password, phone, name,avatar,sex,about,startdate,status) 
-			VALUES 			('0','$email','$password','','$name','../img/default-user.png','0','','$today','0')";
+			INSERT INTO user(id, email, password, phone, name,avatar,sex,about,startdate,status,google_id,xacthuc) 
+			VALUES 			('0','$email','$password','','$name','$profile_pic','0','','$today','0','$google_id','$xacthuc')";
 
 			$stmt=$conn->prepare($sql);
 			$result = $stmt->execute();

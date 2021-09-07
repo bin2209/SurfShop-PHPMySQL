@@ -28,6 +28,11 @@ $LANG_remember = 'Nhớ tài khoản';
 $LANG_recover_title ='Nhập tên người dùng hoặc email được liên kết với tài khoản của bạn';
 $LANG_recover_button ='Xác nhận';
 $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
+// STORE
+$LANG_store_surfboard ='Ván lướt sóng';
+$LANG_store_skateboard ='Ván trượt';
+$LANG_store_clother ='Áo quần';
+$LANG_store_orther ='Khác';
 // SERVICES
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
 $LANG_services_title2 ='Sửa Ván Luót Sóng';

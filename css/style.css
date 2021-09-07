@@ -63,7 +63,7 @@ p{
 /*end reset css*/
 
 .trending{
-  padding-top: 2em;
+  padding-top: 5em;
   height: 100%;
 }
 /*nav bar*/
@@ -86,16 +86,65 @@ p{
   max-height: 44px;
   z-index: 100;
 }
+/*menu*/
+.wrapper{
+  display: none;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-clip-path: circle(0px at calc(0% - 45px) 0px);
+  clip-path: circle(0px at calc(0% - 45px) 0px);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#active:checked ~ .wrapper{
+  -webkit-clip-path: circle(75%);
+  clip-path: circle(75%);
+  display: block;
+}
+/*menu-cart*/
+.wrapper-cart{
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-clip-path: circle(0px at calc(100% - 45px) 0px);
+  clip-path: circle(0px at calc(100% - 45px) 0px);
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#active-cart:checked ~ .wrapper-cart{
+  -webkit-clip-path: circle(75%);
+  clip-path: circle(75%);
+}
 .desktop ul{
   display: inline;
 }
 .desktop li{
   display: inline;
 }
+
 .menu{
- width: auto !important;
- margin-left: auto !important;
- margin-right: auto !important;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  bottom: 2px;
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 .globalbar .logo-img{
@@ -173,10 +222,10 @@ p{
   margin: 0px 3.2em;
 }
 .logo-imgdesktop{
-  height: 36px;
-  width: 36px;
+  height: 50px;
+  width: 50px;
   position: relative;
-  top: 11px;
+  top: 19px;
 }
 .desktop a{
   font-weight: 200;
@@ -216,6 +265,12 @@ p{
 }
 .menu-btn:hover{
   color: white;
+  cursor: pointer;
+  -webkit-filter: brightness(400%);
+  filter: brightness(400%);
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 #active:checked ~ .menu-btn{
   color: #fff;
@@ -435,10 +490,21 @@ section{
   background-size: cover;
   display: block !important;
   width: 100% !important;
-  height: 90vh;
+  height: 98vh;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
+}
+.overplay{
+  background: -webkit-gradient(linear, left bottom, left top, from(#101010), color-stop(23%, transparent));
+  background: -o-linear-gradient(bottom, #101010, transparent 23%);
+  background: linear-gradient(to top, #101010, transparent 23%);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .hero-h1{
   top: 50vh;
@@ -474,7 +540,7 @@ section{
 .img-hero{
  opacity: 88%;
  position: relative;
- top: 13%;
+ top: 30%;
  display: block;
  width: 50%;
  max-width: 240px;
@@ -813,7 +879,7 @@ footer .icon-social{
 .w3-badge, .w3-tag{
   color: #fff;
   display: inline-block;
-  padding: 7px;
+  padding: 4px;
 }
 .w3-white, .w3-hover-white:hover {
   color: #000!important;
