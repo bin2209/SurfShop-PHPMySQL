@@ -1,14 +1,17 @@
 <?php 
+
 $title = 'Login';
-include 'core/header.php';
-include 'core/navbar.php';
-include 'function/set_language_cookie.php';
-include 'google_login/config.php';
+
+require_once 'includes/header.php';
+require_once 'includes/navbar.php';
+require_once 'classes/set_language_cookie.php';
+require_once 'google_login/config.php';
 
 if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
 	?>
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/login.css" /> 
+	<link rel="stylesheet" href="assets/css/login.css" /> 
 	<body>
 
 		<section>
@@ -109,10 +112,10 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 									<?php } ?>
 									<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signup; ?>">
 
-								
-									</form>
-										<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
-										class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+
+								</form>
+								<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
+									class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
 								</div>
 
 								<!-- QUÊN PASS -->
@@ -141,12 +144,12 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
 				</body>
 
-				<script type="text/javascript" src="js/login.js"></script>
+				<script type="text/javascript" src="assets/js/login.js"></script>
 				<script src="https://apis.google.com/js/api:client.js"></script>
 
 				<script>startApp();</script>
 				<?php 
-				include 'core/footer.php'; 
+				require_once 'includes/footer.php'; 
 
 				// RETURN ĐĂNG KÝ LỖI 
 				if (isset($_GET['signup-error'])){
@@ -155,5 +158,5 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
 				<?php 
 			}else {
-				header("Location: ../member/");
+				header("Location: ../member");
 			}?>

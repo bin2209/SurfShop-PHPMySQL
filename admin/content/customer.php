@@ -8,7 +8,6 @@
                     <thead>
                       <tr>
                         <th> Client Name </th>
-                        <th> Username </th>
                         <th> Email </th>
                         <th> Phone </th>
                         <th> Start Date </th>
@@ -16,35 +15,21 @@
                       </tr>
                     </thead>
                     <tbody>
-
-
-                      <?php
-                      $sql= 'SELECT * FROM user';
-                      $result = mysqli_query($db,$sql);
-
-                      while($row = mysqli_fetch_assoc($result)) {
-                       foreach ($row as $field => $value) {
-                        $name = $row["name"];
-                        $user = $row["username"];
-                        $email = $row["email"];
-                        if ($email==''){
-                          $email = 'None';
-                        }
-                        $phone = $row["phone"];
-                        if ($phone==''){
-                          $phone = 'None';
-                        }
-                        $about = $row["about"];
-                        $avatar = $row["avatar"];
-                        $startdate = $row["startdate"];
-
-                        if ($row["status"]==0){
-                          $status = 'OK';
-                        }
+                     <?php
+                     $stmt = $conn->prepare("SELECT * FROM user");
+                     $stmt->execute();
+                     while ($row = $stmt->fetch()){
+                      $email = $row["email"];
+                      $avatar = $row["avatar"];
+                      $name = $row["name"];
+                      $phone = $row["phone"];
+                      $startdate = $row["startdate"];
+                      $status = $row["status"];
+                      if ($status=="0"){
+                        $status = "Active";
                       }
                       echo '<tr>';
                       echo '<td><img src="'.$avatar.'" alt="image" / ><span class="pl-2">'.$name.'</span></td>';
-                      echo '<td>'.$user.'</td>';
                       echo '<td>'.$email.'</td>';
                       echo '<td>'.$phone.'</td>';
                       echo '<td>'.$startdate.'</td>';

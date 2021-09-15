@@ -6,6 +6,7 @@ $LANG_services = 'Dịch vụ';
 $LANG_map = 'Bản đồ';
 $LANG_about = 'Giới thiệu';
 $LANG_morebutton = 'Xem thêm';
+$LANG_decription ='Mô tả';
 // HOME
 $LANG_trending = 'Thịnh hành';
 // SERVICES

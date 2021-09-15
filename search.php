@@ -1,7 +1,7 @@
 <?php 
 $title = 'Search';
-include('core/header.php'); 
-include('core/navbar.php');
+require_once ('includes/header.php'); 
+require_once ('includes/navbar.php');
 ?>
 
 
@@ -75,10 +75,16 @@ include('core/navbar.php');
 	display: inline;
 	position: relative;
 }
-
+.surf-h2-dark{
+	color: white;
+}
+.result p{
+	font-size: 20px;
+	color: white;
+}
 .section-search{
 	height: 70vh;
-	background: url(img/search.jpg);
+	background: url(assets/img/herosurf.jpg);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -130,7 +136,4 @@ include('core/navbar.php');
 
 
 </style>
-<?php include('core/footer.php'); ?>
-
-</body>
-</html>
+<?php require_once('includes/footer.php'); ?>

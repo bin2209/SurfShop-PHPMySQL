@@ -15,7 +15,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 		$xacthuc = 1;
 		$google_id = $_POST['google_id'];;
 	} else{
-		$profile_pic = '../img/default-user.png';
+		$profile_pic = '../assets/img/default-user.png';
 		$xacthuc = 0;
 		$google_id = 0;
 	}

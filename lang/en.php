@@ -6,6 +6,7 @@ $LANG_services = 'Services';
 $LANG_map = 'Map';
 $LANG_about = 'About';
 $LANG_morebutton = 'More';
+$LANG_decription ='Description';
 // HOME
 $LANG_trending = 'Trending';
 // SERVICES

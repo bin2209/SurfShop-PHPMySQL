@@ -1,10 +1,12 @@
 <?php 
+@session_start();
 $title = 'Member';
-include('core/header.php');
-include('core/navbar.php');
+require_once 'includes/header.php';
+require_once 'includes/navbar.php';
+
+
 if (!isset($_SESSION['user_email'])){
 	// header("Location: ../");
-	
 }
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
@@ -24,7 +26,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	}
 	?>
 
-	<link href="../css/popup.css" rel="stylesheet">
+	<link href="../assets/css/popup.css" rel="stylesheet">
 	<section class=" store content-center" style="padding-top: 5em;">
 		<div class="background-content">
 			<div class="background-logo">
@@ -192,7 +194,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	</style>
 </section>
 
-<?php include('core/footer.php'); ?>
+
 </body>
 <div class="pop-up pop-up-profile">
 	<div class="content">
@@ -317,3 +319,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 <?php }
 
 ?>
+<?php include('includes/footer.php'); ?>
+

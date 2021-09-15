@@ -1,0 +1,20 @@
+.swal2-modal .swal2-icon, .swal2-modal .swal2-success-ring{
+	margin-bottom: 0 !important;
+}
+.swal2-modal .swal2-title{
+	color: #191c24;
+}
+.swal2-modal .swal2-close{
+	font-size: 40px !important;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.swal2-html-container{
+	text-align: left !important; 
+}
+
+
+.swal2-input{
+	margin: 13px 2em 0;
+}

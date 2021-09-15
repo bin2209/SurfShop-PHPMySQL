@@ -2,69 +2,90 @@
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">All</h4>
-        <p class="card-description"> View page <a href="../../store/" target="_blank">store</a></p>
+
+        <select id="type" onchange="location = this.value;" style="position: absolute; top: 20px; left: 20px;">
+          <?php 
+          $where_list = $_GET['list'];
+          $s_type1 = 'surf';
+          $s_type2 = 'skate';
+          $s_type3 = 'clother';
+          $s_type4 = 'orther';
+          ?>
+          <option value="?slidebar=store" <?php if(!isset($where_list)){echo 'selected';}?>>All</option>
+          <option value="?slidebar=store&list=surf" <?php if(isset($where_list) && $where_list==$s_type1){echo 'selected';}?>>Surf Board</option>
+          <option value="?slidebar=store&list=skate"<?php if(isset($where_list) && $where_list==$s_type2){echo 'selected';}?>>Skate Board</option>
+          <option value="?slidebar=store&list=clother"<?php if(isset($where_list) && $where_list==$s_type3){echo 'selected';}?>>Clother</option>
+          <option value="?slidebar=store&list=orther"<?php if(isset($where_list) && $where_list==$s_type4){echo 'selected';}?>>Orther</option>
+        </select>
+
+        <p class="card-description"> View page <a href="../../store" target="_blank">store</a></p>
+
         <div class="table-responsive">
           <table class="table">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Product</th>
-                <th>Description - English</th>
-                <th>Description - Vietnam</th>
                 <th>Price</th>
                 <th>More</th>
               </tr>
             </thead>
             <tbody>
+
               <?php
-              $sql= 'SELECT * FROM store';
-              $result = mysqli_query($db,$sql);
-              while($row = mysqli_fetch_assoc($result)) {
-               foreach ($row as $field => $value) {
-                $id = $row["id"];
-                $images = $row["images"];
-                $name = $row["name"];
-                $description_vi = utf8_encode($row["description-vi"]);
-                if ($description_vi==''){
-                  $description_vi = 'None';
-                }
+              function print_Product($stmt){
+                $stmt->execute();
+                while ($row = $stmt->fetch()){
+                 $id = $row["id"];
+                 $images = $row["images"];
+                 $name = $row["name"];
+                 $description_vi = $row["description-vi"];
+                 
                 $description_en = $row["description-en"];
-                if ($description_en==''){
-                  $description_en = 'None';
-                }
+              
                 $price = $row["price"];
-                if ($price == ''){
-                  $price = 'FREE?';
-                }
+                echo '<tr>';
+                echo '<td><img src="../../upload/'.$images.'" alt="image" / >'.$id.'</td>';
+                echo ' <td>'.$name.'</td>';
+               
+                echo ' <td>'.$price.'</td>';
+                echo ' <td>
+                <label class="badge badge-primary" onclick="show_Product('.$id.',`'.$name.'`,`'.$images.'`,`'.$price.'`,`'.$description_en.'`,`'.$description_vi.'`)">Detail</label> 
+                <label class="badge badge-warning" onclick="edit_Product('.$id.',`'.$name.'`,`'.$images.'`,`'.$price.'`,`'.$description_en.'`,`'.$description_vi.'`)">Edit</label> 
+                <label class="badge badge-danger" onclick="delete_Product('.$id.')">Delete</label></td>';
+                echo '</tr>';
               }
-              echo '<tr>';
-              echo '<td><img src="../../upload/'.$images.'" alt="image" / >'.$id.'</td>';
-              echo ' <td>'.$name.'</td>';
-              echo '<td>'.$description_en.'</td>';
-              echo '  <td>'.$description_vi.'</td>';
-              echo ' <td>'.$price.'</td>';
-              echo ' <td><label class="badge badge-warning">Edit</label> <label class="badge badge-danger">Remove</label></td>';
-              echo '</tr>';
             }
-            ?>
-          </tbody>
-        </table>
-      </div>
+
+            if (isset($where_list)&&$where_list==$s_type1){
+              $stmt = $conn->prepare("SELECT * FROM store WHERE type = 1");
+              print_Product($stmt);
+            }else if (isset($where_list)&&$where_list==$s_type2){
+             $stmt = $conn->prepare("SELECT * FROM store WHERE type = 2");
+             print_Product($stmt);
+           }else if (isset($where_list)&&$where_list==$s_type3){
+            $stmt = $conn->prepare("SELECT * FROM store WHERE type = 3");
+            print_Product($stmt);
+          }else if (isset($where_list)&&$where_list==$s_type4){
+            $stmt = $conn->prepare("SELECT * FROM store WHERE type = 4");
+            print_Product($stmt);
+          }else{
+            $stmt = $conn->prepare("SELECT * FROM store");
+            print_Product($stmt);
+          }
+
+          ?>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
 </div>
 <div class="col-lg-6 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Add new product</h4>
-
-
-      <form class="forms-sample" action="function/upload.php" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-          <label for="exampleInputName1">ID</label>
-          <input type="text" class="form-control" id="exampleInputName1" placeholder="Auto" disabled>
-        </div>
+      <form class="forms-sample" action="request/upload.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="exampleInputName1">Product's name</label>
           <input type="text" class="form-control" id="exampleInputName1" placeholder="Product's name">
@@ -76,6 +97,16 @@
         <div class="form-group">
           <label for="exampleInputPassword4">Description - Vietnam</label>
           <textarea class="form-control" id="exampleTextarea1" rows="4" placeholder="Description - Vietnam"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleSelectGender">Type</label>
+          <br>
+          <select id="type" name="type">
+            <option value="surf">Surf Board</option>
+            <option value="skate">Skate Board</option>
+            <option value="clother">Clother</option>
+            <option value="orther">Orther</option>
+          </select>
         </div>
         <div class="form-group">
           <label for="exampleSelectGender">Price</label>

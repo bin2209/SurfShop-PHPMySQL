@@ -7879,7 +7879,15 @@ pre {
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
+.sidebar-brand  img:hover{
+  -webkit-filter: brightness(200%);
+    filter: brightness(200%);
+    cursor: pointer;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 
+}
 .container,
 .container-fluid,
 .container-sm,
@@ -11399,7 +11407,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #191c24;
+ background-color: #191c24db;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem; }
@@ -16922,7 +16930,7 @@ code {
 .form-control, .asColorPicker-input, .dataTables_wrapper select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=text],
 .jsgrid .jsgrid-table .jsgrid-filter-row select, .jsgrid .jsgrid-table .jsgrid-filter-row input[type=number], .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--single .select2-search__field, .typeahead,
 .tt-query,
-.tt-hint {
+.tt-hint ,.form-group select, .card-body select{
   border: 1px solid #2c2e33;
   height: calc(2.25rem + 2px);
   font-weight: normal;
@@ -20195,19 +20203,19 @@ div.tagsinput {
 /* === Landing screens === */
 /* Auth */
 .auth.login-bg {
-  background: url("../images/auth/Login_bg.jpg");
+  background: url("../images/auth/Login_bg.jpeg");
   background-size: cover; }
 
 .auth .login-half-bg {
-  background: url("../images/auth/login-bg.jpg");
+  background: url("../images/auth/login-bg.jpeg");
   background-size: cover; }
 
 .auth.register-half-bg {
-  background: url("../images/auth/Login_bg2.jpg");
+  background: url("../images/auth/login-bg.jpeg");
   background-size: cover; }
 
 .auth.lock-full-bg {
-  background: url("../images/auth/lockscreen-bg.jpg");
+  background: url("../images/auth/login-bg.jpeg");
   background-size: cover; }
 
 .auth .lock-profile-img {
@@ -20370,17 +20378,15 @@ div.tagsinput {
       .navbar .navbar-brand-wrapper .navbar-brand:active, .navbar .navbar-brand-wrapper .navbar-brand:focus, .navbar .navbar-brand-wrapper .navbar-brand:hover {
         color: #252b3e; }
       .navbar .navbar-brand-wrapper .navbar-brand img {
-        width: calc(244px - 120px);
         max-width: 100%;
-        height: 28px;
+        height: 40px;
         margin: auto;
         vertical-align: middle; }
       .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
         display: none; }
         .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini img {
-          width: calc(70px - 50px);
           max-width: 100%;
-          height: 28px;
+          height: 40px;
           margin: auto; }
   .navbar .navbar-menu-wrapper {
     transition: width 0.25s ease;
@@ -20653,17 +20659,15 @@ div.tagsinput {
       .sidebar .sidebar-brand-wrapper .sidebar-brand:active, .sidebar .sidebar-brand-wrapper .sidebar-brand:focus, .sidebar .sidebar-brand-wrapper .sidebar-brand:hover {
         color: #252b3e; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand img {
-        width: calc(244px - 120px);
+       height: 70px;
         max-width: 100%;
-        height: 28px;
         margin: auto;
         vertical-align: middle; }
       .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini {
         display: none; }
         .sidebar .sidebar-brand-wrapper .sidebar-brand.brand-logo-mini img {
-          width: calc(70px - 50px);
           max-width: 100%;
-          height: 28px;
+          height: 48px;
           margin: auto; }
   .sidebar .nav {
     overflow: hidden;

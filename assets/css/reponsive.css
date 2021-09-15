@@ -1,0 +1,81 @@
+/*FIX HOVER MOBILE*/
+@media (hover: hover) and (pointer: fine) {
+
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 380px) {
+	.store-row-navbar{
+		width: 95% !important;
+	}
+	.background-blur:hover .blur-store{
+		display: none !important;
+	}
+	.store-more-button{
+		display: none;
+	}
+	
+}
+@media only screen and (max-width: 600px) {
+
+	.globalbar{
+		height: 48px;
+	}
+	.desktop{
+		display: none !important;
+	}
+	.store-column-narbar{
+		width: auto;
+	}
+	.store-row-navbar{
+		width: 85%;
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	.desktop{
+		display: none !important;
+	}
+	.store-column-narbar{
+		width: 20%;
+	}
+	.store-row-navbar{
+		width: 80% !important;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.mobile{
+		display: block;
+	}
+	.desktop{
+		display: none !important;
+	}
+	.store-row-navbar{
+		width: 70% !important;
+	}
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	.mobile{
+		display: none;
+	}
+	.desktop{
+		display: block !important;
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	.desktop{
+		display: block !important;
+	}
+	.logo{
+		left: none !important;
+	}
+}
