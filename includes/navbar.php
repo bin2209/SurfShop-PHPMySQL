@@ -21,7 +21,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 	if(!isset($_SESSION['user_email'])){
 		// CHƯA ĐĂNG NHẬP
 		echo '
-		<label class="bag menu dropmenubtn mobile" onclick="location.href=`index.php?act=login`"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></label>';
+		<label class="bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></label>';
 		echo '	
 		<div id="Dropdownmenu" class="dropdown-content ">
 		<a href="/login"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_signin.'</p></a>
@@ -32,9 +32,9 @@ require_once $direct2.'classes/set_language_cookie.php';
 		<label class="bag menu dropmenubtn mobile"><i class="fas fa-caret-down dropmenubtn" style="font-size: 20px; position: relative; top: 1px;" onclick="Dropdown()"></i></label>';
 		echo '	
 		<div id="Dropdownmenu" class="dropdown-content ">
-		<a href="../member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>Account</p></a>
+		<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>Account</p></a>
 		<hr>
-		<a href="logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>Sign out</p></a>
+		<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>Sign out</p></a>
 		</div>';
 	}
 	?>
@@ -47,7 +47,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 			<li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
 			<?php 	if(!isset($_SESSION['user_email'])){
 				// CHƯA ĐĂNG NHẬP 
-				echo '<li><a href="index.php?act=login"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></a></li>';
+				echo '<li><a href="'.$_DOMAIN.'/login.php"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></a></li>';
 			}else {
 				// ĐÃ ĐĂNG NHẬP
 				echo '<li><i class="fas fa-caret-down dropmenubtn" style="font-size: 20px; position: relative; top: 1px;" onclick="Dropdown()"></i></li>';

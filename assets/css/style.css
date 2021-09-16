@@ -89,13 +89,13 @@ p{
 /*menu*/
 .wrapper{
   display: none;
-  z-index: 2;
+  z-index:4;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   -webkit-clip-path: circle(0px at calc(0% - 45px) 0px);
@@ -106,7 +106,6 @@ p{
 }
 #active:checked ~ .wrapper{
   -webkit-clip-path: circle(75%);
-  clip-path: circle(75%);
   display: block;
 }
 /*menu-cart*/
@@ -213,8 +212,8 @@ p{
 }
 .desktop li a{
   position: relative;
-  color: #f5f5f7;
-  opacity: .8;
+  color: #fff;
+  opacity: 0.6;
   font-size: 16px;
   text-decoration: none;
 }
@@ -963,4 +962,39 @@ footer hr{
   text-decoration: none;
   opacity: 0.8;
   color: #fff;
+}
+
+/*BREAKCRUMB*/
+.product-row-navbar{
+  border-radius: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 2em 0 4em;
+  flex-wrap: nowrap;
+  display: flex;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  color: #dedede;
+  background: #f1f1f117;
+  justify-content: left;
+}
+.product-column-narbar{
+
+  font-weight: 600;
+  padding: 15px;
+  height: auto;
+}
+.product-column-narbar a{
+  text-decoration: none;
+  opacity: 0.8;
+  color: #fff;
+}
+.product-column-narbar a:hover{
+  opacity: 1;
 }

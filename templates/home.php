@@ -1,6 +1,7 @@
 <?php
 $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 ?>
+<style type="text/css">.desktop-home a{-webkit-filter: brightness(150%); opacity: 1 !important; color: #ffffff !important;} .mobile-home a{color: #ffffff !important;}</style>
 <section>
 	
 		<div class="hero content-center">

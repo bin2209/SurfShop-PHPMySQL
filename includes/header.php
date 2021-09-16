@@ -1,5 +1,6 @@
 <?php
 $_DOMAIN = 'https://localhost';
+// $_DOMAIN = 'https://lstsurf.com';
 
 // $info = new Info;
 

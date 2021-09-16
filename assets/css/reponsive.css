@@ -1,4 +1,5 @@
 /*FIX HOVER MOBILE*/
+
 @media (hover: hover) and (pointer: fine) {
 
 
@@ -18,7 +19,6 @@
 	
 }
 @media only screen and (max-width: 600px) {
-
 	.globalbar{
 		height: 48px;
 	}
@@ -35,6 +35,8 @@
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+
+	
 	.desktop{
 		display: none !important;
 	}
@@ -48,6 +50,7 @@
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+	
 	.mobile{
 		display: block;
 	}

@@ -1,6 +1,8 @@
 const options = {
 		key: 'TDKKiQbBHNjQ7myN3TE1JCfeMRoG1OVD', 
-		verbose: true,
+        // key: 'OlkUJle8QLXnVzMMup89Ijty9VMUKkwt',
+        
+        verbose: true,
 
     // Optional: Initial state of the map
     lat: 16.058,

@@ -89,11 +89,11 @@ RewriteRule ^surf-board/$ ?act=store&view=surf-board [L]
 RewriteRule ^skate-board$ ?act=store&view=skate-board [L]
 RewriteRule ^skate-board/$ ?act=store&view=skate-board [L]
 
-RewriteRule ^clother$ ?act=store&view=clother [L]
-RewriteRule ^clother/$ ?act=store&view=clother [L]
+RewriteRule ^clothes$ ?act=store&view=clothes [L]
+RewriteRule ^clothes/$ ?act=store&view=clothes [L]
 
-RewriteRule ^orther$ ?act=store&view=orther [L]
-RewriteRule ^orther/$ ?act=store&view=orther [L]
+RewriteRule ^other$ ?act=store&view=other [L]
+RewriteRule ^other/$ ?act=store&view=other [L]
 
 RewriteRule ^map$ ?act=map [L]
 RewriteRule ^map/$ ?act=map [L]

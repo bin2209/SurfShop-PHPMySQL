@@ -1,5 +1,6 @@
 <?php 
 $title = 'Services';
+@session_start();
 include('../../includes/header.php'); 
 include('../../includes/navbar.php');
 ?>
@@ -39,39 +40,7 @@ include('../../includes/navbar.php');
   width: auto;
   justify-content: center !important;
 }
-.product-row-navbar{
-  border-radius: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 2em 0 4em;
-  flex-wrap: nowrap;
-  display: flex;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  color: #353232;
-  background: #f1f1f117;
-  justify-content: left;
-}
-.product-column-narbar{
 
-  font-weight: 600;
-  padding: 15px;
-  height: auto;
-}
-.product-column-narbar a{
-  text-decoration: none;
-  opacity: 0.8;
-  color: #fff;
-}
-.product-column-narbar a:hover{
-  opacity: 1;
-}
 .box-content-center{
   width: 70%;
   margin-right: auto;
@@ -172,8 +141,26 @@ include('../../includes/navbar.php');
       }
       $price = $row["price"];
       $images = $row["images"];
+
+
       $type = $row["type"];
-      if ($row["brand"]!=NULL){
+     
+
+      if ($type == 1){
+        $s_type = $LANG_store_surfboard;
+         $s_backlink = 'surf-board';
+      }else if ($type == 2){
+       $s_type = $LANG_store_skateboard;
+       $s_backlink = 'skate-board';
+     }else if ($type == 3){
+       $s_type = $LANG_store_clothes;
+        $s_backlink = 'clothes';
+     }else if ($type == 4){
+       $s_type = $LANG_store_orther;
+       $s_backlink = 'other';
+     }
+
+     if ($row["brand"]!=NULL){
        $brand = $row["brand"];
      }else{
       $brand='';
@@ -187,10 +174,10 @@ include('../../includes/navbar.php');
       //Xử lý mảng list-images
       $array = explode(',',$list_images);
     }
+    //BREAKCRUMB
     echo '
     <div class="product-row-navbar">
-    <div class="product-column-narbar"><a href="../">Home</a> / <a href="./">Store</a> / <a href="" style="color: #f27474;">'.$store_name.'</a></div>
-
+    <div class="product-column-narbar"><a href="../">Home</a> / <a href="./">Store</a> / <a href="../'.$s_backlink.'">'. $s_type.'</a> / <a href="" style="color: #f27474;">'.$store_name.'</a></div>
     </div>
 
     <div class="product-row">

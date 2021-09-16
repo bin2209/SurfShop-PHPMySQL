@@ -31,9 +31,10 @@ $LANG_recover_button ='Xác nhận';
 $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
 // STORE
 $LANG_store_surfboard ='Ván lướt sóng';
+$LANG_store_surf ='Đồ lướt sóng';
 $LANG_store_skateboard ='Ván trượt';
-$LANG_store_clother ='Áo quần';
-$LANG_store_orther ='Khác';
+$LANG_store_clothes ='Áo quần';
+$LANG_store_other ='Khác';
 // SERVICES
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
 $LANG_services_title2 ='Sửa Ván Luót Sóng';

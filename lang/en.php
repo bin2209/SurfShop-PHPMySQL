@@ -31,9 +31,10 @@ $LANG_recover_button ='Submit Reset';
 $LANG_recover_back ='Cancel and go back to Login page';
 // STORE
 $LANG_store_surfboard ='Surf Board';
+$LANG_store_surf ='Surf';
 $LANG_store_skateboard ='Skate Board';
-$LANG_store_clother ='Clother';
-$LANG_store_orther ='Orther';
+$LANG_store_clothes ='Clothes';
+$LANG_store_other ='Other';
 // SERVICES
 $LANG_services_title1 ='Custom Surf Boards';
 $LANG_services_title2 ='Repairs';

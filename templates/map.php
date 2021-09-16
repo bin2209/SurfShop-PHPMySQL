@@ -1,4 +1,4 @@
-<style type="text/css">.desktop-map{opacity: .56;} .mobile-map a{color: #ffffff !important;}</style>
+<style type="text/css">.desktop-map a{opacity: 1 !important; color: #ffffff !important;} .mobile-map a{color: #ffffff !important;}</style>
 
 <div id="windy"></div>
 <div class="thanks-windy">
