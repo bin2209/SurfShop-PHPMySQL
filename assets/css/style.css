@@ -89,7 +89,7 @@ p{
 /*menu*/
 .wrapper{
   display: none;
-  z-index:4;
+  z-index:6;
   position: fixed;
   top: 0;
   left: 0;
@@ -383,7 +383,7 @@ p{
 .wrapper i{
   color: #afafaf;
   position: absolute;
-  top: 9%;
+  top: 11%;
   left: 10%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);

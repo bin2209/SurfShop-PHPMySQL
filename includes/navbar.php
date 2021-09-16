@@ -62,7 +62,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 <input type="checkbox" id="active">
 
 <!-- Menu-content -->
-<div class="wrapper">
+<div class="wrapper" onclick="var closewrapper = document.getElementsByClassName('menu-btn menu mobile'); for (var i=0;i<closewrapper.length;i+=1){ closewrapper [i].click(); }">
 	<ul>
 		<li class="search-box"><i class="fas fa-search"></i>
 			<form id="search" action="search.php" method="get">
