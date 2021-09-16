@@ -4,6 +4,48 @@ $title = 'Services';
 include('../../includes/header.php'); 
 include('../../includes/navbar.php');
 ?>
+<link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.theme.default.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+
+ <style type="text/css">
+   .carousel-wrap {
+  margin: 90px auto;
+  padding: 0 5%;
+  width: 80%;
+  position: relative;
+}
+
+/* fix blank or flashing items on carousel */
+.owl-carousel .item {
+  position: relative;
+  z-index: 100; 
+  -webkit-backface-visibility: hidden; 
+}
+
+/* end fix */
+.owl-nav > div {
+  margin-top: -26px;
+  position: absolute;
+  top: 50%;
+  color: #cdcbcd;
+}
+
+.owl-nav i {
+  font-size: 52px;
+}
+
+.owl-nav .owl-prev {
+  left: -30px;
+}
+
+.owl-nav .owl-next {
+  right: -30px;
+}
+ </style>
+
 <style type="text/css">.desktop-services{opacity: .56;} .mobile-services a{color: #ffffff !important;}</style>
 <style type="text/css">
 .store{
@@ -57,7 +99,7 @@ include('../../includes/navbar.php');
   text-align: left;
   float: left;
   width: 50%;
-  min-width: 500px;
+  /*min-width: 500px;*/
 }
 .column img{
  max-height: 600px;
@@ -144,19 +186,19 @@ include('../../includes/navbar.php');
 
 
       $type = $row["type"];
-     
+
 
       if ($type == 1){
         $s_type = $LANG_store_surfboard;
-         $s_backlink = 'surf-board';
+        $s_backlink = 'surf-board';
       }else if ($type == 2){
        $s_type = $LANG_store_skateboard;
        $s_backlink = 'skate-board';
      }else if ($type == 3){
        $s_type = $LANG_store_clothes;
-        $s_backlink = 'clothes';
+       $s_backlink = 'clothes';
      }else if ($type == 4){
-       $s_type = $LANG_store_orther;
+       $s_type = $LANG_store_other;
        $s_backlink = 'other';
      }
 
@@ -242,11 +284,11 @@ include('../../includes/navbar.php');
     flex-wrap: nowrap;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
     flex-direction: row;
   }
 </style>
-<div class="row-same-product">
+<div class="">
+<div class="owl-carousel">
   <?php
   $sql = "SELECT * FROM store where type=".$type;
   $result = $conn->query($sql);
@@ -264,22 +306,52 @@ include('../../includes/navbar.php');
     $price = $row["price"];
     if ($id != $_GET['id']){
       echo '
-      <div class="column">
-      <a href="/store/'.$id.'" data-handle="" >
-      <div class="background-blur product">
-      <img class="content-center" src="../upload/'.$images.'"/>
-      </div>
-      </a>
-      <div class="product-info">
-      <p>'.$description.'</p>
-      <p>'.$price.'</p>
-      </div>
+      <div class="item">
+      
+        <div class="background-blur product">
+        <img class="content-center" src="../upload/'.$images.'"/>
+        </div>
+        <a href="/store/'.$id.'" data-handle="" >
+        <div class="product-info">
+        <p>'.$description.'</p>
+        <p>'.$price.'</p>
+        </div>
+        </a>  
       </div>
       ';}
     }
     ?>
   </div>
+  </div>
 </section>
+
+<script type="text/javascript">
+ $('.owl-carousel').owlCarousel({
+
+  loop: true,
+  margin: 10,
+  // nav: true,
+  // navText: [
+  //   "<i class='fa fa-caret-left'></i>",
+  //   "<i class='fa fa-caret-right'></i>"
+  // ],
+  autoplay: true,
+  autoplayHoverPause: true,
+  responsive: {
+    0: {
+      items: 2
+    },
+    600: {
+      items: 3
+    },
+    1000: {
+      items: 5
+    }
+  }
+})
+</script>
+
+
 
 <?php include('../../includes/footer.php'); ?>
 
