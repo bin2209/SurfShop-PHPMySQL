@@ -40,7 +40,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 							<?php if (isset($_GET['error'])) { ?>
 								<div class="alert alert-danger" role="alert"><?=htmlspecialchars($_GET['error'])?></div>
 							<?php } ?>
-							<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signin; ?>">
+							<button class="btn-signin-submit" type="submit" ><?php echo $LANG_signin; ?></button>
 							<a href="javascript:void(0)" class="btn-reset btn-fade"><?php echo $LANG_recover_pass; ?> <i class="fa fa-long-arrow-right"
 								aria-hidden="true"></i></a>
 
@@ -110,7 +110,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 									<?php if (!isset($google_login)&&isset($_GET['signup-error'])) { ?>
 										<div class="alert alert-danger" role="alert"><?=htmlspecialchars($_GET['signup-error'])?></div>
 									<?php } ?>
-									<input class="btn-signin-submit" type="submit" value="<?php echo $LANG_signup; ?>">
+									<button class="btn-signin-submit" type="submit" ><?php echo $LANG_signup; ?></button>
 
 
 								</form>

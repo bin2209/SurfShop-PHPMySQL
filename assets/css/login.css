@@ -96,6 +96,7 @@
  }
 
  .sign-panels {
+ 	font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
  	position: relative;
  	top: 15px;
  	max-width: 350px;
@@ -111,7 +112,7 @@
 
 
  .title {
- 	color: #131417;
+ 	color: #5f5f5f;
  }
 
  .title span {
@@ -353,6 +354,7 @@
 		height: 50px;
 	}
 	span.buttonText {
+		font-family: 'MONTSERRAT';
 		display: inline-block;
 		vertical-align: middle;
 		padding-right: 42px;
