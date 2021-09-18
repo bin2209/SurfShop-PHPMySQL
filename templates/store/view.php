@@ -8,44 +8,6 @@ include('../../includes/navbar.php');
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.theme.default.min.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-
-
- <style type="text/css">
-   .carousel-wrap {
-  margin: 90px auto;
-  padding: 0 5%;
-  width: 80%;
-  position: relative;
-}
-
-/* fix blank or flashing items on carousel */
-.owl-carousel .item {
-  position: relative;
-  z-index: 100; 
-  -webkit-backface-visibility: hidden; 
-}
-
-/* end fix */
-.owl-nav > div {
-  margin-top: -26px;
-  position: absolute;
-  top: 50%;
-  color: #cdcbcd;
-}
-
-.owl-nav i {
-  font-size: 52px;
-}
-
-.owl-nav .owl-prev {
-  left: -30px;
-}
-
-.owl-nav .owl-next {
-  right: -30px;
-}
- </style>
-
 <style type="text/css">.desktop-services{opacity: .56;} .mobile-services a{color: #ffffff !important;}</style>
 <style type="text/css">
 .store{
@@ -156,6 +118,7 @@ include('../../includes/navbar.php');
   border-radius: 4px;
   font-size: 20px;
 }
+
 @media only screen and (max-width: 1120px) {
   /*VIEW PRODUCTS*/
   .product-row .column-right{
@@ -163,6 +126,24 @@ include('../../includes/navbar.php');
     width: 100% !important;
   }
 }
+.row-same-product{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+  }
+  .product{
+    max-width: 280px;
+  }
 </style>
 <section class=" store content-center">
 
@@ -185,19 +166,19 @@ include('../../includes/navbar.php');
       $images = $row["images"];
 
 
-      $type = $row["type"];
+      $category = $row["category"];
 
 
-      if ($type == 1){
-        $s_type = $LANG_store_surfboard;
-        $s_backlink = 'surf-board';
-      }else if ($type == 2){
-       $s_type = $LANG_store_skateboard;
-       $s_backlink = 'skate-board';
-     }else if ($type == 3){
+      if ($category == 1){
+        $s_type = $LANG_store_surf;
+        $s_backlink = 'surf';
+      }else if ($category == 2){
+       $s_type = $LANG_store_skate;
+       $s_backlink = 'skate';
+     }else if ($category == 3){
        $s_type = $LANG_store_clothes;
        $s_backlink = 'clothes';
-     }else if ($type == 4){
+     }else if ($category == 4){
        $s_type = $LANG_store_other;
        $s_backlink = 'other';
      }
@@ -270,27 +251,10 @@ include('../../includes/navbar.php');
 </div>
 </section>
 <section class="content-center" style="background: #ffffff;  padding: 2em;">
-  <style type="text/css">
-  .row-same-product{
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: nowrap;
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: row;
-  }
-</style>
-<div class="">
+<div class="" style="padding: 0 1em;">
 <div class="owl-carousel">
   <?php
-  $sql = "SELECT * FROM store where type=".$type;
+  $sql = "SELECT * FROM store where category=".$category;
   $result = $conn->query($sql);
   foreach ($result as $row) {
     $id = $row["id"];
@@ -324,18 +288,42 @@ include('../../includes/navbar.php');
   </div>
   </div>
 </section>
+<style type="text/css">
+
+.owl-nav{
+  bottom: 9em;
+    position: relative;
+    margin: -1.8em;
+    color: #00000077;
+}
+.owl-nav:hover{
+  color: black;
+}
+  .owl-prev{
+    float: left;
+  }
+  .owl-next{
+    float: right;
+  }
+</style>
 
 <script type="text/javascript">
  $('.owl-carousel').owlCarousel({
-
   loop: true,
+ 
   margin: 10,
-  // nav: true,
-  // navText: [
-  //   "<i class='fa fa-caret-left'></i>",
-  //   "<i class='fa fa-caret-right'></i>"
-  // ],
+  nav: true,
+  slideSpeed: 10,
+  navText: [
+    '<i class="fas fa-chevron-left" style="font-size: 40px;"></i>',
+    '<i class="fas fa-chevron-right" style="font-size: 40px;"></i>'
+  ],
+
   autoplay: true,
+  pagination : true,
+paginationSpeed : 200,
+  slideSpeed : 300,
+  autoplaySpeed:300,
   autoplayHoverPause: true,
   responsive: {
     0: {

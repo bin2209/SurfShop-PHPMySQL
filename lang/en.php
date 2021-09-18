@@ -33,6 +33,7 @@ $LANG_recover_back ='Cancel and go back to Login page';
 $LANG_store_surfboard ='Surf Board';
 $LANG_store_surf ='Surf';
 $LANG_store_skateboard ='Skate Board';
+$LANG_store_skate='Skate';
 $LANG_store_clothes ='Clothes';
 $LANG_store_other ='Other';
 // SERVICES

@@ -624,8 +624,8 @@ section{
 .column {
   min-width: 300px;
   float: left;
-  width: 25%;
-  padding: 15px;
+  width: 26%;
+  /*padding: 15px;*/
   height: auto;
 }
 .column img{
@@ -982,7 +982,7 @@ footer hr{
   width: 100%;
   color: #dedede;
   background: #f1f1f117;
-  justify-content: left;
+  justify-content: center;
 }
 .product-column-narbar{
 

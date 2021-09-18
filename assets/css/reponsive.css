@@ -31,12 +31,33 @@
 	.store-row-navbar{
 		width: 85%;
 	}
+	.column{
+		min-width: 163px;
+		float: left;
+		width: 25%;
+		padding: 0px; 
+		height: auto;
+	}
+}
+@media only screen and (max-width: 825px) {
+	.column{
+		float: left;
+		width: 25%;
+		padding: 0px; 
+		height: auto;
+	}
+	.product{
+		margin: 12px;
+	}
+	.row{
+		width: 100%;
+	}
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 
-	
+
 	.desktop{
 		display: none !important;
 	}
@@ -46,6 +67,7 @@
 	.store-row-navbar{
 		width: 80% !important;
 	}
+
 }
 
 /* Medium devices (landscape tablets, 768px and up) */

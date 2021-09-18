@@ -3,7 +3,7 @@ include('includes/header.php');
 echo '  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 
 
-include("../login/db_conn.php");
+include("../core/db_conn.php");
 session_start();
 if(!isset($_SESSION['user_id'])){
 

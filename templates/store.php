@@ -34,14 +34,12 @@
   opacity: 0.8;
   color: #fff;
 }
-
-
 .left-navbar{
- display: none;
+ display: block;
  z-index: 3;
  position: fixed;
  float: left;
- top: 0;
+ top: 48px;
  left: 0;
  height: 100vh;
  width: 300px;
@@ -49,16 +47,11 @@
  -webkit-backdrop-filter: blur(10px);
  background: rgba(0,0,0,.8);
 }
-
 .left-navbar dl {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  list-style: none;
-  text-align: center;
+ position: relative;
+ top: 2%;
+ left: 23%;
+ list-style: none;
 }
 .left-navbar a{
   color: #fff;
@@ -85,10 +78,9 @@
 .left-navbar dd a{
   font-size: 15px;
 }
-
 .close-slidebar{
  position: absolute;
- top: 50%;
+ top: 45%;
  border: 0px solid;
  border-radius: 50%;
  background: #323233;
@@ -100,24 +92,24 @@
  position: relative;
  font-size: 40px;
  top: 4px;
- right: 2px;
+ right: -12px;
  color: white;
 }
-#open-slidebar i{
-  position: relative;
-  top: 4px;
-  left: 2px;
-  font-size: 40px;
-  color: white;
+#open-slidebar,#open-slidebar-mobile i{
+      position: relative;
+    top: 14px;
+    left: 0px;
+    font-size: 22px;
+    color: white;
 }
-.close-slidebar, #open-slidebar i:hover{
+.close-slidebar, #open-slidebar,#open-slidebar-mobile i:hover{
   cursor: pointer;
 }
-#open-slidebar{
+#open-slidebar,#open-slidebar-mobile{
   z-index: 5;
   left: 12px;
   position: fixed;
-  display: block;
+  display: none;
   top: 50%;
   border: 0px solid;
   border-radius: 50%;
@@ -131,100 +123,108 @@
   background: #1f1f1f;
 }
 @media only screen and (max-width: 992px) {
+  .left-navbar dl{
+        left: 38%;
+  }
+  .close-slidebar i{
+        top: -44px;
+  }
   .left-navbar{
     width: 100% !important;
   }
+  .left-navbar{
+    display: none;
+  }
+  #open-slidebar{
+    display: none !important;
+  }
+  #open-slidebar-mobile{
+    display: block;
+  }
+
+  #Slidebar{
+    top: 48px;
+  }
+  #open-slidebar-mobile{
+   display: none;
+   z-index: 5;
+   left: 88%;
+   position: fixed;
+   display: block;
+   top: 50%;
+   border: 0px solid;
+   border-radius: 50%;
+   background: #424243;
+   height: 50px;
+   width: 50px;
+ }
 }
 </style>
-<section class="store content-center">
-
-
-
+<div>
   <div id="Slidebar" class="left-navbar">
    <dl>
-    <dt class="left-navbar-surf"><a href="/surf-board">SURF</a></dt>
-    <dd><a href="/surf-board">BOARD</a></dd>
-    <dd><a href="/surf-board">FINS</a></dd>
-    <dd><a href="/surf-board">LEACHES</a></dd>
-    <dd><a href="/surf-board">TRACTIONS</a></dd>
-
-    <dt class="left-navbar-skate"><a href="/skate-board">SKATE</a></dt>
-    <dd><a href="/surf-board">DECKS</a></dd>
-    <dd><a href="/surf-board">TRUCKS</a></dd>
-    <dd><a href="/surf-board">WHEELS</a></dd>
-    <dd><a href="/surf-board">GRIPS</a></dd>
-    <dd><a href="/surf-board">BREARINGS</a></dd>
-    <dd><a href="/surf-board">HARDWARES</a></dd>
-
-    <dt class="left-navbar-clothes"><a href="/clothes">CLOTHES</a></dt>
-    <dd><a href="/surf-board">SHIRTS</a></dd>
-    <dd><a href="/surf-board">PANTS</a></dd>
-    <dd><a href="/surf-board">SHORTS</a></dd>
-    <dd><a href="/surf-board">JACKETS</a></dd>
-    <dd><a href="/surf-board">DRESSES</a></dd>
-    <dd><a href="/surf-board">SHOES</a></dd>
-    <dd><a href="/surf-board">BAGS</a></dd>
-    <dd><a href="/surf-board">SWIMWEARS</a></dd>
-    <dd><a href="/surf-board">WETSUITS</a></dd>
-
-    <dt class="left-navbar-other"><a href="/other">OTHER</a></dt>
-    <dd><a href="/surf-board">SUNCLASSES</a></dd>
-    <dd><a href="/surf-board">SUNSCREEN</a></dd>
-
+    <div class="column-category">
+      <dt class="left-navbar-surf"><a href="/surf">SURF</a></dt>
+      <dd class="surf1"><a href="/surf/board">BOARD</a></dd>
+      <dd class="surf2"><a href="/surf/fins">FINS</a></dd>
+      <dd class="surf3"><a href="/surf/leaches">LEACHES</a></dd>
+      <dd class="surf4"><a href="/surf/tractions">TRACTIONS</a></dd>
+    </div>
+    <div class="column-category">
+      <dt class="left-navbar-skate"><a href="/skate">SKATE</a></dt>
+      <dd class="skate1"><a href="/skate/board">BOARD</a></dd>
+      <dd class="skate2"><a href="/skate/decks">DECKS</a></dd>
+      <dd class="skate3"><a href="/skate/trucks">TRUCKS</a></dd>
+      <dd class="skate4"><a href="/skate/wheels">WHEELS</a></dd>
+      <dd class="skate5"><a href="/skate/grips">GRIPS</a></dd>
+      <dd class="skate6"><a href="/skate/brearings">BREARINGS</a></dd>
+      <dd class="skate7"><a href="/skate/hardwares">HARDWARES</a></dd>
+    </div>
+    <div class="column-category">
+      <dt class="left-navbar-clothes"><a href="/clothes">CLOTHES</a></dt>
+      <dd class="clothes1"><a href="/clothes/shirts">SHIRTS</a></dd>
+      <dd class="clothes2"><a href="/clothes/pants">PANTS</a></dd>
+      <dd class="clothes3"><a href="/clothes/shorts">SHORTS</a></dd>
+      <dd class="clothes4"><a href="/clothes/jackets">JACKETS</a></dd>
+      <dd class="clothes5"><a href="/clothes/dresses">DRESSES</a></dd>
+      <dd class="clothes6"><a href="/clothes/shoes">SHOES</a></dd>
+      <dd class="clothes7"><a href="/clothes/bags">BAGS</a></dd>
+      <dd class="clothes8"><a href="/clothes/swimwears">SWIMWEARS</a></dd>
+      <dd class="clothes9"><a href="/clothes/wetsuits">WETSUITS</a></dd>
+    </div>
+    <div class="column-category">
+      <dt class="left-navbar-other"><a href="/other">OTHER</a></dt>
+      <dd class="other1"><a href="/other/sunglasses">SUN GLASSES</a></dd>
+      <dd class="other2"><a href="/other/sunscreen">SUN SCREEN</a></dd>
+    </div>
   </dl>
   <span class="close-slidebar" onclick="slidebar_close()"><i class="fas fa-angle-left"></i></span>
-
-
 </div>
-<span id="open-slidebar" onclick="slidebar_open()"><i class="fas fa-angle-right"></i></span>
-<script type="text/javascript">
-  function slidebar_open() {
-    document.getElementById("Slidebar").style.display = "block";
-    document.getElementById("open-slidebar").style.display = "none";
-  }
+<section class="store content-center">
 
-  function slidebar_close() {
-    document.getElementById("open-slidebar").style.display = "block";
-    document.getElementById("Slidebar").style.display = "none";
-  }
-</script>
+  <span id="open-slidebar" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
+  <span id="open-slidebar-mobile" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
 
 
-<div class="row">
   <?php
   $kihieu_store= '';
   // STORE VIEW || BREAKCRUMB
-  if (isset($_GET['view'])){
+  if (isset($_GET['category'])){
+    $category = $_GET['category'];
+    if (isset($_GET['type'])){
+      $type = $_GET['type'];
+    }
+  }
 
-    $view = $_GET['view'];
-    if ($view == 'surf-board'){
-      $s_view = $LANG_store_surf;
-      $s_backlink = 'surf-board';
-    }else if ($view == 'skate-board'){
-     $s_view = $LANG_store_skateboard;
-     $s_backlink = 'skate-board';
-   }else if ($view == 'clothes'){
-     $s_view = $LANG_store_clothes;
-     $s_backlink = 'clothes';
-   }else if ($view == 'other'){
-     $s_view = $LANG_store_other;
-     $s_backlink = 'other';
-   }
- }else{
-  $s_view = '';
-  $s_backlink = '';
-  $s_storeBacklink = '<a href="" style="color: #f27474;">'.$LANG_store.'</a>';
-}
+// FUNCTION
+  function print_product_store($sql,$conn){
+   echo '<div class="row">';
+   $result = $conn->prepare($sql);
+   $result->execute();
+ // $count = $result->rowCount();
+ // echo $count;
 
-if (!isset($s_storeBacklink)) {
- $s_storeBacklink = '<a href="/store">'.$LANG_store.'</a>';
- $kihieu_store = '/';
-}
-
-
-function print_product_store($sql,$conn){
-  $result = $conn->query($sql);
-  foreach ($result as $row) {
+   foreach ($result as $row) {
     $id = $row["id"];
     $images = $row["images"];
     $name = $row["name"];
@@ -234,85 +234,197 @@ function print_product_store($sql,$conn){
     }else{
       $description = $row["description-vi"];
     }
-
     $price = $row["price"];
     echo '  <div class="column">
-
     <a href="/store/'.$id.'" data-handle="" >
     <div class="background-blur product">
     <img class="content-center" src="../upload/'.$images.'"/>
     </div>
     </a>
-
-
     <div class="product-info">
     <p>'.$description.'</p>
     <p>'.$price.'</p>
     </div>
-
     </div>';
   }
+  echo '</div>';
 }
 
 
 
-echo '
-<!-- BREAKCRUMB -->
-<div class="column" style="width:80%;">
-<div class="product-row-navbar">
-<div class="product-column-narbar"><a href="../">Home</a> / <a href="/store">'.$s_storeBacklink.'</a> '.$kihieu_store.' <a href="" style="color: #f27474;">'.$s_view.'</a></div>
-</div>
-</div>
-';
 
-if (isset($view) && $view=='surf-board'){
+
+if (isset($category) && $category=='surf'){
   echo '<style>.left-navbar-surf a{ color:#fff !important; opacity: 1 !important}</style>';
-  ?>
-  <?php
-  $sql = "SELECT * FROM store where type=1";
+  if (isset($type)){
+    if ($type=='board'){
+     echo '<style>.surf1 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=1 && type=1";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='fins') {
+    echo '<style>.surf2 a{ color:#fff !important; opacity: 1 !important}</style>';
+    $sql = "SELECT * FROM store where category=1 && type=2";
+    print_product_store($sql,$conn);
+  }
+  if ($type=='leaches') {
+    echo '<style>.surf3 a{ color:#fff !important; opacity: 1 !important}</style>';
+    $sql = "SELECT * FROM store where category=1 && type=3";
+    print_product_store($sql,$conn);
+  }
+  if ($type=='tractions') {
+    echo '<style>.surf4 a{ color:#fff !important; opacity: 1 !important}</style>';
+    $sql = "SELECT * FROM store where category=1 && type=4";
+    print_product_store($sql,$conn);
+  }
+}else{
+  $sql = "SELECT * FROM store where category=1";
   print_product_store($sql,$conn);
-  ?>
-</div>
+}
+}
 
-<?php }else if(isset($view) && $view == 'skate-board'){
+if(isset($category) && $category == 'skate'){
   echo '<style>.left-navbar-skate a{ color:#fff !important; opacity: 1 !important}</style>';
-  ?>
-  <div class="row">
-    <?php
-    $sql = "SELECT * FROM store where type=2";
-    print_product_store($sql,$conn);
-    ?>
-  </div>
+  if (isset($type)){
+    if ($type=='board'){
+     echo '<style>.skate1 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=1";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='decks') {
+     echo '<style>.skate2 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=2";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='trucks') {
+     echo '<style>.skate3 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=3";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='wheels') {
+     echo '<style>.skate4 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=4";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='grips') {
+     echo '<style>.skate5 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=5";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='brearings') {
+     echo '<style>.skate6 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=6";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='hardwares') {
+     echo '<style>.skate7 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=2 && type=7";
+     print_product_store($sql,$conn);
+   }
+ }else{
+   $sql = "SELECT * FROM store where category=2";
+   print_product_store($sql,$conn);
+ }
+}
 
-<?php }else if(isset($view) &&  $view == 'clothes'){
+if(isset($category) &&  $category == 'clothes'){
   echo '<style>.left-navbar-clothes a{ color:#fff !important; opacity: 1 !important}</style>';
-  ?>
-  <div class="row">
-    <?php
-    $sql = "SELECT * FROM store where type=3";
-    print_product_store($sql,$conn);
-    ?>
-  </div>
-<?php }else if(isset($view) && $view == 'other'){
- echo '<style>.left-navbar-other a{ color:#fff !important; opacity: 1 !important}</style>';
- ?>
- <div class="row">
-  <?php
-  $sql = 'SELECT * FROM `store` WHERE type = 4';
-  print_product_store($sql,$conn);
-  ?>
-</div>
-<?php }else if(!isset($view)){
- ?>
- <div class="row">
-  <?php
-  $sql = 'SELECT * FROM `store` WHERE 1';
-  print_product_store($sql,$conn);
-  
-  
-  ?>
-</div>
-<?php }
-?>
+  if (isset($type)){
+   if ($type=='shirts'){
+     echo '<style>.clothes1 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=1";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='pants'){
+     echo '<style>.clothes2 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=2";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='shorts'){
+     echo '<style>.clothes3 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=3";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='jackets'){
+     echo '<style>.clothes4 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=4";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='dresses'){
+     echo '<style>.clothes5 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=5";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='shoes'){
+     echo '<style>.clothes6 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=6";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='bags'){
+     echo '<style>.clothes7 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=7";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='swimwears'){
+     echo '<style>.clothes8 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=8";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='wetsuits'){
+     echo '<style>.clothes9 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=3 && type=9";
+     print_product_store($sql,$conn);
+   }
+ }else{
+   $sql = "SELECT * FROM store where category=3";
+   print_product_store($sql,$conn);
+ }
+}
 
+if(isset($category) && $category == 'other'){
+ echo '<style>.left-navbar-other a{ color:#fff !important; opacity: 1 !important}</style>';
+ if (isset($type)){
+   if ($type=='sunglasses'){
+     echo '<style>.other1 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=4 && type=1";
+     print_product_store($sql,$conn);
+   }
+   if ($type=='sunscreen'){
+     echo '<style>.other2 a{ color:#fff !important; opacity: 1 !important}</style>';
+     $sql = "SELECT * FROM store where category=4 && type=2";
+     print_product_store($sql,$conn);
+   }
+ }else{
+   $sql = "SELECT * FROM store where category=4";
+   print_product_store($sql,$conn);
+ }
+}
+
+if(!isset($category)){
+ $sql = 'SELECT * FROM `store` WHERE 1';
+ print_product_store($sql,$conn);
+}
+
+?>
 </section>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.parent').click(function() {
+      $('.sub-nav').toggleClass('visible');
+    });
+  });
+</script>
+<script type="text/javascript">
+
+  function slidebar_open() {
+    document.getElementById("Slidebar").style.display = "block";
+    document.getElementById("open-slidebar").style.display = "none";
+    document.getElementById("open-slidebar-mobile").style.display = "none";
+  }
+  function slidebar_close() {
+    document.getElementById("open-slidebar").style.display = "block";
+    document.getElementById("Slidebar").style.display = "none";
+     document.getElementById("open-slidebar-mobile").style.display = "block";
+  }
+</script>
