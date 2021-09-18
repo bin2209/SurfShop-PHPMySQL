@@ -96,11 +96,11 @@
  color: white;
 }
 #open-slidebar,#open-slidebar-mobile i{
-      position: relative;
-    top: 14px;
-    left: 0px;
-    font-size: 22px;
-    color: white;
+  position: relative;
+  top: 14px;
+  left: 0px;
+  font-size: 22px;
+  color: white;
 }
 .close-slidebar, #open-slidebar,#open-slidebar-mobile i:hover{
   cursor: pointer;
@@ -122,12 +122,19 @@
   float: left;
   background: #1f1f1f;
 }
+.row{
+  margin-right: 1px;
+}
+/*MOBILE VER STORE VIEW*/
 @media only screen and (max-width: 992px) {
+  .close-slidebar{
+    background: transparent;
+  }
   .left-navbar dl{
-        left: 38%;
+    left: 38%;
   }
   .close-slidebar i{
-        top: -44px;
+    top: -44px;
   }
   .left-navbar{
     width: 100% !important;
@@ -157,6 +164,9 @@
    background: #424243;
    height: 50px;
    width: 50px;
+ }
+ .row{
+      margin-right: auto !important ;
  }
 }
 </style>
@@ -421,10 +431,12 @@ if(!isset($category)){
     document.getElementById("Slidebar").style.display = "block";
     document.getElementById("open-slidebar").style.display = "none";
     document.getElementById("open-slidebar-mobile").style.display = "none";
+    document.getElementsByClassName("row")[0].style.marginRight = "1px";
   }
   function slidebar_close() {
+    document.getElementsByClassName("row")[0].style.marginRight = "auto";
     document.getElementById("open-slidebar").style.display = "block";
     document.getElementById("Slidebar").style.display = "none";
-     document.getElementById("open-slidebar-mobile").style.display = "block";
+    document.getElementById("open-slidebar-mobile").style.display = "block";
   }
 </script>
