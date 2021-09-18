@@ -19,17 +19,13 @@ require_once $direct2.'classes/set_language_cookie.php';
 <nav class="globalbar">
 	<?php
 	if(!isset($_SESSION['user_email'])){
-		// CHƯA ĐĂNG NHẬP
+		// CHƯA ĐĂNG NHẬP // MOBILE
 		echo '
-		<label class="bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></label>';
-		echo '	
-		<div id="Dropdownmenu" class="dropdown-content ">
-		<a href="/login"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_signin.'</p></a>
-		</div>';
+		<label class="bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><img class="dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: -10px;"></label>';
 	} else {
-		// ĐÃ ĐĂNG NHẬP
+		// ĐÃ ĐĂNG NHẬP // MOBILE
 		echo '
-		<label class="bag menu dropmenubtn mobile"><i class="fas fa-caret-down dropmenubtn" style="font-size: 20px; position: relative; top: 1px;" onclick="Dropdown()"></i></label>';
+		<label class="bag menu dropmenubtn mobile"><img class="dropmenubtn" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: -10px;"></label>';
 		echo '	
 		<div id="Dropdownmenu" class="dropdown-content ">
 		<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>Account</p></a>
@@ -46,11 +42,11 @@ require_once $direct2.'classes/set_language_cookie.php';
 			<li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
 			<li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
 			<?php 	if(!isset($_SESSION['user_email'])){
-				// CHƯA ĐĂNG NHẬP 
-				echo '<li><a href="'.$_DOMAIN.'/login.php"><i class="fas fa-sign-in-alt" style="font-size: 20px; position: relative; top: 1px;"></i></a></li>';
+				// CHƯA ĐĂNG NHẬP // PC
+				echo '<li><a href="'.$_DOMAIN.'/login.php"><img src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
 			}else {
-				// ĐÃ ĐĂNG NHẬP
-				echo '<li><i class="fas fa-caret-down dropmenubtn" style="font-size: 20px; position: relative; top: 1px;" onclick="Dropdown()"></i></li>';
+				// ĐÃ ĐĂNG NHẬP // PC
+				echo '<li><img class="dropmenubtn" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></li>';
 			}
 			?>
 		</ul>
@@ -82,6 +78,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 			/* When the user clicks on the button, 
 			toggle between hiding and showing the dropdown content */
 			function Dropdown() {
+				console.log("dropdown")
 				document.getElementById("Dropdownmenu").classList.toggle("show");
 			}
 
