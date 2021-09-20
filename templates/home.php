@@ -59,9 +59,14 @@ $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 				$price = 'FREE';
 			}
 
-			echo '<div class="column product">';
-			echo '<img class="content-center" src="../upload/'.$images.'"/>';
-			echo '</div>';
+			echo '<div class="column">
+				<a href="/store/'.$id.'" data-handle="">
+				    <div class="background-blur product">
+						<img class="content-center" src="../upload/'.$images.'"/>
+					</div>
+				</a>
+			 </div>
+			';
 		}
 		?>
 	</div>

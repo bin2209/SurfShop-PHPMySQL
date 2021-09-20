@@ -271,16 +271,16 @@ include('../../includes/navbar.php');
     if ($id != $_GET['id']){
       echo '
       <div class="item">
-      
-        <div class="background-blur product">
-        <img class="content-center" src="../upload/'.$images.'"/>
-        </div>
-        <a href="/store/'.$id.'" data-handle="" >
+       <a href="/store/'.$id.'" data-handle="" >
+          <div class="background-blur product">
+            <img class="content-center" src="../upload/'.$images.'"/>
+          </div>
+        </a>  
         <div class="product-info">
-        <p>'.$description.'</p>
+        <p>'.$name.'</p>
         <p>'.$price.'</p>
         </div>
-        </a>  
+       
       </div>
       ';}
     }

@@ -11,7 +11,8 @@ if (!isset($_SESSION['user_email'])){
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
 	?>
-	<?php  // LẤY USER DATA
+	<?php  
+	// LẤY USER DATA
 	$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 	$stmt->execute([$_SESSION['user_email']]);
 	if ($stmt->rowCount() === 1) {
@@ -24,8 +25,26 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		$user_about = $user['about'];
 		$user_password = $user['password'];
 	}
-	?>
 
+	// KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
+	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
+	$stmt->execute([$_SESSION['user_email']]);
+	if ($stmt->rowCount() === 0) {
+		$sql = "INSERT INTO bag(id, email, item_id) VALUES (0,'$user_email','')";
+		$stmt=$conn->prepare($sql);
+		$result = $stmt->execute();
+	}
+
+	// LẤY BAG DATA
+	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
+	$stmt->execute([$_SESSION['user_email']]);
+	if ($stmt->rowCount() === 1) {
+		$bag = $stmt->fetch();
+		$bag_item = $bag['item_id'];
+	}
+	
+	?>
+	<link href="../assets/css/bag.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
 	<section class=" store content-center" style="padding-top: 5em;">
 		<div class="background-content">
@@ -54,147 +73,34 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 
 			
 			
-			<h3 class="h3-dark content-center" style="font-size:20px; font-weight:bold;padding-top:1.5em; width: auto;">Your Order</h3>
+			<h3 class="h3-dark content-center" style="font-size:20px; font-weight:bold;padding-top:1.5em; width: auto;"><?php echo $LANG_bag; ?></h3>
 			
 			<div class="order">
-				<span class="order-span"></span>
+				<?php
+
+				if ($bag_item==''){
+					echo '<span class="order-empty">Your bag is empty.</span>';
+				}else{
+					$bag_item = explode(',',$bag_item);
+					foreach ($bag_item as $item) {
+						$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
+						$stmt->execute(array($item));
+						if ($stmt->rowCount() === 1) {
+							$item = $stmt->fetch();
+							$item_images = $item["images"];
+							$item_name = $item["name"];
+							$item_price = $item["price"];
+						}
+						echo '<div class="list-item"><img  src="../upload/'.$item_images.'"/><h1><a href="">'.$item_name.'</a></h1>|<p>'.$item_price.'</p></div>';
+					}
+				}
+				?>
+
 			</div>
 
 
 		</div> <!--  // backgound content -->
-		<style type="text/css">
-		section{
-			background: #f0f2f5 !important;
-		}
-		hr{
-			width: 40%;
-			max-width: 400px;
-		}
-		.change-profile, .change-password {
-			letter-spacing: -0.016em;
-			text-align: center ;
-			margin-right: auto;
-			margin-left: auto;
-		}
-		.change-profile label{
-			position: relative;
-			left: 10%;
-			float: left;
-			font-size: 16px;
-			font-weight: 600;
-		}
-		.change-profile input,textarea{
-			width: 65%;
-			min-width: 222px;
-			font-size: 16px;
-			position: relative;
-			font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-			color: #191919;
-			display: inline;
-			padding: 10px 20px;
-			border: 1px solid #ccc;
-			margin: 4px;
-			border-radius: 28px;
-		}
-		.change-profile textarea:hover{
-			border-color: dimgray;
-		}
-
-		
-		.change-profile input:hover{
-			border-color: dimgray;
-		}
-
-		
-		.order{
-			margin-top: 1em;
-			width: 40%;
-			min-width: 400px;
-			margin-left: auto;
-			margin-right: auto;
-			background: black;
-		}
-		.background-content{
-			box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-			padding: 10px;
-			border: 0px solid;
-			border-radius: 2em;
-			width: 70%;
-			max-width: 1200px;
-			min-width: 320px;
-			margin-left: auto;
-			background: white;
-			margin-right: auto;
-		}
-		.background-logo{
-			border-radius: 1.5em;
-			background: rgb(0,0,8);
-			background: linear-gradient(0deg, rgba(0,0,8,1) 0%, rgba(3,4,5,0.8911939775910365) 4%, rgba(252,252,252,0) 100%);
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: cover;
-
-		}
-		.cover-img{
-			background: black;
-			width: 60%;
-		}
-		.button-div button{
-			min-width: 200px;
-			padding: 10px 6px;
-			font-size: 16px;
-			border: 0px solid;
-			border-radius: 3px;
-			color: white;
-			font-weight: bold;
-			background: #0071e3;
-			margin: 10px;
-		}
-
-		.button-div button:hover{
-			background: #0077ed;
-		}
-		.button-div button:active{
-			background: #006edb;
-		}
-		.change-profile button{
-			margin-right: auto;
-			margin-left: auto;
-			padding: 10px 33px;
-			font-size: 16px;
-			border: 0px solid;
-			border-radius: 3px;
-			color: white;
-			font-weight: bold;
-			background: #0071e3;
-			margin-top: 10px;
-			width: 40%;
-		}
-		.infomation i{
-			display: inline;
-			font-size: 16px;
-		}
-		.infomation p {
-			display: inline;
-			font-size: 16px;
-			line-height: 1.4;
-		}
-
-		.logo-avt img{
-			position: relative;
-			top: 4em;
-			padding: .25rem;
-			background-color: #f5f6f9;
-			border: 1px solid #dee2e6;
-			max-width: 100%;
-			height: auto;
-			width: 150px;
-			border-radius: 50%;
-		}
-	</style>
-</section>
-
-
+	</section>
 </body>
 <div class="pop-up pop-up-profile">
 	<div class="content">
@@ -251,7 +157,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 
 		if (isset($oldpw) && isset($newpw) && isset($repeatpw)) // check space
 		{	
-		
+
 			if (password_verify($oldpw, $user_password)) {
 				$sql = 'UPDATE `user` SET `password`= "'.$newpw.'" WHERE  id="'.$user_id.'"';
 				$stmt=$conn->prepare($sql);

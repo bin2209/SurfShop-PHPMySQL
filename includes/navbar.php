@@ -26,12 +26,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 		// ĐÃ ĐĂNG NHẬP // MOBILE
 		echo '
 		<label class="bag menu dropmenubtn mobile"><img class="dropmenubtn" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: -10px;"></label>';
-		echo '	
-		<div id="Dropdownmenu" class="dropdown-content ">
-		<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>Account</p></a>
-		<hr>
-		<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>Sign out</p></a>
-		</div>';
+		
 	}
 	?>
 	<div class="logo menu">
@@ -50,6 +45,18 @@ require_once $direct2.'classes/set_language_cookie.php';
 			}
 			?>
 		</ul>
+		<?php 
+
+		if(isset($_SESSION['user_email'])){
+		echo '	
+		<div id="Dropdownmenu" class="dropdown-content ">
+		<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_bag.'</p></a>
+		<hr>
+		<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
+		</div>';
+		}
+
+		?>
 	</div>
 	<label for="active" class="menu-btn menu mobile"><i class="fas fa-bars"></i></label>
 	<label class="menu-btn menu mobile" style="margin-left: auto; margin-right: auto; height: auto; left: 0; position: relative; top: 2px;"><a href="/"><img style="height:50px; width:50px;" src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png"/></a></label>
@@ -57,8 +64,8 @@ require_once $direct2.'classes/set_language_cookie.php';
 
 <input type="checkbox" id="active">
 
-<!-- Menu-content -->
-<div class="wrapper" onclick="var closewrapper = document.getElementsByClassName('menu-btn menu mobile'); for (var i=0;i<closewrapper.length;i+=1){ closewrapper [i].click(); }">
+<!-- Menu-content var closewrapper = document.getElementsByClassName('menu-btn menu mobile'); for (var i=0;i<closewrapper.length;i+=1){ closewrapper [i].click(); }-->
+<div class="wrapper" onclick="">
 	<ul>
 		<li class="search-box"><i class="fas fa-search"></i>
 			<form id="search" action="search.php" method="get">

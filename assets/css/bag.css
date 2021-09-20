@@ -1,0 +1,166 @@
+section{
+	background: #f0f2f5 !important;
+}
+hr{
+	width: 40%;
+	max-width: 400px;
+}
+.change-profile, .change-password {
+	letter-spacing: -0.016em;
+	text-align: center ;
+	margin-right: auto;
+	margin-left: auto;
+}
+.change-profile label{
+	position: relative;
+	left: 10%;
+	float: left;
+	font-size: 16px;
+	font-weight: 600;
+}
+.change-profile input,textarea{
+	width: 65%;
+	min-width: 222px;
+	font-size: 16px;
+	position: relative;
+	font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #191919;
+	display: inline;
+	padding: 10px 20px;
+	border: 1px solid #ccc;
+	margin: 4px;
+	border-radius: 28px;
+}
+.change-profile textarea:hover{
+	border-color: dimgray;
+}
+
+
+.change-profile input:hover{
+	border-color: dimgray;
+}
+
+
+
+.background-content{
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+	padding: 10px;
+	border: 0px solid;
+	border-radius: 2em;
+	width: 90%;
+	max-width: 1000px;
+	min-width: 320px;
+	margin-left: auto;
+	background: white;
+	margin-right: auto;
+}
+.background-logo{
+	border-radius: 1.5em;
+	background: rgb(0,0,8);
+	background: linear-gradient(0deg, rgba(0,0,8,1) 0%, rgba(3,4,5,0.8911939775910365) 4%, rgba(252,252,252,0) 100%);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.cover-img{
+	background: black;
+	width: 60%;
+}
+.button-div button{
+	min-width: 200px;
+	padding: 10px 6px;
+	font-size: 16px;
+	border: 0px solid;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	background: #0071e3;
+	margin: 10px;
+}
+
+.button-div button:hover{
+	background: #0077ed;
+}
+.button-div button:active{
+	background: #006edb;
+}
+.change-profile button{
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px 33px;
+	font-size: 16px;
+	border: 0px solid;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	background: #0071e3;
+	margin-top: 10px;
+	width: 40%;
+}
+.infomation i{
+	display: inline;
+	font-size: 16px;
+}
+.infomation p {
+	display: inline;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.logo-avt img{
+	position: relative;
+	top: 4em;
+	padding: .25rem;
+	background-color: #f5f6f9;
+	border: 1px solid #dee2e6;
+	max-width: 100%;
+	height: auto;
+	width: 150px;
+	border-radius: 50%;
+}
+.order{
+	margin-top: 1em;
+	margin-bottom: 2em;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.order-empty{
+}
+.order .list-item{
+	    width: 60%;
+    display: flex;
+    align-items: center;
+    background: #00000014;
+    border-radius: 12px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    max-width: 400px;
+    min-width: 250px;
+}
+.order .list-item img{
+	width: 50px;
+}
+.order .list-item h1{
+    font-size: 20px;
+    font-weight: 600;
+    width: 60%;
+    color: #101010;
+    text-align: left;
+    margin-left: 6px;
+}
+.order .list-item a{
+	text-decoration: none;
+	color: #1081d7;
+}
+.order .list-item a:hover{
+	color: #075cad;
+}
+.order .list-item p{
+font-size: 20px;
+	width: 25%;
+	color: #101010;
+}

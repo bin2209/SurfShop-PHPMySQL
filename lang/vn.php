@@ -29,6 +29,8 @@ $LANG_remember = 'Nhớ tài khoản';
 $LANG_recover_title ='Nhập tên người dùng hoặc email được liên kết với tài khoản của bạn';
 $LANG_recover_button ='Xác nhận';
 $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
+$LANG_bag ='Túi hàng';
+$LANG_logout ='Đăng xuất';
 // STORE
 $LANG_store_surfboard ='Ván lướt sóng';
 $LANG_store_surf ='Lướt sóng';

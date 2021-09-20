@@ -35,23 +35,26 @@
   color: #fff;
 }
 .left-navbar{
- display: block;
- z-index: 3;
- position: fixed;
- float: left;
- top: 48px;
- left: 0;
- height: 100vh;
- width: 300px;
- backdrop-filter: blur(10px);
- -webkit-backdrop-filter: blur(10px);
- background: rgba(0,0,0,.8);
+  overflow: auto;
+  display: block;
+  z-index: 3;
+  position: fixed;
+  float: left;
+  top: 48px;
+  left: 0;
+  height: 100vh;
+  width: 300px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0,0,0,.8);
 }
 .left-navbar dl {
- position: relative;
+ position: absolute;
  top: 2%;
+ width: auto;
  left: 23%;
  list-style: none;
+ margin-bottom: 10em;
 }
 .left-navbar a{
   color: #fff;
@@ -62,8 +65,7 @@
 .left-navbar a:hover{
  opacity: 1;
 }
-.left-navbar  dt{
-  width: max-content;
+.left-navbar dt{
   margin: 15px 0 0 0;
 }
 .left-navbar dd{
@@ -83,16 +85,13 @@
  top: 45%;
  border: 0px solid;
  border-radius: 50%;
- background: #323233;
- height: 50px;
- width: 50px;
+ /*background: #323233;*/
  left: 89%;
 }
 .close-slidebar i{
  position: relative;
  font-size: 40px;
  top: 4px;
- right: -12px;
  color: white;
 }
 #open-slidebar,#open-slidebar-mobile i{
@@ -166,47 +165,64 @@
    width: 50px;
  }
  .row{
-      margin-right: auto !important ;
- }
+  margin-right: auto !important ;
 }
+}
+/*SCROLL*/
+#Slidebar::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+  background-color: rgb(50 50 51);
+}
+#Slidebar::-webkit-scrollbar
+{
+  width: 12px;
+}
+#Slidebar::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: #555;
+}
+
 </style>
 <div>
   <div id="Slidebar" class="left-navbar">
    <dl>
-    <div class="column-category">
-      <dt class="left-navbar-surf"><a href="/surf">SURF</a></dt>
-      <dd class="surf1"><a href="/surf/board">BOARD</a></dd>
-      <dd class="surf2"><a href="/surf/fins">FINS</a></dd>
-      <dd class="surf3"><a href="/surf/leaches">LEACHES</a></dd>
-      <dd class="surf4"><a href="/surf/tractions">TRACTIONS</a></dd>
-    </div>
-    <div class="column-category">
-      <dt class="left-navbar-skate"><a href="/skate">SKATE</a></dt>
-      <dd class="skate1"><a href="/skate/board">BOARD</a></dd>
-      <dd class="skate2"><a href="/skate/decks">DECKS</a></dd>
-      <dd class="skate3"><a href="/skate/trucks">TRUCKS</a></dd>
-      <dd class="skate4"><a href="/skate/wheels">WHEELS</a></dd>
-      <dd class="skate5"><a href="/skate/grips">GRIPS</a></dd>
-      <dd class="skate6"><a href="/skate/brearings">BREARINGS</a></dd>
-      <dd class="skate7"><a href="/skate/hardwares">HARDWARES</a></dd>
-    </div>
-    <div class="column-category">
-      <dt class="left-navbar-clothes"><a href="/clothes">CLOTHES</a></dt>
-      <dd class="clothes1"><a href="/clothes/shirts">SHIRTS</a></dd>
-      <dd class="clothes2"><a href="/clothes/pants">PANTS</a></dd>
-      <dd class="clothes3"><a href="/clothes/shorts">SHORTS</a></dd>
-      <dd class="clothes4"><a href="/clothes/jackets">JACKETS</a></dd>
-      <dd class="clothes5"><a href="/clothes/dresses">DRESSES</a></dd>
-      <dd class="clothes6"><a href="/clothes/shoes">SHOES</a></dd>
-      <dd class="clothes7"><a href="/clothes/bags">BAGS</a></dd>
-      <dd class="clothes8"><a href="/clothes/swimwears">SWIMWEARS</a></dd>
-      <dd class="clothes9"><a href="/clothes/wetsuits">WETSUITS</a></dd>
-    </div>
-    <div class="column-category">
-      <dt class="left-navbar-other"><a href="/other">OTHER</a></dt>
-      <dd class="other1"><a href="/other/sunglasses">SUN GLASSES</a></dd>
-      <dd class="other2"><a href="/other/sunscreen">SUN SCREEN</a></dd>
-    </div>
+
+    <dt class="left-navbar-surf"><a href="/surf">SURF</a></dt>
+    <dd class="surf1"><a href="/surf/board">BOARD</a></dd>
+    <dd class="surf2"><a href="/surf/fins">FINS</a></dd>
+    <dd class="surf3"><a href="/surf/leaches">LEACHES</a></dd>
+    <dd class="surf4"><a href="/surf/tractions">TRACTIONS</a></dd>
+    
+
+    <dt class="left-navbar-skate"><a href="/skate">SKATE</a></dt>
+    <dd class="skate1"><a href="/skate/board">BOARD</a></dd>
+    <dd class="skate2"><a href="/skate/decks">DECKS</a></dd>
+    <dd class="skate3"><a href="/skate/trucks">TRUCKS</a></dd>
+    <dd class="skate4"><a href="/skate/wheels">WHEELS</a></dd>
+    <dd class="skate5"><a href="/skate/grips">GRIPS</a></dd>
+    <dd class="skate6"><a href="/skate/brearings">BREARINGS</a></dd>
+    <dd class="skate7"><a href="/skate/hardwares">HARDWARES</a></dd>
+    
+
+    <dt class="left-navbar-clothes"><a href="/clothes">CLOTHES</a></dt>
+    <dd class="clothes1"><a href="/clothes/shirts">SHIRTS</a></dd>
+    <dd class="clothes2"><a href="/clothes/pants">PANTS</a></dd>
+    <dd class="clothes3"><a href="/clothes/shorts">SHORTS</a></dd>
+    <dd class="clothes4"><a href="/clothes/jackets">JACKETS</a></dd>
+    <dd class="clothes5"><a href="/clothes/dresses">DRESSES</a></dd>
+    <dd class="clothes6"><a href="/clothes/shoes">SHOES</a></dd>
+    <dd class="clothes7"><a href="/clothes/bags">BAGS</a></dd>
+    <dd class="clothes8"><a href="/clothes/swimwears">SWIMWEARS</a></dd>
+    <dd class="clothes9"><a href="/clothes/wetsuits">WETSUITS</a></dd>
+    
+
+    <dt class="left-navbar-other"><a href="/other">OTHER</a></dt>
+    <dd class="other1"><a href="/other/sunglasses">SUN GLASSES</a></dd>
+    <dd class="other2"><a href="/other/sunscreen">SUN SCREEN</a></dd>
+    <dd style="margin-top: 12em;">.</dd>
+    
   </dl>
   <span class="close-slidebar" onclick="slidebar_close()"><i class="fas fa-angle-left"></i></span>
 </div>
