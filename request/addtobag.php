@@ -25,7 +25,8 @@ if (isset($_SESSION['user_email'])&&isset($_POST['id']) && $_SERVER['REQUEST_MET
 			return 1;
 		}
 	}
-	// TAKE DATA IN BAG
+
+	// TAKE DATA IN BAG || CHẠY ĐỒNG THỜI 2 CỘT ITEM_ID, ITEM
 	function get_item_bag($email,$conn){
 		$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
 		$stmt->execute([$email]);
@@ -34,20 +35,28 @@ if (isset($_SESSION['user_email'])&&isset($_POST['id']) && $_SERVER['REQUEST_MET
 			return $bag['item_id'];
 		}
 	}
+
+	
 	
 	
 	if (bool_checkuser($email,$conn)==true && bool_checkstoreid($id,$conn)==true){
 		// TAKE DATA IN BAG
+		// NẾU LÀ ĐƠN HÀNG ĐẦU TIÊN | KHÔNG CÓ DẤU ',' SAU ID 
 		if(get_item_bag($email,$conn)==''){
-			$sql= "UPDATE bag SET item_id= $id WHERE email = '$email'";
-			$stmt=$conn->prepare($sql);
-			$result = $stmt->execute();
+			$stmt = $conn->prepare("UPDATE bag SET item_id = 0, item = $id WHERE email = ?");
+			$stmt->execute([$email]);
+
+			// echo $json;
+			// echo json_encode($data);
 		}else{	
-			$sql = "UPDATE bag SET item_id = CONCAT( item_id , ',$id' ) WHERE email = '$email'";
-			$stmt=$conn->prepare($sql);
-			$result = $stmt->execute();
+			$array = get_item_bag($email,$conn);
+			$array = explode(',',$array);
+			$int = end($array);
+			$int = (int)$int;
+			$int = $int+1;
+			$stmt = $conn->prepare("UPDATE bag SET item_id = CONCAT( item_id , ',$int' ), item = CONCAT( item , ',$id' )  WHERE email = ?");
+			$stmt->execute([$email]);
 		}
-		// echo json_encode($data);
 	}
 	exit;
 }

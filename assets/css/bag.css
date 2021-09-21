@@ -1,7 +1,7 @@
 section{
 	background: #f0f2f5 ;
-	    padding-top: 5em;
-	    padding-bottom: 5em;
+	padding-top: 5em;
+	padding-bottom: 5em;
 }
 hr{
 	width: 40%;
@@ -130,41 +130,80 @@ hr{
 }
 .order-empty{
 }
-.order .list-item{
-	    width: 60%;
-    display: flex;
-    align-items: center;
-    background: #00000014;
-    border-radius: 12px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 10px;
-    margin-bottom: 10px;
-    max-width: 400px;
-    min-width: 250px;
+.order .list-item-product{
+	display: flex;
+	align-items: flex-start;
+	border: 2px solid #adadad;
+	border-radius: 5px;
+	max-width: 500px;
+	min-width: 250px;
+	margin-right: auto;
+	margin-left: auto;
+	background: #ffffff14;
+	padding: 10px;
+	margin-bottom: 10px;
 }
-.order .list-item img{
-	width: 50px;
+.order .list-item-left{
+	flex-direction: row;
+	justify-content: center;
 }
-.order .list-item h1{
-    font-size: 20px;
-    font-weight: 600;
-    width: 60%;
-    color: #101010;
-    text-align: left;
-    margin-left: 6px;
+.list-item-right{
+	width: 100%;
 }
-.order .list-item a{
+.list-item-right .brand{
+	margin-top: 1%;
+	left: 2%;
+	float: left;
+	position: relative
+}
+.list-item-right .price{
+	float: right;
+	margin-top: 13%;
+	margin-right: 2%;
+	position: relative;
+}
+.panel-product{
+	width: fit-content;
+	top: 8px;
+	left: 8px;
+	position: relative;
+}
+.panel-product .remove-button{
+	padding: 10px 20px;
+	color: black;
+	font-weight: 600;
+	border-radius: 2px;
+	border: 0px solid;
+	background: #f77a7a;
+}
+.panel-product .remove-button:hover{
+	background: #ff5959;
+}
+.order .list-item-left img{
+	width: 100px;
+}
+.order .list-item-right h1{
+	font-size: 20px;
+	font-weight: 600;
+	width: 60%;
+	color: #101010;
+	text-align: left;
+	margin-left: 6px;
+}
+.order .list-item-right a{
+	font-size: 20px;
 	text-decoration: none;
-	color: #1081d7;
+	color: #333333;
 }
 .order .list-item a:hover{
-	color: #075cad;
+	color: #000000;
 }
 .order .list-item p{
-font-size: 20px;
+	font-size: 20px;
 	width: 25%;
-	color: #101010;
+	color: #101010a6;
+	margin-top: 14%;
+	position: relative
 }
 .logo-avt{
 	width: auto;
@@ -188,10 +227,10 @@ font-size: 20px;
 		padding-top: 3em;
 	}
 	.background-content{
-	    width: 95%;
+		width: 95%;
 		border-radius: 0px;
 	}
 	.background-logo{
-		    margin-top: 1em;
+		margin-top: 1em;
 	}
 }

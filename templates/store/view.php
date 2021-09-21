@@ -169,7 +169,8 @@ include('../../includes/navbar.php');
         id: "'.$main_id.'"
         },
         function(data,status){
-           location.reload();
+            location.reload();
+          // alert(data,status);
           });
           });
           </script>';

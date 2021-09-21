@@ -30,7 +30,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
 	$stmt->execute([$_SESSION['user_email']]);
 	if ($stmt->rowCount() === 0) {
-		$sql = "INSERT INTO bag(id, email, item_id) VALUES (0,'$user_email','')";
+		$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$user_email','','')";
 		$stmt=$conn->prepare($sql);
 		$result = $stmt->execute();
 	}
@@ -40,7 +40,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	$stmt->execute([$_SESSION['user_email']]);
 	if ($stmt->rowCount() === 1) {
 		$bag = $stmt->fetch();
-		$bag_item = $bag['item_id'];
+		$bag_item = $bag['item'];
+		$bag_item_id = $bag['item_id'];
 	}
 	
 	?>
@@ -80,7 +81,10 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 					echo '<span class="order-empty">Your bag is empty.</span>';
 				}else{
 					$bag_item = explode(',',$bag_item);
+					$bag_item_id = explode(',',$bag_item_id);
+					$i = 0;
 					foreach ($bag_item as $item) {
+						// echo $bag_item_id[$i];
 						$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
 						$stmt->execute(array($item));
 						if ($stmt->rowCount() === 1) {
@@ -89,16 +93,38 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 							$item_images = $item["images"];
 							$item_name = $item["name"];
 							$item_price = $item["price"];
+							$item_brand = $item["brand"];
 						}
-						echo '<div class="list-item"><img  src="../upload/'.$item_images.'"/><h1><a href="store/'.$item_id.'">'.$item_name.'</a></h1>|<p>'.$item_price.'</p></div>';
+						echo '<div class="list-item-product">
+						<div class="list-item-left">
+						<img src="../upload/'.$item_images.'"/>
+						</div>
+						<div class="list-item-right">
+						<h1><a href="store/'.$item_id.'">'.$item_name.'</a></h1>
+						<p class="brand">'.$item_brand.'</p>
+						<p class="price">'.$item_price.'</p>
+						<div class="panel-product">
+						<button id="'.$bag_item_id[$i].'" onclick="remove_cart(this.id)"  class="remove-button">Remove</button>
+						</div>
+						</div>
+						</div>';
+						$i++;
 					}
 				}
 
 				?>
 
 			</div>
-
-
+			<script type="text/javascript">
+				function remove_cart($id){
+					$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
+						id: $id
+					},
+					function(data,status){
+						location.reload();
+          			});
+				}
+			</script>
 		</div> <!--  // backgound content -->
 	</section>
 </body>
