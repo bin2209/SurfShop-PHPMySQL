@@ -1,5 +1,7 @@
 section{
-	background: #f0f2f5 !important;
+	background: #f0f2f5 ;
+	    padding-top: 5em;
+	    padding-bottom: 5em;
 }
 hr{
 	width: 40%;
@@ -163,4 +165,33 @@ hr{
 font-size: 20px;
 	width: 25%;
 	color: #101010;
+}
+.logo-avt{
+	width: auto;
+}
+.infomation{
+	width: auto;
+}
+.background-content h3{
+	margin-top:3em; 
+	width: auto; 
+	font-size:24px !important;
+}
+@media only screen and (max-width: 975px) {
+	section{
+		background: #ffffff;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.background-content{
+		box-shadow: none;
+		padding-top: 3em;
+	}
+	.background-content{
+	    width: 95%;
+		border-radius: 0px;
+	}
+	.background-logo{
+		    margin-top: 1em;
+	}
 }

@@ -48,12 +48,27 @@ require_once $direct2.'classes/set_language_cookie.php';
 		<?php 
 
 		if(isset($_SESSION['user_email'])){
-		echo '	
-		<div id="Dropdownmenu" class="dropdown-content ">
-		<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_bag.'</p></a>
-		<hr>
-		<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
-		</div>';
+			// CHECK SỐ LƯỢNG ITEM ĐÃ ĐẶT
+			function get_item_bag($email,$conn){
+				$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
+				$stmt->execute([$email]);
+				if ($stmt->rowCount() === 1) {
+					$bag =	$stmt->fetch();
+					$bag_item = $bag['item_id'];
+					if ($bag['item_id']==''){
+						return '0';
+					}
+				}
+				$array_bag_item = explode(',',$bag_item);
+				return count($array_bag_item);
+			}
+
+			echo '	
+			<div id="Dropdownmenu" class="dropdown-content ">
+			<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
+			<hr>
+			<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
+			</div>';
 		}
 
 		?>
@@ -65,23 +80,23 @@ require_once $direct2.'classes/set_language_cookie.php';
 <input type="checkbox" id="active">
 
 <!-- Menu-content var closewrapper = document.getElementsByClassName('menu-btn menu mobile'); for (var i=0;i<closewrapper.length;i+=1){ closewrapper [i].click(); }-->
-<div class="wrapper" onclick="">
-	<ul>
-		<li class="search-box"><i class="fas fa-search"></i>
-			<form id="search" action="search.php" method="get">
-				<input type="text" name="src" placeholder="Search">
-				<input type='submit' style="display:none;"/>
-			</form>
-		</li>
-		<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
-		<li class="mobile-store"><a href="/store"><?php echo $LANG_store ?></a></li>
-		<li class="mobile-map"><a href="/map"><?php echo $LANG_map ?></a></li>
-		<li class="mobile-about"><a href="/about"><?php echo $LANG_about ?></a></li>
-	</ul>
-</div>
+	<div class="wrapper" onclick="">
+		<ul>
+			<li class="search-box"><i class="fas fa-search"></i>
+				<form id="search" action="search.php" method="get">
+					<input type="text" name="src" placeholder="Search">
+					<input type='submit' style="display:none;"/>
+				</form>
+			</li>
+			<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
+			<li class="mobile-store"><a href="/store"><?php echo $LANG_store ?></a></li>
+			<li class="mobile-map"><a href="/map"><?php echo $LANG_map ?></a></li>
+			<li class="mobile-about"><a href="/about"><?php echo $LANG_about ?></a></li>
+		</ul>
+	</div>
 
-<!-- End Menu-content -->
-<script type="text/javascript">
+	<!-- End Menu-content -->
+	<script type="text/javascript">
 			/* When the user clicks on the button, 
 			toggle between hiding and showing the dropdown content */
 			function Dropdown() {

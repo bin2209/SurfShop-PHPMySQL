@@ -38,6 +38,7 @@ $LANG_store_skateboard ='Skate Board';
 $LANG_store_skate='Skate';
 $LANG_store_clothes ='Clothes';
 $LANG_store_other ='Other';
+$LANG_addtobag ='Add to bag';
 // SERVICES
 $LANG_services_title1 ='Custom Surf Boards';
 $LANG_services_title2 ='Repairs';

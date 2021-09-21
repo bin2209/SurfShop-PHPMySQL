@@ -46,12 +46,12 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	?>
 	<link href="../assets/css/bag.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
-	<section class=" store content-center" style="padding-top: 5em;">
+	<section class="content-center">
 		<div class="background-content">
 			<div class="background-logo">
-				<div class="logo-avt" style="width: auto;"><img src="<?php echo $user_avatar ?>"/></div>
+				<div class="logo-avt"><img src="<?php echo $user_avatar ?>"/></div>
 			</div> 
-			<h3 class="h3-dark content-center" style="padding-top:3em; width: auto; font-size:24px !important;"><?php echo $user_name ?></h3>
+			<h3 class="h3-dark content-center"><?php echo $user_name ?></h3>
 			<div class="infomation" style="width:auto;">
 				<p><?php echo $user_about ?></p><hr>
 				<i class="fas fa-envelope"></i> <p><?php echo $user_email ?></p><br>
@@ -73,11 +73,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 
 			
 			
-			<h3 class="h3-dark content-center" style="font-size:20px; font-weight:bold;padding-top:1.5em; width: auto;"><?php echo $LANG_bag; ?></h3>
-			
+			<h3 class="h3-dark content-center"><?php echo $LANG_bag; ?></h3>
 			<div class="order">
 				<?php
-
 				if ($bag_item==''){
 					echo '<span class="order-empty">Your bag is empty.</span>';
 				}else{
@@ -87,13 +85,15 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 						$stmt->execute(array($item));
 						if ($stmt->rowCount() === 1) {
 							$item = $stmt->fetch();
+							$item_id = $item["id"];
 							$item_images = $item["images"];
 							$item_name = $item["name"];
 							$item_price = $item["price"];
 						}
-						echo '<div class="list-item"><img  src="../upload/'.$item_images.'"/><h1><a href="">'.$item_name.'</a></h1>|<p>'.$item_price.'</p></div>';
+						echo '<div class="list-item"><img  src="../upload/'.$item_images.'"/><h1><a href="store/'.$item_id.'">'.$item_name.'</a></h1>|<p>'.$item_price.'</p></div>';
 					}
 				}
+
 				?>
 
 			</div>

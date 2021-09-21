@@ -38,6 +38,7 @@ $LANG_store_skateboard ='Ván trượt';
 $LANG_store_skate='Trượt ván';
 $LANG_store_clothes ='Áo quần';
 $LANG_store_other ='Khác';
+$LANG_addtobag ='Thêm vào túi hàng';
 // SERVICES
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
 $LANG_services_title2 ='Sửa Ván Luót Sóng';
