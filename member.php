@@ -68,8 +68,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 				</p><br>
 			</div>
 			<div class="button-div">
-				<button id="change-profile1" class="change-button"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
-				<button id="change-profile2" class="change-button"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
+				<button id="change-profile1" class="btn btn-primary"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
+				<button id="change-profile2" class="btn btn-primary"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
 			</div>
 
 			
@@ -78,7 +78,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 			<div class="order">
 				<?php
 				if ($bag_item==''){
-					echo '<span class="order-empty">Your bag is empty.</span>';
+					echo '<span class="order-empty">'.$LANG_bag_empty.'</span>';
 				}else{
 					$bag_item = explode(',',$bag_item);
 					$bag_item_id = explode(',',$bag_item_id);
@@ -104,7 +104,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 						<p class="brand">'.$item_brand.'</p>
 						<p class="price">'.$item_price.'</p>
 						<div class="panel-product">
-						<button id="'.$bag_item_id[$i].'" onclick="remove_cart(this.id)"  class="remove-button">Remove</button>
+						<button id="'.$bag_item_id[$i].'" onclick="remove_cart(this.id)"  class="remove-button">'.$LANG_remove.'</button>
 						</div>
 						</div>
 						</div>';
@@ -138,19 +138,19 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 			<div class="change-profile">
 				<form method="POST">
 					<input type="text" style="display:none;"  name="value_of_form" value="profile" required="true">
-					<label for="change-name">Full Name *</label>
+					<label for="change-name"><?php echo $LANG_fullname; ?> *</label>
 					<br>
 					<input type="text" name="change-name" value="<?php echo $user_name; ?>" required="true">
 					<br>
-					<label for="change-phone">Phone *</label>
+					<label for="change-phone"><?php echo $LANG_phone; ?> *</label>
 					<br>
 					<input type="text" name="change-phone" value="<?php echo $user_phone; ?>" required="true">
 					<br>
-					<label for="change-about">About </label>
+					<label for="change-about"><?php echo $LANG_about; ?> </label>
 					<br>
 					<textarea name="change-about"><?php echo $user_about; ?></textarea>
 					<br>
-					<button type="submit" name="submit_change">Save</button>
+					<button type="submit" class="btn btn-primary" name="submit_change"><?php echo $LANG_save; ?></button>
 				</form>
 			</div>
 		</div>
@@ -210,19 +210,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 			<div class="change-profile">
 				<form method="POST">
 					<input type="text" style="display:none;"  name="value_of_form" value="password" required="true">
-					<label for="change-password">Old Password * </label>
+					<label for="change-password"><?php echo $LANG_oldpassword; ?> * </label>
 					<br>
 					<input type="password" name="oldpw" placeholder="Old Password" required="true">
 					<br>
-					<label for="change-about">New Password *</label>
+					<label for="change-about"><?php echo $LANG_newpassword; ?> *</label>
 					<br>
 					<input type="password" name="newpw" placeholder="New Password" required="true">
 					<br>
-					<label for="change-phone">Repeat New Password * </label>
+					<label for="change-phone"><?php echo $LANG_renewpassword; ?> * </label>
 					<br>
 					<input type="password" name="repeatpw" placeholder="Repeat New Password" required="true">
 					<br>
-					<button type="submit" name="submit_change">Save</button>
+					<button type="submit" class="btn btn-primary" name="submit_change"><?php echo $LANG_save; ?></button>
 				</form>
 			</div>
 		</div>

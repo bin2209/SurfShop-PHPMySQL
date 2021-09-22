@@ -165,7 +165,7 @@ include('../../includes/navbar.php');
     echo '  
     <script type="text/javascript">
     $("#add-cart").click(function(){
-        $.post("'.$_DOMAIN.'request/addtobag.php",{
+        $.post("'.$_DOMAIN.'/request/addtobag.php",{
         id: "'.$main_id.'"
         },
         function(data,status){

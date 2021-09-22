@@ -29,7 +29,7 @@ $LANG_remember = 'Nhớ tài khoản';
 $LANG_recover_title ='Nhập tên người dùng hoặc email được liên kết với tài khoản của bạn';
 $LANG_recover_button ='Xác nhận';
 $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
-$LANG_bag ='Túi hàng';
+$LANG_bag ='Giỏ hàng';
 $LANG_logout ='Đăng xuất';
 // STORE
 $LANG_store_surfboard ='Ván lướt sóng';
@@ -39,6 +39,7 @@ $LANG_store_skate='Trượt ván';
 $LANG_store_clothes ='Áo quần';
 $LANG_store_other ='Khác';
 $LANG_addtobag ='Thêm vào túi hàng';
+$LANG_bag_empty ='Giỏ hàng của bạn đang trống.';
 // SERVICES
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
 $LANG_services_title2 ='Sửa Ván Luót Sóng';
@@ -48,6 +49,14 @@ $LANG_services_title5 ='Du Lịch Lướt Sóng';
 //MEMBER
 $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';
+$LANG_save = "Lưu thay đổi";
+$LANG_remove = "Xóa";
+$LANG_fullname = "Họ tên";
+$LANG_phone = "Số điện thoại";
+$LANG_about = "Giới thiệu";
+$LANG_oldpassword = "Mật khẩu hiện tại";
+$LANG_newpassword = "Mật khẩu mới";
+$LANG_renewpassword = "Nhập lại mật khẩu mới";
 
 $LANG_services_content1 ='Chúng tôi thiết kế và gia công ván lướt sóng bằng xốp EPS và keo EPOXY, làm được mọi loại ván hình dạng, kích thước và màu sắc. Tùy theo sở thích, yêu cầu của bạn. Giá cả sẽ được tính theo sizes ván của bạn. Giá khởi điểm giao động từ 100$/ft. Ván 9ft từ $900. Ngoài ra mỗi custom sẽ tính thêm phí.';
 $LANG_services_content2 ='Sửa chữa chuyên nghiệp, Chất lượng cao, Dịu nhẹ

@@ -363,3 +363,8 @@
 	}
 
 
+	@media only screen and (max-width: 540px) {
+		.sign-panels{
+			margin: 10px;
+		}
+	}

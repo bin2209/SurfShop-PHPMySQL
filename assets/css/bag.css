@@ -1,5 +1,5 @@
 section{
-	background: #f0f2f5 ;
+	background: #ffffff ;
 	padding-top: 5em;
 	padding-bottom: 5em;
 }
@@ -45,7 +45,6 @@ hr{
 
 
 .background-content{
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 	padding: 10px;
 	border: 0px solid;
 	border-radius: 2em;

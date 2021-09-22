@@ -39,6 +39,7 @@ $LANG_store_skate='Skate';
 $LANG_store_clothes ='Clothes';
 $LANG_store_other ='Other';
 $LANG_addtobag ='Add to bag';
+$LANG_bag_empty ='Your bag is empty.';
 // SERVICES
 $LANG_services_title1 ='Custom Surf Boards';
 $LANG_services_title2 ='Repairs';
@@ -48,6 +49,14 @@ $LANG_services_title5 ='Trips';
 //MEMBER
 $LANG_member_changepass = 'Change password';
 $LANG_member_changeprofile = 'Edit profile';
+$LANG_save = "Save";
+$LANG_remove = "Remove";
+$LANG_fullname = "Full Name";
+$LANG_phone = "Phone";
+$LANG_about = "About";
+$LANG_oldpassword = "Old password";
+$LANG_newpassword = "New password";
+$LANG_renewpassword = "Repeat new password";
 
 $LANG_services_content1 ='We make hand made custom EPS EPOXY surfboards of all shapes, fin configurations, sizes, and colors. You want it, we will make it. Price based on length and additional design elements. Price starting at $100 per ft. For ex. a 9ft board starts at 900$. Contact for further info or to discuss options.';
 $LANG_services_content2 ='High Quality, Lightweight, Professional Repairs.

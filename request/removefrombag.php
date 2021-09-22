@@ -67,8 +67,6 @@ if (isset($_SESSION['user_email'])&&isset($_POST['id']) && $_SERVER['REQUEST_MET
 		$stmt = $conn->prepare("UPDATE bag SET item_id = '$new_array_item_id', item = '$new_array_item'  WHERE email = ?");
 		$stmt->execute([$email]);
 	}
-
-	
 	
 	if (bool_checkuser($email,$conn)==true){
 		$data['id'];

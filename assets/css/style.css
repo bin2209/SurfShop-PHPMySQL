@@ -1011,3 +1011,22 @@ footer hr{
 .dropdown-content a{
   display: inline;
 }
+/*button*/
+
+.btn-primary {
+    background-color: #0e71eb;
+    border-color: #0e71eb;
+    color: #fff;
+}
+.btn {
+    border-radius: 8px;
+    padding: 5px 16px;
+}
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+    background-color: #2681f2;
+    border-color: #2681f2;
+}
+.btn.btn-primary:active {
+    background-color: #0c63ce;
+    border-color: #0c63ce;
+}
