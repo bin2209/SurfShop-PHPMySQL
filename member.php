@@ -1,8 +1,8 @@
 <?php 
 @session_start();
 $title = 'Member';
-require_once 'includes/header.php';
-require_once 'includes/navbar.php';
+@require_once 'includes/header.php';
+@require_once 'includes/navbar.php';
 
 
 if (!isset($_SESSION['user_email'])){

@@ -4,7 +4,8 @@ echo '  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 
 
 include("../core/db_conn.php");
-session_start();
+
+@session_start();
 if(!isset($_SESSION['user_id'])){
 
   echo file_get_contents("pages/samples/login.html");
@@ -32,6 +33,7 @@ if(!isset($_SESSION['user_id'])){
         $user_name = $user['name'];
         if ($username === $user_username) {
           if (password_verify($password, $user_password)) {
+            @session_start();
           // GÁN BIẾN TOÀN CỤC KHỞI TẠO THÔNG TIN NGƯỜI DÙNG
             $_SESSION['user_id'] = $user_id;
             $_SESSION['user_username'] = $user_username;
@@ -55,6 +57,7 @@ if(!isset($_SESSION['user_id'])){
   }
 } else{
   // LOGINED
+  @session_start();
   ?>
 
   <body>
