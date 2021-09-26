@@ -19,13 +19,29 @@ require_once $direct2.'classes/set_language_cookie.php';
 <nav class="globalbar">
 	<?php
 	if(!isset($_SESSION['user_email'])){
-		// CHƯA ĐĂNG NHẬP // MOBILE
+		// CHƯA ĐĂNG NHẬP // GIAO DIỆN: MOBILE
 		echo '
-		<label class="bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><img class="dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: -10px;"></label>';
+		<label class=" bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 10px;"></label>';
 	} else {
-		// ĐÃ ĐĂNG NHẬP // MOBILE
-		echo '
-		<label class="bag menu dropmenubtn mobile"><img class="dropmenubtn" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: -10px;"></label>';
+		// CHECK SỐ LƯỢNG ITEM ĐÃ ĐẶT
+		function get_item_bag($email,$conn){
+			$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
+			$stmt->execute([$email]);
+			if ($stmt->rowCount() === 1) {
+				$bag =	$stmt->fetch();
+				$bag_item = $bag['item_id'];
+				if ($bag['item_id']==''){
+					return '0';
+				}
+			}
+			$array_bag_item = explode(',',$bag_item);
+			return count($array_bag_item);
+		}
+
+		//  ĐÃ ĐĂNG NHẬP // GIAO DIỆN: MOBILE
+		echo '<label class=" bag menu dropmenubtn mobile"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" onclick="Dropdown()" style="width: 19px; position: relative; top: 10px;">
+		<span class="number-menu-mobile">'.get_item_bag($_SESSION['user_email'],$conn).'</span></label>';
+	
 		
 	}
 	?>
@@ -37,35 +53,23 @@ require_once $direct2.'classes/set_language_cookie.php';
 			<li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
 			<li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
 			<?php 	if(!isset($_SESSION['user_email'])){
-				// CHƯA ĐĂNG NHẬP // PC
-				echo '<li><a href="'.$_DOMAIN.'/login.php"><img src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
+				// CHƯA ĐĂNG NHẬP // GIAO DIỆN: PC
+				echo '<li><a href="'.$_DOMAIN.'/login.php"><img class="menu-icon" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
 			}else {
-				// ĐÃ ĐĂNG NHẬP // PC
-				echo '<li><img class="dropmenubtn" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></li>';
+				// ĐÃ ĐĂNG NHẬP // GIAO DIỆN: PC
+				echo '<li><img class="dropmenubtn menu-icon" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;">
+				<span class="number-menu-pc">'.get_item_bag($_SESSION['user_email'],$conn).'</span></li>';
 			}
 			?>
 		</ul>
 		<?php 
 
 		if(isset($_SESSION['user_email'])){
-			// CHECK SỐ LƯỢNG ITEM ĐÃ ĐẶT
-			function get_item_bag($email,$conn){
-				$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
-				$stmt->execute([$email]);
-				if ($stmt->rowCount() === 1) {
-					$bag =	$stmt->fetch();
-					$bag_item = $bag['item_id'];
-					if ($bag['item_id']==''){
-						return '0';
-					}
-				}
-				$array_bag_item = explode(',',$bag_item);
-				return count($array_bag_item);
-			}
-
+			
+			
 			echo '	
 			<div id="Dropdownmenu" class="dropdown-content ">
-			<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
+			<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
 			<hr>
 			<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
 			</div>';
@@ -73,13 +77,11 @@ require_once $direct2.'classes/set_language_cookie.php';
 
 		?>
 	</div>
-	<label for="active" class="menu-btn menu mobile"><i class="fas fa-bars"></i></label>
-	<label class="menu-btn menu mobile" style="margin-left: auto; margin-right: auto; height: auto; left: 0; position: relative; top: 2px;"><a href="/"><img style="height:50px; width:50px;" src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png"/></a></label>
+	
+	<label id="#dropdown-button" for="active" class="menu-btn menu mobile"><img class="dropmenubtn menu-icon" src="<?php echo $_DOMAIN ?>/assets/img/menu.svg" style="width: 20px; position: relative;"></label>
+	<label class="menu-btn menu mobile" style="height: 44px; left: 0; position: relative; top: -4px;"><a href="/"><img style="height:50px; width:50px;" src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png"/></a></label>
 </nav>
-
 <input type="checkbox" id="active">
-
-<!-- Menu-content var closewrapper = document.getElementsByClassName('menu-btn menu mobile'); for (var i=0;i<closewrapper.length;i+=1){ closewrapper [i].click(); }-->
 	<div class="wrapper" onclick="">
 		<ul>
 			<li class="search-box"><i class="fas fa-search"></i>
@@ -100,13 +102,14 @@ require_once $direct2.'classes/set_language_cookie.php';
 			/* When the user clicks on the button, 
 			toggle between hiding and showing the dropdown content */
 			function Dropdown() {
-				console.log("dropdown")
+
 				document.getElementById("Dropdownmenu").classList.toggle("show");
 			}
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
-	
+				// document.getElementsByClassName('menu-btn menu mobile')[0].style.display ="none";
+				$("#dropdown-button").html("menu-btn menu mobile");
 	if (!event.target.matches('.dropmenubtn')) {
 		var dropdowns = document.getElementsByClassName("dropdown-content");
 		var i;

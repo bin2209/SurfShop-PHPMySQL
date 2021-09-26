@@ -40,7 +40,7 @@
   z-index: 3;
   position: fixed;
   float: left;
-  top: 48px;
+  top: 44px;
   left: 0;
   height: 100vh;
   width: 300px;

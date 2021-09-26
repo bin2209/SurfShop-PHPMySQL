@@ -88,7 +88,7 @@ include('../../includes/navbar.php');
 
 
     </div>
-    <div class="product-item" style="text-align:left;">'?>
+    <div class="product-item" style="text-align:left;     height: auto;">'?>
     <?php
     if (isset($list_images)){
       foreach ($array as $item) {
