@@ -113,19 +113,19 @@
 
 .owl-nav{
   bottom: 9em;
-    position: relative;
-    margin: -1.8em;
-    color: #00000077;
+  position: relative;
+  margin: -1.8em;
+  color: #00000077;
 }
 .owl-nav:hover{
   color: black;
 }
-  .owl-prev{
-    float: left;
-  }
-  .owl-next{
-    float: right;
-  }
+.owl-prev{
+  float: left;
+}
+.owl-next{
+  float: right;
+}
 @media only screen and (max-width: 1120px) {
   /*VIEW PRODUCTS*/
   .product-row .column-right{
@@ -150,4 +150,9 @@
 }
 .product{
   max-width: 280px;
+}
+@media only screen and (max-width: 800px) {
+ #fb-root {
+  display: none;
+}
 }

@@ -45,95 +45,51 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	}
 	
 	?>
-	<link href="../assets/css/bag.css" rel="stylesheet">
+	<link href="../assets/css/account.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
 	<section class="content-center">
 		<div class="background-content">
-			<div class="background-logo">
+			<div class="member-information">
 				<div class="logo-avt"><img src="<?php echo $user_avatar ?>"/></div>
+				<h3 class="h3-dark content-center"><?php echo $user_name ?></h3>
 			</div> 
-			<h3 class="h3-dark content-center"><?php echo $user_name ?></h3>
-			<div class="infomation" style="width:auto;">
-				<p><?php echo $user_about ?></p><hr>
-				<i class="fas fa-envelope"></i> <p><?php echo $user_email ?></p><br>
-				<i class="fas fa-phone-alt"></i> <p>
-					<?php 
-					if($user_phone == ''){
-						echo 'None';
-					} else
-					if(isset($user_phone)){
-						echo $user_phone;
-					}  
-					?>
-				</p><br>
-			</div>
-			<div class="button-div">
-				<button id="change-profile1" class="btn btn-primary"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
-				<button id="change-profile2" class="btn btn-primary"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
-			</div>
 
+			<div class="account-information">
+				<div class="infomation " style="width:auto;">
+					<span><i class="fas fa-envelope"></i> <?php echo $LANG_email ?>: <p><?php echo $user_email ?></p></span><br>
+					<span><i class="fas fa-phone-alt"></i> <?php echo $LANG_phone ?>: <p>
+						<?php 
+						if($user_phone == ''){
+							echo 'None';
+						} else
+						if(isset($user_phone)){
+							echo $user_phone;
+						}  
+						?>
+					</p></span><br>
+					<span><i class="fas fa-shipping-fast"></i> <?php echo $LANG_address_delivery ?>:<p><?php echo $user_about ?>
+						
+					</p><span>
+				</div>
+				<div class="button-div">
+					<button id="change-profile1" class="btn btn-primary"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
+					<button id="change-profile2" class="btn btn-primary"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
+				</div>
+
+			</div>
 			
-			
-			<h3 class="h3-dark content-center"><?php echo $LANG_bag; ?></h3>
-			<div class="order">
-				<?php
-				if ($bag_item==''){
-					echo '<span class="order-empty">'.$LANG_bag_empty.'</span>';
-				}else{
-					$bag_item = explode(',',$bag_item);
-					$bag_item_id = explode(',',$bag_item_id);
-					$i = 0;
-					foreach ($bag_item as $item) {
-						// echo $bag_item_id[$i];
-						$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
-						$stmt->execute(array($item));
-						if ($stmt->rowCount() === 1) {
-							$item = $stmt->fetch();
-							$item_id = $item["id"];
-							$item_images = $item["images"];
-							$item_name = $item["name"];
-							$item_price = $item["price"];
-							$item_brand = $item["brand"];
-						}
-						echo '<div class="list-item-product">
-						<div class="list-item-left">
-						<img src="../upload/'.$item_images.'"/>
-						</div>
-						<div class="list-item-right">
-						<h1><a href="store/'.$item_id.'">'.$item_name.'</a></h1>
-						<p class="brand">'.$item_brand.'</p>
-						<p class="price">'.$item_price.'</p>
-						<div class="panel-product">
-						<button id="'.$bag_item_id[$i].'" onclick="remove_cart(this.id)"  class="remove-button">'.$LANG_remove.'</button>
-						</div>
-						</div>
-						</div>';
-						$i++;
-					}
-				}
-
-				?>
-
-			</div>
-			<script type="text/javascript">
-				function remove_cart($id){
-					$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
-						id: $id
-					},
-					function(data,status){
-						location.reload();
-          			});
-				}
-			</script>
 		</div> <!--  // backgound content -->
 	</section>
 </body>
+
+
+
 <div class="pop-up pop-up-profile">
 	<div class="content">
 		<div class="container">
 			<span class="close">close</span>
 			<div class="title">
-				<h1>Profile</h1>
+				<h1><?php echo $LANG_member_changeprofile; ?></h1>
 			</div>
 			<div class="change-profile">
 				<form method="POST">
@@ -146,9 +102,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 					<br>
 					<input type="text" name="change-phone" value="<?php echo $user_phone; ?>" required="true">
 					<br>
-					<label for="change-about"><?php echo $LANG_about; ?> </label>
+					<label for="change-about"><?php echo $LANG_address_delivery; ?> </label>
 					<br>
-					<textarea name="change-about"><?php echo $user_about; ?></textarea>
+					<textarea name="change-about" placeholder="Số nhà / Ngõ, - Phường - Quận -  Quốc gia"><?php echo $user_about; ?></textarea>
 					<br>
 					<button type="submit" class="btn btn-primary" name="submit_change"><?php echo $LANG_save; ?></button>
 				</form>
@@ -212,15 +168,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 					<input type="text" style="display:none;"  name="value_of_form" value="password" required="true">
 					<label for="change-password"><?php echo $LANG_oldpassword; ?> * </label>
 					<br>
-					<input type="password" name="oldpw" placeholder="Old Password" required="true">
+					<input type="password" name="oldpw" placeholder="<?php echo $LANG_oldpassword; ?> " required="true">
 					<br>
 					<label for="change-about"><?php echo $LANG_newpassword; ?> *</label>
 					<br>
-					<input type="password" name="newpw" placeholder="New Password" required="true">
+					<input type="password" name="newpw" placeholder="<?php echo $LANG_newpassword; ?>" required="true">
 					<br>
 					<label for="change-phone"><?php echo $LANG_renewpassword; ?> * </label>
 					<br>
-					<input type="password" name="repeatpw" placeholder="Repeat New Password" required="true">
+					<input type="password" name="repeatpw" placeholder="<?php echo $LANG_newpassword; ?>" required="true">
 					<br>
 					<button type="submit" class="btn btn-primary" name="submit_change"><?php echo $LANG_save; ?></button>
 				</form>
@@ -233,23 +189,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){ // Thay đổi thông tin cá nhân
 		//POPUP
 		$('#change-profile1').click(function(){
 			$('.pop-up-profile').addClass('open');
-			$('.store').addClass('blur-filter');
+			$('.content-center').addClass('blur-filter');
 			$('footer').addClass('blur-filter');
 		});
 		$('#change-profile2').click(function(){
 			$('.pop-up-password').addClass('open');
-			$('.store').addClass('blur-filter');
+			$('.content-center').addClass('blur-filter');
 			$('footer').addClass('blur-filter');
 		});
 
 		$('.pop-up .content .close').click(function(){
 			$('.pop-up').removeClass('open');
-			$('.store').removeClass('blur-filter');
+			$('.content-center').removeClass('blur-filter');
 			$('footer').removeClass('blur-filter');
 		});
 	</script>
 <?php }
-
 ?>
 <?php include('includes/footer.php'); ?>
 

@@ -1,8 +1,20 @@
 <?php
-$_DOMAIN = 'https://localhost';
-// $_DOMAIN = 'https://lstsurf.com';
+$link_directory = $_SERVER['PHP_SELF'];
+$GLOBALS['direct'] = '';
+$GLOBALS['link_directory_array'] = array('/store/');
+for($i=0;$i<count($link_directory_array);$i++){
+  $pos = strpos($link_directory,$link_directory_array[$i]);
+  if ($pos == true){
+    $direct1 = '../../';
+    $direct2 = '../../';
+  }else{
+    $direct1 = '';
+    $direct2 = '';
+  }
+}
 
-// $info = new Info;
+@require_once $direct1.'core/db_conn.php';
+@require_once $direct2.'classes/set_language_cookie.php';
 
 ?>
 

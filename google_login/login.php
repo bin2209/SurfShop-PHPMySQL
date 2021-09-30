@@ -45,7 +45,7 @@ if(isset($_GET['code'])){
                 }
             }
 
-            header('Location: ../member.php');
+            header('Location: ../account');
             exit;
         }
         else{

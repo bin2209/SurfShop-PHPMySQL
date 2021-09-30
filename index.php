@@ -32,8 +32,8 @@ if (isset($_GET['act'])){
 		require_once 'templates/about.php'; 
 		break;
 
-		case 'member':
-		require_once 'member.php'; 
+		case 'account':
+		require_once 'account.php'; 
 		break;
 		
 		case 'search':
@@ -44,8 +44,12 @@ if (isset($_GET['act'])){
 		require_once 'login.php'; 
 		break;
 
-		case 'products':
-		require_once 'templates/products/index.php'; 
+		case 'cart':
+		require_once 'templates/cart.php'; 
+		break;
+
+		case 'cart':
+		require_once 'templates/cart.php'; 
 		break;
 
 

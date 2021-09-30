@@ -61,7 +61,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 					$_SESSION['user_email']= $user['email'];
 					$_SESSION['password']= $user['password'];
 					
-					header("Location: ../member");
+					header("Location: ../account");
 				}
 			} 
 			$stmt->close();

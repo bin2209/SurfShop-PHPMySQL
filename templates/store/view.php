@@ -9,7 +9,7 @@ include('../../includes/navbar.php');
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/css/view.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<style type="text/css">.desktop-services{opacity: .56;} .mobile-services a{color: #ffffff !important;}</style>
+<style type="text/css">.desktop-store a{opacity: 1 !important;; color: #ffffff !important;} .mobile-store a{color: #ffffff !important;}</style>
 <section class=" store content-center">
   <div class="box-content-center">
    <?php 

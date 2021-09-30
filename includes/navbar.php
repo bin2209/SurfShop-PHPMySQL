@@ -12,16 +12,17 @@ for($i=0;$i<count($link_directory_array);$i++){
 		$direct2 = '';
 	}
 }
-require_once $direct1.'core/db_conn.php';
-require_once $direct2.'classes/set_language_cookie.php';
+@require_once $direct1.'core/db_conn.php';
+@require_once $direct2.'classes/set_language_cookie.php';
 ?>
 
 <nav class="globalbar">
 	<?php
 	if(!isset($_SESSION['user_email'])){
 		// CHƯA ĐĂNG NHẬP // GIAO DIỆN: MOBILE
+		// DROPDOWN BUTTON
 		echo '
-		<label class=" bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login.php`"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 10px;"></label>';
+		<label class=" bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login`"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 10px;"></label>';
 	} else {
 		// CHECK SỐ LƯỢNG ITEM ĐÃ ĐẶT
 		function get_item_bag($email,$conn){
@@ -37,7 +38,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 			$array_bag_item = explode(',',$bag_item);
 			return count($array_bag_item);
 		}
-
+		// DROPDOWN BUTTON
 		//  ĐÃ ĐĂNG NHẬP // GIAO DIỆN: MOBILE
 		echo '<label class=" bag menu dropmenubtn mobile"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" onclick="Dropdown()" style="width: 19px; position: relative; top: 10px;">
 		<span class="number-menu-mobile">'.get_item_bag($_SESSION['user_email'],$conn).'</span></label>';
@@ -54,7 +55,7 @@ require_once $direct2.'classes/set_language_cookie.php';
 			<li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
 			<?php 	if(!isset($_SESSION['user_email'])){
 				// CHƯA ĐĂNG NHẬP // GIAO DIỆN: PC
-				echo '<li><a href="'.$_DOMAIN.'/login.php"><img class="menu-icon" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
+				echo '<li><a href="'.$_DOMAIN.'/login"><img class="menu-icon" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
 			}else {
 				// ĐÃ ĐĂNG NHẬP // GIAO DIỆN: PC
 				echo '<li><img class="dropmenubtn menu-icon" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;">
@@ -65,11 +66,12 @@ require_once $direct2.'classes/set_language_cookie.php';
 		<?php 
 
 		if(isset($_SESSION['user_email'])){
-			
-			
+			// MENU DROPDOWN CLICKED
 			echo '	
 			<div id="Dropdownmenu" class="dropdown-content ">
-			<a href="'.$_DOMAIN.'/member"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
+			<a href="'.$_DOMAIN.'/cart"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
+			<hr>
+			<a href="'.$_DOMAIN.'/account"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_account.'</p></a>
 			<hr>
 			<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
 			</div>';

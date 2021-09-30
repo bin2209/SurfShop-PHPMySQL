@@ -2,10 +2,10 @@
 
 $title = 'Login';
 
-require_once 'includes/header.php';
-require_once 'includes/navbar.php';
-require_once 'classes/set_language_cookie.php';
-require_once 'google_login/config.php';
+@require_once 'includes/header.php';
+@require_once 'includes/navbar.php';
+@require_once 'classes/set_language_cookie.php';
+@require_once 'google_login/config.php';
 
 if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
 	?>
@@ -31,7 +31,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 						</div>
 						<div class="or"><span><?php echo $LANG_or; ?></span></div>
 
-						<form action="login/auth.php" method="post">
+						<form action="request_login/auth.php" method="post">
 							<input type="email" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>" >
 
 							<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>">
@@ -77,7 +77,7 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 								?>
 								
 
-								<form action="login/signup.php" method="post">
+								<form action="request_login/signup.php" method="post">
 									<?php 
 									// GOOGLE LOGIN
 									if(isset($google_login)){
@@ -158,5 +158,5 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
 				<?php 
 			}else {
-				header("Location: ../member");
+				
 			}?>

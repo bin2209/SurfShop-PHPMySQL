@@ -1050,12 +1050,12 @@ footer hr{
   opacity: 0.8;
 }
 .globalbar .menu-icon:hover{
-    opacity: 1;
-    filter: brightness(400%);
-    -webkit-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
-  }
+  opacity: 1;
+  filter: brightness(400%);
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
 .number-menu-mobile{
  position: absolute;
  z-index: -6;
@@ -1079,4 +1079,49 @@ footer hr{
  background: transparent;
  width: 15px;
  font-weight: 100;
+}
+
+.member-information {
+  background: url(../img/about.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 16px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  -webkit-box-shadow: -1px 15px 29px -13px rgb(0 0 0 / 75%);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 1rem;
+}
+.member-information h3{
+  color: white;
+  margin-bottom:1em; 
+  width: auto; 
+  font-size:24px !important;
+}
+
+.logo-avt{
+  width: auto;
+}
+
+.logo-avt img{
+  margin-top: 30px;
+  position: relative;
+  top: 0em;
+  padding: .25rem;
+  background-color: #f5f6f9;
+  border: 1px solid #dee2e6;
+  max-width: 100%;
+  height: auto;
+  width: 77px;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 825px) {
+  .member-information{
+    width: 100%;
+  }
 }

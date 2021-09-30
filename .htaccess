@@ -73,8 +73,8 @@ RewriteRule ^store/$ ?act=store [L]
 RewriteRule ^services$ ?act=services [L]
 RewriteRule ^services/$ ?act=services [L]
 
-RewriteRule ^member$ ?act=member [L]
-RewriteRule ^member/$ ?act=member [L]
+RewriteRule ^account$ ?act=account [L]
+RewriteRule ^account/$ ?act=account [L]
 
 
 RewriteRule ^about$ ?act=about [L]
@@ -82,6 +82,9 @@ RewriteRule ^about/$ ?act=about [L]
 
 RewriteRule ^login$ ?act=login [L]
 RewriteRule ^login/$ ?act=login [L]
+
+RewriteRule ^cart$ ?act=cart [L]
+RewriteRule ^cart/$ ?act=cart [L]
 
 RewriteRule ^surf$ ?act=store&category=surf [L]
 RewriteRule ^surf/$ ?act=store&category=surf [L]

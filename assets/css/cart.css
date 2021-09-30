@@ -1,0 +1,354 @@
+section {
+	background: #fbfbfd;
+	padding-top: 2em;
+	padding-bottom: 5em;
+}
+input[type="checkbox"]{
+	display: block;
+	vertical-align: middle;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	background-color: #eee;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+	margin-right: auto;
+	margin-left: auto;
+}
+.grid-margin {
+	margin-bottom: 1.5rem;
+}
+
+.col-12 {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+
+
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #191c24db;
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #ffffffdb;
+	box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 18px;
+}
+.card .card-body {
+	padding: 1.75rem 1.5625rem;
+}
+.card-body {
+	flex: 1 1 auto;
+	min-height: 1px;
+	padding: 1.25rem;
+}
+.table-responsive {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+.table .remove-button{
+	padding: 7px 20px;
+	background: #f27474;
+	border: 0px solid;
+}
+.table .remove-button:hover{
+	cursor: pointer;
+	background: #fd5656;
+}
+.checkout-button{
+	padding: 7px 20px;
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	line-height: 1.5;
+	border-radius: 3px;
+	border: 1px solid;
+}
+.checkout-button:hover{
+	cursor: pointer;
+	background-color: #449d44;
+	border-color: #398439;
+}
+.checkout-button:active{
+	background-color: #449d44;
+	background-image: none;
+	border-color: #398439;
+}
+.checkout-button:focus{
+	background-color: #449d44;
+	border-color: #255625;
+}
+th{
+	display: table-cell;
+}
+tbody tr td img{
+	width: 100px;
+}
+.table thead th, .jsgrid .jsgrid-table thead th {
+	border-top: 0;
+	border-bottom-width: 1px;
+	font-weight: 500;
+	color: #6c7293;
+}
+.table thead th, .jsgrid .jsgrid-table thead th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #2c2e33;
+}
+.table, .jsgrid .jsgrid-table {
+	margin-bottom: 0;
+	color: #6c7293;
+}
+.table th, .jsgrid .jsgrid-table th, .table td, .jsgrid .jsgrid-table td {
+	padding: 0.9375rem;
+	vertical-align: middle;
+	border-top: 1px solid #2c2e33;
+}
+.table th {
+	vertical-align: middle;
+	font-size: 0.875rem;
+	line-height: 1;
+	white-space: nowrap;
+}
+.pl-2{
+	vertical-align: middle;
+}
+hr{
+	width: 40%;
+	max-width: 400px;
+}
+.content-wrapper {
+	background: #000000;
+	padding: 1.875rem 1.75rem;
+	width: 100%;
+	-webkit-flex-grow: 1;
+	flex-grow: 1;
+}
+.change-profile, .change-password {
+	letter-spacing: -0.016em;
+	text-align: center ;
+	margin-right: auto;
+	margin-left: auto;
+}
+.change-profile label{
+	position: relative;
+	left: 10%;
+	float: left;
+	font-size: 16px;
+	font-weight: 600;
+}
+.change-profile input,textarea{
+	width: 65%;
+	min-width: 222px;
+	font-size: 16px;
+	position: relative;
+	font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	color: #191919;
+	display: inline;
+	padding: 10px 20px;
+	border: 1px solid #ccc;
+	margin: 4px;
+	border-radius: 28px;
+}
+.change-profile textarea:hover{
+	border-color: dimgray;
+}
+
+
+.change-profile input:hover{
+	border-color: dimgray;
+}
+
+
+
+.background-content{
+	padding: 10px;
+	border: 0px solid;
+	border-radius: 2em;
+	width: 90%;
+	max-width: 1000px;
+	min-width: 320px;
+	margin-left: auto;
+	background: #fbfbfd;
+	margin-right: auto;
+}
+.background-logo{
+	border-radius: 1.5em;
+	background: rgb(0,0,8);
+	background: linear-gradient(0deg, rgba(0,0,8,1) 0%, rgba(3,4,5,0.8911939775910365) 4%, rgba(252,252,252,0) 100%);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+.cover-img{
+	background: black;
+	width: 60%;
+}
+.button-div button{
+	min-width: 200px;
+	padding: 10px 6px;
+	font-size: 16px;
+	border: 0px solid;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	background: #0071e3;
+	margin: 10px;
+}
+
+.button-div button:hover{
+	background: #0077ed;
+}
+.button-div button:active{
+	background: #006edb;
+}
+.change-profile button{
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px 33px;
+	font-size: 16px;
+	border: 0px solid;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+	background: #0071e3;
+	margin-top: 10px;
+	width: 40%;
+}
+.infomation i{
+	display: inline;
+	font-size: 16px;
+}
+.infomation p {
+	display: inline;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+
+.order{
+	margin-top: 1em;
+	margin-bottom: 2em;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.order-empty{
+}
+.order .list-item-product{
+	display: flex;
+	align-items: flex-start;
+	border: 2px solid #adadad;
+	border-radius: 5px;
+	max-width: 500px;
+	min-width: 250px;
+	margin-right: auto;
+	margin-left: auto;
+	background: #ffffff14;
+	padding: 14px;
+	margin-bottom: 15px;
+}
+.order .list-item-left{
+	flex-direction: row;
+	justify-content: center;
+}
+.list-item-right{
+	width: 100%;
+}
+.list-item-right .brand{
+	margin-top: 1%;
+	left: 2%;
+	float: left;
+	position: relative
+}
+.list-item-right .price{
+	float: right;
+	margin-top: 13%;
+	margin-right: 2%;
+	position: relative;
+}
+.panel-product{
+	width: fit-content;
+	top: 8px;
+	left: 8px;
+	position: relative;
+}
+
+.order .list-item-left img{
+	width: 100px;
+}
+.order .list-item-right h1{
+	font-size: 20px;
+	font-weight: 600;
+	width: 60%;
+	color: #101010;
+	text-align: left;
+	margin-left: 6px;
+}
+.order .list-item-right a{
+	font-size: 20px;
+	text-decoration: none;
+	color: #333333;
+}
+.order .list-item a:hover{
+	color: #000000;
+}
+.order .list-item p{
+	font-size: 20px;
+	width: 25%;
+	color: #101010a6;
+	margin-top: 14%;
+	position: relative
+}
+
+.infomation{
+	width: auto;
+}
+.total-product span{
+	color: #6c7293;
+}
+.total-product{
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	align-content: center;
+	position: sticky;
+	bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1.75rem 1.5625rem;
+	word-wrap: break-word;
+	background-color: #fbfbfd36;
+	box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+	background-clip: border-box;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 18px;
+	-webkit-backdrop-filter: saturate(180%) blur(20px);
+	backdrop-filter: saturate(180%) blur(20px);
+	background-color: rgba(255,255,255,0.72);
+}
+.is-pinned{
+	box-shadow: none !important;
+	border:  1px solid rgba(0, 0, 0, 0.125) !important;
+	border-radius: 0px !important;
+}
+@media only screen and (max-width: 800px) {
+	#fb-root {
+		display: none;
+	}
+}

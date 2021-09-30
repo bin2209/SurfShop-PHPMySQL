@@ -2,7 +2,7 @@
 require_once(realpath($_SERVER["DOCUMENT_ROOT"]) .'/classes/Functions.php');
 
 // Thông tin chung
-$_DOMAIN = 'https://localhost/';
+$_DOMAIN = 'https://localhost';
 // $_DOMAIN = 'https://lstsurf.com';
 date_default_timezone_set('Asia/Ho_Chi_Minh'); 
 $date_current = '';
