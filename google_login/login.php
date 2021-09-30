@@ -1,10 +1,6 @@
 <?php
 require 'db_connection.php';
 
-// if(isset($_SESSION['login_id'])){
-//     header('Location: success.php');
-//     exit;
-// }
 
 include 'config.php';
 
@@ -30,7 +26,7 @@ if(isset($_GET['code'])){
 
         if(mysqli_num_rows($get_user) > 0){
             // Đã đăng ký trước - > Tiến hành đăng nhập
-            session_start();
+            @session_start();
             $_SESSION['google'] = 'google';
              // LẤY DATA TỪ DB
             while($row = $get_user->fetch_assoc()) {
@@ -56,7 +52,7 @@ if(isset($_GET['code'])){
         }
     }
     else{
-        header('Location: login.php');
+        header('Location: ../login');
         exit;
     }
 }
