@@ -52,6 +52,7 @@ $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';
 $LANG_save = "Lưu thay đổi";
 $LANG_remove = "Xóa";
+$LANG_selectall = "Chọn tất cả";
 $LANG_checkout = "Thanh toán";
 $LANG_fullname = "Họ tên";
 $LANG_phone = "Số điện thoại";

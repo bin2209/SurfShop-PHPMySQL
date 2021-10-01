@@ -1,13 +1,14 @@
 <?php 
 $title = 'Services';
 @session_start();
-include('../../includes/header.php'); 
-include('../../includes/navbar.php');
+@include '../../includes/header.php'; 
+@include '../../includes/navbar.php';
 
 ?>
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.carousel.min.css">
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.theme.default.min.css">
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/css/view.css">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style type="text/css">.desktop-store a{opacity: 1 !important;; color: #ffffff !important;} .mobile-store a{color: #ffffff !important;}</style>
 <section class=" store content-center">
@@ -165,51 +166,56 @@ include('../../includes/navbar.php');
     echo '  
     <script type="text/javascript">
     $("#add-cart").click(function(){
-        $.post("'.$_DOMAIN.'/request/addtobag.php",{
+      $.post("'.$_DOMAIN.'/request/addtobag.php",{
         id: "'.$main_id.'"
         },
         function(data,status){
-            location.reload();
-          // alert(data,status);
-          });
-          });
-          </script>';
-        } 
-        ?>
 
-        <script type="text/javascript">
-         $('.owl-carousel').owlCarousel({
-          loop: true,
+          Swal.fire({
+            icon: "success",
+            text: "Sản phẩm đã được thêm vào giỏ hàng",
+            showConfirmButton: false,
+            timer: 1500
+            });
+            $("#globalbar").load(location.href+" #globalbar>*","");
+            });
+            });
+            </script>';
+          } 
+          ?>
 
-          margin: 10,
-          nav: true,
-          slideSpeed: 10,
-          navText: [
-          '<i class="fas fa-chevron-left" style="font-size: 40px;"></i>',
-          '<i class="fas fa-chevron-right" style="font-size: 40px;"></i>'
-          ],
+          <script type="text/javascript">
+           $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            slideSpeed: 10,
+            navText: [
+            '<i class="fas fa-chevron-left" style="font-size: 40px;"></i>',
+            '<i class="fas fa-chevron-right" style="font-size: 40px;"></i>'
+            ],
 
-          autoplay: true,
-          pagination : true,
-          paginationSpeed : 200,
-          slideSpeed : 300,
-          autoplaySpeed:300,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {
-              items: 2
-            },
-            600: {
-              items: 3
-            },
-            1000: {
-              items: 5
+            autoplay: true,
+            pagination : true,
+            paginationSpeed : 200,
+            slideSpeed : 300,
+            autoplaySpeed:300,
+            autoplayHoverPause: true,
+            responsive: {
+              0: {
+                items: 2
+              },
+              600: {
+                items: 3
+              },
+              1000: {
+                items: 5
+              }
             }
-          }
-        })
-      </script>
+          })
+        </script>
 
 
 
-      <?php include('../../includes/footer.php'); ?>
+        <?php include('../../includes/footer.php'); ?>
 

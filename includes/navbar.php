@@ -16,7 +16,7 @@ for($i=0;$i<count($link_directory_array);$i++){
 @require_once $direct2.'classes/set_language_cookie.php';
 ?>
 
-<nav class="globalbar">
+<nav id="globalbar" class="globalbar">
 	<?php
 	if(!isset($_SESSION['user_email'])){
 		// CHƯA ĐĂNG NHẬP // GIAO DIỆN: MOBILE

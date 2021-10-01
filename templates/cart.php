@@ -45,6 +45,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	?>
 	<link href="../assets/css/cart.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<section class="content-center">
 		<div class="background-content">
 			<div class="member-information">
@@ -130,18 +131,23 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
 		</div>
 		
-	<script type="text/javascript">
-	
-		function remove_cart($id){
-			$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
-				id: $id
-			},
-			function(data,status){
-				location.reload();
-			});
-		}
-	</script>
-</div> <!--  // backgound content -->
+		<script type="text/javascript">
+			function remove_cart($id){
+				$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
+					id: $id
+				},
+				function(data,status){
+					Swal.fire({
+						icon: "success",
+						text: "Sản phẩm đã được xóa khỏi giỏ hàng",
+						showConfirmButton: false,
+						timer: 1500
+					});
+					$("#globalbar").load(location.href+" #globalbar>*","");
+				});
+			}
+		</script>
+	</div> <!--  // backgound content -->
 </section>
 </body>
 </div>
