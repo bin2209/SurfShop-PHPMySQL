@@ -1,9 +1,10 @@
 <?php 
 @session_start();
 // $title = 'LST';
-require_once  'includes/header.php'; 
-require_once  'includes/navbar.php';
-require_once  'core/db_conn.php';
+@require_once  'includes/header.php'; 
+@require_once  'includes/navbar.php';
+@require_once  'core/db_conn.php';
+@require_once 'classes/Functions.php';
 
 
 

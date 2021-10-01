@@ -2,6 +2,10 @@ sum_price=0;
 quantity=0;
 document.getElementById("total-price-result").innerHTML = sum_price;
 document.getElementById("quantity-result").innerHTML = quantity;
+function PriceFormat(price){
+	price = Intl.NumberFormat('vi-VN', { maximumSignificantDigits: 3 }).format(price);
+	return price;
+}
 function isSelectAll(){
 	// CHECK XEM NẾU TẤT CẢ ĐÃ SELECTED
 	checkboxes = document.getElementsByName('product');
@@ -37,8 +41,9 @@ function selectOne(source){
 		quantity= Number(quantity)-1;
 
 	}
+	sum_price_format = PriceFormat(sum_price);
 	document.getElementById("quantity-result").innerHTML = quantity;
-	document.getElementById("total-price-result").innerHTML = sum_price;
+	document.getElementById("total-price-result").innerHTML = sum_price_format;
 }
 
 function selectAll(source){
@@ -59,8 +64,9 @@ function selectAll(source){
 		quantity = Number(n);
 		document.getElementById("selectAllbutton").checked=true;
 	}
+	sum_price_format = PriceFormat(sum_price);
 	document.getElementById("quantity-result").innerHTML = quantity;
-	document.getElementById("total-price-result").innerHTML = sum_price;
+	document.getElementById("total-price-result").innerHTML = sum_price_format;
 }
 
 

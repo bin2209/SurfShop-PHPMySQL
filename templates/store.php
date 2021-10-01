@@ -269,7 +269,7 @@
     </a>
     <div class="product-info">
     <p>'.$description.'</p>
-    <p>'.$price.'</p>
+    <p>'.s_PriceFormat($price).'₫</p>
     </div>
     </div>';
   }

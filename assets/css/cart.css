@@ -6,7 +6,7 @@ section {
 input[type="checkbox"]{
 	display: block;
 	vertical-align: middle;
-	position: absolute;
+	position: relative;
 	height: 20px;
 	width: 20px;
 	background-color: #eee;
@@ -324,9 +324,6 @@ hr{
 }
 .total-product{
 	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	align-content: center;
 	position: sticky;
 	bottom: 0;
 	margin-left: auto;
@@ -334,21 +331,32 @@ hr{
 	padding: 1.75rem 1.5625rem;
 	word-wrap: break-word;
 	background-color: #fbfbfd36;
-	box-shadow:0 7px 30px -10px rgba(150,170,180,0.5);
+	box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%);
 	background-clip: border-box;
 	border: 1px solid rgba(0, 0, 0, 0.125);
 	border-radius: 18px;
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
 	backdrop-filter: saturate(180%) blur(20px);
 	background-color: rgba(255,255,255,0.72);
+	align-items: center;
+	justify-content: space-between;
 }
 .is-pinned{
 	box-shadow: none !important;
 	border:  1px solid rgba(0, 0, 0, 0.125) !important;
 	border-radius: 0px !important;
 }
+.total-product span{
+	display: inline;
+}
 @media only screen and (max-width: 800px) {
 	#fb-root {
 		display: none;
+	}
+	.total-product .checkout-span{
+		position: relative;
+		top: 10px;
+		width: 100%;
+		text-align: right;
 	}
 }

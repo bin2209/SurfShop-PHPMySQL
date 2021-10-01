@@ -1,12 +1,4 @@
 <?php
-/**
- * Functions.php
- *
- * Tac gia: haunguyen
- *
- * Lien he: https://www.facebook.com/profile.php?id=100004684695399
- *
- */
  
 // Hàm điều hướng trang
 class Redirect {
@@ -16,6 +8,10 @@ class Redirect {
             echo '<script>location.href="'.$url.'";</script>';
         }
     }
+}
+// Hàm| Chỉnh sửa giá thêm dấu chấm -> string
+function s_PriceFormat($price){
+    return number_format($price);
 }
 
 function time_stamp($time){

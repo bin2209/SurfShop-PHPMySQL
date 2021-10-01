@@ -1,9 +1,6 @@
 <?php 
 @session_start();
 $title = 'Cart';
-@require_once 'includes/header.php';
-@require_once 'includes/navbar.php';
-
 
 if (!isset($_SESSION['user_email'])){
 	// header("Location: ../");
@@ -93,6 +90,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 												$item_brand = $item["brand"];
 												$total_price += $item["price"];
 											}
+
 											echo '<tr>';
 
 											echo '<td>
@@ -105,9 +103,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 											<span class="pl-2">'.$item_brand.'</span>
 											</div>
 											</td>
-											<td>'.$item_price.'</td>
+											<td>'.s_PriceFormat($item_price).'₫</td>
 											<td>1</td>
-											<td>'.$item_price.'</td>
+											<td>'.s_PriceFormat($item_price).'₫</td>
 											<td>
 											<button id="'.$bag_item_id[$i].'" class="remove-button" onclick="remove_cart(this.id)"  >'.$LANG_remove.'</button>
 											</td>';
@@ -129,13 +127,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 			<span><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> Chọn tất cả ( <?php echo get_item_bag($_SESSION['user_email'],$conn); ?> )</span>
 
 			<span>Tổng thanh toán ( <p id="quantity-result" style="display: inline;"></p> Sản phẩm ): <p id="total-price-result" style="display: inline;"></p> ₫</span>
-			<span><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
+			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
 		</div>
-		<style type="text/css">
-		.total-product span{
-			display: inline;
-		}
-	</style>
+		
 	<script type="text/javascript">
 	
 		function remove_cart($id){

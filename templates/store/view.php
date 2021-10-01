@@ -79,7 +79,7 @@ include('../../includes/navbar.php');
     <div class="column column-right">
 
     <span class="product-title" >'. $store_name.'</span><br>
-    <span class="product-price" >'. $price.'</span><br>
+    <span class="product-price" >'. s_PriceFormat($price).'₫</span><br>
     <span class="product-brand">'.  $brand.'</span><br>
     <br>
     <br>
@@ -143,7 +143,7 @@ include('../../includes/navbar.php');
           </a>  
           <div class="product-info">
           <p>'.$name.'</p>
-          <p>'.$price.'</p>
+          <p>'.s_PriceFormat($price).'₫</p>
           </div>
           </div>
           ';}
