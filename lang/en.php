@@ -47,13 +47,20 @@ $LANG_services_title2 ='Repairs';
 $LANG_services_title3 ='Surfboard Rentals';
 $LANG_services_title4 ='Lessons';
 $LANG_services_title5 ='Trips';
-//MEMBER
+//MEMBER | CART
 $LANG_member_changepass = 'Change password';
 $LANG_member_changeprofile = 'Edit profile';
 $LANG_save = "Save";
 $LANG_remove = "Delete";
 $LANG_selectall = "Select All";
+$LANG_payment = "Total payment";
 $LANG_checkout = "Checkout";
+$LANG_product = "Product";
+$LANG_products = "Products";
+$LANG_unit_price = "Unit price";
+$LANG_quantity = "Quantity";
+$LANG_total = "Total";
+$LANG_manipulation = "Manipulation";
 $LANG_fullname = "Full Name";
 $LANG_phone = "Phone";
 $LANG_address_delivery = "Delivery address";

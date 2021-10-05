@@ -47,13 +47,20 @@ $LANG_services_title2 ='Sửa Ván Luót Sóng';
 $LANG_services_title3 ='Thuê Ván Lướt Sóng';
 $LANG_services_title4 ='Dạy Học Lướt Sóng';
 $LANG_services_title5 ='Du Lịch Lướt Sóng';
-//MEMBER
+//MEMBER | CART
 $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';
 $LANG_save = "Lưu thay đổi";
 $LANG_remove = "Xóa";
 $LANG_selectall = "Chọn tất cả";
+$LANG_payment = "Tổng thanh toán";
 $LANG_checkout = "Thanh toán";
+$LANG_product = "Sản phẩm";
+$LANG_products = "Sản phẩm";
+$LANG_unit_price = "Đơn giá";
+$LANG_quantity = "Số lượng";
+$LANG_total = "Tổng";
+$LANG_manipulation = "Thao tác";
 $LANG_fullname = "Họ tên";
 $LANG_phone = "Số điện thoại";
 $LANG_address_delivery = "Địa chỉ nhận hàng";

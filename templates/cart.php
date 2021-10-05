@@ -68,11 +68,11 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 										$i = 0;
 										echo '<thead>
 										<tr>
-										<th style="text-align: left;">Sản Phẩm</th>
-										<th>Đơn Giá</th>
-										<th>Số Lượng</th>
-										<th>Số Tiền</th>
-										<th>Thao Tác</th>
+										<th style="text-align: left;">'.$LANG_product.'</th>
+										<th>'.$LANG_unit_price.'</th>
+										<th>'.$LANG_quantity.'</th>
+										<th>'.$LANG_total.'</th>
+										<th>'.$LANG_manipulation.'</th>
 										</tr>
 										</thead>
 
@@ -125,9 +125,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		</div>
 
 		<div class="row total-product">
-			<span><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> Chọn tất cả ( <?php echo get_item_bag($_SESSION['user_email'],$conn); ?> )</span>
+			<span><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> <?php echo $LANG_selectall ?> ( <?php echo get_item_bag($_SESSION['user_email'],$conn); ?> )</span>
 
-			<span>Tổng thanh toán ( <p id="quantity-result" style="display: inline;"></p> Sản phẩm ): <p id="total-price-result" style="display: inline;"></p> ₫</span>
+			<span><?php echo $LANG_payment ?> ( <p id="quantity-result" style="display: inline;"></p> <?php echo $LANG_product ?> ): <p id="total-price-result" style="display: inline;"></p> ₫</span>
 			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
 		</div>
 		
@@ -154,9 +154,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/total-price.js"></script>
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/total-product-ispined.js"></script>
 </html>
-
 <?php }
-
 ?>
 <?php include('includes/footer.php'); ?>
 
