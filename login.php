@@ -126,16 +126,10 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 									</div>
 									<form action="request_login/resetpass.php" method="post">
 										<input type="email" name="email_reset" placeholder="<?php echo $LANG_email; ?>" id="resetPassword" required>
-
 										<span class="error"></span>
-
-
-
 										<button type="submit" class="btn-signin"><?php echo $LANG_recover_button; ?></button>
 										<a href="javascript:void(0)" class="btn-login btn-fade"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> <?php echo $LANG_recover_back ;?> </a>
 									</form>
-
-									
 									<div class="notification">
 										<p>Good job. An email containing information on how to reset your passworld was sent to<span class="reset-mail"></span>. Please follow the instruction in that email to
 										reset your password. Thanks!</p>

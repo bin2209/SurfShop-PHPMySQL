@@ -8,16 +8,33 @@
 
 //Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
-// require 'settings.php';
-// @require '../mail/vendor/settings.php';
-// @require '../mail/vendor/autoload.php';
+// require '../vendor/settings.php';
+// require '../vendor/autoload.php';
+
+// require_once '../vendor/autoload.php';
+
+function sentmail($File_html_content){
+   // SMTP SETTINGS
+    $SMTP_host = 'smtp.office365.com';
+    $SMTP_port = '587';
+    $SMTP_secure = 'tls';
+    $SMTP_username = 'lstsurf@outlook.com';
+    $SMTP_password = 'truong322';
+
+//Set who the message is to be sent from
+    $setFrom_email = 'lstsurf@outlook.com';
+    $setFrom_name = 'LST SURF';
+
+//Set who the message is to be sent to
+    $addAddress_email = 'binazure@gmail.com';
+    $addAddress_name = 'binazure';
+
+//Set the subject line
+    $Subject_name = 'LST SURF SENT MAIL';
 
 
-function sentmail(){
-    require '../vendor/autoload.php';
-    require 'settings.php';
-    
 //Create a new PHPMailer instance
+
     $mail = new PHPMailer;
 
 //Tell PHPMailer to use SMTP
@@ -27,7 +44,7 @@ function sentmail(){
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
 
 //Set the hostname of the mail server
     $mail->Host = $SMTP_host;
@@ -74,13 +91,15 @@ function sentmail(){
 
 //send the message, check for errors
     if (!$mail->send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
+        return 0;
+        // echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
-        echo "Message sent!";
-    }
+     return 1;
+        // echo "Message sent!";
+ }
 
 
 }
 
-sentmail();
+// sentmail($File_html_content);
 
