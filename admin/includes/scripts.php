@@ -11,6 +11,6 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/settings.js"></script>
 <script src="assets/js/todolist.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="assets/js/request.js"></script>
 <script src="assets/js/dashboard.js"></script>

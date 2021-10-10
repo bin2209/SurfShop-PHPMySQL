@@ -45,7 +45,7 @@ if (isset($_POST['email_reset'])){
 									VALUES 			('0','$email_reset','$key','$expiry')";
 					$stmt=$conn->prepare($sql);
 					$result = $stmt->execute();
-					header("Location: ../login?mailsent=$email_reset");	
+					// header("Location: ../login.php?mailsent=$email_reset");	
 				}
 
 

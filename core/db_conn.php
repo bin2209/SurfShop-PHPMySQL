@@ -14,6 +14,7 @@ $sName = "localhost";
 $uName = "root";
 $pass = "";
 $db_name = "lst";
+$today = date("Y-m-d");
 
 try {
   $conn = new PDO("mysql:host=$sName;dbname=$db_name",$uName, $pass);

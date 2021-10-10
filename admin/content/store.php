@@ -2,24 +2,19 @@
   <div class="col-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-
+        <?php
+        if(isset($_GET['category'])){
+           $where_category = $_GET['category'];
+        }
+        ?>
         <select id="type" onchange="location = this.value;" style="position: absolute; top: 20px; left: 20px;">
-          <?php 
-          $where_list = $_GET['list'];
-          $s_type1 = 'surf';
-          $s_type2 = 'skate';
-          $s_type3 = 'clother';
-          $s_type4 = 'orther';
-          ?>
-          <option value="?slidebar=store" <?php if(!isset($where_list)){echo 'selected';}?>>All</option>
-          <option value="?slidebar=store&list=surf" <?php if(isset($where_list) && $where_list==$s_type1){echo 'selected';}?>>Surf Board</option>
-          <option value="?slidebar=store&list=skate"<?php if(isset($where_list) && $where_list==$s_type2){echo 'selected';}?>>Skate Board</option>
-          <option value="?slidebar=store&list=clother"<?php if(isset($where_list) && $where_list==$s_type3){echo 'selected';}?>>Clother</option>
-          <option value="?slidebar=store&list=orther"<?php if(isset($where_list) && $where_list==$s_type4){echo 'selected';}?>>Orther</option>
+          <option value="?slidebar=store" <?php if(!isset($where_category)){echo 'selected';}?>>All</option>
+          <option value="?slidebar=store&category=1" <?php if(isset($where_category) && $where_category==1){echo 'selected';}?>>Surf Board</option>
+          <option value="?slidebar=store&category=2"<?php if(isset($where_category) && $where_category==2){echo 'selected';}?>>Skate Board</option>
+          <option value="?slidebar=store&category=3"<?php if(isset($where_category) && $where_category==3){echo 'selected';}?>>Clothes</option>
+          <option value="?slidebar=store&category=4"<?php if(isset($where_category) && $where_category==4){echo 'selected';}?>>Other</option>
         </select>
-
         <p class="card-description"> View page <a href="../../store" target="_blank">store</a></p>
-
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -45,10 +40,10 @@
               
                 $price = $row["price"];
                 echo '<tr>';
-                echo '<td><img src="../../upload/'.$images.'" alt="image" / >'.$id.'</td>';
+                echo '<td>'.$id.' <img src="../../upload/'.$images.'" alt="image" / ></td>';
                 echo ' <td>'.$name.'</td>';
                
-                echo ' <td>'.$price.'</td>';
+                echo ' <td>'.s_PriceFormat($price).'₫</td>';
                 echo ' <td>
                 <label class="badge badge-primary" onclick="show_Product('.$id.',`'.$name.'`,`'.$images.'`,`'.$price.'`,`'.$description_en.'`,`'.$description_vi.'`)">Detail</label> 
                 <label class="badge badge-warning" onclick="edit_Product('.$id.',`'.$name.'`,`'.$images.'`,`'.$price.'`,`'.$description_en.'`,`'.$description_vi.'`)">Edit</label> 
@@ -57,23 +52,16 @@
               }
             }
 
-            if (isset($where_list)&&$where_list==$s_type1){
-              $stmt = $conn->prepare("SELECT * FROM store WHERE type = 1");
-              print_Product($stmt);
-            }else if (isset($where_list)&&$where_list==$s_type2){
-             $stmt = $conn->prepare("SELECT * FROM store WHERE type = 2");
-             print_Product($stmt);
-           }else if (isset($where_list)&&$where_list==$s_type3){
-            $stmt = $conn->prepare("SELECT * FROM store WHERE type = 3");
-            print_Product($stmt);
-          }else if (isset($where_list)&&$where_list==$s_type4){
-            $stmt = $conn->prepare("SELECT * FROM store WHERE type = 4");
+      
+
+
+          if (isset($where_category)){
+            $stmt = $conn->prepare("SELECT * FROM store WHERE category = $where_category");
             print_Product($stmt);
           }else{
             $stmt = $conn->prepare("SELECT * FROM store");
             print_Product($stmt);
           }
-
           ?>
         </tbody>
       </table>
@@ -104,8 +92,8 @@
           <select id="type" name="type">
             <option value="surf">Surf Board</option>
             <option value="skate">Skate Board</option>
-            <option value="clother">Clother</option>
-            <option value="orther">Orther</option>
+            <option value="clothes">Clothes</option>
+            <option value="other">Other</option>
           </select>
         </div>
         <div class="form-group">
@@ -144,7 +132,7 @@
 
       </form>
       <?php 
-      function listFolderFiles($dir){
+      function categoryFolderFiles($dir){
         $ffs = scandir($dir);
 
         unset($ffs[array_search('.', $ffs, true)]);
@@ -156,12 +144,12 @@
 
         foreach($ffs as $ff){
           echo '<li>'.$ff;
-          if(is_dir($dir.'/'.$ff)) listFolderFiles($dir.'/'.$ff);
+          if(is_dir($dir.'/'.$ff)) categoryFolderFiles($dir.'/'.$ff);
           echo '</li>';
         }
       }
 
-      listFolderFiles('../upload');
+      categoryFolderFiles('../upload');
       ?>
     </div>
   </div>

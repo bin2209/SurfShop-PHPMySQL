@@ -83,7 +83,7 @@
               <i class="mdi mdi-settings text-success"></i>
             </div>
           </div>
-          <a href="?slidebar=setitings">
+          <a href="?slidebar=settings">
             <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> Settings</p>
         </a>
         </a>
@@ -94,7 +94,7 @@
               <i class="mdi mdi-logout text-danger"></i>
             </div>
           </div>
-          <a href="logout.php">
+          <a href="../../logout.php">
               <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;">Log out</p>
           </a>
         </a>

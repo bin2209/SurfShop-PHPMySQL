@@ -6,7 +6,8 @@ $title = 'Member';
 
 
 if (!isset($_SESSION['user_email'])){
-	// header("Location: ../");
+	echo "<script>window.location.href='login';</script>";
+ 	exit;
 }
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
@@ -23,6 +24,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		$user_avatar = $user['avatar'];
 		$user_phone = $user['phone'];
 		$user_about = $user['about'];
+		$user_type = $user['type'];
 		$user_password = $user['password'];
 	}
 

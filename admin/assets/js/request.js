@@ -15,11 +15,30 @@ function edit_Product($id,$name,$images,$price,description_en,description_vi){
     title: '<strong>Edit ID '+$id+'</strong>',
     showCloseButton:true,
     confirmButtonColor: '#3085d6',
-    confirmButtonText: 'Yes, change it!',
+    confirmButtonText: 'Save',
     showCancelButton: true,
     cancelButtonColor: '#d33',
     html: '<input class="swal2-input" type="text" name="editName" value="'+$name+'"/><br><input class="swal2-input" type="text" name="editDecription_en" value="'+description_en+'"/><br><input class="swal2-input" type="text" name="editDecription_vi" value="'+description_vi+'"/><br><input class="swal2-input" type="text" name="editPrice" value="'+$price+'"/>'
-  })
+  }).then((result) => {
+    if (result.isConfirmed) {
+     $.ajax({
+      type : "POST", 
+      url  : "./request/product.php", 
+      data : {
+        type: "change_product",
+        id : id
+      },
+      success: function(res){  
+        location.reload();
+      }
+    });
+     Swal.fire(
+      'Changed!',
+      'Your file has been changed.',
+      'success'
+      )
+   }
+ })
 }
 
 function delete_Product($id){
@@ -31,7 +50,7 @@ function delete_Product($id){
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+    confirmButtonText: 'Delete'
   }).then((result) => {
     if (result.isConfirmed) {
      $.ajax({
@@ -42,7 +61,7 @@ function delete_Product($id){
         id : id
       },
       success: function(res){  
-        location.reload();
+       $("#content-wrapper").load(location.href+" #content-wrapper>*","");
       }
     });
      Swal.fire(

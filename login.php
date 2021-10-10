@@ -174,5 +174,6 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 
 				<?php 
 			}else {
-				
+				echo "<script>window.location.href='account';</script>";
+ 				exit;
 			}?>

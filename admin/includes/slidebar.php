@@ -56,6 +56,14 @@
               <span class="menu-title">Services</span>
             </a>
           </li>
+            <li class="nav-item menu-items">
+            <a class="nav-link" href="?slidebar=mail-settings">
+              <span class="menu-icon">
+                <i class="mdi mdi-code-string"></i>
+              </span>
+              <span class="menu-title">Mail Server</span>
+            </a>
+          </li>
      
          <!--   <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#user-auth" aria-expanded="false" aria-controls="user-auth">

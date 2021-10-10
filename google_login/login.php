@@ -35,6 +35,10 @@ if(isset($_GET['code'])){
                 $_SESSION['user_email'] = $email;
                 $_SESSION['password'] = $row["password"];
                 $_SESSION['login_id'] = $row["id"]; 
+                $_SESSION['type'] = $row["type"]; 
+                $_SESSION['avatar'] = $row["avatar"]; 
+                $_SESSION['name'] = $row["name"]; 
+
                 // XÁC THỰC EMAIL TỰ ĐỘNG 
                 if ($row["xacthuc"]==NULL){
                       mysqli_query($db_connection, "UPDATE `user` SET `xacthuc`= 1 WHERE `id`='$user_id'");

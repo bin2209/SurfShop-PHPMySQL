@@ -44,7 +44,7 @@ function sentmail($File_html_content){
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 2;
 
 //Set the hostname of the mail server
     $mail->Host = $SMTP_host;
