@@ -14,6 +14,11 @@ exit;
 }else if($_SESSION['type']==1){
 ?>
 <body>
+  <style type="text/css">
+    .card-description{
+      float: right;
+    }
+  </style>
   <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
     <?php include 'includes/slidebar.php'; ?>

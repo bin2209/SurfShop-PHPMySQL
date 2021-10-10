@@ -54,7 +54,7 @@ hr{
 	max-width: 1000px;
 	min-width: 320px;
 	margin-left: auto;
-	background: white;
+	background: transparent;
 	margin-right: auto;
 }
 .background-logo{

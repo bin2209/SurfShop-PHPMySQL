@@ -1,16 +1,16 @@
-function show_Product($id,$name,$images,$price,description_en,description_vi){
+function show_Product($id,$name,$images,$price,description_en,description_vi,brand){
   Swal.fire({
    showConfirmButton: false,
    showCloseButton:true,
    title: '<strong>'+$name+'</strong>',
    imageUrl: '../../upload/'+$images,
-   html: '<b>Description-EN:</b> '+description_en+'<br>'+'<b>Description-VN:</b> '+description_vi,
+   html: '<b>Description-EN:</b> '+description_en+'<br>'+'<b>Description-VN:</b> '+description_vi+'<br>'+'<b>Brand:</b> '+brand,
    footer: 'Price:' + $price,
 
  })
 }
 
-function edit_Product($id,$name,$images,$price,description_en,description_vi){
+function edit_Product($id,$name,$images,$price,description_en,description_vi,brand){
   Swal.fire({
     title: '<strong>Edit ID '+$id+'</strong>',
     showCloseButton:true,
