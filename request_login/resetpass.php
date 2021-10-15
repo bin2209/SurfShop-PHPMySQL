@@ -32,27 +32,32 @@ if (isset($_POST['email_reset'])){
 				$expiry = ($no_valid_key ? time() + $reset_expiry : $row['pass_reset_expiry']);
 
 
-				// THÊM GIÁ TRỊ VÀO DB 
+				
 				
 
+				// Gán nội dung mail | Có thể set $LANG theo cookie
 
-
-
+				$addAddress_email = $email_reset;
+				$Subject_name = 'Reset Password Notification';
 				$File_html_content = '../mail/src/content/reset_pass.html';
-				// SENT MAIL 
-				if (sentmail($File_html_content)==1){
+
+				// SENT MAIL || THÊM GIÁ TRỊ VÀO DB 
+				if (sentmail($File_html_content,$addAddress_email,$Subject_name)==1){
 					$sql = "INSERT INTO mail(id, email, pass_reset_key, pass_reset_expiry) 
-									VALUES 			('0','$email_reset','$key','$expiry')";
+					VALUES 					('0','$email_reset','$key','$expiry')";
 					$stmt=$conn->prepare($sql);
 					$result = $stmt->execute();
-					// header("Location: ../login.php?mailsent=$email_reset");	
+					// header("Location: ../login.php?mailsent=$email_reset");		
+					echo "<script>window.location.href='../login.php?mailsent=".$email_reset."';</script>";
+					// exit;
 				}
 
 
 
 			}else if($stmt->rowCount() < 1){
 			//EMAIL KHÔNG TỒN TẠI -> FALSE
-				header("Location: ../login?error=$email_reset không tồn tại.");
+				header("Location: ../login.php?error=$email_reset không tồn tại.");
+				exit;
 			}
 
 		}

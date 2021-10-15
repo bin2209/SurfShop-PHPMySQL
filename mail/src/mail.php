@@ -13,7 +13,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 // require_once '../vendor/autoload.php';
 
-function sentmail($File_html_content){
+function sentmail($File_html_content,$addAddress_email,$Subject_name){
    // SMTP SETTINGS
     $SMTP_host = 'smtp.office365.com';
     $SMTP_port = '587';
@@ -26,11 +26,10 @@ function sentmail($File_html_content){
     $setFrom_name = 'LST SURF';
 
 //Set who the message is to be sent to
-    $addAddress_email = 'binazure@gmail.com';
-    $addAddress_name = 'binazure';
+    // $addAddress_email = 'binazure@gmail.com';
 
 //Set the subject line
-    $Subject_name = 'LST SURF SENT MAIL';
+    // $Subject_name = 'LST SURF SENT MAIL';
 
 
 //Create a new PHPMailer instance
@@ -44,7 +43,7 @@ function sentmail($File_html_content){
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-    $mail->SMTPDebug = 2;
+    $mail->SMTPDebug = 0;
 
 //Set the hostname of the mail server
     $mail->Host = $SMTP_host;
@@ -74,7 +73,7 @@ function sentmail($File_html_content){
     // $mail->addReplyTo($addReplyTo_email, $addReplyTo_name);
 
 //Set who the message is to be sent to
-    $mail->addAddress($addAddress_email, $addAddress_name);
+    $mail->addAddress($addAddress_email);
 
 //Set the subject line
     $mail->Subject = $Subject_name;
@@ -94,9 +93,9 @@ function sentmail($File_html_content){
         return 0;
         // echo "Mailer Error: " . $mail->ErrorInfo;
     } else {
-     return 1;
+       return 1;
         // echo "Message sent!";
- }
+   }
 
 
 }
