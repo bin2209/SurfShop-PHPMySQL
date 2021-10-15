@@ -10,6 +10,9 @@
 			$direct='';
 		}
 	}
+	if(strpos($link_directory,'/verifyReset')){
+		$direct='../';
+	}
 	// SET LANGUAGE COOKIE
 	if (!isset($_COOKIE['language'])){
 		$_COOKIE['language']='en';

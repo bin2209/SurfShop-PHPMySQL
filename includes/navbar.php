@@ -5,15 +5,16 @@ $GLOBALS['link_directory_array'] = array('/store/');
 for($i=0;$i<count($link_directory_array);$i++){
 	$pos = strpos($link_directory,$link_directory_array[$i]);
 	if ($pos == true){
-		$direct1 = '../../';
-		$direct2 = '../../';
+		$direct = '../../';
 	}else{
-		$direct1 = '';
-		$direct2 = '';
+		$direct = '';
 	}
 }
-@require_once $direct1.'core/db_conn.php';
-@require_once $direct2.'classes/set_language_cookie.php';
+if(strpos($link_directory,'/verifyReset')){
+	$direct='../';
+}
+@require_once $direct.'core/db_conn.php';
+@require_once $direct.'classes/set_language_cookie.php';
 ?>
 
 <nav id="globalbar" class="globalbar">
@@ -42,7 +43,7 @@ for($i=0;$i<count($link_directory_array);$i++){
 		//  ĐÃ ĐĂNG NHẬP // GIAO DIỆN: MOBILE
 		echo '<label class=" bag menu dropmenubtn mobile"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" onclick="Dropdown()" style="width: 19px; position: relative; top: 10px;">
 		<span class="number-menu-mobile">'.get_item_bag($_SESSION['user_email'],$conn).'</span></label>';
-	
+
 		
 	}
 	?>
@@ -84,23 +85,23 @@ for($i=0;$i<count($link_directory_array);$i++){
 	<label class="menu-btn menu mobile" style="height: 44px; left: 0; position: relative; top: -4px;"><a href="/"><img style="height:50px; width:50px;" src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png"/></a></label>
 </nav>
 <input type="checkbox" id="active">
-	<div class="wrapper" onclick="">
-		<ul>
-			<li class="search-box"><i class="fas fa-search"></i>
-				<form id="search" action="search.php" method="get">
-					<input type="text" name="src" placeholder="Search">
-					<input type='submit' style="display:none;"/>
-				</form>
-			</li>
-			<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
-			<li class="mobile-store"><a href="/store"><?php echo $LANG_store ?></a></li>
-			<li class="mobile-map"><a href="/map"><?php echo $LANG_map ?></a></li>
-			<li class="mobile-about"><a href="/about"><?php echo $LANG_about ?></a></li>
-		</ul>
-	</div>
+<div class="wrapper" onclick="">
+	<ul>
+		<li class="search-box"><i class="fas fa-search"></i>
+			<form id="search" action="search.php" method="get">
+				<input type="text" name="src" placeholder="Search">
+				<input type='submit' style="display:none;"/>
+			</form>
+		</li>
+		<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
+		<li class="mobile-store"><a href="/store"><?php echo $LANG_store ?></a></li>
+		<li class="mobile-map"><a href="/map"><?php echo $LANG_map ?></a></li>
+		<li class="mobile-about"><a href="/about"><?php echo $LANG_about ?></a></li>
+	</ul>
+</div>
 
-	<!-- End Menu-content -->
-	<script type="text/javascript">
+<!-- End Menu-content -->
+<script type="text/javascript">
 			/* When the user clicks on the button, 
 			toggle between hiding and showing the dropdown content */
 			function Dropdown() {
@@ -112,16 +113,16 @@ for($i=0;$i<count($link_directory_array);$i++){
 window.onclick = function(event) {
 				// document.getElementsByClassName('menu-btn menu mobile')[0].style.display ="none";
 				$("#dropdown-button").html("menu-btn menu mobile");
-	if (!event.target.matches('.dropmenubtn')) {
-		var dropdowns = document.getElementsByClassName("dropdown-content");
-		var i;
-		for (i = 0; i < dropdowns.length; i++) {
-			var openDropdown = dropdowns[i];
-			if (openDropdown.classList.contains('show')) {
-				openDropdown.classList.remove('show');
-			}
-		}
-	}
+				if (!event.target.matches('.dropmenubtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains('show')) {
+							openDropdown.classList.remove('show');
+						}
+					}
+				}
 
-}
-</script>
+			}
+		</script>

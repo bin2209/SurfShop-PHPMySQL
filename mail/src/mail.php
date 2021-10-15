@@ -80,8 +80,8 @@ function sentmail($File_html_content,$addAddress_email,$Subject_name){
 
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-    $mail->msgHTML(file_get_contents($File_html_content), __DIR__);
-
+    // $mail->msgHTML(file_get_contents($File_html_content), __DIR__);
+    $mail->msgHTML($File_html_content, __DIR__);
 //Replace the plain text body with one created manually
     // $mail->AltBody = 'This is a plain-text message body';
 

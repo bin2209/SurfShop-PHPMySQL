@@ -39,9 +39,25 @@ if (isset($_POST['email_reset'])){
 
 				$addAddress_email = $email_reset;
 				$Subject_name = 'Reset Password Notification';
-				$File_html_content = '../mail/src/content/reset_pass.html';
+				// $File_html_content = '../mail/src/content/reset_pass.html';
+
+				// determine password reset URL
+				$ResetLink = $_DOMAIN."/verifyReset/$email_reset/$key";
+				
+
+				$NoiDungMail = file_get_contents('../mail/src/content/reset_pass.html');
+
+				$NoiDungMail = str_replace('<DISPLAY_NAME>', $email_reset, $NoiDungMail);
+				$NoiDungMail = str_replace('<RESET_LINK>', $ResetLink, $NoiDungMail);
+				
+				$File_html_content = $NoiDungMail;
+				// echo $File_html_content;
+				
+				// $NoiDungMail = nl2br(str_replace('<NguoiDung>', $NguoiDung, $NoiDungMail));
+
 
 				// SENT MAIL || THÊM GIÁ TRỊ VÀO DB 
+
 				if (sentmail($File_html_content,$addAddress_email,$Subject_name)==1){
 					$sql = "INSERT INTO mail(id, email, pass_reset_key, pass_reset_expiry) 
 					VALUES 					('0','$email_reset','$key','$expiry')";

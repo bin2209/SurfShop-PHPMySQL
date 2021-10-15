@@ -5,16 +5,17 @@ $GLOBALS['link_directory_array'] = array('/store/');
 for($i=0;$i<count($link_directory_array);$i++){
   $pos = strpos($link_directory,$link_directory_array[$i]);
   if ($pos == true){
-    $direct1 = '../../';
-    $direct2 = '../../';
+    $direct = '../../';
   }else{
-    $direct1 = '';
-    $direct2 = '';
+    $direct = '';
   }
 }
+if(strpos($link_directory,'/verifyReset')){
+  $direct='../';
+}
 
-@require_once $direct1.'core/db_conn.php';
-@require_once $direct2.'classes/set_language_cookie.php';
+@require_once $direct.'core/db_conn.php';
+@require_once $direct.'classes/set_language_cookie.php';
 
 ?>
 
