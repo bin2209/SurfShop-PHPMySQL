@@ -1,39 +1,32 @@
 <?php
 require_once  '../core/db_conn.php';
-
 require_once '../mail/vendor/autoload.php';
 require_once  '../mail/src/mail.php';
 
-$reset_expiry = 86400;  // time validity of reset key in seconds
+// time validity of reset key in seconds | 10 phút x 60 = 600 | Thời gian hết hạn 
+$reset_expiry = 600;  
+
+function rowCountTable($table,$email_reset,$conn){
+	$stmt = $conn->prepare("SELECT * FROM $table WHERE email=?");
+	$stmt->execute([$email_reset]);
+	return $stmt->rowCount();
+}
 
 if (isset($_POST['email_reset'])){
-		$expiry_limit = time() - $reset_expiry - 900; // give an extra tolerence of 15 minutes
+		$expiry_limit = time() - $reset_expiry; 
 		$email_reset = $_POST['email_reset'];
 		// echo $email_reset;
 		if (empty($email_reset)){
 			header("Location: ../login?mailsent=empty");	
 		}else{
-
-		// thành công sent mail
-		// check user exist || TABLE: user
-			$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
-			$stmt->execute([$email_reset]);
-			
-
-			if ($stmt->rowCount() === 1) {
+			if (rowCountTable('user',$email_reset,$conn) === 1) {
 				//EMAIL TỒN TẠI -> LẬP CODE -> GỬI MAIL
-				$stmt = $conn->prepare("SELECT * FROM mail WHERE email=?");
-				$stmt->execute([$email_reset]);
-				$row = $stmt->fetch();
+
+				
 				// KHỞI TẠO GIÁ TRỊ 
-
-				$no_valid_key = ($row['pass_reset_key'] == '' || ($row['pass_reset_key'] != '' && $row['pass_reset_expiry'] < (time() - $reset_expiry)));
-				$key = ($no_valid_key ? md5(microtime()) : $row['pass_reset_key']);
-				$expiry = ($no_valid_key ? time() + $reset_expiry : $row['pass_reset_expiry']);
-
-
 				
-				
+				$key = md5(microtime());
+				$expiry =  time() + $reset_expiry;
 
 				// Gán nội dung mail | Có thể set $LANG theo cookie
 
@@ -52,25 +45,24 @@ if (isset($_POST['email_reset'])){
 				
 				$File_html_content = $NoiDungMail;
 				// echo $File_html_content;
-				
-				// $NoiDungMail = nl2br(str_replace('<NguoiDung>', $NguoiDung, $NoiDungMail));
-
 
 				// SENT MAIL || THÊM GIÁ TRỊ VÀO DB 
-
 				if (sentmail($File_html_content,$addAddress_email,$Subject_name)==1){
-					$sql = "INSERT INTO mail(id, email, pass_reset_key, pass_reset_expiry) 
-					VALUES 					('0','$email_reset','$key','$expiry')";
-					$stmt=$conn->prepare($sql);
-					$result = $stmt->execute();
-					// header("Location: ../login.php?mailsent=$email_reset");		
+					$rowCountTableMail = rowCountTable('mail',$email_reset,$conn);
+					if($rowCountTableMail===0){
+						$sql = "INSERT INTO mail(id, email, pass_reset_key, pass_reset_expiry) 
+						VALUES 					('0','$email_reset','$key','$expiry')";
+						$stmt=$conn->prepare($sql);
+						$result = $stmt->execute();
+					}else if ($rowCountTableMail===1){
+						$stmt = $conn->prepare("UPDATE mail SET pass_reset_key = '$key', pass_reset_expiry = '$expiry' WHERE email=?");
+						$stmt->execute([$email_reset]);
+					}
 					echo "<script>window.location.href='../login.php?mailsent=".$email_reset."';</script>";
 					// exit;
 				}
 
-
-
-			}else if($stmt->rowCount() < 1){
+			}else if(rowCountTable('user',$email_reset,$conn) < 1){
 			//EMAIL KHÔNG TỒN TẠI -> FALSE
 				header("Location: ../login.php?error=$email_reset không tồn tại.");
 				exit;
