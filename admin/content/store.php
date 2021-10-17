@@ -35,7 +35,7 @@
         <h5 style="width: -webkit-fill-available; display: inline;"> Type: </h5>
         
         <select id="type" onchange="location = this.value;" style="top: 20px; left: 20px;">
-          <option value="?slidebar=store&category=$where_category" <?php if(!isset($where_type)){echo 'selected';}?>>All</option>
+          <option value="?slidebar=store&category=<?php echo $where_category;?>" <?php if(!isset($where_type)){echo 'selected';}?>>All</option>
           <?php
           for($i=1;$i<count($array_category[$where_category]);$i++){
           if(isset($where_type)&&$where_type==$i){
