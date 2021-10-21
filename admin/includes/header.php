@@ -13,6 +13,6 @@
   <script src="https://kit.fontawesome.com/7c7aa69b90.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/request.css">
-  <link rel="shortcut icon" href="../../favicon.ico" />
+  <link rel="shortcut icon" href="../../assets/img/favicon.ico" />
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>

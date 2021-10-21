@@ -19,6 +19,7 @@ if(strpos($link_directory,'/verifyReset')){
 
 <nav id="globalbar" class="globalbar">
 	<?php
+
 	if(!isset($_SESSION['user_email'])){
 		// CHƯA ĐĂNG NHẬP // GIAO DIỆN: MOBILE
 		// DROPDOWN BUTTON
@@ -68,13 +69,19 @@ if(strpos($link_directory,'/verifyReset')){
 
 		if(isset($_SESSION['user_email'])){
 			// MENU DROPDOWN CLICKED
-			echo '	
-			<div id="Dropdownmenu" class="dropdown-content ">
+
+			echo '<div id="Dropdownmenu" class="dropdown-content ">
 			<a href="'.$_DOMAIN.'/cart"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
-			<hr>
+			<hr>';
+			if ($_SESSION['type']==1){
+				echo '
+				<a href="'.$_DOMAIN.'/admin"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_adminpage.'</p></a>
+				<hr>';
+			}
+			echo '	
 			<a href="'.$_DOMAIN.'/account"><img src="'.$_DOMAIN.'/assets/img/account.svg"/><p>'.$LANG_account.'</p></a>
 			<hr>
-			<a href="'.$_DOMAIN.'/logout.php"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
+			<a href="'.$_DOMAIN.'/logout"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
 			</div>';
 		}
 

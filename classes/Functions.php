@@ -9,6 +9,7 @@ class Redirect {
         }
     }
 }
+
 // Hàm| Chỉnh sửa giá thêm dấu chấm -> string
 function s_PriceFormat($price){
     return number_format($price);
@@ -27,6 +28,11 @@ function time_stamp($time){
    return "Cách đây $difference $periods[$j]";
 }
 
+//bọc dữ liệu 
+function nht_boc($var){
+$dulieu = htmlentities(strip_tags($var), ENT_QUOTES, 'UTF-8');
+return $dulieu;    
+}
 
 // func time ago
 function time_elapsed_string($datetime, $full = false) {

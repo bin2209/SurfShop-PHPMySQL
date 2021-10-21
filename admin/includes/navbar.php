@@ -85,7 +85,18 @@
           </div>
           <a href="?slidebar=settings">
             <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> Settings</p>
+          </a>
         </a>
+         <div class="dropdown-divider"></div>
+        <a class="dropdown-item preview-item">
+          <div class="preview-thumbnail">
+            <div class="preview-icon bg-dark rounded-circle">
+              <i class="mdi mdi-account text-success"></i>
+            </div>
+          </div>
+          <a href="../">
+            <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> User's page</p>
+          </a>
         </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item preview-item">
@@ -95,7 +106,7 @@
             </div>
           </div>
           <a href="../../logout.php">
-              <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;">Log out</p>
+            <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;">Log out</p>
           </a>
         </a>
       </div>

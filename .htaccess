@@ -1,15 +1,24 @@
 Options +FollowSymLinks 
+<IfModule mod_rewrite.c>
 ServerSignature Off
 RewriteEngine On 
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+
+
 
 #RewriteCond %{REQUEST_FILENAME} !-f 
 #RewriteCond %{REQUEST_FILENAME} !-d
 
+# Bảo vệ file .htaccess
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
 
-
-RewriteRule ^logout.html$ logout.php [L]
+RewriteRule ^logout$ logout.php [L]
 RewriteRule ^transaction.html$ history.php [L]
 RewriteRule ^transaction.html$ history.php [L]
 RewriteRule ^recharge.html$ recharge.php [L]
@@ -17,6 +26,8 @@ RewriteRule ^recharge.html$ recharge.php [L]
 
 RewriteRule ^home$ ?act=home [L]
 RewriteRule ^home/$ ?act=home [L]
+
+
 
 RewriteRule ^store$ ?act=store [L]
 RewriteRule ^store/$ ?act=store [L]

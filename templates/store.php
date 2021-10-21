@@ -264,7 +264,7 @@
     echo '  <div class="column">
     <a href="/store/'.$id.'" data-handle="" >
     <div class="background-blur product">
-    <img class="content-center" src="../upload/'.$images.'"/>
+    <img class="content-center" src="../uploads/products/'.$images.'"/>
     </div>
     </a>
     <div class="product-info">

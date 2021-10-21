@@ -3,7 +3,7 @@ function show_Product($id,$name,$images,$price,description_en,description_vi,bra
    showConfirmButton: false,
    showCloseButton:true,
    title: '<strong>'+$name+'</strong>',
-   imageUrl: '../../upload/'+$images,
+   imageUrl: '../../uploads/products/'+$images,
    html: '<b>Description-EN:</b> '+description_en+'<br>'+'<b>Description-VN:</b> '+description_vi+'<br>'+'<b>Brand:</b> '+brand,
    footer: 'Price:' + $price,
 

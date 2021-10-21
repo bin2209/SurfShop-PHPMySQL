@@ -3,6 +3,9 @@ section {
 	padding-top: 2em;
 	padding-bottom: 5em;
 }
+#active{
+	display: none;
+}
 input[type="checkbox"]{
 	display: block;
 	vertical-align: middle;

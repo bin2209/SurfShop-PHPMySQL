@@ -1,0 +1,45 @@
+[16-May-2020 15:05:28 Asia/Kolkata] PHP Parse error:  syntax error, unexpected end of file in /home/thanhtri/public_html/user/naptudong.php on line 318
+[16-May-2020 17:33:40 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: status in /home/thanhtri/public_html/user/naptudong.php on line 237
+[16-May-2020 17:33:47 Asia/Ho_Chi_Minh] PHP Notice:  Undefined index: status in /home/thanhtri/public_html/user/naptudong.php on line 237
+[16-May-2020 17:43:50 Asia/Ho_Chi_Minh] PHP Fatal error:  Uncaught Error: Call to undefined function card_luauytin() in /home/thanhtri/public_html/user/naptudong.php:255
+Stack trace:
+#0 {main}
+  thrown in /home/thanhtri/public_html/user/naptudong.php on line 255
+[16-May-2020 18:15:51 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 18:18:25 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 18:18:32 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 18:18:35 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 18:33:24 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 18:56:28 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 19:48:27 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:48:29 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:48:29 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 19:48:31 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:48:33 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:48:33 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 19:48:57 Asia/Ho_Chi_Minh] PHP Warning:  file_get_contents(https://myshopacc.com/key.txt): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+ in /home/thanhtri/public_html/TMQ/function.php on line 360
+[16-May-2020 19:48:59 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:49:00 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:49:00 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 19:49:02 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:49:03 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:49:03 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 19:49:06 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:49:08 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:49:08 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 19:50:35 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 19:50:36 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 184
+[16-May-2020 19:50:36 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 224
+[16-May-2020 20:22:31 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 20:22:31 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/inbox.php on line 40
+[16-May-2020 20:22:31 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/inbox.php on line 52
+[16-May-2020 20:27:08 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/head.php on line 19
+[16-May-2020 20:27:10 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 185
+[16-May-2020 20:27:10 Asia/Ho_Chi_Minh] PHP Notice:  Undefined variable: uid in /home/thanhtri/public_html/user/naptudong.php on line 225

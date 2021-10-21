@@ -1,0 +1,109 @@
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTPS} !=on [NC]
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+#RewriteEngine on
+#RewriteCond %{HTTPS} !=on [NC]
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Bảo vệ file .htaccess
+<Files .htaccess>
+Order Allow,Deny
+Deny from all
+</Files>
+ErrorDocument 404 /index.php
+# Rewrite url
+RewriteEngine on
+
+#ajax
+RewriteRule ^ajax/quaythuong$ ajax/quay/quay20k.php
+RewriteRule ^ajax/quaythuong50 ajax/quay/quaythuong50.php
+RewriteRule ^ajax/muangay10 ajax/quay/muangay10.php
+RewriteRule ^ajax/muangay50 ajax/quay/muangay50.php
+RewriteRule ^quay17k.html vongquay.php
+RewriteRule ^quay17k-2.html nimo.php
+RewriteRule ^lat-the /quay2.php
+RewriteRule ^bingo.html /bingo.php
+#lật thẻ
+RewriteRule ^rubyflip/logacc/1246 user/lichsu_lattheff.php
+RewriteRule ^rubywheel/logacc/1265 user/lichsu_quay.php
+RewriteRule ^rubywheel/logacc/2907 user/lichsu_quayvk.php
+RewriteRule ^user/withdrawruby/2 user/rutkc.php
+RewriteRule ^luckywheel/logacc8 user/lichsu_quaythezing.php
+
+RewriteRule ^vongquaythezing.html vongquaythezing.php
+RewriteRule ^vongquayvukhi vongquayvukhi.php
+
+RewriteRule ^history/bingo.html user/lichsu_bingo.php
+
+
+# Url bài viết
+RewriteRule ^xem-chi-tiet.html xem.php
+#tin tức
+RewriteRule ^tin-tuc/([a-zA-Z0-9_-]+)-([0-9]+).html /tintuc/xem.php?id=$2
+RewriteRule ^tin-tuc /tintuc/index.php
+#linh tinh
+RewriteRule ^thong-tin-shop.html gioithieu.php
+
+# Url chuyên mục
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+)-page=([0-9]+) chuyenmuc.php?id=$2&page=$3
+RewriteRule ^upload/taptin/([0-9]+) upload/taptin/index.php?id=$2
+#RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+)page=([0-9]+) chuyenmuc.php?id=$2&page=$3
+RewriteRule ^([a-zA-Z0-9_-]+)-([0-9]+)$ chuyenmuc.php?id=$2
+
+#mua sản phẩm
+RewriteRule ^mua-ngay.html buy.php
+RewriteRule ^buy.html ajax/buy.php
+RewriteRule ^check-giftcode.html ajax/giftcode.php
+
+#url admin
+RewriteRule ^admin/them-bai-viet.html$ admin/baiviet.php?id=$2
+RewriteRule ^admin/them-bai-viet-cham.html$ admin/baiviet-cham.php?id=$2
+RewriteRule ^admin/chuyen-muc.html$ admin/chuyenmuc.php$1
+RewriteRule ^admin/danh-sach-bai-viet.html$ admin/dsbaiviet.php$1
+RewriteRule ^admin/danh-sach-bai-viet.html/$ admin/dsbaiviet.php$1
+RewriteRule ^admin/sua-bai-viet.html /admin/suabaiviet.php
+RewriteRule ^admin/sua-bai-viet-cham.html /admin/suabaiviet-cham.php
+RewriteRule ^admin/sua-chuyen-muc.html /admin/suachuyenmuc.php
+RewriteRule ^admin/quan-tri-vien.html /admin/admin.php
+RewriteRule ^admin/cong-tac-vien.html /admin/congtacvien.php
+RewriteRule ^admin/thanh-vien.html /admin/user.php
+RewriteRule ^admin/quan-ly-giftcode.html /admin/giftcode.php
+RewriteRule ^admin/thong-tin.html /admin/setting.php
+RewriteRule ^admin/ti-le-lat-the-ff.html /admin/setting_lattheff.php
+RewriteRule ^admin/ti-le-vong-quay-ff.html /admin/setting_wheel.php
+RewriteRule ^admin/cong-tien.html /admin/congtien.php
+RewriteRule ^admin/lich-su.html /admin/lichsu.php
+RewriteRule ^admin/bien-doi.html /admin/biendoi.php
+RewriteRule ^admin/dang-nhap.html /admin/login.php
+RewriteRule ^admin/doi-mat-khau.html /admin/doipass.php
+RewriteRule ^admin/inbox.html /admin/inbox.php
+RewriteRule ^admin/phan-quyen-thanh-vien.html /admin/phanquyen.php
+RewriteRule ^admin/rut-tien.html /admin/ruttien.php
+RewriteRule ^admin/chuyen-tien.html /admin/chuyentien.php
+RewriteRule ^admin/quan-ly-banner.html /admin/banner.php
+RewriteRule ^admin/setting-wheel.html /admin/setting_wheel.php
+
+#user
+
+RewriteRule ^profile/info.html /user/index.php
+RewriteRule ^profile/tai-khoan-da-mua.html user/lichsu.php
+RewriteRule ^profile/bien-doi-so-du.html user/biendoi.php
+RewriteRule ^profile/nap-the-cham.html /user/napcham.php
+RewriteRule ^nap-the /user/naptudong.php
+RewriteRule ^profile/nap-the-tu-dong.html /user/naptudong.php
+RewriteRule ^profile/tranfer /user/chuyentien.php
+RewriteRule ^profile/inbox /user/inbox.php
+RewriteRule ^atm /user/atm.php
+RewriteRule ^profile/bank/add /user/bank/bank.php
+RewriteRule ^profile/withdraw /user/ruttien.php
+RewriteRule ^withdraw-load-info /user/bank/form.php
+
+
+
+RewriteRule ^/login dang-nhap.php
