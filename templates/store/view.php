@@ -70,7 +70,7 @@ $title = 'Services';
 
     <div class="product-row">
     <div class="column column-left">
-    <img class="content-center" src="../upload/'.$images.'">
+    <img class="content-center" src="../uploads/products/'.$images.'">
 
 
 
@@ -93,7 +93,7 @@ $title = 'Services';
     <?php
     if (isset($list_images)){
       foreach ($array as $item) {
-        echo '<img onclick="currentDiv()" src="../upload/'.$item.'"/>';
+        echo '<img onclick="currentDiv()" src="../uploads/products'.$item.'"/>';
       }
     }
     echo '
@@ -139,7 +139,7 @@ $title = 'Services';
           <div class="item">
           <a href="/store/'.$id.'" data-handle="" >
           <div class="background-blur product">
-          <img class="content-center" src="../upload/'.$images.'"/>
+          <img class="content-center" src="../uploads/products/'.$images.'"/>
           </div>
           </a>  
           <div class="product-info">

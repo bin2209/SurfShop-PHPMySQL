@@ -97,7 +97,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 											echo '<td>
 											<span class="pl-2"><input onclick="selectOne(this)" type="checkbox" name="product" value="'.$item_price.'"></span>
 
-											<img src="../upload/'.$item_images.'"/>
+											<img src="../uploads/products/'.$item_images.'"/>
 											<div>
 
 											<span class="pl-2">'.$item_name.'</span>
