@@ -93,7 +93,7 @@ $title = 'Services';
     <?php
     if (isset($list_images)){
       foreach ($array as $item) {
-        echo '<img onclick="currentDiv()" src="../uploads/products'.$item.'"/>';
+        echo '<img onclick="currentDiv()" src="../uploads/products/'.$item.'"/>';
       }
     }
     echo '
@@ -103,15 +103,12 @@ $title = 'Services';
     <p>'.$store_description.'</p>
     </div>
     </div>
-
     ';
-
   }else{
-    echo 'Không có kết quả nào';
+    // echo 'Không có kết quả nào';
+    echo "<script>window.location.href='../store';</script>";
   }
-} else{
-
-}
+} 
 ?>
 </div>
 </div>
@@ -215,7 +212,5 @@ $title = 'Services';
           })
         </script>
 
-
-
-        <?php include('../../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>
 

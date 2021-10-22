@@ -1,8 +1,6 @@
 <?php 
 if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
 
-
-
   $productname = nht_boc($_POST['productname']);
   $descriptionEN = nht_boc($_POST['descriptionEN']);
   $descriptionVN = nht_boc($_POST['descriptionVN']);
@@ -143,28 +141,109 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
   <input type="number" class="form-control" id="exampleInputEmail3" placeholder="Price" name="price">
 </div>
 
-  <div class="form-group">
+<div class="form-group">
   <label>Main Images (.png/.jpg/.jpge)</label>
   <div class="input-group col-xs-12">
-  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control file-upload-info" placeholder="Upload Image">
-  <span class="input-group-append">
-  </span>
+    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control file-upload-info" placeholder="Upload Image">
+    <div id="preview-main-images"></div>
   </div>
 </div>
-
-  <!--  <div class="form-group">
+<!-- LIST IMAGES UPLOAD -->
+<div class="form-group">
   <label>Illustrating images (.png/.jpg/.jpge)</label>
   <div class="input-group col-xs-12">
-  <input type="file" name="fileToUpload" id="fileToUpload" class="form-control file-upload-info" placeholder="Upload Image">
-  <span class="input-group-append">
-  <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-  </span>
+    <input type="file" name="listImagesUpload" id="listImagesUpload" class="form-control file-upload-info" placeholder="Upload Image" multiple>
+    <div id="preview-list-images"></div>
   </div>
-</div> -->
+</div>
 
 <button type="submit" class="btn btn-primary mr-2" name="themsanpham">Submit</button>
 </form>
 </div>
 </div>
 </div>
+<script type="text/javascript">
+  // PREVIEW MAIN IMAGES
+  var countImagesUpload = 0;
+  function previewImages() {
+    var preview = document.querySelector('#preview-main-images');
 
+    if (this.files) {
+      [].forEach.call(this.files, readAndPreview);
+    }
+    function readAndPreview(file) {
+    // Make sure `file.name` matches our extensions criteria
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+      return alert(file.name + " is not an image");
+    } // else...
+    
+    var reader = new FileReader();
+    
+    reader.addEventListener("load", function() {
+      countImagesUpload++;
+      var image = new Image();
+      image.height = 100;
+      image.title  = file.name;
+      image.src    = this.result;
+      // Xóa images có sẵn để thay thế || Mục đích chọn 1 ảnh chính
+      if(countImagesUpload>1){
+       preview.removeChild(preview.childNodes[0]);
+     }
+     preview.appendChild(image);
+
+   });
+    reader.readAsDataURL(file);
+  }
+}
+
+document.querySelector('#fileToUpload').addEventListener("change", previewImages);
+
+
+ // PREVIEW LIST IMAGES    
+ 
+ var countListImagesTimeUpload = 0;
+ var countListImagesUpload = 0;
+ function previewListImages() {
+  var previewList = document.querySelector('#preview-list-images');
+  
+  countListImagesTimeUpload++;
+  // Chạy for xóa ảnh cũ xóa xong thì đặt lại biến | countListImagesUpload = 0
+  if (countListImagesTimeUpload>1){
+    for(var i=0;i<countListImagesUpload;i++){
+     previewList.removeChild(previewList.childNodes[i]);
+   }
+   var countListImagesUpload = 0;
+ }
+ 
+
+ console.log("Số lần:"+countListImagesTimeUpload);
+ if (this.files) {
+  [].forEach.call(this.files, readAndPreview);
+}
+
+
+function readAndPreview(file) {
+    // Make sure `file.name` matches our extensions criteria
+    if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+      return alert(file.name + " is not an image");
+    } // else...
+    
+    var reader = new FileReader();
+    
+    reader.addEventListener("load", function() {
+      countImagesUpload++;
+      var image = new Image();
+      image.height = 100;
+      image.title  = file.name;
+      image.src    = this.result;
+      previewList.appendChild(image);
+      countListImagesUpload++;
+      console.log("Số ảnh/ lần:"+countListImagesUpload);
+
+    });
+    reader.readAsDataURL(file);
+  }
+}
+document.querySelector('#listImagesUpload').addEventListener("change", previewListImages);
+
+</script>

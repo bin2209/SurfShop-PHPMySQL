@@ -13,13 +13,13 @@ $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 	<h1 class="surf-h2-light content-center"><?php echo $LANG_trending; ?></h1>
 	<div class="surf">
 		<div class="Slides">
-			<img class="img-100 content-center" src="upload/b1.png"/>
+			<img class="img-100 content-center" src="uploads/products/b1.png"/>
 		</div>
 		<div class="Slides">
-			<img class="img-100 content-center" src="upload/b2.png"/>
+			<img class="img-100 content-center" src="uploads/products/b2.png"/>
 		</div>
 		<div class="Slides">
-			<img class="img-100 content-center" src="upload/b3.png"/>
+			<img class="img-100 content-center" src="uploads/products/b3.png"/>
 		</div>
 	</div>
 	<div class="surf-control content-center">
@@ -62,7 +62,7 @@ $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 			echo '<div class="column">
 				<a href="/store/'.$id.'" data-handle="">
 				    <div class="background-blur product">
-						<img class="content-center" src="../upload/'.$images.'"/>
+						<img class="content-center" src="../uploads/products/'.$images.'"/>
 					</div>
 				</a>
 			 </div>
