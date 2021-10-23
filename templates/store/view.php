@@ -31,6 +31,7 @@ $title = 'Services';
       $price = $row["price"];
       $images = $row["images"];
       $category = $row["category"];
+      $folder = $row["folder"]; // to show images not using with id column 
 
       if ($category == 1){
         $s_type = $LANG_store_surf;
@@ -99,7 +100,7 @@ $title = 'Services';
           echo '
           <div class="item-show-product">
           <div class="show-product">
-          <img onclick="replaceImages(this.src)" src="../uploads/products/'.$main_id.'/'.$item.'"/>
+          <img onclick="replaceImages(this.src)" src="../uploads/products/'.$folder.'/'.$item.'"/>
           </div>
           </div>
           ';
