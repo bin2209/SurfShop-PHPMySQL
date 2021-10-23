@@ -1,6 +1,8 @@
 .store{
   background: #0a0a0a;
 }
+.column{
+}
 .product-row{
  margin-left: auto;
  margin-right: auto;
@@ -16,7 +18,9 @@
  width: auto;
  justify-content: flex-start;
 }
-
+.product-item .owl-item{
+  max-width: 150px;
+}
 .product-row{
   margin-left: auto;
   margin-right: auto;
@@ -30,7 +34,9 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   width: auto;
-  justify-content: center !important;
+}
+
+.show-product{
 }
 
 .box-content-center{
@@ -42,6 +48,7 @@
   text-align: left;
 }
 .column-right{
+  width: 25%;
   min-width: 200px;
   float: right;
 }
@@ -52,9 +59,10 @@
   /*min-width: 500px;*/
 }
 .column img{
- max-height: 600px;
- position: relative;
- width: -webkit-fill-available;
+  max-height: none;
+  margin-bottom: 3em;
+  position: relative;
+  width: -webkit-fill-available;
 }
 .product-title{
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
@@ -79,7 +87,7 @@
   color: #dedede;
 }
 .product-item{
-  margin: 20px 0;
+  margin: 2em 0;
   max-width: -webkit-fill-available;
   height: 100px;
   width: 100%;
@@ -131,6 +139,13 @@
   .product-row .column-right{
     min-width: -webkit-fill-available !important;
     width: 100% !important;
+
+  }
+  .product-row{
+    justify-content: center !important;
+  }
+  .column-left{
+    width: auto !important;
   }
 }
 .row-same-product{

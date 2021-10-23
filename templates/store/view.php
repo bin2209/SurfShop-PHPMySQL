@@ -27,12 +27,10 @@ $title = 'Services';
       }else{
         $store_description = $row["description-vi"];
       }
+      
       $price = $row["price"];
       $images = $row["images"];
-
-
       $category = $row["category"];
-
 
       if ($category == 1){
         $s_type = $LANG_store_surf;
@@ -70,8 +68,7 @@ $title = 'Services';
 
     <div class="product-row">
     <div class="column column-left">
-    <img class="content-center" src="../uploads/products/'.$images.'">
-
+    <img id="zoom-product" class="content-center" src="../uploads/products/'.$images.'">
 
 
 
@@ -89,15 +86,49 @@ $title = 'Services';
 
 
     </div>
+
+
     <div class="product-item" style="text-align:left;     height: auto;">'?>
-    <?php
-    if (isset($list_images)){
-      foreach ($array as $item) {
-        echo '<img onclick="currentDiv()" src="../uploads/products/'.$item.'"/>';
+
+    <div class="owl-carousel">
+      <?php
+      if (isset($list_images)){
+        $i=0; 
+        foreach ($array as $item) {
+          $i++;
+          echo '
+          <div class="item-show-product">
+          <div class="show-product">
+          <img onclick="replaceImages(this.src)" src="../uploads/products/'.$main_id.'/'.$item.'"/>
+          </div>
+          </div>
+          ';
+        }
+      } 
+      ?>
+    </div>
+
+    <script type="text/javascript">
+      function replaceImages(data){
+        $("#zoom-product" ).replaceWith('<img id="zoom-product" class="content-center" src="'+data+'">' );
       }
-    }
+    </script>
+
+
+    <?php
+    // if (isset($list_images)){
+    //   $i=0; 
+    //   foreach ($array as $item) {
+    //     $i++;
+    //     echo '
+
+    //     <img onclick="currentDiv('.$i.')" src="../uploads/products/'.$main_id.'/'.$item.'"/>';
+    //   }
+    // }
     echo '
     </div>
+
+
     <div class="column product-description" style="width: 100%;">
     <h2>'.$LANG_decription.'</h2>
     <p>'.$store_description.'</p>
@@ -110,6 +141,7 @@ $title = 'Services';
   }
 } 
 ?>
+
 </div>
 </div>
 </section>
@@ -170,7 +202,7 @@ $title = 'Services';
 
           Swal.fire({
             icon: "success",
-            text: "Sản phẩm đã được thêm vào giỏ hàng",
+            text: "'.$LANG_popup_addbag.'",
             showConfirmButton: false,
             timer: 1500
             });
@@ -182,8 +214,9 @@ $title = 'Services';
           ?>
 
           <script type="text/javascript">
+            // Đề xuất sản phẩn cùng category
            $('.owl-carousel').owlCarousel({
-            loop: true,
+            loop: false,
             margin: 10,
             nav: true,
             slideSpeed: 10,
@@ -212,5 +245,5 @@ $title = 'Services';
           })
         </script>
 
-<?php include('../../includes/footer.php'); ?>
+        <?php include('../../includes/footer.php'); ?>
 

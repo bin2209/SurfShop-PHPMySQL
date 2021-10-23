@@ -69,6 +69,9 @@ $LANG_about = "Giới thiệu";
 $LANG_oldpassword = "Mật khẩu hiện tại";
 $LANG_newpassword = "Mật khẩu mới";
 $LANG_renewpassword = "Nhập lại mật khẩu mới";
+// POPUP REQUEST 
+$LANG_popup_addbag= "Sản phẩm đã được thêm vào giỏ hàng";
+$LANG_popup_deletebag= "Sản phẩm đã được xóa khỏi giỏ hàng";
 
 $LANG_services_content1 ='Chúng tôi thiết kế và gia công ván lướt sóng bằng xốp EPS và keo EPOXY, làm được mọi loại ván hình dạng, kích thước và màu sắc. Tùy theo sở thích, yêu cầu của bạn. Giá cả sẽ được tính theo sizes ván của bạn. Giá khởi điểm giao động từ 100$/ft. Ván 9ft từ $900. Ngoài ra mỗi custom sẽ tính thêm phí.';
 $LANG_services_content2 ='Sửa chữa chuyên nghiệp, Chất lượng cao, Dịu nhẹ

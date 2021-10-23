@@ -52,7 +52,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 				<div class="logo-avt"><img src="<?php echo $user_avatar ?>"/></div>
 				<h3 class="h3-dark content-center"><?php echo $user_name ?></h3>
 			</div>
-			<div class="row">
+			<div id="order-products" class="row">
 				<div class="col-12 grid-margin">
 					<div class="card">
 						<div class="card-body">
@@ -124,33 +124,37 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 			</div>
 		</div>
 
-		<div class="row total-product">
+		<div id="total-products" class="row total-product">
 			<span><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> <?php echo $LANG_selectall ?> ( <?php echo get_item_bag($_SESSION['user_email'],$conn); ?> )</span>
 
 			<span><?php echo $LANG_payment ?> ( <p id="quantity-result" style="display: inline;"></p> <?php echo $LANG_product ?> ): <p id="total-price-result" style="display: inline;"></p> ₫</span>
 			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
 		</div>
-		
-		<script type="text/javascript">
-			function remove_cart($id){
-				$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
-					id: $id
-				},
-				function(data,status){
-					Swal.fire({
-						icon: "success",
-						text: "Sản phẩm đã được xóa khỏi giỏ hàng",
-						showConfirmButton: false,
-						timer: 1500
-					});
-					$("#globalbar").load(location.href+" #globalbar>*","");
-				});
-			}
-		</script>
 	</div> <!--  // backgound content -->
 </section>
 </body>
 </div>
+<script type="text/javascript">
+	function remove_cart($id){
+		$.post("<?php echo $_DOMAIN;?>/request/removefrombag.php",{
+			id: $id
+		},
+		function(data,status){
+			Swal.fire({
+				icon: "success",
+				text: "<?php echo $LANG_popup_deletebag; ?>",
+				showConfirmButton: false,
+				timer: 1500
+			});
+			$("#globalbar").load(location.href+" #globalbar>*","");
+			$("#order-products").load(location.href+" #order-products>*","");
+			$("#total-products").load(location.href+" #total-products>*","");
+					//reset sum spice | varible js
+					sum_price = 0;
+					quantity = 0;
+				});
+	}
+</script>
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/total-price.js"></script>
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/total-product-ispined.js"></script>
 </html>

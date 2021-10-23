@@ -8,10 +8,15 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
   $category = nht_boc($_POST['category']);
   $type = nht_boc($_POST['type']);
   $brand = nht_boc($_POST['brand']);
+  $img = nht_boc(htmlspecialchars(basename($_FILES["img"]["name"])));
+
+  //FILES[]
+  $countfiles = count($_FILES['files']['name']);
+
 
   //FILE IMAGES
   $target_dir = "../uploads/products/";
-  $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+  $target_file = $target_dir . basename($_FILES["img"]["name"]);
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -20,8 +25,9 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
     echo '<script> Swal.fire({ icon: "error", title: "Oops...", text: "Something went wrong!", }) </script>';
   }else{
     // Check if image file is a actual image or fake image
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    $fileUploadName = htmlspecialchars(basename($_FILES["fileToUpload"]["name"]));
+    $check = getimagesize($_FILES["img"]["tmp_name"]);
+    $FileImgUploaded = 0; // Trạng thái upload trường img File
+    $FileImgsUploaded = 0; // Trạng thái upload trường imgs Files
     if($check !== false) {
       // echo "File is an image - " . $check["mime"] . ".";
       $uploadOk = 1;
@@ -35,7 +41,7 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
       $uploadOk = 0;
     }
     // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
+    if ($_FILES["img"]["size"] > 500000) {
       // echo "Sorry, your file is too large.";
       $uploadOk = 0;
     }
@@ -48,23 +54,63 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
       // echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     }else{
-      if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+     if($countfiles != 0){
+      //files
+      $lastID = $conn->query("SELECT id FROM store ORDER BY id DESC LIMIT 1")->fetch();
+      $lastID = (int)$lastID["id"];
+      $lastID = $lastID + 1;  // nên chọn ID để trùng với 
+      mkdir("$target_dir$lastID", 0755); // tạo thư mục | (link[id],)
+
+      // Upload img
+      if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
+        $FileImgUploaded = 1; // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+
+        // Loop all files
+        $array_linkanh = array();
+
+        for($i=0;$i<$countfiles;$i++){
+
+        // File name
+          $filename = $_FILES['files']['name'][$i];
+          // Get extension
+          $ext = explode(".", $filename);
+          $ext = end($ext);
+
+          // Valid image extension
+          $valid_ext = array("png","jpeg","jpg","PNG","JPEG","JPG");
+          if(in_array($ext, $valid_ext)){
+                // Upload file
+            if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../uploads/products/'.$lastID.'/'.$filename)){
+              array_push($array_linkanh,$filename);
 
 
-        $sql = "
-        INSERT INTO store(id, name, `description-en`, `description-vi`, price,images,category,type,`list-images`,brand) 
-        VALUES      ('0','$productname','$descriptionEN','$descriptionVN','$price','$fileUploadName','$category','$type','','$brand')";
-        $stmt=$conn->prepare($sql);
-        $result = $stmt->execute();
-        if($result){
-         echo '<script> Swal.fire({ icon: "success", title: "The product has been uploaded." }) </script>';
-       }
-       
-     } else {
-      echo "Sorry, there was an error uploading your file.";
-    }
-  }
+              $FileImgsUploaded = 1;
+            }else{
+              $FileImgsUploaded = 0;
+            }
+          }
+        }
+      } else {
+       $FileImgUploaded = 0;
+        // echo "Lỗi file img.";
+     }
+     if ($FileImgUploaded == 1 && $FileImgsUploaded==1){
+       $array_linkanh = implode(",",$array_linkanh);
+      $sql = "
+      INSERT INTO store(id, name, `description-en`, `description-vi`, price,images,category,type,`list-images`,brand) 
+      VALUES      ('0','$productname','$descriptionEN','$descriptionVN','$price','$img','$category','$type','$array_linkanh','$brand')";
+
+      $stmt=$conn->prepare($sql);
+      $result = $stmt->execute();
+      if($result){
+       echo '<script> 
+       $("#content-wrapper").load(location.href+" #content-wrapper>*","");
+       Swal.fire({ icon: "success", title: "The product has been uploaded." });
+       </script>';
+     }
+   }
+ }
+}
 }
 }
 ?>
@@ -144,15 +190,17 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
 <div class="form-group">
   <label>Main Images (.png/.jpg/.jpge)</label>
   <div class="input-group col-xs-12">
-    <input type="file" name="fileToUpload" id="fileToUpload" class="form-control file-upload-info" placeholder="Upload Image">
+    <input type="file" name="img" id="img" class="form-control file-upload-info" placeholder="Upload Image">
     <div id="preview-main-images"></div>
   </div>
 </div>
+
+
 <!-- LIST IMAGES UPLOAD -->
 <div class="form-group">
   <label>Illustrating images (.png/.jpg/.jpge)</label>
   <div class="input-group col-xs-12">
-    <input type="file" name="listImagesUpload" id="listImagesUpload" class="form-control file-upload-info" placeholder="Upload Image" multiple>
+    <input type="file" name="files[]" id="listImagesUpload" class="form-control file-upload-info" placeholder="Upload Image" multiple>
     <div id="preview-list-images"></div>
   </div>
 </div>
@@ -196,11 +244,10 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
   }
 }
 
-document.querySelector('#fileToUpload').addEventListener("change", previewImages);
+document.querySelector('#img').addEventListener("change", previewImages);
 
 
  // PREVIEW LIST IMAGES    
- 
  var countListImagesTimeUpload = 0;
  var countListImagesUpload = 0;
  function previewListImages() {
