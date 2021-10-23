@@ -1,6 +1,12 @@
 <?php 
+if(isset($_GET['uploaded'])){
+  if($_GET['uploaded']=="true"){
+    echo '<script> 
+       Swal.fire({ icon: "success", title: "The product has been uploaded." });
+       </script>';
+  }
+}
 if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
-
   $productname = nht_boc($_POST['productname']);
   $descriptionEN = nht_boc($_POST['descriptionEN']);
   $descriptionVN = nht_boc($_POST['descriptionVN']);
@@ -8,7 +14,7 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
   $category = nht_boc($_POST['category']);
   $type = nht_boc($_POST['type']);
   $brand = nht_boc($_POST['brand']);
-  $img = nht_boc(htmlspecialchars(basename($_FILES["img"]["name"])));
+  $img = nht_boc(htmlspecialchars(basename($_FILES["img"]["name"]))); // Tên main image gốc
 
   //FILES[]
   $countfiles = count($_FILES['files']['name']);
@@ -16,7 +22,10 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
 
   //FILE IMAGES
   $target_dir = "../uploads/products/";
-  $target_file = $target_dir . basename($_FILES["img"]["name"]);
+  $temp = explode(".", $_FILES["img"]["name"]);
+  $newfilename = md5(microtime()) . '.' . end($temp); // Tên main image đã random md5
+  //rename
+  $target_file = $target_dir . basename($newfilename); 
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -29,84 +38,83 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
     $FileImgUploaded = 0; // Trạng thái upload trường img File
     $FileImgsUploaded = 0; // Trạng thái upload trường imgs Files
     if($check !== false) {
-      // echo "File is an image - " . $check["mime"] . ".";
       $uploadOk = 1;
     } else {
-      // echo "File is not an image.";
+      echo "File is not an image.";
       $uploadOk = 0;
     }
     // Check if file already exists
     if (file_exists($target_file)) {
-      // echo "Sorry, file already exists.";
+      echo "Sorry, file already exists.";
       $uploadOk = 0;
     }
     // Check file size
     if ($_FILES["img"]["size"] > 500000) {
-      // echo "Sorry, your file is too large.";
+      echo "Sorry, your file is too large.";
       $uploadOk = 0;
     }
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"){
-      // echo "Sorry, only JPG, JPEG, PNG files are allowed.";
+      echo "Sorry, only JPG, JPEG, PNG files are allowed.";
       $uploadOk = 0;
     }
     if ($uploadOk == 0) {
-      // echo "Sorry, your file was not uploaded.";
+      echo "Sorry, your file was not uploaded.";
     // if everything is ok, try to upload file
     }else{
      if($countfiles != 0){
+      // echo $countfiles;
       //files
-      $lastID = $conn->query("SELECT id FROM store ORDER BY id DESC LIMIT 1")->fetch();
-      $lastID = (int)$lastID["id"];
-      $lastID = $lastID + 1;  // nên chọn ID để trùng với 
-      mkdir("$target_dir$lastID", 0755); // tạo thư mục | (link[id],)
 
+      $lastID = $conn->query("SELECT MAX(id) FROM store")->fetch();
+      $lastID = (int)$lastID[0];
+      $lastID = $lastID + 1;  // Last id là giá trị MAX trong cột id || Dựa vào tên này để đặt tên thư mục
+      mkdir("$target_dir$lastID"); // tạo thư mục | (link[id],)
+
+
+
+      // echo $lastID;
       // Upload img
       if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
         $FileImgUploaded = 1; // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-
-        // Loop all files
-        $array_linkanh = array();
-
-        for($i=0;$i<$countfiles;$i++){
-
-        // File name
-          $filename = $_FILES['files']['name'][$i];
-          // Get extension
-          $ext = explode(".", $filename);
-          $ext = end($ext);
-
-          // Valid image extension
-          $valid_ext = array("png","jpeg","jpg","PNG","JPEG","JPG");
-          if(in_array($ext, $valid_ext)){
-                // Upload file
-            if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../uploads/products/'.$lastID.'/'.$filename)){
-              array_push($array_linkanh,$filename);
-
-
-              $FileImgsUploaded = 1;
-            }else{
-              $FileImgsUploaded = 0;
-            }
-          }
-        }
       } else {
        $FileImgUploaded = 0;
         // echo "Lỗi file img.";
      }
-     if ($FileImgUploaded == 1 && $FileImgsUploaded==1){
-       $array_linkanh = implode(",",$array_linkanh);
-      $sql = "
-      INSERT INTO store(id, name, `description-en`, `description-vi`, price,images,category,type,`list-images`,brand) 
-      VALUES      ('0','$productname','$descriptionEN','$descriptionVN','$price','$img','$category','$type','$array_linkanh','$brand')";
 
-      $stmt=$conn->prepare($sql);
-      $result = $stmt->execute();
-      if($result){
-       echo '<script> 
-       $("#content-wrapper").load(location.href+" #content-wrapper>*","");
-       Swal.fire({ icon: "success", title: "The product has been uploaded." });
-       </script>';
+      // Loop all files
+     $array_linkanh = array();
+
+     for($i=0;$i<$countfiles;$i++){
+        // File name
+      $filename = $_FILES['files']['name'][$i];
+          // Get extension
+      $ext = explode(".", $filename);
+      $ext = end($ext);
+          // Valid image extension
+      $valid_ext = array("png","jpeg","jpg","PNG","JPEG","JPG");
+      if(in_array($ext, $valid_ext)){
+         // Upload file
+        if(move_uploaded_file($_FILES['files']['tmp_name'][$i],'../uploads/products/'.$lastID.'/'.$filename)){
+          array_push($array_linkanh,$filename);
+        }
+      }
+    }
+
+
+    if ($FileImgUploaded == 1 && count($array_linkanh)==$countfiles){
+     $array_linkanh = implode(",",$array_linkanh);
+     $sql = "
+     INSERT INTO store(id, name, `description-en`, `description-vi`, price,images,category,type,`list-images`,brand,folder) 
+     VALUES      ('0','$productname','$descriptionEN','$descriptionVN','$price','$newfilename','$category','$type','$array_linkanh','$brand','$lastID')";
+
+     $stmt=$conn->prepare($sql);
+     $result = $stmt->execute();
+      $FileImgUploaded=0; $countfiles=0;
+
+     if($result){
+       echo "<script>window.location.href='?slidebar=store&uploaded=true';</script>";
+     
      }
    }
  }
@@ -226,7 +234,6 @@ if(isset($_POST['themsanpham']) && $_SESSION['type'] == 1){
     } // else...
     
     var reader = new FileReader();
-    
     reader.addEventListener("load", function() {
       countImagesUpload++;
       var image = new Image();
