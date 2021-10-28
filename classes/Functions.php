@@ -273,4 +273,90 @@ class Info {
     
 }
 
+
+//get url
+$link = $_SERVER["REQUEST_URI"]; 
+//phân trang web
+function phantrang($url, $start, $total, $kmess,$xep_status) {
+    if($xep_status!=''){
+        $xep_status='/'.$xep_status;
+    }
+    $out[] = '<div class="row-pagination"><ul class="pagination">';
+    $neighbors = 2;
+    if ($start >= $total) $start = max(0, $total - (($total % $kmess) == 0 ? $kmess : ($total % $kmess)));
+    else $start = max(0, (int)$start - ((int)$start % (int)$kmess));
+    $base_link = '<li><a class="pagenav" href="' . strtr($url, array('%' => '%%')) . 'page=%d' .$xep_status.'">%s</a></li>';
+
+    $out[] = $start == 0 ? '' : sprintf($base_link, $start / $kmess, '«');
+    if ($start > $kmess * $neighbors) $out[] = sprintf($base_link, 1, '1');
+    if ($start > $kmess * ($neighbors + 1)) $out[] = '<li><a>...</a></li>';
+    for ($nCont = $neighbors;$nCont >= 1;$nCont--) if ($start >= $kmess * $nCont) {
+        $tmpStart = $start - $kmess * $nCont;
+        $out[] = sprintf($base_link, $tmpStart / $kmess + 1, $tmpStart / $kmess + 1);
+    }
+    $out[] = '<li class="active"><a>' . ($start / $kmess + 1) . '</a></li>';
+    $tmpMaxPages = (int)(($total - 1) / $kmess) * $kmess;
+    for ($nCont = 1;$nCont <= $neighbors;$nCont++) if ($start + $kmess * $nCont <= $tmpMaxPages) {
+        $tmpStart = $start + $kmess * $nCont;
+        $out[] = sprintf($base_link, $tmpStart / $kmess + 1, $tmpStart / $kmess + 1);
+    }
+    if ($start + $kmess * ($neighbors + 1) < $tmpMaxPages) $out[] = '<li><a>...</a></li>';
+    if ($start + $kmess * $neighbors < $tmpMaxPages) $out[] = sprintf($base_link, $tmpMaxPages / $kmess + 1, $tmpMaxPages / $kmess + 1);
+    if ($start + $kmess < $total) {
+        $display_page = ($start + $kmess) > $total ? $total : ($start / $kmess + 2);
+        $out[] = sprintf($base_link, $display_page, '»');
+    }
+    $out[] = '</ul></div>';
+    return implode('', $out);
+}
+
+
+//xóa dấu tiếng việt
+function xoa_dau ($str){
+ 
+$unicode = array(
+ 
+'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+ 
+'d'=>'đ',
+ 
+'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+ 
+'i'=>'í|ì|ỉ|ĩ|ị',
+ 
+'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+ 
+'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+ 
+'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+ 
+'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+ 
+'D'=>'Đ',
+ 
+'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+ 
+'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
+ 
+'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+ 
+'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+ 
+'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+ 
+);
+ 
+foreach($unicode as $nonUnicode=>$uni){
+ 
+$str = preg_replace("/($uni)/i", $nonUnicode, $str);
+ 
+}
+$str = str_replace(' ','-',$str);
+ 
+return $str;
+ 
+}
+
+
+
 ?>

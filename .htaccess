@@ -109,8 +109,20 @@ RewriteRule ^other/sunscreen/$ ?act=store&category=other&type=sunscreen [L]
 RewriteRule ^map$ ?act=map [L]
 RewriteRule ^map/$ ?act=map [L]
 
+RewriteRule ^store/page=([0-9])$ ?act=store&page=$1 [L]
+
+
+RewriteRule ^store/page=([0-9])/asc$ ?act=store&page=$1&order=asc [L]
+RewriteRule ^store/page=([0-9])/desc$ ?act=store&page=$1&order=desc [L]
+
+
 RewriteRule ^store/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
 RewriteRule ^store/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
+
+
+
+
+
 
 RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
 RewriteRule ^verifyReset/([^/]*)/([a-z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]

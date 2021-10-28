@@ -11,6 +11,7 @@ $title = 'Services';
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <style type="text/css">.desktop-store a{opacity: 1 !important;; color: #ffffff !important;} .mobile-store a{color: #ffffff !important;}</style>
+
 <section class=" store content-center">
   <div class="box-content-center">
    <?php 
@@ -69,7 +70,7 @@ $title = 'Services';
 
     <div class="product-row">
     <div class="column column-left">
-    <img id="zoom-product" class="content-center" src="../uploads/products/'.$images.'">
+    <img id="zoomLens" class="content-center" src="../uploads/products/'.$images.'">
 
 
 
@@ -111,7 +112,7 @@ $title = 'Services';
 
     <script type="text/javascript">
       function replaceImages(data){
-        $("#zoom-product" ).replaceWith('<img id="zoom-product" class="content-center" src="'+data+'">' );
+        $("#zoomLens" ).replaceWith('<img id="zoomLens" class="content-center" src="'+data+'">' );
       }
     </script>
 
@@ -214,37 +215,39 @@ $title = 'Services';
           } 
           ?>
 
+          
+
           <script type="text/javascript">
             // Đề xuất sản phẩn cùng category
-           $('.owl-carousel').owlCarousel({
-            loop: false,
-            margin: 10,
-            nav: true,
-            slideSpeed: 10,
-            navText: [
-            '<i class="fas fa-chevron-left" style="font-size: 40px;"></i>',
-            '<i class="fas fa-chevron-right" style="font-size: 40px;"></i>'
-            ],
+            $('.owl-carousel').owlCarousel({
+              loop: false,
+              margin: 10,
+              nav: true,
+              slideSpeed: 10,
+              navText: [
+              '<i class="fas fa-chevron-left" style="font-size: 40px;"></i>',
+              '<i class="fas fa-chevron-right" style="font-size: 40px;"></i>'
+              ],
 
-            autoplay: true,
-            pagination : true,
-            paginationSpeed : 200,
-            slideSpeed : 300,
-            autoplaySpeed:300,
-            autoplayHoverPause: true,
-            responsive: {
-              0: {
-                items: 2
-              },
-              600: {
-                items: 3
-              },
-              1000: {
-                items: 5
+              autoplay: true,
+              pagination : true,
+              paginationSpeed : 200,
+              slideSpeed : 300,
+              autoplaySpeed:300,
+              autoplayHoverPause: true,
+              responsive: {
+                0: {
+                  items: 2
+                },
+                600: {
+                  items: 3
+                },
+                1000: {
+                  items: 5
+                }
               }
-            }
-          })
-        </script>
+            })
+          </script>
 
-        <?php include('../../includes/footer.php'); ?>
+          <?php include('../../includes/footer.php'); ?>
 
