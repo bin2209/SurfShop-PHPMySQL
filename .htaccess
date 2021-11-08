@@ -112,8 +112,8 @@ RewriteRule ^map/$ ?act=map [L]
 RewriteRule ^store/page=([0-9])$ ?act=store&page=$1 [L]
 
 
-RewriteRule ^store/page=([0-9])/asc$ ?act=store&page=$1&order=asc [L]
-RewriteRule ^store/page=([0-9])/desc$ ?act=store&page=$1&order=desc [L]
+RewriteRule ^store/page=([0-9])/([a-zA-Z0-9-/]+)$ ?act=store&page=$1&order=$2 [L]
+
 
 
 RewriteRule ^store/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
