@@ -79,9 +79,9 @@ Giá thương lượng bắt đầu từ
 Lấp lỗ thủng ván từ 100k / Cán sợi thủy tinh từ 100k / Phủ đều lớp EPOXY từ 100k
 Lưu ý: Giá cả phụ thuộc vào vết hỏng của ván. Sửa được ván ngay cả khi hư gãy nặng nhất.';
 $LANG_services_content3 ='Ván mềm: 150k /2 tiếng, 400k /ngày
-Ván ngắn: 200k /2 giờ, 500k /ngày
-Ván tầm trung: 250k/2 giờ, 550k /ngày
-Ván dài: 300k /2 giờ, 600k/ngày
+Ván ngắn: 200k/2giờ - 500k/ngày </br>
+Ván tầm trung: 250k/2 giờ - 550k/ngày</br>
+Ván dài: 300k/2giờ - 600k/ngày</br>
 Giảm giá 50% cho người Đà Nẵng';
 $LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể và giải thích môn học, tập kỹ năng và sau đó có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
 		Giảm giá 50% cho người Đà Nẵng';

@@ -16,7 +16,7 @@ h1 {
 .card {
 	float: left;
 	padding: 0 1.7rem;
-	width: 50%;
+	width: 100%;
 	max-width: 350px;
 	margin-bottom: 3em;
 }
@@ -58,14 +58,15 @@ h1 {
 }
 .card .wrapper-services:hover .data {
 	transform: translateY(0);
-	
 }
 
 .card .data {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	transform: translateY(calc(70px + 1em));
+	height: 52%;
+	/*transform: translateY(calc(70px + 1em));*/
+	background: rgb(0 0 0 / 38%);
 	transition: transform 0.3s;
 	backdrop-filter: blur(10px);
 }
@@ -123,11 +124,11 @@ h1 {
 	opacity: 0;
 }
 .servicesCard .data {
-	color: #000;
-	transform: translateY(calc(70px + 4em));
+	color: #fff;
+	/*transform: translateY(calc(70px + 4em));*/
 }
 .servicesCard .title a {
-	color: #000;
+	color: #fff;
 	font-size: 2em;
 }
 .servicesCard .button {
@@ -252,7 +253,7 @@ h1 {
 						<span class="author"><?php echo $LANG_services ?></span>
 						<h1 class="title"><a href="#"><?php echo $LANG_services_title3 ?></a></h1>
 						<p class="text"><?php echo $LANG_services_content3 ?></p>
-						<br><br><br><br>	
+						<br><br>	
 					</div>
 				</div>
 			</div>
@@ -274,10 +275,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services blackcard">
-						<span class="author" style="color:#fff;"><?php echo $LANG_services ?></span>
-						<h1 class="title" ><a href="#" style="color:#fff;"><?php echo $LANG_services_title5 ?></a></h1>
-						<p class="text" style="color:#fff;"><?php echo $LANG_services_content5 ?></p>
-						<br>
+						<span class="author"><?php echo $LANG_services ?></span>
+						<h1 class="title" ><a href="#"><?php echo $LANG_services_title5 ?></a></h1>
+						<p class="text"><?php echo $LANG_services_content5 ?></p>
 					</div>
 				</div>
 			</div>
