@@ -69,6 +69,7 @@ h1 {
 	background: rgb(0 0 0 / 38%);
 	transition: transform 0.3s;
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 .card .data .content-services {
 	padding: 1em;
