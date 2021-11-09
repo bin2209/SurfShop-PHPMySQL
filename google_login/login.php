@@ -45,7 +45,7 @@ if(isset($_GET['code'])){
                 }
             }
 
-            header('Location: ../account');
+            header('Location: ../cart');
             exit;
         }
         else{

@@ -36,7 +36,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 					$_SESSION['avatar'] = $user_avatar;
 					$_SESSION['name'] = $user_name;
 					
-					header("Location: ../account");
+					header("Location: ../cart");
 					exit;
 				}else {
 					header("Location: ../login.php?error=Incorect User name or password&email=$email");
