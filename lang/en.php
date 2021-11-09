@@ -78,10 +78,11 @@ $LANG_services_content2 ='High Quality, Lightweight, Professional Repairs.
 Price breakdown starting at
 Filler $5 per hole / Fiber $5 per hole / Hotcoat $5 per hole.
 Bigger holes have a higher price. Snapped boards can be fixed.';
-$LANG_services_content3 ='Foamies / Soft tops / Ván mềm: 150k for 2 hours/tiếng, 400k per day/ngày
-		Short boards / Fishes / Ván ngắn: 200k for 2 hours/tiếng, 500k per day/ngày
-		Mini Malibu / Midlengths / Ván tầm trung 250k/ for 2hours/tiếng, 550k per day/ngày
-		Longboards / Ván dài 300k for 2 hours/tiếng, 600k per day/ngày';
+$LANG_services_content3 ='
+Foamies / Soft tops : 150k for 2 hours, 400k per day
+Short boards / Fishes: 200k for 2 hours, 500k per day
+Mini Malibu / Midlengths: 250k for 2hours, 550k per day
+Longboards: 300k for 2 hours, 600k per day';
 $LANG_services_content4 ='Lessons available for all levels. Lessons are 1 on 1 with an experienced instructor. There will be 20 minutes of warmup and instruction on the beach followed by an hour in the water. The board for use is included in the price.';
 $LANG_services_content5 ='We can offer many different surf trips to locations near and far. Please inquire for further details.';
 

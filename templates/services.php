@@ -58,7 +58,7 @@ h1 {
 }
 .card .wrapper-services:hover .data {
 	transform: translateY(0);
-	backdrop-filter: blur(10px);
+	
 }
 
 .card .data {
@@ -67,6 +67,7 @@ h1 {
 	width: 100%;
 	transform: translateY(calc(70px + 1em));
 	transition: transform 0.3s;
+	backdrop-filter: blur(10px);
 }
 .card .data .content-services {
 	padding: 1em;

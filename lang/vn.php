@@ -78,12 +78,12 @@ $LANG_services_content2 ='Sửa chữa chuyên nghiệp, Chất lượng cao, D�
 Giá thương lượng bắt đầu từ
 Lấp lỗ thủng ván từ 100k / Cán sợi thủy tinh từ 100k / Phủ đều lớp EPOXY từ 100k
 Lưu ý: Giá cả phụ thuộc vào vết hỏng của ván. Sửa được ván ngay cả khi hư gãy nặng nhất.';
-$LANG_services_content3 ='Foamies / Soft tops / Ván mềm: 150k for 2 hours/tiếng, 400k per day/ngày
-Short boards / Fishes / Ván ngắn: 200k for 2 hours/tiếng, 500k per day/ngày
-Mini Malibu / Midlengths / Ván tầm trung 250k/ for 2hours/tiếng, 550k per day/ngày
-Longboards / Ván dài 300k for 2 hours/tiếng, 600k per day/ngày
-	Giảm giá 50% cho người Đà Nẵng';
-$LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể và giải thích môn học, tập skill và sau đó có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
+$LANG_services_content3 ='Ván mềm: 150k /2 tiếng, 400k /ngày
+Ván ngắn: 200k /2 giờ, 500k /ngày
+Ván tầm trung: 250k/2 giờ, 550k /ngày
+Ván dài: 300k /2 giờ, 600k/ngày
+Giảm giá 50% cho người Đà Nẵng';
+$LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể và giải thích môn học, tập kỹ năng và sau đó có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
 		Giảm giá 50% cho người Đà Nẵng';
 $LANG_services_content5 ='Chúng tôi có thể phục vụ nhiều chuyến khác nhau đi lướt sóng gần và xa. Vui lòng liên hệ để trao đổi thêm thông tin.';
 ?>
