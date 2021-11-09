@@ -100,8 +100,8 @@ if(strpos($link_directory,'/verifyReset')){
 				<input type='submit' style="display:none;"/>
 			</form>
 		</li>
-		<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
 		<li class="mobile-store"><a href="/store"><?php echo $LANG_store ?></a></li>
+		<li class="mobile-services"><a href="/services"><?php echo $LANG_services ?></a></li>
 		<li class="mobile-map"><a href="/map"><?php echo $LANG_map ?></a></li>
 		<li class="mobile-about"><a href="/about"><?php echo $LANG_about ?></a></li>
 	</ul>
