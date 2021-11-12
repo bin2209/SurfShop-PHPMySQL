@@ -29,7 +29,6 @@ $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 	</div>
 </section>
 <section class="store content-center">
-	<h1 class="surf-h2-dark content-center"><?php echo $LANG_store; ?></h1>
 	<div class="row">
 		<?php
 		$sql = "SELECT * FROM store";
