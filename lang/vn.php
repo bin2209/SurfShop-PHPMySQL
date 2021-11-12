@@ -8,6 +8,8 @@ $LANG_about = 'Giới thiệu';
 $LANG_morebutton = 'Xem thêm';
 $LANG_decription ='Mô tả';
 $LANG_adminpage = 'Quản trị';
+$LANG_address = 'Địa chỉ';
+$LANG_taxcode = 'Mã số thuế';
 // HOME
 $LANG_trending = 'Thịnh hành';
 // SERVICES

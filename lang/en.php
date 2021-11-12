@@ -8,6 +8,8 @@ $LANG_about = 'About';
 $LANG_morebutton = 'More';
 $LANG_decription ='Description';
 $LANG_adminpage = 'Admin';
+$LANG_address = 'Address';
+$LANG_taxcode = 'Tax code';
 // HOME
 $LANG_trending = 'Trending';
 // SERVICES
