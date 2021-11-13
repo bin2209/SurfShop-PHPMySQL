@@ -116,7 +116,6 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 									}
 									?>
 								</tbody>
-
 							</table>
 						</div>
 					</div>
@@ -125,10 +124,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		</div>
 
 		<div id="total-products" class="row total-product">
-			<span><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> <?php echo $LANG_selectall ?> ( <?php echo get_item_bag($_SESSION['user_email'],$conn); ?> )</span>
-
-			<span><?php echo $LANG_payment ?> ( <p id="quantity-result" style="display: inline;"></p> <?php echo $LANG_product ?> ): <p id="total-price-result" style="display: inline;"></p> ₫</span>
-			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?></button></span>
+			<span style="margin-left: initial;"><input id="selectAllbutton" type="checkbox" onclick="selectAll(this);" style="position:relative; display: inline;"> <?php echo $LANG_selectall ?> </span>
+			<span class="total-payment-span"><?php echo $LANG_payment ?>: <p id="total-price-result" style="display: inline;"></p> ₫</span>
+			<span class="checkout-span"><button id="" class="checkout-button"><?php echo $LANG_checkout ?> (<p id="quantity-result" style="display: inline;"></p>)</button></span>
 		</div>
 	</div> <!--  // backgound content -->
 </section>

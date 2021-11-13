@@ -51,7 +51,7 @@ input[type="checkbox"]{
 	border-radius: 18px;
 }
 .card .card-body {
-	padding: 1.75rem 1.5625rem;
+	padding: 1.75rem 0;
 }
 .card-body {
 	flex: 1 1 auto;
@@ -74,17 +74,16 @@ input[type="checkbox"]{
 	background: #fd5656;
 }
 .checkout-button{
-	padding: 7px 20px;
+	padding: 11px 20px;
+	font-size: 15px;
 	color: #fff;
-	background-color: #5cb85c;
+	background-color: #349934;
 	border-color: #4cae4c;
-	line-height: 1.5;
-	border-radius: 3px;
-	border: 1px solid;
+	border: 0px solid;
 }
 .checkout-button:hover{
 	cursor: pointer;
-	background-color: #449d44;
+	background-color: #3b873b;
 	border-color: #398439;
 }
 .checkout-button:active{
@@ -129,10 +128,6 @@ tbody tr td img{
 }
 .pl-2{
 	vertical-align: middle;
-}
-hr{
-	width: 40%;
-	max-width: 400px;
 }
 .content-wrapper {
 	background: #000000;
@@ -322,28 +317,35 @@ hr{
 .infomation{
 	width: auto;
 }
-.total-product span{
-	color: #6c7293;
-}
 .total-product{
 	display: flex;
 	position: sticky;
 	bottom: 0;
+	border-radius: 6px;
 	margin-left: auto;
 	margin-right: auto;
-	padding: 1.75rem 1.5625rem;
 	word-wrap: break-word;
 	background-color: #fbfbfd36;
+	padding: 0px 0px 0px 10px;
 	box-shadow: 0 7px 30px -10px rgb(150 170 180 / 50%);
 	background-clip: border-box;
 	border: 1px solid rgba(0, 0, 0, 0.125);
-	border-radius: 18px;
 	-webkit-backdrop-filter: saturate(180%) blur(20px);
 	backdrop-filter: saturate(180%) blur(20px);
 	background-color: rgba(255,255,255,0.72);
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
+
 }
+.total-product span{
+	font-size: 15px;
+	color: #6c7293;
+	margin-left: auto;
+}
+.total-product .checkout-span4{
+	width: 33.33333333%;
+}
+
 .is-pinned{
 	box-shadow: none !important;
 	border:  1px solid rgba(0, 0, 0, 0.125) !important;
@@ -351,15 +353,23 @@ hr{
 }
 .total-product span{
 	display: inline;
+	color: #000000;
 }
 @media only screen and (max-width: 800px) {
 	#fb-root {
 		display: none;
 	}
-	.total-product .checkout-span{
-		position: relative;
-		top: 10px;
-		width: 100%;
-		text-align: right;
+	.checkout-button{
+		font-size: 14px;
+		padding: 10px;
+	}
+	.total-payment-span{
+		font-size: 12px !important;
+	}
+	#total-price-result{
+		font-size: 14px !important;
+	}
+	.total-product{
+		padding: 0px 0px 0px 7px !important;
 	}
 }
