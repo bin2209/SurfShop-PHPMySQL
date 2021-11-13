@@ -10,6 +10,11 @@ $LANG_decription ='Description';
 $LANG_adminpage = 'Admin';
 $LANG_address = 'Address';
 $LANG_taxcode = 'Tax code';
+$LANG_links = 'LINKS';
+$LANG_categories = 'CATEGORIES';
+$LANG_companyLST = 'LUOT SONG THOI TRADING AND SERVICES J.S.C';
+$LANG_Privacy_Policy = 'Privacy Policy';
+$LANG_accept_payment = 'Accept payment';
 // HOME
 $LANG_trending = 'Trending';
 // SERVICES

@@ -10,6 +10,12 @@ $LANG_decription ='Mô tả';
 $LANG_adminpage = 'Quản trị';
 $LANG_address = 'Địa chỉ';
 $LANG_taxcode = 'Mã số thuế';
+$LANG_links = 'Liên kết';
+$LANG_categories = 'DANH SÁCH';
+$LANG_companyLST = 'CÔNG TY CỔ PHẦN TMDV LƯỚT SÓNG THÔI';
+$LANG_categories = 'DANH SÁCH';
+$LANG_Privacy_Policy = 'Chính sách bảo mật';
+$LANG_accept_payment = 'Chấp nhận thanh toán';
 // HOME
 $LANG_trending = 'Thịnh hành';
 // SERVICES
@@ -53,7 +59,7 @@ $LANG_services_title5 ='Du Lịch Lướt Sóng';
 //MEMBER | CART
 $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';
-$LANG_save = "Lưu thay đổi";
+$LANG_save = "Lưu";
 $LANG_remove = "Xóa";
 $LANG_selectall = "Chọn tất cả";
 $LANG_payment = "Tổng thanh toán";
@@ -66,7 +72,7 @@ $LANG_total = "Tổng";
 $LANG_manipulation = "Thao tác";
 $LANG_fullname = "Họ tên";
 $LANG_phone = "Số điện thoại";
-$LANG_address_delivery = "Địa chỉ nhận hàng";
+$LANG_address_delivery = "Địa chỉ giao hàng";
 $LANG_about = "Giới thiệu";
 $LANG_oldpassword = "Mật khẩu hiện tại";
 $LANG_newpassword = "Mật khẩu mới";

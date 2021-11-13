@@ -3,12 +3,6 @@ section{
 	padding-top: 2em;
 	padding-bottom: 5em;
 }
-hr{
-	width: 40%;
-	max-width: 400px;
-}
-
-
 .change-profile, .change-password {
 	letter-spacing: -0.016em;
 	text-align: center ;

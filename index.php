@@ -49,8 +49,8 @@ if (isset($_GET['act'])){
 		require_once 'templates/cart.php'; 
 		break;
 
-		case 'cart':
-		require_once 'templates/cart.php'; 
+		case 'privacy-policy':
+		require_once 'templates/privacy-policy.php'; 
 		break;
 
 

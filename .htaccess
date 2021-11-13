@@ -109,6 +109,9 @@ RewriteRule ^other/sunscreen/$ ?act=store&category=other&type=sunscreen [L]
 RewriteRule ^map$ ?act=map [L]
 RewriteRule ^map/$ ?act=map [L]
 
+RewriteRule ^privacy-policy$ ?act=privacy-policy [L]
+RewriteRule ^privacy-policy/$ ?act=privacy-policy [L]
+
 RewriteRule ^store/page=([0-9])$ ?act=store&page=$1 [L]
 
 
