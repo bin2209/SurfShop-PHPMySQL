@@ -17,7 +17,8 @@ function sentmail($File_html_content,$addAddress_email,$Subject_name){
    // SMTP SETTINGS
     $SMTP_host = 'smtp.office365.com';
     $SMTP_port = '587';
-    $SMTP_secure = 'tls';
+    // $SMTP_secure = 'tls';
+    $SMTP_secure = 'STARTTLS';
     $SMTP_username = 'lstsurf@outlook.com';
     $SMTP_password = 'truong322';
 
@@ -43,7 +44,7 @@ function sentmail($File_html_content,$addAddress_email,$Subject_name){
 // 0 = off (for production use)
 // 1 = client messages
 // 2 = client and server messages
-    $mail->SMTPDebug = 0;
+    $mail->SMTPDebug = 1;
 
 //Set the hostname of the mail server
     $mail->Host = $SMTP_host;

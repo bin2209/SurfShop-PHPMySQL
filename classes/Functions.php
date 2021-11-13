@@ -269,23 +269,21 @@ class Info {
     $link = "/assets/img/icon/";
     return $link.$name;
 }
-
-    
 }
-
 
 //get url
 $link = $_SERVER["REQUEST_URI"]; 
 //phân trang web
 function phantrang($url, $start, $total, $kmess,$xep_status) {
     if($xep_status!=''){
-        $xep_status='/'.$xep_status;
+        $xep_status='&order='.$xep_status;
     }
+
     $out[] = '<div class="row-pagination"><ul class="pagination">';
     $neighbors = 2;
     if ($start >= $total) $start = max(0, $total - (($total % $kmess) == 0 ? $kmess : ($total % $kmess)));
     else $start = max(0, (int)$start - ((int)$start % (int)$kmess));
-    $base_link = '<li><a class="pagenav" href="' . strtr($url, array('%' => '%%')) . 'page=%d' .$xep_status.'">%s</a></li>';
+    $base_link = '<li><a class="pagenav" href="?page=%d' .$xep_status.'">%s</a></li>';
 
     $out[] = $start == 0 ? '' : sprintf($base_link, $start / $kmess, '«');
     if ($start > $kmess * $neighbors) $out[] = sprintf($base_link, 1, '1');

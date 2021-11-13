@@ -90,7 +90,7 @@ $title = 'Services';
     </div>
 
 
-    <div class="product-item" style="text-align:left;     height: auto;">'?>
+    <div class="product-item" style="text-align:left; height: auto;">'?>
 
     <div class="owl-carousel">
       <?php
@@ -168,7 +168,7 @@ $title = 'Services';
         if ($id != $_GET['id']){
           echo '
           <div class="item">
-          <a href="/store/'.$id.'" data-handle="" >
+          <a href="/product/'.$id.'" data-handle="" >
           <div class="background-blur product">
           <img class="content-center" src="../uploads/products/'.$images.'"/>
           </div>

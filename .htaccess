@@ -1,131 +1,44 @@
-Options +FollowSymLinks 
+Options +FollowSymLinks -indexes
 <IfModule mod_rewrite.c>
-ServerSignature Off
-RewriteEngine On 
+RewriteEngine on
 RewriteCond %{HTTPS} !=on [NC]
 RewriteRule ^(.*)$ https://%{HTTP_HOST%{REQUEST_URI} [L,R=301]
+
+RewriteBase /
+
+
+
+
+## If the request is for a valid directory
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+## If the request is for a valid file
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+## If the request is for a valid link
+RewriteCond %{REQUEST_FILENAME} -l
+## don't do anything
+RewriteRule ^ - [L]
+
+#Xem sản phẩm
+RewriteRule ^product/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
+RewriteRule ^product/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
+
+#GETLINK
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ ?act=$1&category=$2&type=$3 [L,QSA]
+RewriteRule ^([^/]+)/([^/]+)/?$ ?act=$1&category=$2 [L,QSA]
+RewriteRule ^([^/]+)/?$ ?act=$1 [L,QSA]
+
+#LOGOUT
+RewriteRule ^logout$ logout.php [L]
+
+#verifyReset
+RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
+RewriteRule ^verifyReset/([^/]*)/([a-z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
+
+
 </IfModule>
-
-
-
-
-#RewriteCond %{REQUEST_FILENAME} !-f 
-#RewriteCond %{REQUEST_FILENAME} !-d
 
 # Bảo vệ file .htaccess
 <Files .htaccess>
 Order Allow,Deny
 Deny from all
 </Files>
-
-RewriteRule ^logout$ logout.php [L]
-RewriteRule ^transaction.html$ history.php [L]
-RewriteRule ^transaction.html$ history.php [L]
-RewriteRule ^recharge.html$ recharge.php [L]
-
-
-RewriteRule ^home$ ?act=home [L]
-RewriteRule ^home/$ ?act=home [L]
-
-
-
-RewriteRule ^store$ ?act=store [L]
-RewriteRule ^store/$ ?act=store [L]
-
-RewriteRule ^services$ ?act=services [L]
-RewriteRule ^services/$ ?act=services [L]
-
-RewriteRule ^account$ ?act=account [L]
-RewriteRule ^account/$ ?act=account [L]
-
-
-RewriteRule ^about$ ?act=about [L]
-RewriteRule ^about/$ ?act=about [L]
-
-RewriteRule ^login$ ?act=login [L]
-RewriteRule ^login/$ ?act=login [L]
-
-RewriteRule ^cart$ ?act=cart [L]
-RewriteRule ^cart/$ ?act=cart [L]
-
-RewriteRule ^surf$ ?act=store&category=surf [L]
-RewriteRule ^surf/$ ?act=store&category=surf [L]
-RewriteRule ^surf/board$ ?act=store&category=surf&type=board [L]
-RewriteRule ^surf/board/$ ?act=store&category=surf&type=board [L]
-RewriteRule ^surf/fins$ ?act=store&category=surf&type=fins [L]
-RewriteRule ^surf/fins/$ ?act=store&category=surf&type=fins [L]
-RewriteRule ^surf/leaches$ ?act=store&category=surf&type=leaches [L]
-RewriteRule ^surf/leaches/$ ?act=store&category=surf&type=leaches [L]
-RewriteRule ^surf/tractions$ ?act=store&category=surf&type=tractions [L]
-RewriteRule ^surf/tractions/$ ?act=store&category=surf&type=tractions [L]
-
-RewriteRule ^skate$ ?act=store&category=skate [L]
-RewriteRule ^skate/$ ?act=store&category=skate [L]
-RewriteRule ^skate/board$ ?act=store&category=skate&type=board [L]
-RewriteRule ^skate/board/$ ?act=store&category=skate&type=board [L]
-RewriteRule ^skate/decks$ ?act=store&category=skate&type=decks [L]
-RewriteRule ^skate/decks/$ ?act=store&category=skate&type=decks [L]
-RewriteRule ^skate/trucks$ ?act=store&category=skate&type=trucks [L]
-RewriteRule ^skate/trucks/$ ?act=store&category=skate&type=trucks [L]
-RewriteRule ^skate/wheels$ ?act=store&category=skate&type=wheels [L]
-RewriteRule ^skate/wheels/$ ?act=store&category=skate&type=wheels [L]
-RewriteRule ^skate/grips$ ?act=store&category=skate&type=grips [L]
-RewriteRule ^skate/grips/$ ?act=store&category=skate&type=grips [L]
-RewriteRule ^skate/brearings$ ?act=store&category=skate&type=brearings [L]
-RewriteRule ^skate/brearings/$ ?act=store&category=skate&type=brearings [L]
-RewriteRule ^skate/hardwares$ ?act=store&category=skate&type=hardwares [L]
-RewriteRule ^skate/hardwares/$ ?act=store&category=skate&type=hardwares [L]
-
-
-RewriteRule ^clothes$ ?act=store&category=clothes [L]
-RewriteRule ^clothes/$ ?act=store&category=clothes [L]
-RewriteRule ^clothes/shirts$ ?act=store&category=clothes&type=shirts [L]
-RewriteRule ^clothes/shirts/$ ?act=store&category=clothes&type=shirts [L]
-RewriteRule ^clothes/pants$ ?act=store&category=clothes&type=pants [L]
-RewriteRule ^clothes/pants/$ ?act=store&category=clothes&type=pants [L]
-RewriteRule ^clothes/shorts$ ?act=store&category=clothes&type=shorts [L]
-RewriteRule ^clothes/shorts/$ ?act=store&category=clothes&type=shorts [L]
-RewriteRule ^clothes/jackets$ ?act=store&category=clothes&type=jackets [L]
-RewriteRule ^clothes/jackets/$ ?act=store&category=clothes&type=jackets [L]
-RewriteRule ^clothes/dresses$ ?act=store&category=clothes&type=dresses [L]
-RewriteRule ^clothes/dresses/$ ?act=store&category=clothes&type=dresses [L]
-RewriteRule ^clothes/shoes$ ?act=store&category=clothes&type=shoes [L]
-RewriteRule ^clothes/shoes/$ ?act=store&category=clothes&type=shoes [L]
-RewriteRule ^clothes/bags$ ?act=store&category=clothes&type=bags [L]
-RewriteRule ^clothes/bags/$ ?act=store&category=clothes&type=bags [L]
-RewriteRule ^clothes/swimwears$ ?act=store&category=clothes&type=swimwears [L]
-RewriteRule ^clothes/swimwears/$ ?act=store&category=clothes&type=swimwears [L]
-RewriteRule ^clothes/wetsuits$ ?act=store&category=clothes&type=wetsuits [L]
-RewriteRule ^clothes/wetsuits/$ ?act=store&category=clothes&type=wetsuits [L]
-
-
-RewriteRule ^other$ ?act=store&category=other [L]
-RewriteRule ^other/$ ?act=store&category=other [L]
-RewriteRule ^other/sunglasses$ ?act=store&category=other&type=sunglasses [L]
-RewriteRule ^other/sunglasses/$ ?act=store&category=other&type=sunglasses [L]
-RewriteRule ^other/sunscreen$ ?act=store&category=other&type=sunscreen [L]
-RewriteRule ^other/sunscreen/$ ?act=store&category=other&type=sunscreen [L]
-
-RewriteRule ^map$ ?act=map [L]
-RewriteRule ^map/$ ?act=map [L]
-
-RewriteRule ^privacy-policy$ ?act=privacy-policy [L]
-RewriteRule ^privacy-policy/$ ?act=privacy-policy [L]
-
-RewriteRule ^store/page=([0-9])$ ?act=store&page=$1 [L]
-
-
-RewriteRule ^store/page=([0-9])/([a-zA-Z0-9-/]+)$ ?act=store&page=$1&order=$2 [L]
-
-
-
-RewriteRule ^store/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
-RewriteRule ^store/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
-
-
-
-
-
-
-RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
-RewriteRule ^verifyReset/([^/]*)/([a-z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]

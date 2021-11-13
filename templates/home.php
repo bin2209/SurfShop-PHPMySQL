@@ -59,7 +59,7 @@ $title = 'Surf shop - Skate shop - Rentals - Repairs - Lessons - Custom boards';
 			}
 
 			echo '<div class="column">
-				<a href="/store/'.$id.'" data-handle="">
+				<a href="/product/'.$id.'" data-handle="">
 				    <div class="background-blur product">
 						<img class="content-center" src="../uploads/products/'.$images.'"/>
 					</div>
