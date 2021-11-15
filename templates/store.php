@@ -22,7 +22,7 @@ if(isset($_GET["page"])){
 
   // SẮP XẾP
 
-  $xep = '';
+$xep = '';
   $xep_status = ''; // Trạng thái sắp xếp mục đích vẫn giữ đc status sắp xếp khi chuyển trang
   if(isset($_GET['order'])){
     $order = ($_GET['order']);
@@ -42,71 +42,71 @@ if(isset($_GET["page"])){
       $xep = '';
     }
   }
-?>
-<link rel="stylesheet" type="text/css" href="<?=$_DOMAIN?>/assets/pagination/pagination.css">
-<div>
-  <div id="Slidebar" class="left-navbar">
-   <dl>
-    <dt class="left-navbar-surf"><a href="/store/surf">SURF</a></dt>
-    <dd class="surf1"><a href="/store/surf/board">BOARD</a></dd>
-    <dd class="surf2"><a href="/store/surf/fins">FINS</a></dd>
-    <dd class="surf3"><a href="/store/surf/leaches">LEACHES</a></dd>
-    <dd class="surf4"><a href="/store/surf/tractions">TRACTIONS</a></dd>
+  ?>
+  <link rel="stylesheet" type="text/css" href="<?=$_DOMAIN?>/assets/pagination/pagination.css">
+  <div>
+    <div id="Slidebar" class="left-navbar">
+     <dl>
+      <dt class="left-navbar-surf"><a href="/store/surf">SURF</a></dt>
+      <dd class="surf1"><a href="/store/surf/board">BOARD</a></dd>
+      <dd class="surf2"><a href="/store/surf/fins">FINS</a></dd>
+      <dd class="surf3"><a href="/store/surf/leaches">LEACHES</a></dd>
+      <dd class="surf4"><a href="/store/surf/tractions">TRACTIONS</a></dd>
 
-    <dt class="left-navbar-skate"><a href="/store/skate">SKATE</a></dt>
-    <dd class="skate1"><a href="/store/skate/board">BOARD</a></dd>
-    <dd class="skate2"><a href="/store/skate/decks">DECKS</a></dd>
-    <dd class="skate3"><a href="/store/skate/trucks">TRUCKS</a></dd>
-    <dd class="skate4"><a href="/store/skate/wheels">WHEELS</a></dd>
-    <dd class="skate5"><a href="/store/skate/grips">GRIPS</a></dd>
-    <dd class="skate6"><a href="/store/skate/brearings">BREARINGS</a></dd>
-    <dd class="skate7"><a href="/store/skate/hardwares">HARDWARES</a></dd>
+      <dt class="left-navbar-skate"><a href="/store/skate">SKATE</a></dt>
+      <dd class="skate1"><a href="/store/skate/board">BOARD</a></dd>
+      <dd class="skate2"><a href="/store/skate/decks">DECKS</a></dd>
+      <dd class="skate3"><a href="/store/skate/trucks">TRUCKS</a></dd>
+      <dd class="skate4"><a href="/store/skate/wheels">WHEELS</a></dd>
+      <dd class="skate5"><a href="/store/skate/grips">GRIPS</a></dd>
+      <dd class="skate6"><a href="/store/skate/brearings">BREARINGS</a></dd>
+      <dd class="skate7"><a href="/store/skate/hardwares">HARDWARES</a></dd>
 
-    <dt class="left-navbar-clothes"><a href="/store/clothes">CLOTHES</a></dt>
-    <dd class="clothes1"><a href="/store/clothes/shirts">SHIRTS</a></dd>
-    <dd class="clothes2"><a href="/store/clothes/pants">PANTS</a></dd>
-    <dd class="clothes3"><a href="/store/clothes/shorts">SHORTS</a></dd>
-    <dd class="clothes4"><a href="/store/clothes/jackets">JACKETS</a></dd>
-    <dd class="clothes5"><a href="/store/clothes/dresses">DRESSES</a></dd>
-    <dd class="clothes6"><a href="/store/clothes/shoes">SHOES</a></dd>
-    <dd class="clothes7"><a href="/store/clothes/bags">BAGS</a></dd>
-    <dd class="clothes8"><a href="/store/clothes/swimwears">SWIMWEARS</a></dd>
-    <dd class="clothes9"><a href="/store/clothes/wetsuits">WETSUITS</a></dd>
+      <dt class="left-navbar-clothes"><a href="/store/clothes">CLOTHES</a></dt>
+      <dd class="clothes1"><a href="/store/clothes/shirts">SHIRTS</a></dd>
+      <dd class="clothes2"><a href="/store/clothes/pants">PANTS</a></dd>
+      <dd class="clothes3"><a href="/store/clothes/shorts">SHORTS</a></dd>
+      <dd class="clothes4"><a href="/store/clothes/jackets">JACKETS</a></dd>
+      <dd class="clothes5"><a href="/store/clothes/dresses">DRESSES</a></dd>
+      <dd class="clothes6"><a href="/store/clothes/shoes">SHOES</a></dd>
+      <dd class="clothes7"><a href="/store/clothes/bags">BAGS</a></dd>
+      <dd class="clothes8"><a href="/store/clothes/swimwears">SWIMWEARS</a></dd>
+      <dd class="clothes9"><a href="/store/clothes/wetsuits">WETSUITS</a></dd>
 
-    <dt class="left-navbar-other"><a href="/store/other">OTHER</a></dt>
-    <dd class="other1"><a href="/store/other/sunglasses">SUN GLASSES</a></dd>
-    <dd class="other2"><a href="/store/other/sunscreen">SUN SCREEN</a></dd>
-    <dd style="margin-top: 12em;">.</dd>
-  </dl>
-  <span class="close-slidebar" onclick="slidebar_close()"><i class="fas fa-angle-left"></i></span>
-</div>
+      <dt class="left-navbar-other"><a href="/store/other">OTHER</a></dt>
+      <dd class="other1"><a href="/store/other/sunglasses">SUN GLASSES</a></dd>
+      <dd class="other2"><a href="/store/other/sunscreen">SUN SCREEN</a></dd>
+      <dd style="margin-top: 12em;">.</dd>
+    </dl>
+    <span class="close-slidebar" onclick="slidebar_close()"><i class="fas fa-angle-left"></i></span>
+  </div>
   <section class="store content-center">
     <span id="open-slidebar" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
     <span id="open-slidebar-mobile" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
-        <div class="field-search">
-        <span for="form-select" style="color: #101010;">Sắp xếp:</span>
-        <select id="sapxep" class="form-control c-square form-select" name="sapxep">
-         <option value="none">Mặc định</option>
-         <option value="latest" <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>>Mới nhất</option>
-         <option value="asc"  <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>>Giá tăng dần</option>
-         <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>>Giá giảm dần</option>
-       </select>
-     </div>
-    <?php
-    $kihieu_store= '';
+    <div class="field-search">
+      <span for="form-select" style="color: #101010;">Sắp xếp:</span>
+      <select id="sapxep" class="form-control c-square form-select" name="sapxep">
+       <option value="none">Mặc định</option>
+       <option value="latest" <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>>Mới nhất</option>
+       <option value="asc"  <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>>Giá tăng dần</option>
+       <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>>Giá giảm dần</option>
+     </select>
+   </div>
+   <?php
+   $kihieu_store= '';
 
-    function print_product_store($_DOMAIN,$sql,$conn,$from,$sotin1trang,$xep){
-      if (isset($xep)){
-        $sql.=" $xep";
-      }
-      $sql.=" LIMIT $from, $sotin1trang";
+   function print_product_store($_DOMAIN,$sql,$conn,$from,$sotin1trang,$xep){
+    if (isset($xep)){
+      $sql.=" $xep";
+    }
+    $sql.=" LIMIT $from, $sotin1trang";
     // FUNCTION echo content
-      echo '<div class="row">';
-     $result = $conn->prepare($sql);
-     $result->execute();
+    echo '<div class="row">';
+    $result = $conn->prepare($sql);
+    $result->execute();
     // $count = $result->rowCount();
     // echo $count;
-     foreach ($result as $row) {
+    foreach ($result as $row) {
       $id = $row["id"];
       $images = $row["images"];
       $name = $row["name"];
@@ -296,6 +296,13 @@ if ($tong > $sotin1trang){
     document.getElementById("Slidebar").style.display = "none";
     document.getElementById("open-slidebar-mobile").style.display = "block";
   }
+  if ($.cookie('BarOpened')==='opened'){
+   document.getElementById("Slidebar").style.display = "block";
+   slidebar_open();
+ }else{
+  document.getElementById("Slidebar").style.display = "none";
+  slidebar_close();
+}
 </script>
 <script type="text/javascript">
   // DIRECT FILTER 

@@ -18,6 +18,9 @@ RewriteCond %{REQUEST_FILENAME} -l
 ## don't do anything
 RewriteRule ^ - [L]
 
+#LOGOUT
+RewriteRule ^logout$ logout.php [L]
+
 #Xem sản phẩm
 RewriteRule ^product/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
 RewriteRule ^product/([a-zA-Z0-9-/]+)$ /templates/store/view.php?id=$1 [L]
@@ -27,8 +30,7 @@ RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ ?act=$1&category=$2&type=$3 [L,QSA]
 RewriteRule ^([^/]+)/([^/]+)/?$ ?act=$1&category=$2 [L,QSA]
 RewriteRule ^([^/]+)/?$ ?act=$1 [L,QSA]
 
-#LOGOUT
-RewriteRule ^logout$ logout.php [L]
+
 
 #verifyReset
 RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]

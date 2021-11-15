@@ -1,24 +1,23 @@
 // LANGUAGE COOKIE
 // var cookie_language = "en";
-var mySiteNamespace = {}
-mySiteNamespace.switchLanguage = function (lang) {
+var LanguageWebsite = {}
+LanguageWebsite.switchLanguage = function (lang) {
     // $.cookie('language', lang);
     $.cookie('language',lang,{ expires: 7, path:'/' });
     window.location.reload();
 }
-
 if ($.cookie('language')=== undefined ){
-    mySiteNamespace.switchLanguage('en');
+    LanguageWebsite.switchLanguage('en');
 }
 $(document).ready(function (){
-    // attach mySiteNamespace.switchLanguage to click events based on css classes
+    // attach LanguageWebsite.switchLanguage to click events based on css classes
     $('.lang-eng').click(function () {
         document.cookie = "language=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        mySiteNamespace.switchLanguage('en'); 
+        LanguageWebsite.switchLanguage('en'); 
     });
     $('.lang-vn').click(function () { 
         document.cookie = "language=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
-        mySiteNamespace.switchLanguage('vi'); 
+        LanguageWebsite.switchLanguage('vi'); 
     });
     if (($.cookie('language'))==='vi'){
     	$('#vietnam').addClass('lang-checked');
@@ -30,4 +29,26 @@ $(document).ready(function (){
     }
 });
 
-console.log($.cookie('language'));
+// STATUS OPENED ? CLOSED SLIDE LEFT BAR
+var SlideStoreBar = {}
+SlideStoreBar.switchOpener = function (status){
+  $.cookie('BarOpened',status,{ expires: 7, path:'/' });
+  // window.location.reload();
+}
+if ($.cookie('BarOpened')=== undefined ){
+    SlideStoreBar.switchOpener('opened');
+}
+
+$(document).ready(function (){
+    $('.close-slidebar').click(function () {
+        document.cookie = "BarOpened=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        SlideStoreBar.switchOpener('closed'); 
+    });
+    $('#open-slidebar-mobile').click(function () { 
+        document.cookie = "BarOpened=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        SlideStoreBar.switchOpener('opened'); 
+    });
+});
+
+// console.log($.cookie('BarOpened'));
+// console.log($.cookie('language'));
