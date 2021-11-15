@@ -48,7 +48,7 @@
 /* POP-UP ========================================== */
 .pop-up {
 	position: fixed;
-	border-radius: 20px;
+	border-radius: 16px;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%) scale(0.9);
@@ -64,12 +64,11 @@
 	transition: all 0.3s;
 	z-index: 10;
 	background-color: #fff;
-	width: 90%;
 }
 @media (min-width: 768px) {
 	.pop-up {
 		height: auto;
-		max-width: 600px;
+		max-width: fit-content;
 	}
 }
 .pop-up .content {

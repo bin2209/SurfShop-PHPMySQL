@@ -19,7 +19,6 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 		$user_name = $user['name'];
 		$user_avatar = $user['avatar'];
 		$user_phone = $user['phone'];
-		$user_about = $user['about'];
 		$user_password = $user['password'];
 	}
 
@@ -61,7 +60,10 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 									<?php
 									$total_price = 0;
 									if ($bag_item==''){
-										echo '<span class="order-empty">'.$LANG_bag_empty.'</span>';
+										echo '
+										<img style="width: 6rem; " src="../assets/img/media/bag-empty.png">
+										<br>
+										<span class="order-empty">'.$LANG_bag_empty.'</span>';
 									}else{
 										$bag_item = explode(',',$bag_item);
 										$bag_item_id = explode(',',$bag_item_id);

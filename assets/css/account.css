@@ -3,6 +3,21 @@ section{
 	padding-top: 2em;
 	padding-bottom: 5em;
 }
+form{
+	text-align: left;
+	width: min-content;
+}
+label{
+	width: 100%;
+	text-align: left;
+}
+.error input{
+	border: 1px solid red !important;
+}
+.error{
+	font-weight: 500 !important;
+	color: red;
+}
 .change-profile, .change-password {
 	letter-spacing: -0.016em;
 	text-align: center ;
@@ -11,14 +26,13 @@ section{
 }
 .change-profile label{
 	position: relative;
-	left: 10%;
 	float: left;
 	font-size: 16px;
 	font-weight: 600;
 }
 .change-profile input,textarea{
 	width: 65%;
-	min-width: 222px;
+	min-width: 300px;
 	font-size: 16px;
 	position: relative;
 	font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
