@@ -6,8 +6,10 @@ $title = 'Login';
 @require_once 'includes/navbar.php';
 @require_once 'classes/set_language_cookie.php';
 @require_once 'google_login/config.php';
-
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
+if ($_SESSION['login']==true){
+	echo "<script>window.location.href='account';</script>";
+}else
+if ($_SESSION['login']==false){ 
 	?>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -173,7 +175,4 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
 				?>
 
 				<?php 
-			}else {
-				echo "<script>window.location.href='account';</script>";
- 				exit;
 			}?>

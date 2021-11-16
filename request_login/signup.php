@@ -45,7 +45,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 			$today = date("Y-m-d");
 			$password=password_hash($_POST["password"], PASSWORD_BCRYPT);
 			$sql = "
-			INSERT INTO user(id, email, password, phone, name,avatar,type,about,startdate,status,google_id,xacthuc) 
+			INSERT INTO user(id, email, password, phone, name,avatar,type,address,startdate,status,google_id,xacthuc) 
 			VALUES 			('0','$email','$password','','$name','$profile_pic','0','','$today','0','$google_id','$xacthuc')";
 
 			$stmt=$conn->prepare($sql);
@@ -63,7 +63,7 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 					$_SESSION['type']= $user['type'];
 					$_SESSION['avatar']= $user['avatar'];
 					$_SESSION['name'] = $user['name'];
-					
+					$_SESSION['login'] = true;
 				
 					header("Location: ../account");
 				}

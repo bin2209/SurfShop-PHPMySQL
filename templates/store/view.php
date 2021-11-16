@@ -184,36 +184,23 @@ $title = 'Services';
       </div>
     </div>
   </section>
-  <?php
-  if (!isset($_SESSION['user_email'])){
-    echo '  
+ 
     <script type="text/javascript">
     $("#add-cart").click(function(){
-     window.location.replace("../../login.php");
-     });
-     </script>
-     ';
-   }else{
-    echo '  
-    <script type="text/javascript">
-    $("#add-cart").click(function(){
-      $.post("'.$_DOMAIN.'/request/addtobag.php",{
-        id: "'.$main_id.'"
+      $.post("<?=$_DOMAIN?>/request/addtobag.php",{
+        id: "<?=$main_id?>"
         },
         function(data,status){
-
           Swal.fire({
             icon: "success",
-            text: "'.$LANG_popup_addbag.'",
+            text: "<?=$LANG_popup_addbag?>",
             showConfirmButton: false,
             timer: 1500
             });
             $("#globalbar").load(location.href+" #globalbar>*","");
             });
             });
-            </script>';
-          } 
-          ?>
+            </script>
 
           
 

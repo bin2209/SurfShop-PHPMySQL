@@ -1,21 +1,15 @@
 <?php
 include '../core/db_conn.php';
 @session_start();
-
-if (isset($_SESSION['user_email'])&&isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
-	$data['id'] = $_POST['id'];
+if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
 	$id = $_POST['id'];
-	$data['user_email'] = $_SESSION['user_email'];
-	$email = $_SESSION['user_email'];
-
-	//CHECK USER EXIST IN DATABASE
-	function bool_checkuser($email,$conn){
-		$stmt = $conn->prepare("SELECT email FROM user WHERE email=?");
-		$stmt->execute([$email]);
-		if ($stmt->rowCount() === 1) {
-			return 1;
-		}
+	if ($_SESSION['login']==false){
+		$email = $_SESSION['ipv4'];
+	}else{
+		$email = $_SESSION['user_email'];
 	}
+
+	
 
 	// TAKE DATA IN BAG || CHẠY ĐỒNG THỜI 2 CỘT ITEM_ID, ITEM
 	// BÀI TOÁN: ARRAY 0,1,2,4,6,7 |ITEM_ID
@@ -68,10 +62,8 @@ if (isset($_SESSION['user_email'])&&isset($_POST['id']) && $_SERVER['REQUEST_MET
 		$stmt->execute([$email]);
 	}
 	
-	if (bool_checkuser($email,$conn)==true){
-		$data['id'];
+
 		remove_bag($email,$conn,$id);
-	}
 	exit;
 }
 

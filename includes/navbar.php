@@ -20,30 +20,19 @@ if(strpos($link_directory,'/verifyReset')){
 <nav id="globalbar" class="globalbar">
 	<?php
 
-	if(!isset($_SESSION['user_email'])){
+	if(isset($_SESSION['login'])==false){
 		// CHƯA ĐĂNG NHẬP // GIAO DIỆN: MOBILE
+		
 		// DROPDOWN BUTTON
 		echo '
 		<label class=" bag menu dropmenubtn mobile" onclick="location.href=`'.$_DOMAIN.'/login`"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 10px;"></label>';
 	} else {
 		// CHECK SỐ LƯỢNG ITEM ĐÃ ĐẶT
-		function get_item_bag($email,$conn){
-			$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
-			$stmt->execute([$email]);
-			if ($stmt->rowCount() === 1) {
-				$bag =	$stmt->fetch();
-				$bag_item = $bag['item_id'];
-				if ($bag['item_id']==''){
-					return '0';
-				}
-			}
-			$array_bag_item = explode(',',$bag_item);
-			return count($array_bag_item);
-		}
+	
 		// DROPDOWN BUTTON
 		//  ĐÃ ĐĂNG NHẬP // GIAO DIỆN: MOBILE
 		echo '<label class=" bag menu dropmenubtn mobile"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" onclick="Dropdown()" style="width: 19px; position: relative; top: 10px;">
-		<span class="number-menu-mobile">'.get_item_bag($_SESSION['user_email'],$conn).'</span></label>';
+		<span class="number-menu-mobile">'.get_item_bag($user,$conn).'</span></label>';
 
 		
 	}
@@ -55,21 +44,30 @@ if(strpos($link_directory,'/verifyReset')){
 			<li class="desktop-services"><a href="/services"><?php echo $LANG_services ?></a></li>
 			<li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
 			<li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
-			<?php 	if(!isset($_SESSION['user_email'])){
+			<?php 	
+			
+			if($_SESSION['login']==false){
 				// CHƯA ĐĂNG NHẬP // GIAO DIỆN: PC
-				echo '<li><a href="'.$_DOMAIN.'/login"><img class="menu-icon" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;"></a></li>';
-			}else {
+				echo '<li><img class="dropmenubtn menu-icon" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;">
+				<span class="number-menu-pc">
+				'.get_item_bag($_SESSION['ipv4'],$conn).'
+				</span>
+				</li>';
+			}
+			if($_SESSION['login']==true)  {
 				// ĐÃ ĐĂNG NHẬP // GIAO DIỆN: PC
 				echo '<li><img class="dropmenubtn menu-icon" onclick="Dropdown()" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;">
-				<span class="number-menu-pc">'.get_item_bag($_SESSION['user_email'],$conn).'</span></li>';
+				<span class="number-menu-pc">
+				
+				'.get_item_bag($_SESSION['user_email'],$conn).'
+				</span>
+				</li>';
 			}
 			?>
 		</ul>
 		<?php 
-
-		if(isset($_SESSION['user_email'])){
+		if($_SESSION['login']==true){
 			// MENU DROPDOWN CLICKED
-
 			echo '<div id="Dropdownmenu" class="dropdown-content ">
 			<a href="'.$_DOMAIN.'/cart"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['user_email'],$conn).'</span>
 			<hr>';
@@ -83,8 +81,16 @@ if(strpos($link_directory,'/verifyReset')){
 			<hr>
 			<a href="'.$_DOMAIN.'/logout"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_logout.'</p></a>
 			</div>';
+		} else
+		if($_SESSION['login']==false){
+			echo '
+			<div id="Dropdownmenu" class="dropdown-content ">
+			<a href="'.$_DOMAIN.'/cart"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.get_item_bag($_SESSION['ipv4'],$conn).'</span>
+			<hr>
+			<a href="'.$_DOMAIN.'/login"><img src="'.$_DOMAIN.'/assets/img/signIn.svg"/><p>'.$LANG_signin.'</p></a>
+			</div>
+			';
 		}
-
 		?>
 	</div>
 	
@@ -115,7 +121,6 @@ if(strpos($link_directory,'/verifyReset')){
 
 				document.getElementById("Dropdownmenu").classList.toggle("show");
 			}
-
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
 				// document.getElementsByClassName('menu-btn menu mobile')[0].style.display ="none";

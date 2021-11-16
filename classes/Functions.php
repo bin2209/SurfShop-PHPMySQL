@@ -1,5 +1,69 @@
 <?php
- 
+//set default guest
+if(!isset($_SESSION['login'])){
+    $_SESSION['login'] = false;
+    $_SESSION['ipv4'] = getIPAddress();
+    $_SESSION['avatar'] = '../assets/img/default-user.png';
+	// $_SESSION['user_email'] = getIPAddress();
+    // $_SESSION['user_id']= $guest['id'];
+    // $_SESSION['user_email']= getIPAddress();
+	// $_SESSION['type']= 'guest';
+	// $_SESSION['avatar']= '../assets/img/default-user.png';
+	// $_SESSION['name'] = 'Guest'.getIPAddress();
+}
+
+
+ // GUEST MODE 
+function getIPAddress(){  
+    $ipaddress = '';
+    if(getenv('REMOTE_ADDR'))
+        $ipaddress = getenv('REMOTE_ADDR');
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}  
+// check ip is exist in db
+// function isNewGuest($ipv4,$conn){
+//     $stmt = $conn->prepare("SELECT * FROM guest WHERE ipv4= '$ipv4'");
+// 	$stmt->execute();
+//     if ($stmt->rowCount() === 1) {
+//         return 0;
+//     }else{
+//         return 1;
+//     }
+// }
+// function addNewGuest($ipv4,$conn){
+//     $sql = "INSERT INTO guest(ipv4,store,name,address,phone) 
+// 			VALUES 			('$ipv4','','','','')";
+// 	$stmt=$conn->prepare($sql);
+// 	$result = $stmt->execute();
+// }
+// function getExistGuestData($ipv4,$conn){
+//     $stmt = $conn->prepare("SELECT * FROM guest WHERE ipv4='$ipv4'");
+//     $stmt->execute();
+//     $guest = $stmt->fetch();
+//     $_SESSION['user_id']= $guest['id'];
+// 	$_SESSION['avatar']= '../assets/img/default-user.png';
+// 	$_SESSION['name'] = 'Guest'.$ipv4;
+//     $_SESSION['ipv4'] = $ipv4;
+//     $_SESSION['login'] = false;
+// }
+
+
+function get_item_bag($email,$conn){
+    $stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
+    $stmt->execute([$email]);
+    if ($stmt->rowCount() === 1) {
+        $bag =	$stmt->fetch();
+        $bag_item = $bag['item_id'];
+        if ($bag['item_id']==''){
+            return '0';
+        }
+    }
+    $array_bag_item = explode(',',$bag_item);
+    return count($array_bag_item);
+}
+
 // Hàm điều hướng trang
 class Redirect {
     public function __construct($url = null) {

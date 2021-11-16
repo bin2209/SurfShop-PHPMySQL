@@ -35,7 +35,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 					$_SESSION['type'] = $user_type;
 					$_SESSION['avatar'] = $user_avatar;
 					$_SESSION['name'] = $user_name;
-					
+					$_SESSION['login'] = true;
 					header("Location: ../cart");
 					exit;
 				}else {
