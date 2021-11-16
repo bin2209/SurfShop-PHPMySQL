@@ -6,7 +6,16 @@
 @require_once  'core/db_conn.php';
 @require_once 'classes/Functions.php';
 
-
+// KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
+$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
+$ipv4 = getIPAddress();
+$stmt->execute([$ipv4]);
+$total_product = $stmt->rowCount();
+if ($stmt->rowCount() === 0) {
+	$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$ipv4','','')";
+	$stmt=$conn->prepare($sql);
+	$result = $stmt->execute();
+}
 
 
 $xss = new Anti_xss;

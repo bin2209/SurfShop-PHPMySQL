@@ -13,6 +13,8 @@ if(!isset($_SESSION['login'])){
 }
 
 
+
+
  // GUEST MODE 
 function getIPAddress(){  
     $ipaddress = '';
@@ -22,32 +24,7 @@ function getIPAddress(){
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }  
-// check ip is exist in db
-// function isNewGuest($ipv4,$conn){
-//     $stmt = $conn->prepare("SELECT * FROM guest WHERE ipv4= '$ipv4'");
-// 	$stmt->execute();
-//     if ($stmt->rowCount() === 1) {
-//         return 0;
-//     }else{
-//         return 1;
-//     }
-// }
-// function addNewGuest($ipv4,$conn){
-//     $sql = "INSERT INTO guest(ipv4,store,name,address,phone) 
-// 			VALUES 			('$ipv4','','','','')";
-// 	$stmt=$conn->prepare($sql);
-// 	$result = $stmt->execute();
-// }
-// function getExistGuestData($ipv4,$conn){
-//     $stmt = $conn->prepare("SELECT * FROM guest WHERE ipv4='$ipv4'");
-//     $stmt->execute();
-//     $guest = $stmt->fetch();
-//     $_SESSION['user_id']= $guest['id'];
-// 	$_SESSION['avatar']= '../assets/img/default-user.png';
-// 	$_SESSION['name'] = 'Guest'.$ipv4;
-//     $_SESSION['ipv4'] = $ipv4;
-//     $_SESSION['login'] = false;
-// }
+
 
 
 function get_item_bag($email,$conn){
@@ -59,6 +36,8 @@ function get_item_bag($email,$conn){
         if ($bag['item_id']==''){
             return '0';
         }
+    }else{
+        return '0';
     }
     $array_bag_item = explode(',',$bag_item);
     return count($array_bag_item);

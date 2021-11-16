@@ -25,14 +25,14 @@ if($_SESSION['login']==true){
 
 
 // KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
-$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
-$stmt->execute([$email]);
-$total_product = $stmt->rowCount();
-if ($stmt->rowCount() === 0) {
-	$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$user_email','','')";
-	$stmt=$conn->prepare($sql);
-	$result = $stmt->execute();
-}
+// $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
+// $stmt->execute([$email]);
+// $total_product = $stmt->rowCount();
+// if ($stmt->rowCount() === 0) {
+// 	$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$email','','')";
+// 	$stmt=$conn->prepare($sql);
+// 	$result = $stmt->execute();
+// }
 
 // LẤY BAG DATA
 $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
