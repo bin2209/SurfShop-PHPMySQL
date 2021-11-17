@@ -1,8 +1,9 @@
 <?php
 //set default guest
-if(!isset($_SESSION['login'])){
+if(!isset($_SESSION['login'])&&!isset($_SESSION['ipv4'])){
     $_SESSION['login'] = false;
     $_SESSION['ipv4'] = getIPAddress();
+    // $_SESSION['ipv4'] = '42.116.105.112, 172.70.142.124';
     $_SESSION['avatar'] = '../assets/img/default-user.png';
 	// $_SESSION['user_email'] = getIPAddress();
     // $_SESSION['user_id']= $guest['id'];
@@ -17,12 +18,25 @@ if(!isset($_SESSION['login'])){
 
  // GUEST MODE 
 function getIPAddress(){  
+    // Chỉ được dùng 1 lần trong quá trình tạo lập GUEST | $_SESSION['ipv4']
+    // Tạo nhiều lần sẽ tạo thành nhiều IP khác nhau
     $ipaddress = '';
-    if(getenv('REMOTE_ADDR'))
+    if (getenv('HTTP_CLIENT_IP'))
+        $ipaddress = getenv('HTTP_CLIENT_IP');
+    else if(getenv('HTTP_X_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+    else if(getenv('HTTP_X_FORWARDED'))
+        $ipaddress = getenv('HTTP_X_FORWARDED');
+    else if(getenv('HTTP_FORWARDED_FOR'))
+        $ipaddress = getenv('HTTP_FORWARDED_FOR');
+    else if(getenv('HTTP_FORWARDED'))
+        $ipaddress = getenv('HTTP_FORWARDED');
+    else if(getenv('REMOTE_ADDR'))
         $ipaddress = getenv('REMOTE_ADDR');
     else
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
+    // return '42.116.105.112, 172.70.142.124';
 }  
 
 
@@ -42,6 +56,8 @@ function get_item_bag($email,$conn){
     $array_bag_item = explode(',',$bag_item);
     return count($array_bag_item);
 }
+
+
 
 // Hàm điều hướng trang
 class Redirect {

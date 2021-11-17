@@ -8,7 +8,7 @@
 
 // KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
 $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
-$ipv4 = getIPAddress();
+$ipv4 = $_SESSION['ipv4'];
 $stmt->execute([$ipv4]);
 $total_product = $stmt->rowCount();
 if ($stmt->rowCount() === 0) {
