@@ -12,7 +12,7 @@ $ipv4 = $_SESSION['ipv4'];
 $stmt->execute([$ipv4]);
 $total_product = $stmt->rowCount();
 if ($stmt->rowCount() === 0) {
-	$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$ipv4','','')";
+	$sql = "INSERT INTO bag(id, email, item_id,item,quantity) VALUES (0,'$ipv4','','','')";
 	$stmt=$conn->prepare($sql);
 	$result = $stmt->execute();
 }

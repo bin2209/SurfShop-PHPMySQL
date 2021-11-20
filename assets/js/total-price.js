@@ -105,6 +105,7 @@ $(document).ready(function() {
     }
     document.getElementById("total-price-result").innerHTML = sum_price;
     document.getElementById("quantity-result").innerHTML = quantity;
+
     $("#checkout").click(function() {
         Print_Checkout(quantity, sum_price);
         $('.checkout').addClass('open');

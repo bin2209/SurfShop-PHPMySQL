@@ -30,6 +30,7 @@ if ($stmt->rowCount() === 1) {
 	$bag = $stmt->fetch();
 	$bag_item = $bag['item'];
 	$bag_item_id = $bag['item_id'];
+    $bag_item_quantity = $bag['quantity'];
 }
 ?>
 
@@ -56,7 +57,9 @@ if ($stmt->rowCount() === 1) {
 									}else{
                                         $bag_item = explode(',',$bag_item);
 										$bag_item_id = explode(',',$bag_item_id);
+                                        $bag_item_quantity = explode(',',$bag_item_quantity);
 										$i = 0;
+                                        $count_qtym = 0;
                                         foreach ($bag_item as $item) {
 											$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
 											$stmt->execute(array($item));
@@ -70,34 +73,44 @@ if ($stmt->rowCount() === 1) {
 												$item_brand = $item["brand"];
 												$total_price += $item["price"];
 											}
+                                            // REMOVE PRODUCT FOLLOWING item_id ~ this.id
                                             echo ' 
                                             <div class="Cart-product">
                                             <div class="left-content">
                                                 <input onclick="selectOne(this)" type="checkbox" name="product"
                                                     value="'.$item_price.'">
-                                                <a href="../store/product/'.$item_id.'">
+                                                <a href="../product/'.$item_id.'">
                                                     <img src="../uploads/products/'.$item_images.'">
                                                 </a>
                                             </div>
                                             <div class="right-content">
                                                 <div class="Erow">
-                                                   <i onclick="remove_cart(this.id)" class="fas fa-times"></i>
+                                                   <i id="'.$item_id[$i].'" onclick="remove_cart(this.id)" class="fas fa-times"></i> 
                                                 </div>
                                                 <div class="Crow">
                                                     <span> '.$item_type.'| '.$item_name.'</span>
                                                     <span>'.$item_brand.'</span>
                                                     <span class="price">'.s_PriceFormat($item_price).' ₫</span>
-                                                    <input type="number" value="1">
+
+                                                    <div class="qtym">
+                                                    <button onclick="var result = document.getElementById(`qtym'.$count_qtym.'`); var qtypro = result.value; if( !isNaN( qtypro ) &amp;&amp; qtypro > 1 ) result.value--;return false;" >-</button>
+                                                    <input  id="qtym'.$count_qtym.'" type="number" value="'.$bag_item_quantity[$i].'" min="0" maxlength="12" size="4" readonly>
+                                                    <button onclick="var result = document.getElementById(`qtym'.$count_qtym.'`); var qtypro = result.value; if( !isNaN( qtypro )) result.value++;return false;">+</button>
+                                                    </div>
+                                                    <span id="total_price">Total: '.s_PriceFormat($item_price).' ₫</span>
+
                                                 </div>
                                             </div>
                                         </div>';
+                                        $count_qtym++;
                                         }
                                     }
                                     ?>
-
-                        <style>
-                      
-                        </style>
+                    <script>
+                            function Totalprice(value){
+                                console.log(value);
+                            }
+                    </script>
 
                     </div>
                 </div>

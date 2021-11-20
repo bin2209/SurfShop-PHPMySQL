@@ -2,14 +2,17 @@
 include '../core/db_conn.php';
 @session_start();
 if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
+	// if (1){
+
 	$id = $_POST['id'];
+	// $id = 2;
+
 	if ($_SESSION['login']==false){
 		$email = $_SESSION['ipv4'];
 	}else{
 		$email = $_SESSION['user_email'];
 	}
 
-	
 
 	// TAKE DATA IN BAG || CHẠY ĐỒNG THỜI 2 CỘT ITEM_ID, ITEM
 	// BÀI TOÁN: ARRAY 0,1,2,4,6,7 |ITEM_ID
@@ -17,53 +20,37 @@ if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
 	// RA 			   0 1 2 3 4     
 
 	function remove_bag($email,$conn,$id){
-		$stmt = $conn->prepare("SELECT email, item_id, item FROM bag WHERE email=?");
+		$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
 		$stmt->execute([$email]);
 		if ($stmt->rowCount() === 1) {
 			$bag =	$stmt->fetch();
 			$bag_item = $bag['item'];
 			$bag_item_id = $bag['item_id'];
+			$bag_item_quantity = $bag['quantity'];
+
 			$bag_item = explode(',',$bag_item);
 			$bag_item_id = explode(',',$bag_item_id); // mảng item_id
-			$vitrixoa = array_search($id,$bag_item_id,true);  // tìm id trong item_id để ra vị trí trong item & item_id để xóa
+			$bag_item_quantity = explode(',',$bag_item_quantity); // mảng quantity
+			$vitrixoa = array_search($id,$bag_item);  // tìm id trong item_id để ra vị trí trong item & item_id để xóa
 		}
 		// XÓA VỊ TRÍ
-		unset($bag_item_id[$vitrixoa]);
 		unset($bag_item[$vitrixoa]);
+		unset($bag_item_id[$vitrixoa]);
+		unset($bag_item_quantity[$vitrixoa]);
 
-		// NỐI THÀNH CHUỖI MỚI
-		$new_array_item_id ='';
-		$new_array_item ='';
-		$count = 0;
-		foreach ($bag_item_id as $id => $val) {
-			if ($count==0){
-				$new_array_item_id .= $bag_item_id[$id];
-			}else{
-				$new_array_item_id .= ','.$bag_item_id[$id];
-			}
-			$count++;
-			unset($bag_item_id[$id]);
-		}
-		$count = 0;
-		foreach ($bag_item as $id => $val) {
-			if ($count==0){
-				$new_array_item .= $bag_item[$id];
-			}else{
-				$new_array_item .= ','.$bag_item[$id];	
-			}
-			$count++;
-			unset($bag_item[$id]);
-		}
+		$bag_item = implode(',',$bag_item); // Ghép mảng
+		$bag_item_id = implode(',',$bag_item_id); // Ghép mảng
+		$bag_item_quantity = implode(',',$bag_item_quantity); // Ghép mảng
 
-		// var_dump($new_array_item_id);
-		// var_dump($new_array_item);
+		// var_dump($bag_item);
+		// var_dump($bag_item_id);
+		// var_dump($bag_item_quantity);
 
-		$stmt = $conn->prepare("UPDATE bag SET item_id = '$new_array_item_id', item = '$new_array_item'  WHERE email = ?");
+		$stmt = $conn->prepare("UPDATE bag SET item_id = '$bag_item_id', item = '$bag_item', quantity = '$bag_item_quantity'  WHERE email = ?");
 		$stmt->execute([$email]);
 	}
-	
-
 		remove_bag($email,$conn,$id);
+
 	exit;
 }
 
