@@ -1,25 +1,25 @@
 /*FIX HOVER MOBILE*/
 
 @media (hover: hover) and (pointer: fine) {
-	.globalbar .menu-icon:hover{
-	
-	}
-
+    .globalbar .menu-icon:hover {}
 }
+
 
 /* Extra small devices (phones, 600px and down) */
+
 @media only screen and (max-width: 380px) {
-	.store-row-navbar{
-		width: 95% !important;
-	}
-	.background-blur:hover .blur-store{
-		display: none !important;
-	}
-	.store-more-button{
-		display: none;
-	}
-	
+    .store-row-navbar {
+        width: 95% !important;
+    }
+    .background-blur:hover .blur-store {
+        display: none !important;
+    }
+    .store-more-button {
+        display: none;
+    }
 }
+
+
 /*@media only screen and (max-width: 1000px) {
 	.desktop{
 		display: none;
@@ -28,41 +28,45 @@
 		displau: block;
 	}
 	}*/
-	@media only screen and (max-width: 600px) {
-		.globalbar{
-			height: 48px;
-		}
 
-		.store-column-narbar{
-			width: auto;
-		}
-		.store-row-navbar{
-			width: 85%;
-		}
-		.column{
-			min-width: 163px;
-			float: left;
-			width: 25%;
-			padding: 0px; 
-			height: auto;
-		}
-	}
-	@media only screen and (max-width: 825px) {
-		.column{
-			float: left;
-			width: 25%;
-			padding: 0px; 
-			height: auto;
-		}
-		.product{
-			margin: 12px;
-		}
-		.row{
-			width: 100%;
-		}
-	}
+@media only screen and (max-width: 600px) {
+    .globalbar {
+        height: 48px;
+    }
+    .store-column-narbar {
+        width: auto;
+    }
+    .store-row-navbar {
+        width: 85%;
+    }
+    .column {
+        min-width: 163px;
+        float: left;
+        width: 25%;
+        padding: 0px;
+        height: auto;
+    }
+}
 
-	/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 825px) {
+    .column {
+        float: left;
+        width: 45%;
+        padding: 0px;
+        height: auto;
+    }
+    .product {
+        margin: 12px;
+    }
+    .row {
+        width: 100%;
+    }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+
 /*@media only screen and (min-width: 600px) {
 
 
@@ -76,64 +80,69 @@
 		width: 80% !important;
 	}
 	*/
+
+
 }
 @media only screen and (max-width: 768px) {
-	.dropdown-content{
-		position: fixed;
-		top: 50px;	
-		right: 30px;
-	}
+    .dropdown-content {
+        position: fixed;
+        top: 50px;
+        right: 30px;
+    }
 }
+
 /*MOBILE*/
 @media only screen and (max-width: 1000px) {
-	.globalbar{
-		min-height: 50px;
-		top: -2px;
-	}
-	.globalbar .menu-icon{
-		opacity: 0.8;
-		top: 3px;
-	}
-	.menu-icon .dropmenubtn{
-		position: relative;
-		top: 9px;
-	}
-	.dropdown-content{
-		position: fixed;
-		top: 50px;
-		right: 20px;
-
-	}
-	.mobile{
-		display: block;
-	}
-	.desktop{
-		display: none;
-	}
-
+    .globalbar {
+        min-height: 50px;
+        top: -2px;
+    }
+    
+    .globalbar .menu-icon {
+        opacity: 0.8;
+        top: 3px;
+    }
+    
+    .menu-icon .dropmenubtn {
+        position: relative;
+        top: 9px;
+    }
+    
+    .dropdown-content {
+        position: fixed;
+        top: 50px;
+        right: 20px;
+    }
+    
+    .mobile {
+        display: block;
+    }
+    
+    .desktop {
+        display: none;
+    }
 }
-
 
 /* PC*/
 @media only screen and (min-width: 1000px) {
-	.dropdown-content{
-		position: absolute;
-		top: 61px;	
-		right: -10px;
-	}
-	.mobile{
-		display: none;
-	}
-	.desktop{
-		display: block;
-	}
-
+    .dropdown-content {
+        position: absolute;
+        top: 61px;
+        right: -10px;
+    }
+    
+    .mobile {
+        display: none;
+    }
+    
+    .desktop {
+        display: block;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-
-	.logo{
-		left: none !important;
-	}
+    .logo {
+        left: none !important;
+    }
 }

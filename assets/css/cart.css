@@ -383,6 +383,7 @@ textarea {
 }
 
 .Cart-product {
+    overflow: hidden;
     margin-bottom: 18px;
     display: flex;
     border: 1px solid #7676774f;
@@ -393,12 +394,16 @@ textarea {
 }
 
 .Cart-product input[type="number"] {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-    font-weight: 600;
+    border: 1px solid #f5f5f5;
+    height: 30px;
+    margin-left: -1px;
     text-align: center;
-    border: 1px solid;
+    width: 60px;
+    margin-right: -1px;
+    padding: 0;
+    line-height: 15px;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .Cart-product .left-content {
@@ -456,15 +461,15 @@ textarea {
 }
 
 .Cart-product .qtym button {
-    font-size: 17px;
-    width: 25px;
-    background: #eceff0;
-    height: 44px;
-    margin-left: -5px;
-    margin-top: 6px;
     font-weight: 600;
-    margin-right: -4px;
-    border: 1px solid #000000;
+    background: #fff;
+    border: 1px solid #f5f5f5;
+    outline: none;
+    height: 30px;
+    width: 25px;
+    vertical-align: baseline;
+    text-align: center;
+    padding: 0;
 }
 
 @media only screen and (max-width: 800px) {
