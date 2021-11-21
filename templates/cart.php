@@ -36,6 +36,19 @@ if ($stmt->rowCount() === 1) {
 <link href="../assets/css/cart.css" rel="stylesheet">
 <link href="../assets/css/popup.css" rel="stylesheet">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+.pop-up .content .container {
+    padding: 2em;
+}
+
+.pop-up {
+    min-width: 350px;
+}
+
+.checkout-content {
+    text-align: left;
+}
+</style>
 <section class="content-center">
     <div class="background-content">
         <div class="member-information">
@@ -113,7 +126,7 @@ if ($stmt->rowCount() === 1) {
                     style="position:relative; display: inline;"> <?php echo $LANG_selectall ?> </span>
             <span class="total-payment-span"><?php echo $LANG_payment ?>: <p id="total-price-result"
                     style="display: inline;"></p> ₫</span>
-            <span class="checkout-span"><button id="checkout" class="checkout-button"><?php echo $LANG_checkout ?> (<p
+            <span class="checkout-span"><button id="checkout" class="checkout-button" style="background-color:#646464;"><?php echo $LANG_checkout ?> (<p
                         id="quantity-result" style="display: inline;"></p>)</button></span>
         </div>
     </div> <!--  // backgound content -->
@@ -121,7 +134,7 @@ if ($stmt->rowCount() === 1) {
 </body>
 </div>
 
-<div class="pop-up checkout">
+<div id="pop-up" class="pop-up checkout">
     <div class="content">
         <div class="container">
             <span class="close">close</span>
@@ -129,23 +142,19 @@ if ($stmt->rowCount() === 1) {
                 <h1><?=$LANG_checkout;?></h1>
             </div>
             <div id="checkout-content" class="checkout-content">
+                <div> <span><span id="Quantity-js"></span> <?=$LANG_product?></span><br><span><?=$LANG_price?>:
+                    </span><span style="font-weight:600;"><span id="SumPrice-js"></span> ₫</span> <br>
+                    <span><?=$LANG_Delivery_charges?>: </span><span style="font-weight:600;"><?=$LANG_Delivery_free?>
+                    </span><br>
+                    <hr> <span style="font-weight:600;"><?=$LANG_total_pay?>: </span><span
+                        style="font-weight:600;"><span id="TotalSumPrice-js"></span> ₫</span><br>
+                    (<?=$LANG_Tax_included?>)
+                    <button class="checkout-button" style="width:100%; margin-top:10px;"><?=$LANG_checkout?></button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<style>
-.pop-up .content .container {
-    padding: 2em;
-}
-
-.pop-up {
-    min-width: 350px;
-}
-
-.checkout-content {
-    text-align: left;
-}
-</style>
 <script type="text/javascript">
 function changeQuantity($id, value) {
     $.post("<?php echo $_DOMAIN;?>/request/changeQuantity.php", {
@@ -153,13 +162,10 @@ function changeQuantity($id, value) {
             value: value
         },
         function(data, status) {
-            $("#globalbar").load(location.href + " #globalbar>*", "");
-            $("#order-products").load(location.href + " #order-products>*", "");
-            $("#total-products").load(location.href + " #total-products>*", "");
+            location.reload();
         });
-        sum_price = 0;
-        quantity = 0;
 }
+
 function remove_cart($id) {
     $.post("<?php echo $_DOMAIN;?>/request/removefrombag.php", {
             id: $id
@@ -171,12 +177,7 @@ function remove_cart($id) {
                 showConfirmButton: false,
                 timer: 1500
             });
-            $("#globalbar").load(location.href + " #globalbar>*", "");
-            $("#order-products").load(location.href + " #order-products>*", "");
-            $("#total-products").load(location.href + " #total-products>*", "");
-            //reset sum spice | varible js
-            sum_price = 0;
-            quantity = 0;
+            location.reload();
         });
 }
 </script>

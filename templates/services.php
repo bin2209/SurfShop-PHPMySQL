@@ -177,10 +177,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services">
-						<span class="author">Services</span>
-						<h1 class="title"><a href="#"><?php echo $LANG_services_title1 ?></a></h1>
-						<p class="text"><?php echo $LANG_services_content1 ?></p>
-						<br><br><br><br>
+						<span class="author"><?=$LANG_services?></span>
+						<h1 class="title"><a href="#"><?=$LANG_services_title1?></a></h1>
+						<p class="text"><?=$LANG_services_content1?></p>
 					</div>
 				</div>
 			</div>
@@ -202,10 +201,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services">
-						<span class="author"><?php echo $LANG_services ?></span>
-						<h1 class="title"><a href="#"><?php echo $LANG_services_title4 ?></a></h1>
-						<p class="text"><?php echo $LANG_services_content4 ?></p>
-						<br><br>
+						<span class="author"><?=$LANG_services?></span>
+						<h1 class="title"><a href="#"><?=$LANG_services_title4?></a></h1>
+						<p class="text"><?=$LANG_services_content4?></p>
 					</div>
 				</div>
 			</div>
@@ -227,10 +225,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services">
-						<span class="author"><?php echo $LANG_services ?></span>
-						<h1 class="title"><a href="#"><?php echo $LANG_services_title2 ?></a></h1>
-						<p class="text"><?php echo $LANG_services_content2 ?></p>
-						<br><br>
+						<span class="author"><?=$LANG_services?></span>
+						<h1 class="title"><a href="#"><?=$LANG_services_title2?></a></h1>
+						<p class="text"><?=$LANG_services_content2?></p>
 					</div>
 				</div>
 			</div>
@@ -252,10 +249,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services">
-						<span class="author"><?php echo $LANG_services ?></span>
-						<h1 class="title"><a href="#"><?php echo $LANG_services_title3 ?></a></h1>
-						<p class="text"><?php echo $LANG_services_content3 ?></p>
-						<br><br>	
+						<span class="author"><?=$LANG_services ?></span>
+						<h1 class="title"><a href="#"><?=$LANG_services_title3 ?></a></h1>
+						<p class="text"><?=$LANG_services_content3 ?></p>
 					</div>
 				</div>
 			</div>
@@ -277,9 +273,9 @@ h1 {
 				</div>
 				<div class="data">
 					<div class="content-services blackcard">
-						<span class="author"><?php echo $LANG_services ?></span>
-						<h1 class="title" ><a href="#"><?php echo $LANG_services_title5 ?></a></h1>
-						<p class="text"><?php echo $LANG_services_content5 ?></p>
+						<span class="author"><?=$LANG_services?></span>
+						<h1 class="title" ><a href="#"><?=$LANG_services_title5?></a></h1>
+						<p class="text"><?=$LANG_services_content5?></p>
 					</div>
 				</div>
 			</div>

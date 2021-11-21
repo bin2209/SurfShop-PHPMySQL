@@ -76,6 +76,15 @@ $LANG_about = "About";
 $LANG_oldpassword = "Old password";
 $LANG_newpassword = "New password";
 $LANG_renewpassword = "Repeat new password";
+$LANG_choose_product = 'Please choose a product.';
+$LANG_product = 'item';
+$LANG_products = 'items';
+$LANG_price = 'Total Delivery Cost';
+$LANG_Delivery_charges = 'Total Delivery Cost';
+$LANG_Delivery_free = 'Free';
+$LANG_total_pay = 'Total';
+$LANG_Tax_included = 'Inclusive of tax';
+$LANG_checkout = 'Check out';
 // POPUP REQUEST 
 $LANG_popup_addbag= "The product has been added to the cart";
 $LANG_popup_deletebag= "The product has been deleted from the cart";

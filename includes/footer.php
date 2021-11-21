@@ -64,4 +64,4 @@
 	</div>
 </div>
 </footer>
-<script type="text/javascript" src="<?php echo $_DOMAIN ?>/assets/js/build.js"></script>
+<script type="text/javascript" src="<?php echo $_DOMAIN ?>/assets/js/build.min.js"></script>

@@ -52,7 +52,7 @@ $LANG_addtobag ='Thêm vào túi hàng';
 $LANG_bag_empty ='Giỏ hàng của bạn đang trống.';
 // SERVICES
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
-$LANG_services_title2 ='Sửa Ván Luót Sóng';
+$LANG_services_title2 ='Sửa Ván Lướt Sóng';
 $LANG_services_title3 ='Thuê Ván Lướt Sóng';
 $LANG_services_title4 ='Dạy Học Lướt Sóng';
 $LANG_services_title5 ='Du Lịch Lướt Sóng';
@@ -77,6 +77,16 @@ $LANG_about = "Giới thiệu";
 $LANG_oldpassword = "Mật khẩu hiện tại";
 $LANG_newpassword = "Mật khẩu mới";
 $LANG_renewpassword = "Nhập lại mật khẩu mới";
+$LANG_choose_product = 'Vui lòng chọn sản phẩm.';
+$LANG_product = 'mặt hàng';
+$LANG_products = 'mặt hàng';
+$LANG_price = 'Tổng Giá Trị Sản Phẩm';
+$LANG_Delivery_charges = 'Phí giao hàng';
+$LANG_Delivery_free = 'Miễn phí';
+$LANG_total_pay = 'Tổng cộng';
+$LANG_Tax_included = 'Đã bao gồm thuế';
+$LANG_checkout = 'Thanh toán';
+
 // POPUP REQUEST 
 $LANG_popup_addbag= "Sản phẩm đã được thêm vào giỏ hàng";
 $LANG_popup_deletebag= "Sản phẩm đã được xóa khỏi giỏ hàng";
