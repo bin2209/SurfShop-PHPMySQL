@@ -69,10 +69,8 @@ if (isset($_GET['act'])){
 		break;
 	}
 }else{
-
-
 	require_once 'templates/home.php'; 
+	
 }
-
 require_once  'includes/footer.php';
 ?>

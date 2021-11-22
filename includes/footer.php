@@ -8,9 +8,8 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-12 col-md-6">
-				<h6><?=$LANG_about?></h6>
-				<p class="text-justify"><?=$LANG_companyLST?>
-				<br>
+				<h6><?=$LANG_companyLST?></h6>
+				<p class="text-justify">
 				Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards
 				<br><?=$LANG_taxcode?>: 0402.106.581
 				<br>
