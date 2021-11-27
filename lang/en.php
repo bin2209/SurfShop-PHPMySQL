@@ -42,6 +42,11 @@ $LANG_recover_back ='Cancel and go back to Login page';
 $LANG_bag ='Cart';
 $LANG_logout ='Sign out';
 // STORE
+$LANG_sort_by= 'Sort by';
+$LANG_filter_default= 'Default';
+$LANG_filter_newest= 'Newest';
+$LANG_filter_lowfirst= 'Price low - high';
+$LANG_filter_highfirst= 'Price high - low';
 $LANG_store_surfboard ='Surf Board';
 $LANG_store_surf ='Surf';
 $LANG_store_skateboard ='Skate Board';

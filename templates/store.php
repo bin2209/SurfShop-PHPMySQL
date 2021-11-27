@@ -320,15 +320,12 @@ $xep = '';
         <span id="open-slidebar" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
         <span id="open-slidebar-mobile" onclick="slidebar_open()"><i class="fas fa-bars"></i></span>
         <div class="field-search">
-            <span for="form-select" style="color: #101010;">Sắp xếp:</span>
+            <span for="form-select" style="color: #101010;"><?=$LANG_sort_by?>:</span>
             <select id="sapxep" class="form-control c-square form-select" name="sapxep">
-                <option value="none">Mặc định</option>
-                <option value="latest"
-                    <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>>Mới nhất</option>
-                <option value="asc" <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>>Giá
-                    tăng dần</option>
-                <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>>
-                    Giá giảm dần</option>
+                <option value="none"><?=$LANG_filter_default?></option>
+                <option value="latest" <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>><?=$LANG_filter_newest?></option>
+                <option value="asc" <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>><?=$LANG_filter_lowfirst?></option>
+                <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>><?=$LANG_filter_highfirst?></option>
             </select>
         </div>
         <?php

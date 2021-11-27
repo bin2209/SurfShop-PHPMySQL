@@ -43,6 +43,11 @@ $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
 $LANG_bag ='Giỏ hàng';
 $LANG_logout ='Đăng xuất';
 // STORE
+$LANG_sort_by= 'Sắp xếp';
+$LANG_filter_default= 'Mặc định';
+$LANG_filter_newest= 'Mới nhất';
+$LANG_filter_lowfirst= 'Giá tăng dần';
+$LANG_filter_highfirst= 'Giá giảm dần';
 $LANG_store_surfboard ='Ván lướt sóng';
 $LANG_store_surf ='Lướt sóng';
 $LANG_store_skateboard ='Ván trượt';
