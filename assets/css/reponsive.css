@@ -121,6 +121,10 @@
     .desktop {
         display: none;
     }
+    #search-pc{
+        display: none !important;
+    }
+    
 }
 
 /* PC*/

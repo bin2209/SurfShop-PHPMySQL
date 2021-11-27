@@ -18,6 +18,7 @@ $LANG_Privacy_Policy = 'Chính sách bảo mật';
 $LANG_accept_payment = 'Chấp nhận thanh toán';
 // HOME
 $LANG_trending = 'Thịnh hành';
+$LANG_search = 'Tìm kiếm';
 // SERVICES
 // ABOUT
 $LANG_owner = 'Chủ sở hữu';

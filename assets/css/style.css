@@ -1407,7 +1407,30 @@
      width: 77px;
      border-radius: 50%;
  }
- 
+ #search-pc {
+    transition: opacity 0.3s linear;
+    opacity: 0;
+    display: none;
+    text-align: center;
+}
+#search-pc input{
+    outline: none;
+    color: white;
+    padding: 9px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 17px;
+    line-height: 1.29412;
+    background: navajowhite;
+    width: calc(100% - 324px - 40px);
+    border: none;
+    background-color: transparent;
+}
+.desktop{
+    transition: opacity 0.3s linear;
+    opacity: 1;
+}
  @media only screen and (max-width: 825px) {
      .member-information {
          width: 100%;

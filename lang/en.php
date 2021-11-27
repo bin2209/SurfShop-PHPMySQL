@@ -17,6 +17,7 @@ $LANG_Privacy_Policy = 'Privacy Policy';
 $LANG_accept_payment = 'Accept payment';
 // HOME
 $LANG_trending = 'Trending';
+$LANG_search = 'Search';
 // SERVICES
 // ABOUT
 $LANG_owner = 'Owner';

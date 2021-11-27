@@ -35,11 +35,22 @@ if(strpos($link_directory,'/verifyReset')){
             <li class="desktop-services"><a href="/services"><?php echo $LANG_services ?></a></li>
             <li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
             <li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
-            <li><img class="dropmenubtn menu-icon" onclick="Dropdown()" src="<?=$_DOMAIN?>/assets/img/icon/bag.svg"
+            <li>
+            <img class="dropmenubtn menu-icon search-icon" onclick="Searchdown()" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
+                    style="width: 20px; position: relative; top: 19px; right: 44px;">    
+            <img class="dropmenubtn menu-icon" onclick="Dropdown()" src="<?=$_DOMAIN?>/assets/img/icon/bag.svg"
                     style="width: 19px; position: relative; top: 19px;">
                 <span class="number-menu-pc"><?=$soluongsanpham?></span>
             </li>
         </ul>
+            <form id="search-pc" action="search.php" method="get">
+            <img class="" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
+                    style="width: 20px; position: relative; top: 19px; right: -7px;">    
+                <input type="text" name="src" placeholder="<?=$LANG_search?>">
+                <input type="submit" style="display:none;">
+                <img onclick="Searchclose()" class=" menu-icon" src="<?=$_DOMAIN?>/assets/img/icon/close.png"
+                    style="width: 18px; position: relative; top: 4px; right: -7px; cursor: pointer;">  
+            </form>
         <div id="Dropdownmenu" class="dropdown-content ">
             <?php 
 		if($_SESSION['login']==true){
@@ -107,5 +118,16 @@ window.onclick = function(event) {
             }
         }
     }
+}
+function Searchdown(){
+    $('.desktop').css({opacity: 1, visibility: "visible"}).animate({opacity: 0}, 200);
+    $("#search-pc").show();
+    $('#search-pc').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
+    $("#search-pc input").focus();
+}
+function Searchclose(){
+    $('.desktop').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
+    $(".desktop").show();
+    $("#search-pc").hide();
 }
 </script>
