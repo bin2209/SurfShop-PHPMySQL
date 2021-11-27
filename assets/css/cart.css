@@ -60,26 +60,17 @@ input[type="checkbox"] {
     padding: 11px 20px;
     font-size: 15px;
     color: #fff;
-    background-color: #349934;
-    border-color: #4cae4c;
+    background-color: #059f89;
     border: 0px solid;
 }
 
 .checkout-button:hover {
     cursor: pointer;
-    background-color: #3b873b;
-    border-color: #398439;
+    background-color: #02b79b;
 }
 
 .checkout-button:active {
-    background-color: #449d44;
-    background-image: none;
-    border-color: #398439;
-}
-
-.checkout-button:focus {
-    background-color: #449d44;
-    border-color: #255625;
+    background-color: #016e5f;
 }
 
 th {
@@ -384,7 +375,7 @@ textarea {
 
 .Cart-product {
     overflow: hidden;
-    margin-bottom: 18px;
+    margin-bottom: 29px;
     display: flex;
     border: 1px solid #7676774f;
     border-radius: 16px;
@@ -457,7 +448,10 @@ textarea {
 }
 
 .Cart-product img {
-    width: 90%;
+    width: 90% !important;
+    height: auto !important;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .Cart-product .qtym button {
@@ -472,6 +466,282 @@ textarea {
     padding: 0;
 }
 
+
+/* DELIVERY */
+
+.pop-up .content .container {
+    padding: 2em;
+}
+
+.pop-up {
+    min-width: 350px;
+}
+
+.checkout-content {
+    text-align: left;
+}
+
+#Delivery {
+    border: 1px solid #7676774f;
+    justify-content: flex-start;
+    padding: 2em;
+    background: white;
+    -webkit-box-shadow: -1px 15px 29px -13px rgb(0 0 0 / 75%);
+    border-radius: 16px;
+}
+
+#Delivery b {
+    font-weight: 600;
+    color: black;
+}
+
+#Delivery h3 {
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 16px 0;
+}
+
+#Delivery span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #767677;
+    padding-left: 10px;
+    width: 100%;
+    text-align: left;
+    bottom: 8px;
+    position: relative;
+}
+
+#Delivery-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+#Delivery .dieukhoan {
+    width: 100%;
+    text-align: left;
+    display: -webkit-inline-box;
+    margin: 10px;
+}
+
+#Delivery .dieukhoan p {
+    position: relative;
+    top: 2px;
+    margin-left: 5px;
+}
+
+.Delivery-address-input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 1em;
+    border-left: 2px solid #101010;
+}
+
+.Delivery-address-select {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 46.666666%;
+    padding: 1em;
+    border-left: 2px solid #101010;
+}
+
+
+/*progressbar*/
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color: black;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 25%;
+    float: left;
+    position: relative;
+    z-index: 0;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 34px;
+    line-height: 34px;
+    display: block;
+    font-size: 14px;
+    color: white;
+    background: #323233;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #323233;
+    position: absolute;
+    left: -50%;
+    top: 32px;
+    z-index: -9999;
+}
+
+
+/*progressbar connectors*/
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+
+/*marking active/completed steps green*/
+
+
+/*The number of the step and the connector before it = green*/
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #059f89;
+    color: white;
+}
+
+#Delivery .cart-view {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+}
+
+#Delivery-form label {
+    bottom: 6px;
+    position: relative;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    padding-left: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+.error~span {
+    display: none;
+}
+
+.error~.dieukhoan label {
+    display: none !important;
+}
+
+.dieukhoan input.error~p {
+    color: red;
+}
+
+
+/* PAYMENT */
+
+#Payment-form {
+    width: 100%;
+}
+
+#Payment-form .Payment-radio {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+#Payment-form .Payment-radio img {
+    width: 40px;
+}
+
+.payment-radius {
+    border-radius: 2em;
+}
+
+.Payment-content {
+    text-align: left;
+    margin-left: 9px;
+    margin-bottom: 20px;
+}
+
+input[type=radio] {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    outline: none !important;
+    -webkit-appearance: none;
+}
+
+input[type=radio]:checked::before {
+    background: #a5d3ff;
+    border-color: dodgerblue;
+}
+
+input[type=radio]::before {
+    position: relative;
+    top: -2px;
+    left: -2px;
+    display: block;
+    content: "";
+    background: white;
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    border-radius: 100%;
+    box-shadow: inset 0 0.1em 1px -0.1em rgb(0 0 0 / 30%);
+    width: 20px;
+    height: 20px;
+}
+
+input[type=radio]::after {
+    position: relative;
+    top: -17px;
+    left: 15px;
+    display: block;
+    content: "";
+    background: dodgerblue;
+    border-radius: 100%;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+    width: 0;
+    height: 0;
+}
+
+input[type=radio]:checked::after {
+    transition: all ease-in-out 100ms 0;
+    top: -19px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+}
+
+/* //QRCODE */
+.qrcode{
+    display: flex;
+    margin: 20px 0;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.qrcode img{
+    border: 3px solid #059f89;
+    border-radius: 7px;
+}
 @media only screen and (max-width: 800px) {
     #fb-root {
         display: none;

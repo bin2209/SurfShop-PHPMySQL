@@ -55,6 +55,10 @@ $LANG_services_title2 ='Repairs';
 $LANG_services_title3 ='Surfboard Rentals';
 $LANG_services_title4 ='Lessons';
 $LANG_services_title5 ='Trips';
+//PAYMENT
+$LANG_payment_method = 'PAYMENT METHOD';
+$LANG_Cash_on_delivery = 'Cash on delivery';
+$LANG_Transfer_money = 'Transfer money';
 //MEMBER | CART
 $LANG_member_changepass = 'Change password';
 $LANG_member_changeprofile = 'Edit profile';

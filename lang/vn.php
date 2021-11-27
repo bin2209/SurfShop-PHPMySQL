@@ -56,6 +56,10 @@ $LANG_services_title2 ='Sửa Ván Lướt Sóng';
 $LANG_services_title3 ='Thuê Ván Lướt Sóng';
 $LANG_services_title4 ='Dạy Học Lướt Sóng';
 $LANG_services_title5 ='Du Lịch Lướt Sóng';
+//PAYMENT
+$LANG_payment_method = 'PHƯƠNG THỨC THANH TOÁN';
+$LANG_Cash_on_delivery = 'Thanh toán khi giao hàng';
+$LANG_Transfer_money = 'Chuyển khoản';
 //MEMBER | CART
 $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';

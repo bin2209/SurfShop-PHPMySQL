@@ -58,6 +58,19 @@ if (isset($_GET['act'])){
 		require_once 'templates/cart.php'; 
 		break;
 
+		case 'delivery':
+		require_once 'templates/cart/delivery.php'; 
+		break;
+
+		case 'payment':
+		require_once 'templates/cart/payment.php'; 
+		break;
+
+		case 'confirmation':
+		require_once 'templates/cart/confirmation.php'; 
+		break;
+
+			
 		case 'privacy-policy':
 		require_once 'templates/privacy-policy.php'; 
 		break;
