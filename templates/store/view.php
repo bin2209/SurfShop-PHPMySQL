@@ -67,33 +67,18 @@ $title = 'Services';
     <div class="product-row-navbar">
     <div class="product-column-narbar"><a href="../">Home</a> / <a href="./">Store</a> / <a href="../'.$s_backlink.'">'. $s_type.'</a> / <a href="" style="color: #f27474;">'.$store_name.'</a></div>
     </div>
-
     <div class="product-row">
     <div class="column column-left">
     <img id="zoomLens" class="content-center" src="../uploads/products/'.$images.'">
-
-
-
     </div>
-
     <div class="column column-right">
-
     <span class="product-title" >'. $store_name.'</span><br>
     <span class="product-price" >'. s_PriceFormat($price).'₫</span><br>
-    <span class="product-brand">'.  $brand.'</span><br>
-    <br>
-    <br>
-
-    <button type="button" id="add-cart" class="add-cart">'.$LANG_addtobag.'</button>
-
-
-    </div>
-
-
-    <div class="product-item" style="text-align:left; height: auto;">'?>
-
+    <span class="product-brand">'.  $brand.'</span><br><br>
+    <div class="product-item" style="text-align:left; height: auto;">
     <div class="owl-carousel">
-      <?php
+    '?>
+    <?php
       if (isset($list_images)){
         $i=0; 
         foreach ($array as $item) {
@@ -108,27 +93,31 @@ $title = 'Services';
         }
       } 
       ?>
+
+    <?php echo '
     </div>
+    </div>
+    
+    <br>
+    <button type="button" id="add-cart" class="add-cart">'.$LANG_addtobag.'</button>
+    </div>
+    '?>
+    <style>
+    .owl-carousel .owl-item img {
+      display: block;
+      width: 95%;
+      height: auto;
+      margin: auto;
+    }
+    </style>
+    <!-- <div class="owl-carousel">
+      
+    </div> -->
 
-    <script type="text/javascript">
-      function replaceImages(data){
-        $("#zoomLens" ).replaceWith('<img id="zoomLens" class="content-center" src="'+data+'">' );
-      }
-    </script>
-
-
+    
     <?php
-    // if (isset($list_images)){
-    //   $i=0; 
-    //   foreach ($array as $item) {
-    //     $i++;
-    //     echo '
-
-    //     <img onclick="currentDiv('.$i.')" src="../uploads/products/'.$main_id.'/'.$item.'"/>';
-    //   }
-    // }
     echo '
-    </div>
+    
 
 
     <div class="column product-description" style="width: 100%;">
@@ -184,7 +173,11 @@ $title = 'Services';
       </div>
     </div>
   </section>
- 
+  <script type="text/javascript">
+      function replaceImages(data){
+        $("#zoomLens").replaceWith('<img id="zoomLens" class="content-center" src="'+data+'">' );
+      }
+    </script>
     <script type="text/javascript">
     $("#add-cart").click(function(){
       $.post("<?=$_DOMAIN?>/request/addtobag.php",{
@@ -201,8 +194,6 @@ $title = 'Services';
             });
             });
             </script>
-
-          
 
           <script type="text/javascript">
             // Đề xuất sản phẩn cùng category
@@ -229,7 +220,7 @@ $title = 'Services';
                 600: {
                   items: 3
                 },
-                1000: {
+                1250: {
                   items: 5
                 }
               }

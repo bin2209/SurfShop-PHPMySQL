@@ -765,7 +765,7 @@
  }
  
  .column img {
-     height: 100%;
+     height: 90%;
      width: auto;
      display: block;
      position: relative;
@@ -1246,23 +1246,12 @@
  /*BREAKCRUMB*/
  
  .product-row-navbar {
-     border-radius: 100px;
-     background-position: center;
-     background-repeat: no-repeat;
-     background-size: cover;
-     margin: 2em 0 4em;
-     flex-wrap: nowrap;
-     display: flex;
-     -webkit-box-sizing: border-box;
-     box-sizing: border-box;
-     -webkit-box-pack: center;
-     -ms-flex-pack: center;
-     margin-left: auto;
-     margin-right: auto;
-     width: 100%;
-     color: #dedede;
-     background: #f1f1f117;
-     justify-content: center;
+    border-radius: 100px;
+    margin: 2em 0 4em;
+    display: flex;
+    -ms-flex-pack: center;
+    width: 100%;
+    background: #f1f1f117;
  }
  
  .product-column-narbar {
