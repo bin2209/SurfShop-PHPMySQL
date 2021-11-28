@@ -1,7 +1,5 @@
 <?php 
-
-$title = 'Login';
-
+$page_title = 'Login';
 @require_once 'includes/header.php';
 @require_once 'includes/navbar.php';
 @require_once 'classes/set_language_cookie.php';

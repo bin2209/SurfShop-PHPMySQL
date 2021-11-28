@@ -1,11 +1,10 @@
 <?php 
 @session_start();
-$title = 'Member';
 @require_once 'includes/header.php';
 @require_once 'includes/navbar.php';
 
 if (!isset($_SESSION['user_email'])){
-	echo "<script>window.location.href='login';</script>";
+	echo "<script>window.top.location='login';</script>";
 	exit;
 }
 
@@ -31,7 +30,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) {
 	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
 	$stmt->execute([$_SESSION['user_email']]);
 	if ($stmt->rowCount() === 0) {
-		$sql = "INSERT INTO bag(id, email, item_id,item) VALUES (0,'$user_email','','')";
+		$sql = "INSERT INTO bag(id, email, item_id,item,quantity) VALUES (0,'$user_email','','','')";
 		$stmt=$conn->prepare($sql);
 		$result = $stmt->execute();
 	}

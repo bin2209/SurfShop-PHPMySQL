@@ -30,7 +30,7 @@ if(strpos($link_directory,'/verifyReset')){
   <meta property="og:locale" content="vi_VN" />
   <meta property="og:url" content="<?php echo $_DOMAIN ?>" />
   <meta property="og:site_name" content="LSTsurf" />
-  <title>LST SURF - <?=$page_title?></title> 
+  <title>LST SURF - <?php $page_title?></title> 
   <link rel="icon" type="image/x-icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.ico" />
   <!-- CSS -->
   <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/style.css" />

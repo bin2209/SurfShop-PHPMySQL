@@ -1,20 +1,10 @@
 <?php
 //set default guest
-if(!isset($_SESSION['login'])&&!isset($_SESSION['ipv4'])){
+if(!isset($_SESSION['ipv4'])){
     $_SESSION['login'] = false;
     $_SESSION['ipv4'] = getIPAddress();
-    // $_SESSION['ipv4'] = '42.116.105.112, 172.70.142.124';
     $_SESSION['avatar'] = '../assets/img/default-user.png';
-	// $_SESSION['user_email'] = getIPAddress();
-    // $_SESSION['user_id']= $guest['id'];
-    // $_SESSION['user_email']= getIPAddress();
-	// $_SESSION['type']= 'guest';
-	// $_SESSION['avatar']= '../assets/img/default-user.png';
-	// $_SESSION['name'] = 'Guest'.getIPAddress();
 }
-
-
-
 
  // GUEST MODE 
 function getIPAddress(){  

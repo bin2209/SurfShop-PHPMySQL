@@ -8,11 +8,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$password = $_POST['password'];
 
 	if (empty($email)) {
-		header("Location: ../login.php?error=Email is required");
-		exit;
+		// header("Location: ../login.php?error=Email is required");
+		// exit;
+		echo "<script>window.top.location='../login.php?error=Email is required';</script>";
 	}else if (empty($password)){
-		header("Location: ../login.php?error=Password is required&email=$email");
-		exit;
+		// header("Location: ../login.php?error=Password is required&email=$email");
+		// exit;
+		echo "<script>window.top.location='../login.php?error=Password is required&email=$email';</script>";
 	}else {
 		$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 		$stmt->execute([$email]);
@@ -36,19 +38,23 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 					$_SESSION['avatar'] = $user_avatar;
 					$_SESSION['name'] = $user_name;
 					$_SESSION['login'] = true;
-					header("Location: ../cart");
-					exit;
+					// header("Location: ../cart");
+					// exit;
+					echo "<script>window.top.location='../cart';</script>";
 				}else {
-					header("Location: ../login.php?error=Incorect User name or password&email=$email");
-					exit;
+					// header("Location: ../login.php?error=Incorect User name or password&email=$email");
+					// exit;
+					echo "<script>window.top.location='../login.php?error=Incorect User name or password&email=$email';</script>";
 				}
 			}else {
-				header("Location: ../login.php?error=Incorect User name or password&email=$email");
-				exit;
+				// header("Location: ../login.php?error=Incorect User name or password&email=$email");
+				// exit;
+				echo "<script>window.top.location='../login.php?error=Incorect User name or password&email=$email';</script>";
 			}
 		}else {
-			header("Location: ../login.php?error=Incorect User name or password&email=$email");
-			exit;
+			// header("Location: ../login.php?error=Incorect User name or password&email=$email");
+			// exit;
+			echo "<script>window.top.location='../login.php?error=Incorect User name or password&email=$email';</script>";
 		}
 	}
 }

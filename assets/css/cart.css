@@ -750,9 +750,6 @@ input[type=radio]:checked::after {
         font-size: 14px;
         padding: 10px;
     }
-    .total-payment-span {
-        font-size: 12px !important;
-    }
     #total-price-result {
         font-size: 14px !important;
     }
