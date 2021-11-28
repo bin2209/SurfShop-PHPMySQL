@@ -38,6 +38,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 					$_SESSION['avatar'] = $user_avatar;
 					$_SESSION['name'] = $user_name;
 					$_SESSION['login'] = true;
+					$_SESSION['ipv4'] = $_SESSION['ipv4'];
 					// header("Location: ../cart");
 					// exit;
 					echo "<script>window.top.location='../cart';</script>";

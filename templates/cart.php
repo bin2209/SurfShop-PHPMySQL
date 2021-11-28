@@ -1,7 +1,6 @@
 <?php 
 @session_start();
 $title = 'Cart';
-$ipv4 = $_SESSION['ipv4'];
 if($_SESSION['login']==true){
 	$email = $_SESSION['user_email'];
 	// LẤY USER DATA
@@ -18,9 +17,9 @@ if($_SESSION['login']==true){
 	}
 }else{
 	// LẤY USER DATA GUEST
-	$email = $ipv4;
+	$email = $_SESSION['ipv4'];
 	$_SESSION['avatar'] = '../assets/img/default-user.png';
-	$_SESSION['name'] = 'Guest';
+	$_SESSION['name'] = $email;
 }
 
 // LẤY BAG DATA

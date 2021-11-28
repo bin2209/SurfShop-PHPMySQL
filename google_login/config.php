@@ -10,6 +10,7 @@ $client->setClientId('528710606946-804enqhnqqvguqkgdqjiprgrnhcdnmf6.apps.googleu
 $client->setClientSecret('FKfgs2ayBTyxUm33ztIR89Fr');
 // Enter the Redirect URL
 $client->setRedirectUri('https://localhost/google_login/login.php');
+// $client->setRedirectUri('https://lstsurf.com/google_login/login.php');
 
 // Adding those scopes which we want to get (email & profile Information)
 $client->addScope("email");

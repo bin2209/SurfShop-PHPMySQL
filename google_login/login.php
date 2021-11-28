@@ -1,4 +1,5 @@
 <?php
+session_start();
 require 'db_connection.php';
 include 'config.php';
 if(isset($_GET['code'])){
@@ -18,8 +19,6 @@ if(isset($_GET['code'])){
         $get_user = mysqli_query($db_connection, $sql);
         if(mysqli_num_rows($get_user) > 0){
             // Đã đăng ký trước - > Tiến hành đăng nhập
-            session_start();
-            $_SESSION['google'] = 'google';
              // LẤY DATA TỪ DB
             while($row = $get_user->fetch_assoc()) {
                 $user_id =  $row["id"]; 
@@ -30,13 +29,17 @@ if(isset($_GET['code'])){
                 $_SESSION['type'] = $row["type"]; 
                 $_SESSION['avatar'] = $row["avatar"]; 
                 $_SESSION['name'] = $row["name"]; 
+                $_SESSION['google'] = 'google';
                 $_SESSION['login'] = true;
                 // XÁC THỰC EMAIL TỰ ĐỘNG 
                 if ($row["xacthuc"]==NULL){
                       mysqli_query($db_connection, "UPDATE `user` SET `xacthuc`= 1 WHERE `id`='$user_id'");
                 }
-                header('Location: ../cart');
-                exit;
+            }
+            if (isset($_SESSION['google'])&&($_SESSION['login']==true)){
+                echo $_SESSION['name'];
+                // header('Location: ../cart');
+                // exit;
             }
             // echo "<script>window.top.location='../cart';</script>";
         }

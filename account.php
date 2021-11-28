@@ -3,10 +3,10 @@
 @require_once 'includes/header.php';
 @require_once 'includes/navbar.php';
 
-if (!isset($_SESSION['user_email'])){
-	echo "<script>window.top.location='login';</script>";
-	exit;
-}
+// if (!isset($_SESSION['user_email'])){
+// 	echo "<script>window.top.location='login';</script>";
+// 	exit;
+// }
 
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
 	?>

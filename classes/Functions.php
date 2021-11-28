@@ -1,12 +1,14 @@
 <?php
 //set default guest
-if(!isset($_SESSION['ipv4'])){
+ // GUEST MODE 
+
+
+ if (!isset($_SESSION['ipv4'])){
     $_SESSION['login'] = false;
     $_SESSION['ipv4'] = getIPAddress();
     $_SESSION['avatar'] = '../assets/img/default-user.png';
-}
+ }
 
- // GUEST MODE 
 function getIPAddress(){  
     // Chỉ được dùng 1 lần trong quá trình tạo lập GUEST | $_SESSION['ipv4']
     // Tạo nhiều lần sẽ tạo thành nhiều IP khác nhau

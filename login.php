@@ -1,13 +1,21 @@
 <?php 
+session_start();
 $page_title = 'Login';
 @require_once 'includes/header.php';
 @require_once 'includes/navbar.php';
 @require_once 'classes/set_language_cookie.php';
 @require_once 'google_login/config.php';
-if ($_SESSION['login']==true){
-	echo "<script>window.location.href='account';</script>";
+// FACEBOOK LOGIN
+require_once( 'facebookSDK/Facebook/autoload.php' );
+require_once( 'facebookSDK/config.php' );
+$helper = $fb->getRedirectLoginHelper();
+$permissions = ['email']; // Optional permissions
+$loginUrl = $helper->getLoginUrl($_DOMAIN.'/facebookSDK/callback.php', $permissions);
+// FACEBOOK LOGIN
+if (isset($_SESSION['login'])==true){
+	// echo "<script>window.location.href='account';</script>";
 }else
-if ($_SESSION['login']==false){ 
+// if (isset($_SESSION['login'])==false){ 
 	?>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
@@ -24,9 +32,13 @@ if ($_SESSION['login']==false){
 						</div>
 
 						<div>
-							<div id="customBtn" class="customGPlusSignIn" onclick="window.location = '<?php echo $client->createAuthUrl(); ?>'">
+							<!-- <div id="customBtn" class="customGPlusSignIn" onclick="window.location = '<?php echo $client->createAuthUrl(); ?>'">
 								<span class="icon"></span>
 								<span class="buttonText" >Google</span>
+							</div> -->
+							<div id="customBtn" class="Btn-facebook" onclick="window.location = '<?php echo $loginUrl; ?>'">
+								<img style="position: relative; left: -8px;" src="<?=$_DOMAIN?>/assets/img/icon/facebook-button.png">
+								<span class="buttonText" >Log in With Facebook</span>
 							</div>
 						</div>
 						<div class="or"><span><?php echo $LANG_or; ?></span></div>
@@ -58,13 +70,13 @@ if ($_SESSION['login']==false){
 									<span><?php echo $LANG_signup; ?></span>
 								</div>
 								<?php 
-								if(isset($_GET['google_id'])&&isset($_GET['name'])&&isset($_GET['name'])&&isset($_GET['email'])&&isset($_GET['profile_pic'])){
-									$google_login= true;
-									$name = $_GET['name'];
-									$email = $_GET['email'];
-									$profile_pic = $_GET['profile_pic'];
-									$google_id = $_GET['google_id'];
-
+								if(isset($_GET['facebook_id'])){
+									$google_login = true;
+									$name = $_SESSION['BoNhoTam_name'];
+									$email = $_SESSION['BoNhoTam_email'];
+									$profile_pic = $_SESSION['BoNhoTam_pic'];
+									$google_id = $_GET['facebook_id'];
+									$password_dangky = md5($google_id);
 								}else{
 									$url_login_google =  $client->createAuthUrl();
 									echo '<div id="customBtn" class="customGPlusSignIn" onclick="window.location = '.$url_login_google.'">
@@ -73,23 +85,20 @@ if ($_SESSION['login']==false){
 									</div>
 									';
 								}
-
 								?>
 								
-
+								
 								<form action="request_login/signup.php" method="post">
 									<?php 
 									// GOOGLE LOGIN
-									if(isset($google_login)){
-										?>
-										
-										<img style="border: 4px solid #c1c1c0; border-radius: 50%; margin: 18px;" src="<?php echo (htmlspecialchars($profile_pic)) ?>">
+									if(isset($_GET['facebook_id'])){?>
+										<img style="width:90px; border: 4px solid #c1c1c0; border-radius: 50%; margin: 18px;" src="<?php echo (htmlspecialchars($profile_pic)) ?>">
 										<input name="google_id" value="<?php echo (htmlspecialchars($google_id)) ?>" hidden>
 										<input name="profile_pic" value="<?php echo (htmlspecialchars($profile_pic)) ?>" hidden>
-										<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>" >
-										<input style="color:#12804d;    border: 1.5px solid;" type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>" readonly>
-										<input type="password" name="password" placeholder="<?php echo $LANG_password; ?>" autofocus/>
-										<input type="password" name="re_password" placeholder="<?php echo $LANG_repeat_password; ?>">
+										<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_SESSION['BoNhoTam_name']))echo(htmlspecialchars($_SESSION['BoNhoTam_name'])) ?>" >
+										<input style="color:#12804d;    border: 1.5px solid;" type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_SESSION['BoNhoTam_email']))echo(htmlspecialchars($_SESSION['BoNhoTam_email'])) ?>" readonly>
+										<input style="display:none;" type="password" name="password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_password; ?>" autofocus/>
+										<input style="display:none;" type="password" name="re_password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_repeat_password; ?>">
 
 									<?php } else {?>
 										<!-- // ĐĂNG KÝ BÌNH THƯỜNG -->
@@ -111,8 +120,6 @@ if ($_SESSION['login']==false){
 										<div class="alert alert-danger" role="alert"><?=htmlspecialchars($_GET['signup-error'])?></div>
 									<?php } ?>
 									<button class="btn-signin-submit" type="submit" ><?php echo $LANG_signup; ?></button>
-
-
 								</form>
 								<a href="javascript:void(0)" class="btn-login btn-fade"><?php echo $LANG_yes_member; ?> <i
 									class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
@@ -173,4 +180,5 @@ if ($_SESSION['login']==false){
 				?>
 
 				<?php 
-			}?>
+			// }
+			?>
