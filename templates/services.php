@@ -10,7 +10,7 @@ h1 {
 	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
 }
-.row {
+.store .row {
 	margin: 50px auto 0;
 }
 .card {
