@@ -1,6 +1,7 @@
 section {
     position: relative;
     padding: 2em 0;
+    background: #100f0e;
 }
 
 .swal2-popup {
@@ -37,11 +38,13 @@ section {
 }
 
 .wrapper-login {
-    width: 1%;
     height: 90vh;
-    background: #131417;
-    display: table-cell;
-    vertical-align: middle;
+    background: #100f0e;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .sign-panels {
@@ -50,7 +53,7 @@ section {
     top: 15px;
     max-width: 350px;
     background: #fff;
-    padding: 40px 80px;
+    padding: 40px 90px;
     margin: 0 auto;
     border-radius: 20px;
     text-align: center;
@@ -105,9 +108,9 @@ section {
 .sign-panels input[type="text"],
 input[type="password"],
 input[type="email"] {
-    width: 100%;
+    width: 110%;
     position: relative;
-    right: 10%;
+    right: 15%;
     display: block;
     margin-bottom: 15px;
     height: 28px;
@@ -306,7 +309,6 @@ span.buttonText {
     font-weight: bold;
     display: inline-block;
     vertical-align: middle;
-    padding-right: 42px;
     font-size: 16px;
     font-weight: bold;
     position: relative;
@@ -316,5 +318,9 @@ span.buttonText {
 @media only screen and (max-width: 540px) {
     .sign-panels {
         margin: 10px;
+        padding: 40px 60px;
+    }
+    section{
+        padding: 3em 0;
     }
 }

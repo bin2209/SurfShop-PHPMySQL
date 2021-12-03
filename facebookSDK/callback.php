@@ -56,7 +56,7 @@ if ($stmt->rowCount() === 1) {
     $_SESSION['ipv4'] = $_SESSION['ipv4'];
     $_SESSION['fb_access_token'] = (string) $accessToken;
     // XÁC THỰC EMAIL TỰ ĐỘNG 
-    if ($row["xacthuc"]==NULL){
+    if ($user["xacthuc"]==NULL){
           mysqli_query($db_connection, "UPDATE `user` SET `xacthuc`= 1 WHERE `id`='$user_id'");
     }
     // echo "<script>window.top.location='../cart';</script>";

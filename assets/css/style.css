@@ -905,7 +905,8 @@
  }
  
  .site-footer {
-     background-color: #101010;
+    background: linear-gradient(180deg,#272625,rgba(19,19,19,0.86) 99%);
+    color: #737373;
      padding: 45px 0 20px;
      font-size: 15px;
      line-height: 24px;

@@ -17,11 +17,9 @@ if (isset($_SESSION['login'])==true){
 }else
 // if (isset($_SESSION['login'])==false){ 
 	?>
-
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="assets/css/login.css" /> 
 	<body>
-
 		<section>
 			<div class="wrapper-login">
 				<div class="sign-panels">

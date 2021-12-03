@@ -25,12 +25,9 @@ if(strpos($link_directory,'/verifyReset')){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Keywords" content="surf, surfing, surfer, surfboard, surfergirl, surflife, surfers, surfphotography, surfersparadise, surftrip, surfgirl, surfinglife, surfacedesign, surface, surfsup, surfacepattern, surfstyle, surfboards, surfart, surfacepatterndesign, surfline, surfandturf, surfwear, surfcity, SURFERphotos, Surfshop, surfcamp, surfschool, surflinelocalpro, surfgirls, surfphoto, surfcoast, surfskate, surfingiseverything, surfspot, surfernutrition, surfista, surfacepro, surfe, surfphotos, surfporn, surffishing, surfergirls, surfnoturf, surfingmagazine, surfculture, surfcityUSA, surfingphotography, surfingday, surferboy, surfpics, skate, skateboarding, skateboard, skatelife, skater, skatepark, skateeverydamnday, skateordie, skateanddestroy, skateboarder, skateboardingisfun, skatergirl, skateboards, skateshop, skatespot, skatecrunch, skateGram, skateclipsdaily, skaters, skates, skatefam, skatephotoaday, skatewear, skaterguy, SkateGirl, skateallday, skatermemes, skateaholic, skateday, skatesubmit, surfboard, surfboards, surfboardart, surfboarding, surfboardshaping, surfboardshaper, surfboarddesign, surfboardbag, surfboardforsale, surfboardbuyandsell, surfboardcovers, surfboarder, surfboardfactory, surfboardscustom, surfboardsbydonaldtakayama, surfboardcover, surfboardfins, SurfboardShape, surfboardpaints, surfboardnext, surfboardprints, surfboardquiver, surfboardrack, surfboardrental, surfboardresin, surfboardshorts, surfboardsale, surfboardsandshotguns, surfboardsock, surfboardsbyclutch">
   <meta name="Description" content="Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards">
-  <meta property="og:image" content="https://lstsurf.com/assets/img/og-image.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="vi_VN" />
-  <meta property="og:url" content="<?php echo $_DOMAIN ?>" />
+  <meta name="facebook-domain-verification" content="a0x9bocp7hwnfjkja2idbvlfhuwh1i" />
   <meta property="og:site_name" content="LSTsurf" />
-  <title>LST SURF - <?php $page_title?></title> 
+  <title>LST SURF - <?=$page_title?></title> 
   <link rel="icon" type="image/x-icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.ico" />
   <!-- CSS -->
   <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/style.css" />

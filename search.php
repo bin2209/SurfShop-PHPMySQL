@@ -1,5 +1,5 @@
 <?php 
-$title = 'Search';
+$page_title = 'Search';
 require_once ('includes/header.php'); 
 require_once ('includes/navbar.php');
 ?>
