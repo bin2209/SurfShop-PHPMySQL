@@ -68,6 +68,8 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 					$_SESSION['user_id']= $user['id'];
 					$_SESSION['user_email']= $user['email'];
 					$_SESSION['password']= $user['password'];
+					$_SESSION['user_phone']= $user['phone'];
+					$_SESSION['user_address']= $user['address'];
 					$_SESSION['type']= $user['type'];
 					$_SESSION['avatar']= $user['avatar'];
 					$_SESSION['name'] = $user['name'];
@@ -76,7 +78,6 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 					echo "<script>window.top.location='../account';</script>";
 				}
 			} 
-			$stmt->close();
 		}
 	}
 }

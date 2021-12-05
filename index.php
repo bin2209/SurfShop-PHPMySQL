@@ -88,7 +88,7 @@ if (isset($_GET['act'])){
 		$page_title = 'Login';
 		require_once  'includes/header.php'; 
 		require_once  'includes/navbar.php';
-		require_once 'login.php'; 
+		require_once 'templates/login.php'; 
 		break;
 
 		case 'cart':
