@@ -1,25 +1,21 @@
 <?php 
 session_start();
 include '../core/db_conn.php';
-
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['re_password'])) {
-
-
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$re_password = $_POST['re_password'];
-	// NẾU TÀI KHOẢN LÀ GOOGLE
+	// NẾU TÀI KHOẢN LÀ FACEBOOK
 	if (isset($_POST['profile_pic'])){
 		$profile_pic = $_POST['profile_pic'];
-		$xacthuc = 1;
-		$google_id = $_POST['google_id'];;
+		$xacthuc = 0;
+		$facebook_id = $_POST['facebook_id'];;
 	} else{
 		$profile_pic = '../assets/img/default-user.png';
 		$xacthuc = 0;
-		$google_id = 0;
+		$facebook_id = 0;
 	}
-
 	if (empty($name)) {
 			// MAIL TRÓNG
 		// header("Location: ../login.php?signup-error=Display name is required");
@@ -51,12 +47,18 @@ if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])
 			$today = date("Y-m-d");
 			$password=password_hash($_POST["password"], PASSWORD_BCRYPT);
 			$sql = "
-			INSERT INTO user(id, email, password, phone, name,avatar,type,address,startdate,status,google_id,xacthuc) 
-			VALUES 			('0','$email','$password','','$name','$profile_pic','0','','$today','0','$google_id','$xacthuc')";
-
+			INSERT INTO user(id, email, password, phone, name,avatar,type,address,startdate,status,facebook_id,xacthuc) 
+			VALUES 			('0','$email','$password','','$name','$profile_pic','0','','$today','0','$facebook_id','$xacthuc')";
 			$stmt=$conn->prepare($sql);
 			$result = $stmt->execute();
-			if($result){
+			// TẠO GIỎ HÀNG MỚI
+			$sqlbag = "
+			INSERT INTO bag(id, email, item_id, item, quantity) 
+			VALUES 			('0','$email','','','')";
+			$stmt=$conn->prepare($sqlbag);
+			$resultbag = $stmt->execute();
+
+			if($result && $resultbag){
 				// CHECK TỒN TẠI TIẾN THÀNH AUTO LOGIN
 				$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
 				$stmt->execute([$email]);

@@ -6,28 +6,35 @@ require_once 'classes/set_language_cookie.php';
 
 if (!isset($_SESSION['ipv4'])&&!isset($_SESSION['login'])){
 	// KHỞI TẠO BAN ĐẦU CHƯA CÓ SESSION GÌ CẢ. 
+	// KHI ĐĂNG NHẬP SẼ KHÔNG CHẠY IF NÀY
     $_SESSION['login'] = false;
     $_SESSION['ipv4'] = getIPAddress();
     $_SESSION['avatar'] = '../assets/img/default-user.png';
 	$_SESSION['name'] = $LANG_customer;
-	$_SESSION['emailcheck'] = $_SESSION['ipv4'];
-    // KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
+	$_SESSION['user_email'] = $_SESSION['ipv4'];
+    // KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB // Do IP khác nhau nên phải tạo mới bag khi khác IP
     $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
-    $stmt->execute([$_SESSION['emailcheck']]);
+    $stmt->execute([$_SESSION['user_email']]);
     if ($stmt->rowCount() === 0) {
-		$emailcheck = $_SESSION['emailcheck'];
+		$emailcheck = $_SESSION['user_email'];
         $sql = "INSERT INTO bag(id, email, item_id,item,quantity) VALUES (0,'$emailcheck','','','')";
         $stmt=$conn->prepare($sql);
         $result = $stmt->execute();
     }
-	if ($_SESSION['login']==true){
-		$_SESSION['emailcheck'] = $_SESSION['ipv4'];
-	}
 }
-getBagData($_SESSION['emailcheck'],$conn);
 
 // Khởi tạo giá trị bình thường 
-
+if (isset($_SESSION['login'])){
+	$emailcheck = $_SESSION['user_email'];
+	$stmt = $conn->prepare("SELECT * FROM bag WHERE email= '$emailcheck'");
+	$stmt->execute();
+	if ($stmt->rowCount() === 1) {
+		$bag = $stmt->fetch();
+		$_SESSION['bag_item'] = $bag['item'];
+		$_SESSION['bag_item_id'] = $bag['item_id'];
+		$_SESSION['bag_quantity'] = $bag['quantity'];
+	}
+}
 
 // var_dump($_SESSION);
 $xss = new Anti_xss;

@@ -73,8 +73,8 @@ if (isset($_SESSION['login'])==true){
 									$name = $_SESSION['BoNhoTam_name'];
 									$email = $_SESSION['BoNhoTam_email'];
 									$profile_pic = $_SESSION['BoNhoTam_pic'];
-									$google_id = $_GET['facebook_id'];
-									$password_dangky = md5($google_id);
+									$facebook_id = $_GET['facebook_id'];
+									$password_dangky = md5($facebook_id);
 								}else{
 									$url_login_google =  $client->createAuthUrl();
 									echo '<div id="customBtn" class="customGPlusSignIn" onclick="window.location = '.$url_login_google.'">
@@ -88,16 +88,15 @@ if (isset($_SESSION['login'])==true){
 								
 								<form action="request_login/signup.php" method="post">
 									<?php 
-									// GOOGLE LOGIN
+									// Facebook LOGIN
 									if(isset($_GET['facebook_id'])){?>
 										<img style="width:90px; border: 4px solid #c1c1c0; border-radius: 50%; margin: 18px;" src="<?php echo (htmlspecialchars($profile_pic)) ?>">
-										<input name="google_id" value="<?php echo (htmlspecialchars($google_id)) ?>" hidden>
+										<input name="facebook_id" value="<?php echo (htmlspecialchars($facebook_id)) ?>" hidden>
 										<input name="profile_pic" value="<?php echo (htmlspecialchars($profile_pic)) ?>" hidden>
-										<input type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_SESSION['BoNhoTam_name']))echo(htmlspecialchars($_SESSION['BoNhoTam_name'])) ?>" >
-										<input style="color:#12804d;    border: 1.5px solid;" type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_SESSION['BoNhoTam_email']))echo(htmlspecialchars($_SESSION['BoNhoTam_email'])) ?>" readonly>
-										<input style="display:none;" type="password" name="password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_password; ?>" autofocus/>
-										<input style="display:none;" type="password" name="re_password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_repeat_password; ?>">
-
+										<input style="color:#12804d; border: 1.5px solid;" type="text" name="name" placeholder="<?php echo $LANG_name; ?>" value="<?php if(isset($_SESSION['BoNhoTam_name']))echo(htmlspecialchars($_SESSION['BoNhoTam_name'])) ?>"readonly>
+										<input style="display:none;" type="text" name="email" placeholder="<?php echo $LANG_email; ?>" value="<?php if(isset($_SESSION['BoNhoTam_email']))echo(htmlspecialchars($_SESSION['BoNhoTam_email'])) ?>" hidden>
+										<input style="display:none;" type="password" name="password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_password; ?>" hidden/>
+										<input style="display:none;" type="password" name="re_password" value="<?=$password_dangky?>" placeholder="<?php echo $LANG_repeat_password; ?>"hidden/>
 									<?php } else {?>
 										<!-- // ĐĂNG KÝ BÌNH THƯỜNG -->
 										<div class="or"><span><?php echo $LANG_or; ?></span></div>
