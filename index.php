@@ -40,10 +40,8 @@ if (isset($_SESSION['login'])){
 $xss = new Anti_xss;
 
 if (isset($_GET['act'])){
-	
 	$act = $xss->clean_up($_GET['act']);
 	switch ($act) {
-
 		case 'store':
 		$page_title = 'Store';
 		require_once  'includes/header.php'; 
@@ -83,7 +81,7 @@ if (isset($_GET['act'])){
 		$page_title = 'Search';
 		require_once  'includes/header.php'; 
 		require_once  'includes/navbar.php';
-		require_once 'search.php'; 
+		require_once 'templates/search.php'; 
 		break;
 		
 		case 'login':

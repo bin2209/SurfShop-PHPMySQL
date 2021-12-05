@@ -1,16 +1,14 @@
-<?php 
-@require_once 'includes/header.php';
-@require_once 'includes/navbar.php';
-?>
 <section class="section-search">
 	<div id="div-search">
 		<h1 class="surf-h2-dark content-center" >Search</h1>
 		<form method="get">
-			<input type="" name="src" placeholder="Search.." value="<?php echo(htmlspecialchars($_GET['src']))?>">
+			<input type="" name="src" placeholder="Search.." value="<?php if(isset($_GET['src'])) echo(htmlspecialchars($_GET['src']))?>">
 			<input type="submit" style="display:none;">
 		</form>	
 		<?php 
-	// SEARCH FUNCTION
+		if (!isset($_GET['src'])){
+			echo '<script>window.location.href="../"</script>';
+		}
 		if (isset($_GET['src'])){
 			$value_search = $_GET['src'];
 			if(!empty($value_search)){
@@ -34,8 +32,6 @@
 				echo '<span class="result result-box"><img src="upload/'.$product_images.'"><p>'.$mota.'</p></span>';
 				}
 			}
-		}else{
-			echo '<script>window.location.href="../"</script>';
 		}
 		?>
 	</div>

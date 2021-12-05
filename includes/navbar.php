@@ -40,7 +40,7 @@ if(strpos($link_directory,'/verifyReset')){
                 <span class="number-menu-pc"><?=$soluongsanpham?></span>
             </li>
         </ul>
-            <form id="search-pc" action="search" method="get">
+            <form id="search-pc" action="<?=$_DOMAIN?>/search" method="get">
             <img class="" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
                     style="width: 20px; position: relative; top: 19px; right: -7px;">    
                 <input type="text" name="src" placeholder="<?=$LANG_search?>">
