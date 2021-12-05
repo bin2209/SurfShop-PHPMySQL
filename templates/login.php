@@ -34,9 +34,11 @@ if (isset($_SESSION['login'])==true){
 							<input type="password" name="password" placeholder="<?=$LANG_password; ?>">
 							<input type="checkbox" id="remember">
 							<label for="remember"><?=$LANG_remember; ?></label>
-							<?php if (isset($_GET['error'])) { ?>
+							<?php if (isset($_GET['error'])){ ?>
 								<div class="alert alert-danger" role="alert"><?=htmlspecialchars($_GET['error'])?></div>
-							<?php } ?>
+							<?php }else if (isset($_GET['success'])){ ?>
+								<div class="alert alert-success" role="alert"><?=htmlspecialchars($_GET['success'])?></div>
+							<?php } ?> 
 							<button class="btn-signin-submit" type="submit" ><?=$LANG_signin; ?></button>
 							<a href="javascript:void(0)" class="btn-reset btn-fade"><?=$LANG_recover_pass; ?> <i class="fa fa-long-arrow-right"
 								aria-hidden="true"></i></a>

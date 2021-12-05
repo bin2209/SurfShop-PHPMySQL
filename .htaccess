@@ -3,10 +3,14 @@ RewriteEngine on
 RewriteCond %{HTTPS} !=on [NC]
 RewriteRule ^(.*)$ https://%{HTTP_HOST%{REQUEST_URI} [L,R=301]
 
+
 RewriteCond %{REQUEST_FILENAME} -d [OR]
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -l
 RewriteRule ^ - [L]
+
+#RewriteRule ^verifyReset$ /request_login/verifyReset.php
+#RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L,QSA]
 
 #LOGOUT
 RewriteRule ^logout$ logout.php [L]
@@ -20,9 +24,7 @@ RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ ?act=$1&category=$2&type=$3 [L,QSA]
 RewriteRule ^([^/]+)/([^/]+)/?$ ?act=$1&category=$2 [L,QSA]
 RewriteRule ^([^/]+)/?$ ?act=$1 [L,QSA]
 
-#verifyReset
-RewriteRule ^verifyReset/([a-zA-Z0-9-/]+)/([a-zA-Z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
-RewriteRule ^verifyReset/([^/]*)/([a-z0-9-/]+)$ /request_login/verifyReset.php?email=$1&code=$2 [L]
+
 
 
 

@@ -118,7 +118,13 @@ if (isset($_GET['act'])){
 		require_once  'includes/navbar.php';
 		require_once 'templates/cart/confirmation.php'; 
 		break;
-
+		
+		case 'verifyReset':
+		$page_title = 'Verify Reset Password';
+		require_once  'includes/header.php'; 
+		require_once  'includes/navbar.php';
+		require_once 'request_login/verifyReset.php'; 
+		break;
 			
 		case 'privacy-policy':
 		$page_title = 'Privacy Policy';

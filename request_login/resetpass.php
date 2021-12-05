@@ -36,7 +36,7 @@ if (isset($_POST['email_reset'])){
 				// $File_html_content = '../mail/src/content/reset_pass.html';
 
 				// determine password reset URL
-				$ResetLink = $_DOMAIN."/verifyReset/$email_reset/$key";
+				$ResetLink = $_DOMAIN."/verifyReset?email=$email_reset&code=$key";
 				
 
 				$NoiDungMail = file_get_contents('../mail/src/content/reset_pass.html');

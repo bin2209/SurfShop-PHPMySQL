@@ -2,23 +2,16 @@
 	// Nhận request từ sent mail về | Mục đích: check code từ email trong database
 	// Nếu khớp thì hiện lên trang thay đổi pass
 	// Bảo mật:  Làm trang đổi pass ngay trong file này | vì nếu lấy được file sẽ đổi tùy tiện
-session_start();
-require_once '../core/db_conn.php';
-require_once '../includes/header.php';
-require_once '../includes/navbar.php';
 
 if (isset($_GET['email'])&&isset($_GET['code'])){
 	$reset_expiry = 300; // Thời gian mặc định hết hạn 5p 60x5=300 ~ Mặc định 300
 	$expiry_limit = time() - $reset_expiry; // give an extra tolerence of 10 minutes
 	$email = $_GET['email'];
 	$code = $_GET['code'];
-
 	$stmt = $conn->prepare("SELECT * FROM mail WHERE email=?");
 	$stmt->execute([$email]);
-
 	if ($stmt->rowCount() === 1) {
 		$user = $stmt->fetch();
-
 		$pass_reset_expiry = $user['pass_reset_expiry'];
 		$pass_reset_key = $user['pass_reset_key'];
 		if ($pass_reset_expiry>$expiry_limit){ // còn thời gian để check
@@ -70,20 +63,17 @@ if (isset($_GET['email'])&&isset($_GET['code'])){
 						} 
 					}
 				}
-
 			}else{
-				echo "<script>window.location.href='../login?error=Mã xác thực không chính xác $email';</script>";
+				// echo "<script>window.location.href='../login?error=Mã xác thực không chính xác $email';</script>";
 			}
 		}else{
 			echo "<script>window.location.href='../login?error=Hết thời gian yêu cầu của $email';</script>";
 		}
-		// echo $pass_reset_expiry;
-		// echo $pass_reset_key;
+	
 	}else{
-		echo "<script>window.location.href='../login?error=Không tồn tại yêu cầu của $email';</script>";
+		echo "<script>window.locati	on.href='../login?error=Không tồn tại yêu cầu của $email';</script>";
 	}
 }else{
 	echo "<script>window.location.href='../login';</script>";
 }
-require_once '../includes/footer';
 ?>

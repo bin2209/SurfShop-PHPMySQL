@@ -1169,7 +1169,11 @@
      margin-right: auto;
  }
  /* ALERT BOX*/
- 
+ .alert-success {
+    color: #fff;
+    background-color: #13b538b8;
+    border-color: #13fd48;
+}
  .alert-danger {
      color: #842029;
      background-color: #f8d7da;
