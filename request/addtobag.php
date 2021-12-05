@@ -1,10 +1,8 @@
 <?php
 include '../core/db_conn.php';
-
-@session_start();
+session_start();
 if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
 	// if(1){
-
 	$id = $_POST['id'];
 	if ($_SESSION['login']==false){
 		$email = $_SESSION['ipv4'];
@@ -14,8 +12,6 @@ if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
 	// $id=1;
 	// $email = 'binazurestudio@gmail.com';
 	// $email = '42.116.105.112';
-
-
 	// TAKE DATA IN BAG || CHẠY ĐỒNG THỜI 2 CỘT ITEM_ID, ITEM
 	function get_item_id($email,$conn){
 		$stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email='$email'");
@@ -79,9 +75,6 @@ if (isset($_POST['id']) && $_SERVER['REQUEST_METHOD']=='POST'){
 		$stmt = $conn->prepare("UPDATE bag SET item_id = CONCAT( item_id , ',$int' ), item = CONCAT( item , ',$id' ), quantity = CONCAT( quantity , ',1' ) WHERE email = ?");
 		$stmt->execute([$email]);
 	}
-
-
-	exit;
+	// exit;
 }
-
 ?>

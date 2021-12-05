@@ -43,6 +43,7 @@ $LANG_recover_back ='Hủy và quay lại trang đăng nhập';
 $LANG_bag ='Giỏ hàng';
 $LANG_logout ='Đăng xuất';
 // STORE
+$LANG_customer= 'Khách hàng';
 $LANG_sort_by= 'Sắp xếp';
 $LANG_filter_default= 'Mặc định';
 $LANG_filter_newest= 'Mới nhất';

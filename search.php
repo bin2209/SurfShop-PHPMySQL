@@ -1,12 +1,8 @@
 <?php 
-$page_title = 'Search';
-require_once ('includes/header.php'); 
-require_once ('includes/navbar.php');
+@require_once 'includes/header.php';
+@require_once 'includes/navbar.php';
 ?>
-
-
 <section class="section-search">
-
 	<div id="div-search">
 		<h1 class="surf-h2-dark content-center" >Search</h1>
 		<form method="get">
@@ -15,12 +11,11 @@ require_once ('includes/navbar.php');
 		</form>	
 		<?php 
 	// SEARCH FUNCTION
-		$value_search = $_GET['src'];
-		if(!empty($value_search)){
-
+		if (isset($_GET['src'])){
+			$value_search = $_GET['src'];
+			if(!empty($value_search)){
 			$stmt = $conn->prepare("SELECT * FROM store WHERE name=?");
 			$stmt->execute([$value_search]);
-
 			if ($stmt->rowCount()==0){
 				echo '<span class="result"><p>0 results found</p></span>';
 
@@ -37,14 +32,13 @@ require_once ('includes/navbar.php');
 				}
 
 				echo '<span class="result result-box"><img src="upload/'.$product_images.'"><p>'.$mota.'</p></span>';
+				}
 			}
-
+		}else{
+			echo '<script>window.location.href="../"</script>';
 		}
-
 		?>
-
 	</div>
-	
 </section>
 <style type="text/css">
 .result-box{

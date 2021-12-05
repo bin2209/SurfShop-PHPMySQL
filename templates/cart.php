@@ -1,52 +1,8 @@
-<?php 
-@session_start();
-$title = 'Cart';
-if($_SESSION['login']==true){
-	$email = $_SESSION['user_email'];
-	// LẤY USER DATA
-	$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
-	$stmt->execute([$email]);
-	if ($stmt->rowCount() === 1) {
-		$user = $stmt->fetch();
-		$user_id = $user['id'];
-		$user_email = $user['email'];
-		$user_name = $user['name'];
-		$user_avatar = $user['avatar'];
-		$user_phone = $user['phone'];
-		$user_password = $user['password'];
-	}
-}else{
-	// LẤY USER DATA GUEST
-	$email = $_SESSION['ipv4'];
-	$_SESSION['avatar'] = '../assets/img/default-user.png';
-	$_SESSION['name'] = $email;
-}
 
-// LẤY BAG DATA
-$stmt = $conn->prepare("SELECT * FROM bag WHERE email='$email'");
-$stmt->execute();
-if ($stmt->rowCount() === 1) {
-	$bag = $stmt->fetch();
-	$bag_item = $bag['item'];
-	$bag_item_id = $bag['item_id'];
-    $bag_item_quantity = $bag['quantity'];
-}
-?>
 <link href="../assets/css/cart.css" rel="stylesheet">
 <link href="../assets/css/popup.css" rel="stylesheet">
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
-.pop-up .content .container {
-    padding: 2em;
-}
-
-.pop-up {
-    min-width: 350px;
-}
-
-.checkout-content {
-    text-align: left;
-}
+.pop-up .content .container { padding: 2em; } .pop-up { min-width: 350px; } .checkout-content { text-align: left; }
 </style>
 <section class="content-center">
     <div class="background-content">
@@ -60,37 +16,36 @@ if ($stmt->rowCount() === 1) {
                 <div class="card-body">
                     <div class="table-responsive">
                         <?php
-									$total_price = 0;
-                                    $i = 0;
-									if ($bag_item==''){
-										echo '
-										<img style="width: 6rem; " src="../assets/img/media/bag-empty.png">
-										<br>
+                            $bag_item = $_SESSION['bag_item'];
+                            $bag_item_id = $_SESSION['bag_item_id'];
+                            $bag_item_quantity = $_SESSION['bag_quantity'];
+                            $total_price = 0;
+                            $i = 0;
+							if ($bag_item==''){
+								echo '<img style="width: 6rem; " src="../assets/img/media/bag-empty.png"><br>
 										<span class="order-empty">'.$LANG_bag_empty.'</span>';
-									}else{
-                                        $bag_item = explode(',',$bag_item);
-										$bag_item_id = explode(',',$bag_item_id);
-                                        $bag_item_quantity = explode(',',$bag_item_quantity);
-                                        foreach ($bag_item as $item) {
-											$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
-											$stmt->execute(array($item));
-											if ($stmt->rowCount() === 1) {
-												$item = $stmt->fetch();
-												$item_id = $item["id"];
-												$item_images = $item["images"];
-                                                $item_type = $item["type"];
-												$item_name = $item["name"];
-												$item_price = $item["price"];
-												$item_brand = $item["brand"];
-                                             
-											}
-                                            // REMOVE PRODUCT FOLLOWING item_id ~ this.id
-                                            $total_price_once = $item_price*$bag_item_quantity[$i];
-                                            $total_price += $total_price_once;
-                                            echo ' 
-                                            <div class="Cart-product">
+							}
+                            else{
+                                $bag_item = explode(',',$bag_item);
+								$bag_item_id = explode(',',$bag_item_id);
+                                $bag_item_quantity = explode(',',$bag_item_quantity);
+                                foreach ($bag_item as $item) {
+									$stmt = $conn->prepare("SELECT * FROM store WHERE id=?");
+									$stmt->execute(array($item));
+									if ($stmt->rowCount() === 1) {
+										$item = $stmt->fetch();
+										$item_id = $item["id"];
+										$item_images = $item["images"];
+                                        $item_type = $item["type"];
+										$item_name = $item["name"];
+										$item_price = $item["price"];
+										$item_brand = $item["brand"];
+                                    }
+                                    // REMOVE PRODUCT FOLLOWING item_id ~ this.id
+                                    $total_price_once = $item_price*$bag_item_quantity[$i];
+                                    $total_price += $total_price_once;
+                                    echo '<div class="Cart-product">
                                             <div class="left-content">
-                                             
                                                 <a href="../product/'.$item_id.'">
                                                     <img src="../uploads/products/'.$item_images.'">
                                                 </a>
@@ -113,9 +68,9 @@ if ($stmt->rowCount() === 1) {
                                                 </div>
                                             </div>
                                         </div>';
-                                        $i++;
-                                        }
-                                    }?>
+                                    $i++;
+                                }
+                            }?>
                     </div>
                 </div>
             </div>

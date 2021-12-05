@@ -1,23 +1,3 @@
-<?php
-$link_directory = $_SERVER['PHP_SELF'];
-$GLOBALS['direct'] = '';
-$GLOBALS['link_directory_array'] = array('/store/');
-for($i=0;$i<count($link_directory_array);$i++){
-  $pos = strpos($link_directory,$link_directory_array[$i]);
-  if ($pos == true){
-    $direct = '../../';
-  }else{
-    $direct = '';
-  }
-}
-if(strpos($link_directory,'/verifyReset')){
-  $direct='../';
-}
-
-@require_once $direct.'core/db_conn.php';
-@require_once $direct.'classes/set_language_cookie.php';
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +5,6 @@ if(strpos($link_directory,'/verifyReset')){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Keywords" content="surf, surfing, surfer, surfboard, surfergirl, surflife, surfers, surfphotography, surfersparadise, surftrip, surfgirl, surfinglife, surfacedesign, surface, surfsup, surfacepattern, surfstyle, surfboards, surfart, surfacepatterndesign, surfline, surfandturf, surfwear, surfcity, SURFERphotos, Surfshop, surfcamp, surfschool, surflinelocalpro, surfgirls, surfphoto, surfcoast, surfskate, surfingiseverything, surfspot, surfernutrition, surfista, surfacepro, surfe, surfphotos, surfporn, surffishing, surfergirls, surfnoturf, surfingmagazine, surfculture, surfcityUSA, surfingphotography, surfingday, surferboy, surfpics, skate, skateboarding, skateboard, skatelife, skater, skatepark, skateeverydamnday, skateordie, skateanddestroy, skateboarder, skateboardingisfun, skatergirl, skateboards, skateshop, skatespot, skatecrunch, skateGram, skateclipsdaily, skaters, skates, skatefam, skatephotoaday, skatewear, skaterguy, SkateGirl, skateallday, skatermemes, skateaholic, skateday, skatesubmit, surfboard, surfboards, surfboardart, surfboarding, surfboardshaping, surfboardshaper, surfboarddesign, surfboardbag, surfboardforsale, surfboardbuyandsell, surfboardcovers, surfboarder, surfboardfactory, surfboardscustom, surfboardsbydonaldtakayama, surfboardcover, surfboardfins, SurfboardShape, surfboardpaints, surfboardnext, surfboardprints, surfboardquiver, surfboardrack, surfboardrental, surfboardresin, surfboardshorts, surfboardsale, surfboardsandshotguns, surfboardsock, surfboardsbyclutch">
   <meta name="Description" content="Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards">
-  <meta name="facebook-domain-verification" content="a0x9bocp7hwnfjkja2idbvlfhuwh1i" />
   <meta property="og:site_name" content="LSTsurf" />
   <title>LST SURF - <?=$page_title?></title> 
   <link rel="icon" type="image/x-icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.ico" />
@@ -33,7 +12,6 @@ if(strpos($link_directory,'/verifyReset')){
   <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/style.css" />
   <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/reponsive.css" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-
   <!-- JS -->
   <script src="https://kit.fontawesome.com/7c7aa69b90.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,30 +19,6 @@ if(strpos($link_directory,'/verifyReset')){
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-	<!-- Messenger Plugin chat Code -->
-  <div id="fb-root"></div>
-
-  <!-- Your Plugin chat code -->
-  <div id="fb-customer-chat" class="fb-customerchat">
-  </div>
-
-  <script>
-    var chatbox = document.getElementById('fb-customer-chat');
-    chatbox.setAttribute("page_id", "102598422088761");
-    chatbox.setAttribute("attribution", "biz_inbox");
-
-    window.fbAsyncInit = function() {
-      FB.init({
-        xfbml            : true,
-        version          : 'v11.0'
-      });
-    };
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-  </script>
+  <div id="fb-root"></div><!-- Messenger Plugin chat Code -->
+  <div id="fb-customer-chat" class="fb-customerchat"></div><!-- Facebook Plugin chat code -->
+  <script>var chatbox = document.getElementById('fb-customer-chat'); chatbox.setAttribute("page_id", "102598422088761"); chatbox.setAttribute("attribution", "biz_inbox"); window.fbAsyncInit = function() { FB.init({ xfbml            : true, version          : 'v11.0' }); }; (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>

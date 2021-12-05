@@ -2,12 +2,16 @@
 //set default guest
  // GUEST MODE 
 
-
- if (!isset($_SESSION['ipv4'])){
-    $_SESSION['login'] = false;
-    $_SESSION['ipv4'] = getIPAddress();
-    $_SESSION['avatar'] = '../assets/img/default-user.png';
- }
+function getBagData($emailcheck,$conn){
+    $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
+	$stmt->execute([$_SESSION['ipv4']]);
+	if ($stmt->rowCount() === 1) {
+		$bag = $stmt->fetch();
+		$_SESSION['bag_item'] = $bag['item'];
+		$_SESSION['bag_item_id'] = $bag['item_id'];
+		$_SESSION['bag_quantity'] = $bag['quantity'];
+	}
+}
 
 function getIPAddress(){  
     // Chỉ được dùng 1 lần trong quá trình tạo lập GUEST | $_SESSION['ipv4']

@@ -29,21 +29,18 @@ if(strpos($link_directory,'/verifyReset')){
 	?>
     <div class="logo menu">
         <ul class="desktop">
-            <li class="desktop-home"><a href="/"><img class="logo-imgdesktop"
-                        src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png" /></a></li>
+            <li class="desktop-home"><a href="/"><img class="logo-imgdesktop" src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png" /></a></li>
             <li class="desktop-store"><a href="/store"><?php echo $LANG_store ?></a></li>
             <li class="desktop-services"><a href="/services"><?php echo $LANG_services ?></a></li>
             <li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
             <li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
             <li>
-            <img class="dropmenubtn menu-icon search-icon" onclick="Searchdown()" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
-                    style="width: 20px; position: relative; top: 19px; right: 44px;">    
-            <img class="dropmenubtn menu-icon" onclick="Dropdown()" src="<?=$_DOMAIN?>/assets/img/icon/bag.svg"
-                    style="width: 19px; position: relative; top: 19px;">
+                <img class="dropmenubtn menu-icon search-icon" onclick="Searchdown()" src="<?=$_DOMAIN?>/assets/img/icon/search.png" style="width: 20px; position: relative; top: 19px; right: 44px;">    
+                <img class="dropmenubtn menu-icon" onclick="Dropdown()" src="<?=$_DOMAIN?>/assets/img/icon/bag.svg" style="width: 19px; position: relative; top: 19px;">
                 <span class="number-menu-pc"><?=$soluongsanpham?></span>
             </li>
         </ul>
-            <form id="search-pc" action="search.php" method="get">
+            <form id="search-pc" action="search" method="get">
             <img class="" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
                     style="width: 20px; position: relative; top: 19px; right: -7px;">    
                 <input type="text" name="src" placeholder="<?=$LANG_search?>">

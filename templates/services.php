@@ -1,8 +1,6 @@
 <style type="text/css">.desktop-services a{opacity: 1 !important; color: #ffffff !important;} .mobile-services a{color: #ffffff !important;}</style>
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-
-
 a {
 	text-decoration: none;
 }

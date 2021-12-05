@@ -42,6 +42,7 @@ $LANG_recover_back ='Cancel and go back to Login page';
 $LANG_bag ='Cart';
 $LANG_logout ='Sign out';
 // STORE
+$LANG_customer= 'Customer';
 $LANG_sort_by= 'Sort by';
 $LANG_filter_default= 'Default';
 $LANG_filter_newest= 'Newest';

@@ -1,4 +1,3 @@
-
 <style type="text/css">.desktop-about a{opacity: 1 !important; color: #ffffff !important;} .mobile-about a{color: #ffffff !important;}
 .title{
 	font-size: 40px;
