@@ -74,7 +74,7 @@ if (isset($_GET['act'])){
 		$page_title = 'Account';
 		require_once  'includes/header.php'; 
 		require_once  'includes/navbar.php';
-		require_once 'account.php'; 
+		require_once 'templates/account.php'; 
 		break;
 		
 		case 'search':

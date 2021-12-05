@@ -28,11 +28,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			$user_type= $user['type'];
 			$user_avatar= $user['avatar'];
 			$user_name= $user['name'];
+			$user_phone= $user['phone'];
+			$user_address = $user['address'];
+
 			if ($email === $user_email) {
 				if (password_verify($password, $user_password)) {
 					// GÁN BIẾN TOÀN CỤC KHỞI TẠO THÔNG TIN NGƯỜI DÙNG
 					$_SESSION['user_id'] = $user_id;
 					$_SESSION['user_email'] = $user_email;
+					$_SESSION['user_phone']= $user_phone;
+					$_SESSION['user_address'] = $user_address; 
 					$_SESSION['password'] = $user_password;
 					$_SESSION['type'] = $user_type;
 					$_SESSION['avatar'] = $user_avatar;

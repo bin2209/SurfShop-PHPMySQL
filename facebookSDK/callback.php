@@ -48,11 +48,14 @@ if ($stmt->rowCount() === 1) {
     $user_id = $user["id"]; 
     $_SESSION['user_id'] = $user["id"]; 
     $_SESSION['user_email'] = $user["email"];
+    $_SESSION['user_phone'] = $user["phone"]; 
+    $_SESSION['user_address'] = $user["address"]; 
     $_SESSION['password'] = $user["password"];
     $_SESSION['login_id'] = $user["id"]; 
     $_SESSION['type'] = $user["type"]; 
     $_SESSION['avatar'] = $user["avatar"]; 
     $_SESSION['name'] = $user["name"]; 
+   
     $_SESSION['login'] = true;
     $_SESSION['ipv4'] = $_SESSION['ipv4'];
     $_SESSION['fb_access_token'] = (string) $accessToken;

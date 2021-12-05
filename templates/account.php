@@ -1,77 +1,30 @@
 <?php 
-@session_start();
-@require_once 'includes/header.php';
-@require_once 'includes/navbar.php';
-
-// if (!isset($_SESSION['user_email'])){
-// 	echo "<script>window.top.location='login';</script>";
-// 	exit;
-// }
-
-if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { 
-	?>
-	<?php  
-	// LẤY USER DATA
-	$stmt = $conn->prepare("SELECT * FROM user WHERE email=?");
-	$stmt->execute([$_SESSION['user_email']]);
-	if ($stmt->rowCount() === 1) {
-		$user = $stmt->fetch();
-		$user_id = $user['id'];
-		$user_email = $user['email'];
-		$user_name = $user['name'];
-		$user_avatar = $user['avatar'];
-		$user_phone = $user['phone'];
-		$user_address = $user['address'];
-		$user_type = $user['type'];
-		$user_password = $user['password'];
-	}
-
-	// KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB
-	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
-	$stmt->execute([$_SESSION['user_email']]);
-	if ($stmt->rowCount() === 0) {
-		$sql = "INSERT INTO bag(id, email, item_id,item,quantity) VALUES (0,'$user_email','','','')";
-		$stmt=$conn->prepare($sql);
-		$result = $stmt->execute();
-	}
-
-	// LẤY BAG DATA
-	$stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
-	$stmt->execute([$_SESSION['user_email']]);
-	if ($stmt->rowCount() === 1) {
-		$bag = $stmt->fetch();
-		$bag_item = $bag['item'];
-		$bag_item_id = $bag['item_id'];
-	}
-	
-	?>
+if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 	<link href="../assets/css/account.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
 	<!-- VALIDATION -->
 	<script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/validate/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/validate/validate.rules.js"></script>	
-
 	<section class="content-center">
 		<div class="background-content">
 			<div class="member-information">
-				<div class="logo-avt"><img src="<?php echo $user_avatar ?>"/></div>
-				<h3 class="h3-dark content-center"><?php echo $user_name ?></h3>
+				<div class="logo-avt"><img src="<?=$_SESSION['avatar']?>"/></div>
+				<h3 class="h3-dark content-center"><?=$_SESSION['name']?></h3>
 			</div> 
 
 			<div class="account-information">
 				<div id="infomation" class="infomation " style="width:auto;">
-					<span><i class="fas fa-envelope"></i> <?php echo $LANG_email ?>: <p><?php echo $user_email ?></p></span><br>
-					<span><i class="fas fa-phone-alt"></i> <?php echo $LANG_phone ?>: <p>
+					<span><i class="fas fa-envelope"></i> <?=$LANG_email?>: <p><?=$_SESSION['user_email']?></p></span><br>
+					<span><i class="fas fa-phone-alt"></i> <?=$LANG_phone?>: <p>
 						<?php 
-						if($user_phone == ''){
+						if($_SESSION['user_phone'] == ''){
 							echo 'None';
-						} else
-						if(isset($user_phone)){
-							echo $user_phone;
+						}else{
+							echo $_SESSION['user_phone'];
 						}  
 						?>
 					</p></span><br>
-					<span><i class="fas fa-shipping-fast"></i> <?php echo $LANG_address_delivery ?>:<p><?php echo $user_address ?>
+					<span><i class="fas fa-shipping-fast"></i> <?php echo $LANG_address_delivery ?>:<p><?=$_SESSION['user_address']?>
 
 				</p><span>
 				</div>
@@ -200,7 +153,11 @@ $('.pop-up .content .close').click(function(){
 	$('footer').removeClass('blur-filter');
 });
 </script>
-<?php } 
+
+<?php 
 include('includes/footer.php');
+}else{
+	echo '<script>window.location.href="/login"</script>';
+}
 ?>
 
