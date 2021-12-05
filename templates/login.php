@@ -73,6 +73,10 @@ if (isset($_SESSION['login'])==true){
 										<input style="display:none;" type="password" name="re_password" value="<?=$password_dangky?>" placeholder="<?=$LANG_repeat_password; ?>"hidden/>
 									<?php } else {?>
 										<!-- // ĐĂNG KÝ BÌNH THƯỜNG -->
+										<div id="customBtn" class="Btn-facebook" onclick="window.location = '<?=$loginUrl; ?>'">
+											<img style="position: relative; left: -8px;" src="<?=$_DOMAIN?>/assets/img/icon/facebook-button.png">
+											<span class="buttonText" >Log in With Facebook</span>
+										</div>
 										<div class="or"><span><?=$LANG_or; ?></span></div>
 										<input type="text" name="name" placeholder="<?=$LANG_name; ?>" value="<?php if(isset($_GET['name']))echo(htmlspecialchars($_GET['name'])) ?>">
 										<input type="text" name="email" placeholder="<?=$LANG_email; ?>" value="<?php if(isset($_GET['email']))echo(htmlspecialchars($_GET['email'])) ?>">

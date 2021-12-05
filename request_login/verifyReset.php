@@ -66,24 +66,24 @@ if (isset($_GET['email'])&&isset($_GET['code'])){
 							// Xóa thông tin ở bảng mail
 							$stmt = $conn->prepare("DELETE FROM mail WHERE email=?");
 							$stmt->execute([$email]);
-							echo "<script>window.location.href='../../login.php?success=Thay đổi mật khẩu thành công';</script>";
+							echo "<script>window.location.href='../login?success=Thay đổi mật khẩu thành công';</script>";
 						} 
 					}
 				}
 
 			}else{
-				echo "<script>window.location.href='../../login.php?error=Mã xác thực không chính xác $email';</script>";
+				echo "<script>window.location.href='../login?error=Mã xác thực không chính xác $email';</script>";
 			}
 		}else{
-			echo "<script>window.location.href='../../login.php?error=Hết thời gian yêu cầu của $email';</script>";
+			echo "<script>window.location.href='../login?error=Hết thời gian yêu cầu của $email';</script>";
 		}
 		// echo $pass_reset_expiry;
 		// echo $pass_reset_key;
 	}else{
-		echo "<script>window.location.href='../../login.php?error=Không tồn tại yêu cầu của $email';</script>";
+		echo "<script>window.location.href='../login?error=Không tồn tại yêu cầu của $email';</script>";
 	}
 }else{
-	echo "<script>window.location.href='../../login.php';</script>";
+	echo "<script>window.location.href='../login';</script>";
 }
-require_once '../includes/footer.php';
+require_once '../includes/footer';
 ?>

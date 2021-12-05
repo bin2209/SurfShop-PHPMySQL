@@ -59,14 +59,14 @@ if (isset($_POST['email_reset'])){
 						$stmt = $conn->prepare("UPDATE mail SET pass_reset_key = '$key', pass_reset_expiry = '$expiry' WHERE email=?");
 						$stmt->execute([$email_reset]);
 					}
-					echo "<script>window.top.location='../login.php?mailsent=".$email_reset."';</script>";
+					echo "<script>window.top.location='../login?mailsent=".$email_reset."';</script>";
 					// exit;
 				}
 
 			}else if(rowCountTable('user',$email_reset,$conn) < 1){
 			//EMAIL KHÔNG TỒN TẠI -> FALSE
-				echo "<script>window.top.location='../login.php?error=$email_reset không tồn tại.';</script>";
-				// header("Location: ../login.php?error=$email_reset không tồn tại.");
+				echo "<script>window.top.location='../login?error=$email_reset không tồn tại.';</script>";
+				// header("Location: ../login?error=$email_reset không tồn tại.");
 				// exit;
 			}
 
