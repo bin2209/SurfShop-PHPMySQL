@@ -21,24 +21,25 @@ function getIPAddress(){
     // return '42.116.105.112, 172.70.142.124';
 }  
 
-
-
 function get_item_bag($email,$conn){
-    $stmt = $conn->prepare("SELECT email, item_id FROM bag WHERE email=?");
+    $stmt = $conn->prepare("SELECT email, quantity FROM bag WHERE email=?");
     $stmt->execute([$email]);
     if ($stmt->rowCount() === 1) {
         $bag =	$stmt->fetch();
-        $bag_item = $bag['item_id'];
-        if ($bag['item_id']==''){
+        $bag_quantity = $bag['quantity'];
+        if ($bag['quantity']==''){
             return '0';
         }
     }else{
         return '0';
     }
-    $array_bag_item = explode(',',$bag_item);
-    return count($array_bag_item);
+    $array_bag_quantity = explode(',',$bag_quantity);
+    $soluong = 0;
+    for ($i=0;$i<count($array_bag_quantity);$i++){
+        $soluong += (int)$array_bag_quantity[$i];
+    }
+    return $soluong;
 }
-
 
 
 // Hàm điều hướng trang
