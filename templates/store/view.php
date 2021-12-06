@@ -1,5 +1,5 @@
 <?php 
-$title = 'Services';
+$page_title = 'Product Detail';
 @session_start();
 @include '../../includes/header.php'; 
 @include '../../includes/navbar.php';
@@ -23,6 +23,7 @@ $title = 'Services';
      if ($stmt->rowCount() === 1) {
       $row = $stmt->fetch();
       $store_name = $row['name'];
+      
       if ($_COOKIE['language']=='en'){
         $store_description = $row["description-en"];
       }else{
