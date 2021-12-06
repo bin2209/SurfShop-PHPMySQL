@@ -30,7 +30,9 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 				</div>
 				<div class="button-div">
 					<button id="change-profile1" class="btn btn-primary"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>
-					<button id="change-profile2" class="btn btn-primary"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button>
+					<?php if (!isset($_SESSION['fb_access_token'])){?>
+					<button id="change-profile2" class="btn btn-primary"><i class="fas fa-key" style=""></i> <?php echo $LANG_member_changepass; ?></button> <?php 
+					}?>
 				</div>
 			</div>
 		</div> 
@@ -48,11 +50,25 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 				<form method="POST" id="change-profile">
 					<input type="text" style="display:none;"  name="value_of_form" value="profile">
 					<label for="ChangeName"><?php echo $LANG_fullname; ?> *</label>
-					<input type="text" name="ChangeName" value="<?php echo $user_name; ?>">
+					<input type="text" name="ChangeName" value="<?php echo $_SESSION['name']; ?>">
 					<label for="ChangePhone"><?php echo $LANG_phone; ?> *</label>
-					<input type="text" name="ChangePhone" value="<?php echo $user_phone; ?>">
+					<input type="text" name="ChangePhone" value="<?php echo $_SESSION['user_phone']; ?>">
 					<label for="ChangeAddress"><?php echo $LANG_address_delivery; ?> </label>
-					<textarea name="ChangeAddress" placeholder="Số nhà / Ngõ, - Phường - Quận -  Quốc gia"><?php echo $user_address; ?></textarea>
+					<!-- <textarea name="ChangeAddress" placeholder="Số nhà / Ngõ, - Phường - Quận -  Quốc gia"><?php echo $_SESSION['user_address']; ?></textarea>
+				 -->
+					<select style="width: -webkit-fill-available;" class="Delivery-address-select" type="text" name="calc_shipping_provinces"
+						placeholder="Province *">
+					</select>
+					<select style="width: -webkit-fill-available;" class="Delivery-address-select" type="text" name="calc_shipping_district"
+						placeholder="District *">
+					</select>
+					<input class="Delivery-address-input" type="text" name="Ward" placeholder="<?=$LANG_ward?>">
+					<input class="Delivery-address-input" type="text" name="StreetName"
+						placeholder="<?=$LANG_streetname?> *">
+					<input class="Delivery-address-input" type="text" name="BuildingName"
+						placeholder="<?=$LANG_buildingname?>">
+					<span style="margin-left: 9px;"><b><?=$LANG_country?>: Vietnam</b></span>
+					<br>
 					<button  type="submit" class="btn btn-primary" name="submit_change"><?php echo $LANG_save; ?></button>
 				</form>
 			</div>
@@ -60,6 +76,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 	</div>
 </div>
 <!-- PASSWORD -->
+<?php 
+if (!isset($_SESSION['fb_access_token'])){?>
 <div class="pop-up pop-up-password">
 	<div class="content">
 		<div class="container">
@@ -86,7 +104,7 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 		</div>
 	</div>
 </div>
-
+<?php } ?>
 <?php
 $user_id = $_SESSION['user_id'];
 
@@ -153,6 +171,7 @@ $('.pop-up .content .close').click(function(){
 	$('footer').removeClass('blur-filter');
 });
 </script>
+<script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/data-location.js"></script>
 
 <?php 
 include('includes/footer.php');

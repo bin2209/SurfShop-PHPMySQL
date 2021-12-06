@@ -67,6 +67,10 @@ $LANG_payment_method = 'PAYMENT METHOD';
 $LANG_Cash_on_delivery = 'Cash on delivery';
 $LANG_Transfer_money = 'Transfer money';
 //MEMBER | CART
+$LANG_ward = 'Ward';
+$LANG_buildingname = 'Building Name/ Floor Etc';
+$LANG_streetname = 'Street Number / Street Name';
+$LANG_country = 'Country';
 $LANG_member_changepass = 'Change password';
 $LANG_member_changeprofile = 'Edit profile';
 $LANG_save = "Save";

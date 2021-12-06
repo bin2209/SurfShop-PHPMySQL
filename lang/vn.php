@@ -68,6 +68,10 @@ $LANG_payment_method = 'PHƯƠNG THỨC THANH TOÁN';
 $LANG_Cash_on_delivery = 'Thanh toán khi giao hàng';
 $LANG_Transfer_money = 'Chuyển khoản';
 //MEMBER | CART
+$LANG_ward = 'Phường';
+$LANG_buildingname = 'Tên tòa nhà / Tầng, v.v.';
+$LANG_streetname = 'Địa chỉ / Tên đường';
+$LANG_country = 'Quốc gia';
 $LANG_member_changepass = 'Thay đổi mật khẩu';
 $LANG_member_changeprofile = 'Chỉnh sửa hồ sơ';
 $LANG_save = "Lưu";

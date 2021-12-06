@@ -30,7 +30,7 @@ label{
 	font-size: 16px;
 	font-weight: 600;
 }
-.change-profile input,textarea{
+.change-profile input,textarea,select{
 	width: 65%;
 	min-width: 300px;
 	font-size: 16px;
@@ -98,16 +98,18 @@ label{
 }
 .change-profile button{
 	margin-right: auto;
-	margin-left: auto;
-	padding: 10px 33px;
-	font-size: 16px;
-	border: 0px solid;
-	border-radius: 3px;
-	color: white;
-	font-weight: bold;
-	background: #0071e3;
-	margin-top: 10px;
-	width: 40%;
+    margin-left: auto;
+    padding: 10px 33px;
+    font-size: 16px;
+    border: 0px solid;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    font-weight: bold;
+    background: #0071e3;
+    margin-top: 10px;
+    width: 40%;
+    justify-content: center;
 }
 .infomation {
 
