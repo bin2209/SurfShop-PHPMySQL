@@ -14,17 +14,17 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 
 			<div class="account-information">
 				<div id="infomation" class="infomation " style="width:auto;">
-					<span><i class="fas fa-envelope"></i> <?=$LANG_email?>: <p><?=$_SESSION['user_email']?></p></span><br>
-					<span><i class="fas fa-phone-alt"></i> <?=$LANG_phone?>: <p>
+					<span></i> <?=$LANG_email?>: <p><?=$_SESSION['user_email']?></p></span><br>
+					<span></i> <?=$LANG_phone?>: <p>
 						<?php 
 						if($_SESSION['user_phone'] == ''){
-							echo 'None';
+							echo '<a href="">'.$LANG_add.'</a>';
 						}else{
 							echo $_SESSION['user_phone'];
 						}  
 						?>
 					</p></span><br>
-					<span><i class="fas fa-shipping-fast"></i> <?php echo $LANG_address_delivery ?>:<p><?=$_SESSION['user_address']?>
+					<span></i> <?php echo $LANG_address_delivery ?>:<p><?=$_SESSION['user_address']?>
 
 				</p><span>
 				</div>
