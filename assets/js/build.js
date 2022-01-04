@@ -33,10 +33,9 @@ $(document).ready(function() {
 var SlideStoreBar = {}
 SlideStoreBar.switchOpener = function(status) {
     $.cookie('BarOpened', status, { expires: 7, path: '/' });
-    // window.location.reload();
 }
 if ($.cookie('BarOpened') === undefined) {
-    SlideStoreBar.switchOpener('opened');
+    SlideStoreBar.switchOpener('closed');
 }
 
 $(document).ready(function() {
