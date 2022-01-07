@@ -12,7 +12,7 @@ $LANG_address = 'Address';
 $LANG_taxcode = 'Tax code';
 $LANG_links = 'LINKS';
 $LANG_categories = 'CATEGORIES';
-$LANG_companyLST = 'LUOT SONG THOI TRADING AND SERVICES J.S.C';
+$LANG_companyLST = 'LUOT SONG THOI CO., LTD';
 $LANG_Privacy_Policy = 'Privacy Policy';
 $LANG_accept_payment = 'Accept payment';
 // HOME
