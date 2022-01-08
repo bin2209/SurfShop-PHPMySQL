@@ -53,8 +53,8 @@ if ($stmt->rowCount() === 1) {
     $_SESSION['password'] = $user["password"];
     $_SESSION['login_id'] = $user["id"]; 
     $_SESSION['type'] = $user["type"]; 
-    $_SESSION['avatar'] = $user["avatar"]; 
-    $_SESSION['name'] = $user["name"]; 
+    $_SESSION['avatar'] = $userFB_pic;
+    $_SESSION['name'] = $userFB_name;
    
     $_SESSION['login'] = true;
     $_SESSION['ipv4'] = $_SESSION['ipv4'];
