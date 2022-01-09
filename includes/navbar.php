@@ -118,11 +118,13 @@ window.onclick = function(event) {
 }
 function Searchdown(){
     $('.desktop').css({opacity: 1, visibility: "visible"}).animate({opacity: 0}, 200);
+    $('#Dropdownmenu').hide();
     $("#search-pc").show();
     $('#search-pc').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
     $("#search-pc input").focus();
 }
 function Searchclose(){
+    $('#Dropdownmenu').show();
     $('.desktop').css({opacity: 0, visibility: "visible"}).animate({opacity: 1}, 200);
     $(".desktop").show();
     $("#search-pc").hide();

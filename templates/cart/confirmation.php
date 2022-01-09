@@ -65,10 +65,6 @@ if (isset($_GET['orderToken'])){
 <script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/data-location.js"></script>
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/validate/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?php echo $_DOMAIN;?>/assets/js/validate/validate.rules.js"></script>
-<link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.carousel.min.css">
-<link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/owlcarousel/owl.theme.default.min.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-</script>
 <section class="content-center">
     <div class="background-content">
         <div class="member-information">

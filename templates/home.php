@@ -8,21 +8,16 @@
 </section>
 <section class="trending">
 	<h1 class="surf-h2-light content-center"><?php echo $LANG_trending; ?></h1>
-	<div class="surf">
-		<div class="Slides">
-			<img class="img-100 content-center" src="uploads/products/b1.png"/>
+	<div class="owl-carousel">
+		<div class="cardBoard">
+			<img class="" src="uploads/products/b1.png"/>
 		</div>
-		<div class="Slides">
-			<img class="img-100 content-center" src="uploads/products/b2.png"/>
+		<div class="cardBoard">
+			<img class="" src="uploads/products/b2.png"/>
 		</div>
-		<div class="Slides">
-			<img class="img-100 content-center" src="uploads/products/b3.png"/>
+		<div class="cardBoard">
+			<img class="" src="uploads/products/b3.png"/>
 		</div>
-	</div>
-	<div class="surf-control content-center">
-		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-		<span class="w3-badge w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
 	</div>
 </section>
 <section class="store content-center">
@@ -67,37 +62,47 @@
 		?>
 	</div>
 	<a href="/store" style="text-decoration: none;"><span class="more-button"><?php echo $LANG_morebutton; ?></span></a>
-	<script type="text/javascript">
-		var slideIndex = 1;
-		showDivs(slideIndex);
-		function plusDivs(n) {
-			showDivs(slideIndex += n);
+	<style>
+		.trending{
+			height: fit-content;
 		}
-//Khi click vào dot
-function currentDiv(n) {
-	showDivs(slideIndex = n);
-}
-function showDivs(n) {
-	var i;
-	var x = document.getElementsByClassName("Slides");
-	var dots = document.getElementsByClassName("w3-badge");
-	if (n > x.length) {slideIndex = 1}
-		if (n < 1) {slideIndex = x.length}
-			for (i = 0; i < x.length; i++) {
-				x[i].style.display = "none";  
-			}
-			for (i = 0; i < dots.length; i++) {
-				dots[i].className = dots[i].className.replace(" w3-white", "");
-			}
-			x[slideIndex-1].style.display = "block";  
-			dots[slideIndex-1].className += " w3-white";
+		.cardBoard{
+			width: 100%;
+			height: -webkit-fill-available;
+  			margin: auto;
+			max-width: 650px;	
+			padding: 20px 0;
 		}
-
-		carousel(); // auto Slideshow
-		function carousel() {
-			plusDivs(1);
-			setTimeout(carousel, 3000);
+		.cardBoard img{
+			width: auto;
+			height: 100%;
+			margin: auto;
 		}
+		.owl-dots{
+			padding-bottom:20px;
+			text-align: center;
+			width: 100%;
+		}
+		.owl-dots span {
+			background: none repeat scroll 0 0 #869791;
+			border-radius: 20px;
+			display: block;
+			height: 12px;
+			margin: 5px 7px;
+			opacity: 0.5;
+			width: 12px;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(".owl-carousel").owlCarousel({
+				loop: true,
+				nav: false,
+				dots: true,
+				center: true, 
+				items: 1
+			});
+		});
 	</script>
 </section>
 
