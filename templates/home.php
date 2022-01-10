@@ -100,7 +100,10 @@
 				nav: false,
 				dots: true,
 				center: true, 
-				items: 1
+				items: 1,
+				autoplay:true,
+    			autoplayTimeout:2000,
+    			autoplayHoverPause:true
 			});
 		});
 	</script>
