@@ -2,8 +2,6 @@
 include('includes/header.php');
 require_once("../core/db_conn.php");
 require_once("../classes/Functions.php");
-
-
 session_start();
 if(!isset($_SESSION['user_id']) && (!isset($_SESSION['type']))){
 header('Location: ../login.php');

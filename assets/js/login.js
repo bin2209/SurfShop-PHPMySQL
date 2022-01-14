@@ -28,7 +28,7 @@ $('.btn-login').click(function () {
 $('.notification').hide();
 
 $('.btn-password').click(function () {
-    
+
     if($('#resetPassword').val()==0) {
         // $('#resetPassword').after('<span class="error">Email not valid.</span>')
         $('.error').text('Email not valid.')

@@ -14,9 +14,6 @@ $date_current = date("Y-m-d H:i:sa");
 
 // Kết nối DB
 $sName = "localhost";
-// $uName = "lstsurfc_lstsurf";
-// $pass = "ttruong322";
-// $db_name = "lstsurfc_lstsurf";
 $uName = "root";
 $pass = "";
 $db_name = "lst";

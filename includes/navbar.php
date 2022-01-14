@@ -84,7 +84,7 @@ if(strpos($link_directory,'/verifyReset')){
 <div class="wrapper" onclick="">
     <ul>
         <li class="search-box"><i class="fas fa-search"></i>
-            <form id="search" action="search.php" method="get">
+            <form id="search" action="search" method="get">
                 <input type="text" name="src" placeholder="Search">
                 <input type='submit' style="display:none;" />
             </form>
