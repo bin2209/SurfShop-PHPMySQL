@@ -18,7 +18,7 @@
       if (current === "") {
         //for root url
         if (element.attr('href').indexOf("index.php") !== -1) {
-          element.parents('.nav-item').last().addClass('active');
+          // element.parents('.nav-item').last().addClass('active');
           if (element.parents('.sub-menu').length) {
             element.closest('.collapse').addClass('show');
             element.addClass('active');

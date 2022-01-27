@@ -1,20 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <?php
+    $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    
+    if (isset($_GET['act'])){
+      $xss = new Anti_xss;
+      $act = $xss->clean_up($_GET['act']);
+    }else{
+      $act = '';
+    }
+
+    $sql = "SELECT * FROM meta_tags WHERE meta_url = '$act'";
+    $stmt = $conn->prepare($sql); 
+
+    $stmt->execute();
+    $meta_tags = $stmt->fetch();
+    if ($stmt->rowCount() === 1) {
+    $meta_title = $meta_tags['meta_title'];
+    $meta_keywords = $meta_tags['meta_keywords'];
+    $meta_description = $meta_tags['meta_description'];
+    }else{
+      $meta_title = '';
+      $meta_keywords = '';
+      $meta_description = '';
+    }
+  ?>
+  <title>LST SURF - <?=$meta_title?></title> 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="Keywords" content="surf, surfing, surfer, surfboard, surfergirl, surflife, surfers, surfphotography, surfersparadise, surftrip, surfgirl, surfinglife, surfacedesign, surface, surfsup, surfacepattern, surfstyle, surfboards, surfart, surfacepatterndesign, surfline, surfandturf, surfwear, surfcity, SURFERphotos, Surfshop, surfcamp, surfschool, surflinelocalpro, surfgirls, surfphoto, surfcoast, surfskate, surfingiseverything, surfspot, surfernutrition, surfista, surfacepro, surfe, surfphotos, surfporn, surffishing, surfergirls, surfnoturf, surfingmagazine, surfculture, surfcityUSA, surfingphotography, surfingday, surferboy, surfpics, skate, skateboarding, skateboard, skatelife, skater, skatepark, skateeverydamnday, skateordie, skateanddestroy, skateboarder, skateboardingisfun, skatergirl, skateboards, skateshop, skatespot, skatecrunch, skateGram, skateclipsdaily, skaters, skates, skatefam, skatephotoaday, skatewear, skaterguy, SkateGirl, skateallday, skatermemes, skateaholic, skateday, skatesubmit, surfboard, surfboards, surfboardart, surfboarding, surfboardshaping, surfboardshaper, surfboarddesign, surfboardbag, surfboardforsale, surfboardbuyandsell, surfboardcovers, surfboarder, surfboardfactory, surfboardscustom, surfboardsbydonaldtakayama, surfboardcover, surfboardfins, SurfboardShape, surfboardpaints, surfboardnext, surfboardprints, surfboardquiver, surfboardrack, surfboardrental, surfboardresin, surfboardshorts, surfboardsale, surfboardsandshotguns, surfboardsock, surfboardsbyclutch">
-  <meta name="Description" content="Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards">
-  <meta property="og:site_name" content="LSTsurf" />
+  <link rel="shortcut icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.ico">
+  <link rel="apple-touch-icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.png">
+  <link rel="image_src" href="<?php echo $_DOMAIN ?>/assets/img/favicon.png"> 
+  <link rel="search" type="application/opensearchdescription+xml" title="LST SURF" href="/opensearch.xml">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="keywords" content="<?=$meta_keywords?>">
+  <meta name="description" content="<?=$meta_description?>">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<?=$actual_link?>" />
+  <meta property="og:site_name" content="LST SURF" />
   <meta name="google-site-verification" content="Afpi_OW1-0LomXrDC-SwNRZSPuJ3JljpByI_aP956YY" />
-  <title>LST SURF - <?=$page_title?></title> 
-  <link rel="icon" type="image/x-icon" href="<?php echo $_DOMAIN ?>/assets/img/favicon.ico" />
   <!-- CSS -->
-  <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/style.css" />
+  <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/style.min.css" />
   <link rel="stylesheet" href="<?php echo $_DOMAIN ?>/assets/css/reponsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <!-- JS -->
-  <script src="https://kit.fontawesome.com/7c7aa69b90.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- Sweet aleft  -->

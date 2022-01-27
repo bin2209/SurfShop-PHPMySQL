@@ -15,12 +15,10 @@
         $.post( "./request/todolist.php",{
           type: "add",
           value: item
-        };
+        });
         // function(data,status){
         //   alert("Data: " + data + "\nStatus: " + status);
         // });
-
-
       }
 
     });

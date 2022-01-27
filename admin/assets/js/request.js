@@ -72,3 +72,4 @@ function delete_Product($id){
    }
  })
 }
+

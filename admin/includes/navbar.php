@@ -9,7 +9,9 @@
     <ul class="navbar-nav w-100">
       <li class="nav-item w-100">
         <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-          <input type="text" class="form-control" placeholder="Search products">
+          <input type="text" class="form-control" placeholder="Search products" onkeyup="livesearch(this.value);">
+          <div id='result' style="background-color:#F0F0F0; width:300px;">
+          </div>  
         </form>
       </li>
     </ul>
@@ -95,7 +97,7 @@
             </div>
           </div>
           <a href="../">
-            <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> User's page</p>
+            <p class="preview-subject mb-1" style="bottom: 39px; left: 69px; text-decoration: none; color: white; position: relative;"> Webpage</p>
           </a>
         </a>
         <div class="dropdown-divider"></div>

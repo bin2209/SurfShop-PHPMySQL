@@ -1,0 +1,11 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>LST SURF</ShortName>
+<Description>
+LST SURF: Surf shop, Skate shop, Rentals, Repairs, Lessons, and Custom boards.
+</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16" type="image/x-icon">
+https://lstsurf.com/assets/img/favicon.ico
+</Image>
+<Url type="text/html" method="get" template="https://lstsurf.com/search?src={searchTerms}"/>
+</OpenSearchDescription>

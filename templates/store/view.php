@@ -1,10 +1,12 @@
 <?php 
-$page_title = 'Product Detail';
-@session_start();
-@include '../../includes/header.php'; 
-@include '../../includes/navbar.php';
-
+session_start();
+require_once  '../../core/db_conn.php';
+require_once '../../classes/Functions.php';
+require_once '../../classes/set_language_cookie.php';
+include '../../includes/header.php'; 
+include '../../includes/navbar.php';
 ?>
+
 <link rel="stylesheet" href="<?php echo $_DOMAIN; ?>/assets/css/view.css">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style type="text/css">.desktop-store a{opacity: 1 !important;; color: #ffffff !important;} .mobile-store a{color: #ffffff !important;}</style>
@@ -63,7 +65,7 @@ $page_title = 'Product Detail';
     //BREAKCRUMB
     echo '
     <div class="product-row-navbar">
-    <div class="product-column-narbar"><a href="../">Home</a> / <a href="./">Store</a> / <a href="../'.$s_backlink.'">'. $s_type.'</a> / <a href="" style="color: #f27474;">'.$store_name.'</a></div>
+    <div class="product-column-narbar"><a href="../">Home</a> / <a href="../store">Store</a> / <a href="../store/'.$s_backlink.'">'. $s_type.'</a> / <a href="" style="color: #f27474;">'.$store_name.'</a></div>
     </div>
     <div class="product-row">
     <div class="column column-left">

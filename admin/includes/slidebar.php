@@ -33,13 +33,23 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="?slidebar=customer">
+            <a class="nav-link" href="?slidebar=pages">
+              <span class="menu-icon">
+                <i class="mdi mdi-page-layout-body"></i>
+              </span>
+              <span class="menu-title">Pages</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="?slidebar=user">
               <span class="menu-icon">
                 <i class="mdi mdi-account-multiple-outline"></i>
               </span>
-              <span class="menu-title">Customer</span>
+              <span class="menu-title">Users</span>
             </a>
           </li>
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="?slidebar=store">
               <span class="menu-icon">

@@ -79,8 +79,8 @@
             <span style="margin-left: initial;" class="total-payment-span"><?php echo $LANG_payment ?>: <p
                     style="display: inline;"><?=s_PriceFormat($total_price)?></p> ₫</span>
             <span class="checkout-span"><button id="checkout" class="checkout-button"
-                    style="<?php if($i==0) echo'background-color:#646464;'?>"><?php echo $LANG_checkout ?> (<p
-                        style="display: inline;"><?=$i?></p>)</button></span>
+                    style="<?php if($soluongsanpham==0) echo'background-color:#646464;'?>"><?php echo $LANG_checkout ?> (<p
+                        style="display: inline;"><?=$soluongsanpham?></p>)</button></span>
         </div>
     </div> <!--  // backgound content -->
 </section>
@@ -96,7 +96,7 @@
             </div>
             <div id="checkout-content" class="checkout-content">
                 <div>
-                    <span><?=$i?> <?=$LANG_product?></span>
+                    <span><?=$soluongsanpham?> <?=$LANG_product?></span>
                     <br>
                     <form method="POST" action="/delivery">
                         <span><?=$LANG_price?>: </span><span style="font-weight:600;"><span
@@ -120,7 +120,7 @@
     </div>
 </div>
 <script type="text/javascript">
-quantity = <?=$i?>;
+quantity = <?=$soluongsanpham?>;
 $(document).ready(function() {
     $("#checkout").click(function() {
         if (quantity == 0) {

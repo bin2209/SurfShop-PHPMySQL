@@ -2,9 +2,9 @@
 include '../../core/db_conn.php';
 session_start();
 $id = $_POST['id'];
-$type = $_POST['type']; // xác nhận quyền admin
+$type = $_POST['type']; // remove_product | change_product
 
-
+// xác nhận quyền admin SESSION['type']
 if (isset($id) && isset($type)&&isset($_SESSION['type'])==1){
 	if ($type == "remove_product"){
 		$lastID = $conn->query("SELECT folder FROM store WHERE id = $id")->fetch();
@@ -33,6 +33,7 @@ if (isset($id) && isset($type)&&isset($_SESSION['type'])==1){
 		$stmt = $conn->prepare("DELETE FROM `store` WHERE id = ".$id."");
 		$stmt->execute();
 	}
+	
 
 	
 }

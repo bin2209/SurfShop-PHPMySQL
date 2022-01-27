@@ -2,16 +2,16 @@
           <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Customer</h4>
+                <h4 class="card-title">User</h4>
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
-                        <th> Client Name </th>
+                        <th> Name </th>
                         <th> Email </th>
                         <th> Phone </th>
                         <th> Start Date </th>
-                        <th>  Status </th>
+                        <th> Status </th>
                       </tr>
                     </thead>
                     <tbody>

@@ -1,9 +1,6 @@
-
 $(document).ready(function(){
-  // SelectCategory
   $(".type").hide();
   $("#Type").hide();
-
   
   $("#Category").on ('change',function(){ 
     var Category = $('#Category :selected').val();

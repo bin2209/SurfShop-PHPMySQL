@@ -35,8 +35,11 @@ exit;
           if (isset($_GET['slidebar'])){
             $slidebar = $xss->clean_up($_GET['slidebar']);
             switch ($slidebar) {
-            case 'customer':
-              require_once 'content/customer.php';
+            case 'pages':
+              require_once 'content/pages.php';
+              break;
+            case 'user':
+              require_once 'content/user.php';
               break;
             case 'store':
               require_once 'content/store.php';

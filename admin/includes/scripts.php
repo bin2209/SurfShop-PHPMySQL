@@ -11,7 +11,7 @@
 <script src="assets/js/misc.js"></script>
 <script src="assets/js/settings.js"></script>
 <script src="assets/js/todolist.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="assets/js/request.js"></script>
 <script src="assets/js/dashboard.js"></script>
-<script type="text/javascript" src="<?php echo $_ADMIN ?>/classes/Function.js"></script>
+<script src="assets/js/livesearch.js"></script>
+<script src="assets/js/SelectCategory.js"></script>
