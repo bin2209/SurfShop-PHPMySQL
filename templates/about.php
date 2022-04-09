@@ -31,6 +31,7 @@ section{
 	padding: 5em 3em;
 	margin: 2em;
 	height: auto;
+	max-height: 200px;
 	background: white;
 	box-shadow: -1px 15px 29px -13px rgb(0 0 0 / 75%);
 	-webkit-box-shadow: -1px 15px 29px -13px rgb(0 0 0 / 75%);

@@ -21,10 +21,10 @@
 			<ul class="footer-links">
 				<li><a href="<?=$_DOMAIN?>/services"><?=$LANG_services?></a></li>
 				<li><a href="<?=$_DOMAIN?>/store"><?=$LANG_store?></a></li>
-				<li><a href="<?=$_DOMAIN?>/surf"><?=$LANG_store_surf?></a></li>
-				<li><a href="<?=$_DOMAIN?>/skate"><?=$LANG_store_skate?></a></li>
-				<li><a href="<?=$_DOMAIN?>/clothes"><?=$LANG_store_clothes?></a></li>
-				<li><a href="<?=$_DOMAIN?>/other"><?=$LANG_store_other?></a></li>
+				<li><a href="<?=$_DOMAIN?>/store/surf"><?=$LANG_store_surf?></a></li>
+				<li><a href="<?=$_DOMAIN?>/store/skate"><?=$LANG_store_skate?></a></li>
+				<li><a href="<?=$_DOMAIN?>/store/clothes"><?=$LANG_store_clothes?></a></li>
+				<li><a href="<?=$_DOMAIN?>/store/other"><?=$LANG_store_other?></a></li>
 			</ul>
 		</div>
 		<div class="col-xs-6 col-md-2">
