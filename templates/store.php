@@ -1,15 +1,4 @@
 <style type="text/css">
-.desktop-store a {
-    opacity: 1 !important;
-    ;
-    color: #ffffff !important;
-}
-
-.mobile-store a {
-    color: #ffffff !important;
-}
-</style>
-<style type="text/css">
 .store-row-navbar {
     border-radius: 12px;
     margin: 2em;
@@ -184,10 +173,6 @@
         display: block;
     }
 
-    #Slidebar {
-        top: 48px;
-    }
-
     #open-slidebar-mobile {
         display: none;
         z-index: 5;
@@ -323,9 +308,13 @@ $xep = '';
             <span for="form-select" style="color: #101010;"><?=$LANG_sort_by?>:</span>
             <select id="sapxep" class="form-control c-square form-select" name="sapxep">
                 <option value="none"><?=$LANG_filter_default?></option>
-                <option value="latest" <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>><?=$LANG_filter_newest?></option>
-                <option value="asc" <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>><?=$LANG_filter_lowfirst?></option>
-                <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>><?=$LANG_filter_highfirst?></option>
+                <option value="latest"
+                    <?php if(isset($_GET['order'])){if($_GET['order']=='latest'){echo 'selected';}} ?>>
+                    <?=$LANG_filter_newest?></option>
+                <option value="asc" <?php if(isset($_GET['order'])){if($_GET['order']=='asc'){echo 'selected';}} ?>>
+                    <?=$LANG_filter_lowfirst?></option>
+                <option value="desc" <?php if(isset($_GET['order'])){if($_GET['order']=='desc'){echo 'selected';}} ?>>
+                    <?=$LANG_filter_highfirst?></option>
             </select>
         </div>
         <?php
@@ -512,36 +501,6 @@ if ($tong > $sotin1trang){
 
     </section>
     <script type="text/javascript">
-    $(document).ready(function() {
-        $('.parent').click(function() {
-            $('.sub-nav').toggleClass('visible');
-        });
-    });
-    </script>
-    <script type="text/javascript">
-    // LEFT MENU
-    function slidebar_open() {
-        document.getElementById("Slidebar").style.display = "block";
-        document.getElementById("open-slidebar").style.display = "none";
-        document.getElementById("open-slidebar-mobile").style.display = "none";
-        // document.getElementsByClassName("row")[0].style.marginRight = "1px";
-    }
-
-    function slidebar_close() {
-        // document.getElementsByClassName("row")[0].style.marginRight = "auto";
-        document.getElementById("open-slidebar").style.display = "block";
-        document.getElementById("Slidebar").style.display = "none";
-        document.getElementById("open-slidebar-mobile").style.display = "block";
-    }
-    if ($.cookie('BarOpened') === 'opened') {
-        document.getElementById("Slidebar").style.display = "block";
-        slidebar_open();
-    } else {
-        document.getElementById("Slidebar").style.display = "none";
-        slidebar_close();
-    }
-    </script>
-    <script type="text/javascript">
     // DIRECT FILTER 
     $("#sapxep").on('change', function() {
         <?php if(isset($trang)){?>
@@ -557,4 +516,5 @@ if ($tong > $sotin1trang){
         <?php } ?>
     })
     </script>
+    <script type="text/javascript" src="<?=$_DOMAIN;?>/assets/js/store.js?v=<?php echo uniqid();?>"></script>
     <script type="text/javascript" src="<?=$_DOMAIN;?>/assets/pagination/bundle.js"></script>

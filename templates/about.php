@@ -1,4 +1,4 @@
-<style type="text/css">.desktop-about a{opacity: 1 !important; color: #ffffff !important;} .mobile-about a{color: #ffffff !important;}
+<style type="text/css">
 .title{
 	font-size: 40px;
 	line-height: 1.1;

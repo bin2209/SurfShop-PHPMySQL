@@ -16,7 +16,8 @@ if(strpos($link_directory,'/verifyReset')){
 @require_once $direct.'core/db_conn.php';
 @require_once $direct.'classes/set_language_cookie.php';
 ?>
-<nav id="globalbar" class="globalbar">
+
+<nav class="globalbar">
     <?php
         if (isset($_SESSION['login'])){
             if ($_SESSION['login']==false){
@@ -31,14 +32,20 @@ if(strpos($link_directory,'/verifyReset')){
 		echo '<label class=" bag menu dropmenubtn mobile"><img class="menu-icon dropmenubtn" src="'.$_DOMAIN.'/assets/img/icon/bag.svg" onclick="Dropdown()" style="width: 19px; position: relative; top: 10px;">
 		<span class="number-menu-mobile">'.$soluongsanpham.'</span></label>';
 	?>
-    <div class="logo menu">
-        <ul class="desktop">
-            <li class="desktop-home"><a href="/"><img class="logo-imgdesktop"
-                        src="<?php echo $_DOMAIN ?>/assets/img/logo-gray.png" /></a></li>
-            <li class="desktop-store"><a href="/store"><?php echo $LANG_store ?></a></li>
-            <li class="desktop-services"><a href="/services"><?php echo $LANG_services ?></a></li>
-            <li class="desktop-map"><a href="/map"><?php echo $LANG_map ?></a></li>
-            <li class="desktop-about"><a href="/about"><?php echo $LANG_about ?></a></li>
+    <div id="menu-main-menu" class="logo menu">
+        <ul id="navbar-main" class="desktop collapse">
+            <li class="search-box-mobile"><i class="fas fa-search"></i>
+                <form id="search" action="search" method="get">
+                    <input type="text" name="src" placeholder="Search">
+                    <input type="submit" style="display:none;">
+                </form>
+            </li>
+            <li><a href="/"><img class="logo-imgdesktop" src="<?=$_DOMAIN?>/assets/img/logo-gray.png" /></a>
+            </li>
+            <li><a href="/store"><?=$LANG_store?></a></li>
+            <li><a href="/services"><?=$LANG_services ?></a></li>
+            <li><a href="/map"><?=$LANG_map?></a></li>
+            <li><a href="/about"><?=$LANG_about?></a></li>
             <li>
                 <img class="dropmenubtn menu-icon search-icon" onclick="Searchdown()"
                     src="<?=$_DOMAIN?>/assets/img/icon/search.png"
@@ -48,16 +55,20 @@ if(strpos($link_directory,'/verifyReset')){
                 <span class="number-menu-pc"><?=$soluongsanpham?></span>
             </li>
         </ul>
-        <form id="search-pc" action="<?=$_DOMAIN?>/search" method="get">
-            <img class="" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
-                style="width: 20px; position: relative; top: 19px; right: -7px;">
-            <input type="text" name="src" placeholder="<?=$LANG_search?>">
-            <input type="submit" style="display:none;">
-            <img onclick="Searchclose()" class=" menu-icon" src="<?=$_DOMAIN?>/assets/img/icon/close.png"
-                style="width: 18px; position: relative; top: 4px; right: -7px; cursor: pointer;">
-        </form>
-        <div id="Dropdownmenu" class="dropdown-content">
-            <?php 
+
+    </div>
+
+    <form id="search-pc" action="<?=$_DOMAIN?>/search" method="get">
+        <img class="" src="<?=$_DOMAIN?>/assets/img/icon/search.png"
+            style="width: 20px; position: relative; top: 19px; right: -7px;">
+        <input type="text" name="src" placeholder="<?=$LANG_search?>">
+        <input type="submit" style="display:none;">
+        <img onclick="Searchclose()" class=" menu-icon" src="<?=$_DOMAIN?>/assets/img/icon/close.png"
+            style="width: 18px; position: relative; top: 4px; right: -7px; cursor: pointer;">
+    </form>
+
+    <div id="Dropdownmenu" class="dropdown-content">
+        <?php 
             if(!isset($_SESSION['login'])||$_SESSION['login']==false){
                 echo '
                 <a href="'.$_DOMAIN.'/cart"><img src="'.$_DOMAIN.'/assets/img/bag.svg"/><p>'.$LANG_bag.'</p></a><span class="order-dropdown">'.$soluongsanpham.'</span>
@@ -81,80 +92,12 @@ if(strpos($link_directory,'/verifyReset')){
                 ';
             }
             ?>
-        </div>
     </div>
-    <label id="#dropdown-button" for="active" class="menu-btn menu mobile"><img class="dropmenubtn menu-icon"
-            src="<?=$_DOMAIN?>/assets/img/menu.svg" style="width: 20px; position: relative;"></label>
-    <label class="menu-btn menu mobile" style="height: 44px; left: 0; position: relative; top: -4px;"><a href="/"><img
-                style="height:50px; width:50px;" src="<?=$_DOMAIN ?>/assets/img/logo-gray.png" /></a></label>
+
+    <label id="#dropdown-button" data-toggle="collapse" data-target="#navbar-main" for="active"
+        class="menu-btn menu mobile zindex-mobile"><img class="dropmenubtn menu-icon" src="<?=$_DOMAIN?>/assets/img/menu.svg"
+            style="width: 20px; position: relative;"></label>
+
+    <label type="button" class="menu-btn menu mobile" style="height: 44px; left: 0; position: relative; top: -4px;"><a
+            href="/"><img style="height:50px; width:50px;" src="<?=$_DOMAIN ?>/assets/img/logo-gray.png" /></a></label>
 </nav>
-<input type="checkbox" id="active">
-<div class="wrapper" onclick="">
-    <ul>
-        <li class="search-box"><i class="fas fa-search"></i>
-            <form id="search" action="search" method="get">
-                <input type="text" name="src" placeholder="Search">
-                <input type='submit' style="display:none;" />
-            </form>
-        </li>
-        <li class="mobile-store"><a href="/store"><?=$LANG_store?></a></li>
-        <li class="mobile-services"><a href="/services"><?=$LANG_services?></a></li>
-        <li class="mobile-map"><a href="/map"><?=$LANG_map?></a></li>
-        <li class="mobile-about"><a href="/about"><?=$LANG_about?></a></li>
-    </ul>
-</div>
-<!-- End Menu-content -->
-<script type="text/javascript">
-/* When the user clicks on the button, toggle between hiding and showing the dropdown content */
-function Dropdown() {
-    document.getElementById("Dropdownmenu").classList.toggle("show");
-}
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-    // document.getElementsByClassName('menu-btn menu mobile')[0].style.display ="none";
-    $("#dropdown-button").html("menu-btn menu mobile");
-    if (!event.target.matches('.dropmenubtn')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
-
-function Searchdown() {
-    if ($('#Dropdownmenu').hasClass("show")==true){
-        $('#Dropdownmenu').hide();
-    };
-    $('.desktop').css({
-        opacity: 1,
-        visibility: "visible"
-    }).animate({
-        opacity: 0
-    }, 200);
-    $("#search-pc").show();
-    $('#search-pc').css({
-        opacity: 0,
-        visibility: "visible"
-    }).animate({
-        opacity: 1
-    }, 200);
-    $("#search-pc input").focus();
-}
-
-function Searchclose() {
-    if ($('#Dropdownmenu').hasClass("show")==true){
-        $('#Dropdownmenu').show();
-    };
-    $('.desktop').css({
-        opacity: 0,
-        visibility: "visible"
-    }).animate({
-        opacity: 1
-    }, 200);
-    $("#search-pc").hide();
-}
-</script>

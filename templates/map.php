@@ -1,4 +1,3 @@
-<style type="text/css">.desktop-map a{opacity: 1 !important; color: #ffffff !important;} .mobile-map a{color: #ffffff !important;}</style>
 <div id="windy"></div>
 <div class="thanks-windy">
 	Thanks  <a href="https://www.windy.com">Windyty, SE;</a>
