@@ -8,7 +8,10 @@
     <div class="background-content">
         <div class="member-information">
             <div class="logo-avt"><img src="<?=$_SESSION['avatar']?>" /></div>
-            <h3 class="h3-dark content-center"><?=$_SESSION['name']?></h3>
+            <h3 class="h3-dark content-center"><?=$_SESSION['user_email']?></h3>
+
+        <?php echo $_COOKIE[$cookie_name]; ?>
+            
         </div>
 
         <div id="order-products" class="row">
@@ -147,7 +150,7 @@ function changeQuantity($id, value) {
             value: value
         },
         function(data, status) {
-            location.reload();
+            $("#globalbar").load(location.href+" #globalbar>*","");
         });
 }
 
@@ -162,7 +165,9 @@ function remove_cart($id) {
                 showConfirmButton: false,
                 timer: 1500
             });
-            location.reload();
+            $("#globalbar").load(location.href+" #globalbar>*","");
+            $("#order-products").load(location.href+" #order-products>*","");
+            
         });
 }
 </script>
