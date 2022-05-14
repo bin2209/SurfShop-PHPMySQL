@@ -13,11 +13,11 @@ for($i=0;$i<count($link_directory_array);$i++){
 if(strpos($link_directory,'/verifyReset')){
 	$direct='../';
 }
-@require_once $direct.'core/db_conn.php';
-@require_once $direct.'classes/set_language_cookie.php';
+require_once $direct.'core/db_conn.php';
+require_once $direct.'classes/set_language_cookie.php';
 ?>
 
-<nav class="globalbar">
+<nav id= "globalbar" class="globalbar">
     <?php
         if (isset($_SESSION['login'])){
             if ($_SESSION['login']==false){
