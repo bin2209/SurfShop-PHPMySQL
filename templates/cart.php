@@ -4,7 +4,7 @@
 <style>
 .pop-up .content .container { padding: 2em; } .pop-up { min-width: 350px; } .checkout-content { text-align: left; }
 </style>
-<section class="content-center">
+<section id="cart" class="content-center">
     <div class="background-content">
         <div class="member-information">
             <div class="logo-avt"><img src="<?=$_SESSION['avatar']?>" /></div>
@@ -151,6 +151,8 @@ function changeQuantity($id, value) {
         },
         function(data, status) {
             $("#globalbar").load(location.href+" #globalbar>*","");
+            $("#order-products").load(location.href+" #order-products>*","");
+            $("#total-products").load(location.href+" #total-products>*","");
         });
 }
 
@@ -167,7 +169,7 @@ function remove_cart($id) {
             });
             $("#globalbar").load(location.href+" #globalbar>*","");
             $("#order-products").load(location.href+" #order-products>*","");
-            
+            $("#total-products").load(location.href+" #total-products>*","");
         });
 }
 </script>
