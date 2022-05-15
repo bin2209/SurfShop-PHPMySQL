@@ -59,11 +59,13 @@ $LANG_store_other ='Khác';
 $LANG_addtobag ='Thêm vào túi hàng';
 $LANG_bag_empty ='Giỏ hàng của bạn đang trống.';
 // SERVICES
+$LANG_services_title0 ='Công Viên Trượt Ván';
 $LANG_services_title1 ='Làm Ván Lướt Sóng';
 $LANG_services_title2 ='Sửa Ván Lướt Sóng';
 $LANG_services_title3 ='Thuê Ván Lướt Sóng';
 $LANG_services_title4 ='Dạy Học Lướt Sóng';
 $LANG_services_title5 ='Du Lịch Lướt Sóng';
+
 //PAYMENT
 $LANG_payment_method = 'PHƯƠNG THỨC THANH TOÁN';
 $LANG_Cash_on_delivery = 'Thanh toán khi giao hàng';
@@ -107,17 +109,20 @@ $LANG_checkout = 'Thanh toán';
 $LANG_popup_addbag= "Sản phẩm đã được thêm vào giỏ hàng";
 $LANG_popup_deletebag= "Sản phẩm đã được xóa khỏi giỏ hàng";
 
-$LANG_services_content1 ='Chúng tôi thiết kế và gia công ván lướt sóng bằng xốp EPS và keo EPOXY, làm được mọi loại ván hình dạng, kích thước và màu sắc. Tùy theo sở thích, yêu cầu của bạn. Giá cả sẽ được tính theo sizes ván của bạn. Giá khởi điểm giao động từ 100$/ft. Ván 9ft từ $900. Ngoài ra mỗi custom sẽ tính thêm phí.';
+$LANG_services_content0 ='Miễn phí </br>
+Cảm ơn @Francois 
+@FAYA SurfBar @LST SURF @Kusan Watah  @NhatLinh @LinhTrang  @tuananhđô @jay @NguyễnTùngNhân @bo @alexy @NguyenTruong @NguyễnHuyền @hu @TèoTâyPhương @LamentTattoo @RhysEmlet @MânTinh @HyDro @xinGlennFraser @XavierMalparty';
+$LANG_services_content1 ='Thiết kế và gia công ván lướt sóng bằng xốp EPS và keo EPOXY, làm được mọi loại ván hình dạng, kích thước và màu sắc. Tùy theo sở thích, yêu cầu. Giá cả sẽ được tính theo sizes ván. Giá khởi điểm giao động từ 100$/ft. Ván 9ft từ $900. Ngoài ra mỗi custom sẽ tính thêm phí.';
 $LANG_services_content2 ='Sửa chữa chuyên nghiệp, Chất lượng cao, Dịu nhẹ
 Giá thương lượng bắt đầu từ
 Lấp lỗ thủng ván từ 100k / Cán sợi thủy tinh từ 100k / Phủ đều lớp EPOXY từ 100k
 Lưu ý: Giá cả phụ thuộc vào vết hỏng của ván. Sửa được ván ngay cả khi hư gãy nặng nhất.';
-$LANG_services_content3 ='Ván mềm: 150k /2 tiếng, 400k /ngày
+$LANG_services_content3 ='Ván mềm: 150k /2 tiếng, 400k /ngày </br>
 Ván ngắn: 200k/2giờ - 500k/ngày </br>
 Ván tầm trung: 250k/2 giờ - 550k/ngày</br>
 Ván dài: 300k/2giờ - 600k/ngày</br>
 Giảm giá 50% cho người Đà Nẵng';
-$LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể và giải thích môn học, tập kỹ năng và sau đó có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
+$LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể, giải thích môn học, tập kỹ năng và có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
 		Giảm giá 50% cho người Đà Nẵng';
-$LANG_services_content5 ='Chúng tôi có thể phục vụ nhiều chuyến khác nhau đi lướt sóng gần và xa. Vui lòng liên hệ để trao đổi thêm thông tin.';
+$LANG_services_content5 ='Phục vụ nhiều chuyến khác nhau đi lướt sóng gần và xa. Vui lòng liên hệ để trao đổi thêm thông tin.';
 ?>

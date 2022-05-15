@@ -47,7 +47,7 @@ h1 {
 }
 .card .wrapper-services {
 	background-color: #fff;
-	min-height: 540px;
+	min-height: 600px;
 	border-radius: 16px;
 	position: relative;
 	overflow: hidden;
@@ -158,6 +158,32 @@ h1 {
 </style>
 <section class=" store content-center">
 	<div class="row">
+
+	<div class="servicesCard card">
+			<div class="wrapper-services" style="background: url(<?=$_DOMAIN?>/assets/img/services/0.jpeg)center/cover no-repeat;">
+				<div class="header">
+					<div class="date">
+						<span class="day">Active</span>
+					</div>
+					<ul class="menu-content-services">
+						<li>
+							<a href="#" class="fa fa-bookmark-o"></a>
+						</li>
+						<li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+						<li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+					</ul>
+				</div>
+				<div class="data">
+					<div class="content-services">
+						<span class="author"><?=$LANG_services?></span>
+						<h1 class="title"><a href="#"><?=$LANG_services_title0?></a></h1>
+						<p class="text"><?=$LANG_services_content0?></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
 		<div class="servicesCard card">
 			<div class="wrapper-services" style="background: url(<?=$_DOMAIN?>/assets/img/services/1.jpeg)center/cover no-repeat;">
 				<div class="header">
@@ -277,6 +303,8 @@ h1 {
 				</div>
 			</div>
 		</div>
+
+	
 	</div> <!-- Close row-->
 </section>
 
