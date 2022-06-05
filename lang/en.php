@@ -25,6 +25,7 @@ $LANG_support = 'Support';
 // LOGIN
 $LANG_username = 'Username';
 $LANG_password = 'Password';
+$LANG_repassword = 'Confirm password'; 
 $LANG_account = 'Account';
 $LANG_or = 'OR';
 $LANG_repeat_password = 'Repeat password';
@@ -32,6 +33,7 @@ $LANG_name = 'Display name';
 $LANG_email = 'Email';
 $LANG_signin = 'Sign in';
 $LANG_signup = 'Sign up';
+$LANG_continue = 'Continue';
 $LANG_recover_pass = 'Recover your password';
 $LANG_not_member = 'Not a member yet?';
 $LANG_yes_member = 'Already have an account, Sign In ';
@@ -105,6 +107,7 @@ $LANG_total_pay = 'Total';
 $LANG_Tax_included = 'Inclusive of tax';
 $LANG_checkout = 'Check out';
 // POPUP REQUEST 
+$LANG_close= "Close";
 $LANG_popup_addbag= "The product has been added to the cart";
 $LANG_popup_deletebag= "The product has been deleted from the cart";
 
@@ -124,6 +127,20 @@ Mini Malibu /Midlengths: 250k/2hours - 550k/day</br>
 Longboards: 300k/2 hours - 600k/day';
 $LANG_services_content4 ='Lessons available for all levels. Lessons are 1 on 1 with an experienced instructor. There will be 20 minutes of warmup and instruction on the beach followed by an hour in the water. The board for use is included in the price.';
 $LANG_services_content5 ='We can offer many different surf trips to locations near and far. Please inquire for further details.';
+
+// DELETE ACCOUNT
+$LANG_delete_your_account = 'Delete your account';
+$LANG_why_delete_account = 'Tell us why you&#39;re leaving';
+$LANG_reason_delete_account1 = 'I accidentally made another account';
+$LANG_reason_delete_account2 = 'I&#39;m concerned about privacy';
+$LANG_reason_delete_account3 = 'Other';
+$LANG_answer_delete_account1 = '';
+$LANG_answer_delete_account2 = '<a href="/privacy-policy">Learn more</a> about your privacy settings';
+$LANG_answer_delete_account3 = '';
+$LANG_delete_content1 = 'Deleting your account means you won&#39;t be able to get your data back. All your LSTSURF account data will be deleted';
+$LANG_delete_content2 = 'if you&#39;re ready to leave forever, think carefully before you decide:';
+$LANG_delete_account = 'Delete account and data';
+$LANG_delete_account_Confirm = 'Delete account';
 
 ?>
 

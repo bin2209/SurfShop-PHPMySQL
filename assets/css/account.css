@@ -26,11 +26,10 @@ label{
 }
 .change-profile label{
 	position: relative;
-	float: left;
 	font-size: 16px;
 	font-weight: 600;
 }
-.change-profile input,textarea,select{
+.change-profile input[type="text"],input[type="password"],textarea,select{
 	width: 65%;
 	min-width: 300px;
 	font-size: 16px;
@@ -78,39 +77,9 @@ label{
 	background: black;
 	width: 60%;
 }
-.button-div button{
-	min-width: 200px;
-	padding: 10px 6px;
-	font-size: 16px;
-	border: 0px solid;
-	border-radius: 3px;
-	color: white;
-	font-weight: bold;
-	background: #0071e3;
-	margin: 10px;
-}
 
-.button-div button:hover{
-	background: #0077ed;
-}
-.button-div button:active{
-	background: #006edb;
-}
-.change-profile button{
-	margin-right: auto;
-    margin-left: auto;
-    padding: 10px 33px;
-    font-size: 16px;
-    border: 0px solid;
-    border-radius: 3px;
-    color: white;
-    display: flex;
-    font-weight: bold;
-    background: #0071e3;
-    margin-top: 10px;
-    width: 40%;
-    justify-content: center;
-}
+
+
 .infomation {
 
 	text-align: left;

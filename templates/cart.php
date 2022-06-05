@@ -10,7 +10,9 @@
             <div class="logo-avt"><img src="<?=$_SESSION['avatar']?>" /></div>
             <h3 class="h3-dark content-center"><?=$_SESSION['user_email']?></h3>
 
-        <?php echo $_COOKIE[$cookie_name]; ?>
+        <?php 
+        // echo $_COOKIE[$cookie_name]; 
+        ?>
             
         </div>
 

@@ -26,6 +26,7 @@ $LANG_support = 'Hỗ trợ';
 // LOGIN
 $LANG_username = 'Tài khoản';
 $LANG_password = 'Mật khẩu';
+$LANG_repassword = 'Xác nhận mật khẩu'; 
 $LANG_account = 'Tài khoản';
 $LANG_or = 'HOẶC';
 $LANG_repeat_password = 'Nhập lại mật khẩu';
@@ -33,6 +34,7 @@ $LANG_name = 'Tên hiển thị';
 $LANG_email = 'Email';
 $LANG_signin = 'Đăng nhập';
 $LANG_signup = 'Đăng ký';
+$LANG_continue = 'Tiếp tục';
 $LANG_recover_pass = 'Quên tài khoản?';
 $LANG_not_member = 'Đăng ký tài khoản?';
 $LANG_yes_member = 'Đã có tài khoản, đăng nhập ';
@@ -106,6 +108,7 @@ $LANG_Tax_included = 'Đã bao gồm thuế';
 $LANG_checkout = 'Thanh toán';
 
 // POPUP REQUEST 
+$LANG_close= "Đóng";
 $LANG_popup_addbag= "Sản phẩm đã được thêm vào giỏ hàng";
 $LANG_popup_deletebag= "Sản phẩm đã được xóa khỏi giỏ hàng";
 
@@ -125,4 +128,18 @@ Giảm giá 50% cho người Đà Nẵng';
 $LANG_services_content4 ='Lớp học dành cho mọi học viên. Một học viên sẽ được kèm dạy với một giáo viên có chuyên môn kinh nghiệm cao. Bắt đầu sẽ dành 20 phút để làm nóng cơ thể, giải thích môn học, tập kỹ năng và có một tiếng trong nước, học lướt sóng. Phí thuê ván đã được tính vào phí lớp học.
 		Giảm giá 50% cho người Đà Nẵng';
 $LANG_services_content5 ='Phục vụ nhiều chuyến khác nhau đi lướt sóng gần và xa. Vui lòng liên hệ để trao đổi thêm thông tin.';
+// DELETE ACCOUNT
+$LANG_delete_your_account = 'Xóa tài khoản của bạn';
+$LANG_why_delete_account = 'Hãy cho chúng tôi biết lý do bạn rời đi';
+$LANG_reason_delete_account1 = 'Tôi vô tình tạo một tài khoản khác';
+$LANG_reason_delete_account2 = 'Tôi lo ngại về quyền riêng tư';
+$LANG_reason_delete_account3 = 'Khác';
+$LANG_answer_delete_account1 = '';
+$LANG_answer_delete_account2 = '<a href="/privacy-policy">Tìm hiểu thêm</a> về chính sách bảo mật & quyền riêng tư';
+$LANG_answer_delete_account3 = '';
+$LANG_delete_content1 = 'Khi xóa tài khoản, bạn không thể lấy lại các dữ liệu của mình. Tất cả dữ liệu tài khoản trên trang LSTSURF của bạn sẽ bị xóa.';
+$LANG_delete_content2 = 'nếu bạn đã sẵn sàng rời đi vĩnh viễn, hãy suy nghĩ trước khi thực hiện:';
+$LANG_delete_account = 'Xóa tài khoản và dữ liệu';
+$LANG_delete_account_Confirm = 'Xóa tài khoản';
+
 ?>

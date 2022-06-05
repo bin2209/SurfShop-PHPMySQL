@@ -2,6 +2,7 @@
 if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 	<link href="../assets/css/account.css" rel="stylesheet">
 	<link href="../assets/css/popup.css" rel="stylesheet">
+	<link href="../assets/css/bootstrap.button.min.css" rel="stylesheet">
 	<!-- VALIDATION -->
 	<script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/validate/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="<?=$_DOMAIN?>/assets/js/validate/validate.rules.js"></script>	
@@ -24,9 +25,8 @@ if (isset($_SESSION['user_email']) && isset($_SESSION['password'])) { ?>
 						}  
 						?>
 					</p></span><br>
-					<span></i> <?php echo $LANG_address_delivery ?>:<p><?=$_SESSION['user_address']?>
-
-				</p><span>
+					<span></i> <?php echo $LANG_address_delivery ?>:<p><?=$_SESSION['user_address']?></p><span><br>
+					<span></i> <?php echo $LANG_delete_account ?>:<p> <a href="/close-account"><?=$LANG_delete_account_Confirm;?></a></p><span><br>
 				</div>
 				<div class="button-div">
 					<button id="change-profile1" class="btn btn-primary"><i class="fas fa-pen" style=""></i> <?php echo $LANG_member_changeprofile; ?></button>

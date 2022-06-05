@@ -6,6 +6,9 @@ require_once 'classes/set_language_cookie.php';
 include  'includes/header.php'; 
 include  'includes/navbar.php';	
 
+
+
+
 if (!isset($_SESSION['ipv4'])&&!isset($_SESSION['login'])){
 	// KHỞI TẠO BAN ĐẦU CHƯA CÓ SESSION GÌ CẢ. 
 	// KHI ĐĂNG NHẬP SẼ KHÔNG CHẠY IF NÀY
@@ -14,6 +17,8 @@ if (!isset($_SESSION['ipv4'])&&!isset($_SESSION['login'])){
     $_SESSION['avatar'] = '../assets/img/default-user.png';
 	$_SESSION['name'] = $LANG_customer;
 	$_SESSION['user_email'] = $_SESSION['ipv4'];
+
+
     // KHỞI TẠO LẦN ĐẦU VÀO BAG || CỘT BAG DB // Do IP khác nhau nên phải tạo mới bag khi khác IP
     $stmt = $conn->prepare("SELECT * FROM bag WHERE email=?");
     $stmt->execute([$_SESSION['user_email']]);
@@ -37,6 +42,11 @@ if (isset($_SESSION['login'])){
 		$_SESSION['bag_quantity'] = $bag['quantity'];
 	}
 }
+
+
+$cookie_name = 'userid';
+$cookie_value = $_SESSION['user_email'];
+// setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
 // var_dump($_SESSION);
 $xss = new Anti_xss;
@@ -94,6 +104,10 @@ if (isset($_GET['act'])){
 			
 		case 'privacy-policy':
 		require_once 'templates/privacy-policy.php'; 
+		break;
+
+		case 'close-account':
+		require_once 'templates/close-account.php'; 
 		break;
 
 		default:
